@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/Catchinichi-Andorid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PythonWorkspace" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PythonWorkspace/Capstone_GUI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PythonWorkspace/FaceDetect" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PythonWorkspace/YOLOv3-Based-Face-Detection-Tracking" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PythonWorkspace/google-cloud-python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PythonWorkspace/yoloface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/clug_study/ANGDROID" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/학교과제/4-1/머신러닝/machine_learning/assignment-machine-learning" vcs="Git" />
+  </component>
+</project>
