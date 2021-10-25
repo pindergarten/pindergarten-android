@@ -13,7 +13,7 @@ class JoinActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl( "https://pindergarten.com/")
+        .baseUrl( "http://13.125.184.176:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
