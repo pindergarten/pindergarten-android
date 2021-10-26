@@ -21,8 +21,8 @@
         <ImageButton
             android:id="@+id/login"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="550dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="530dp"
             android:scaleType="fitCenter"
             android:onClick="@{activity::btnClick}"
             android:background="@drawable/splash_login"
@@ -32,7 +32,7 @@
         <ImageButton
             android:id="@+id/join"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="85dp"
             android:scaleType="fitCenter"
             android:onClick="@{activity::btnClick}"
             android:background="@drawable/splash_join"

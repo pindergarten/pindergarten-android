@@ -19,6 +19,8 @@
         <activity android:name=".JoinActivity"/>
         <activity android:name=".Join2Activity"/>
         <activity android:name=".Join3Activity"/>
+        <activity android:name=".FindPwdActivity"/>
+        <activity android:name=".FindPwd2Activity"/>
         <activity android:name=".LoginActivity"/>
 
 

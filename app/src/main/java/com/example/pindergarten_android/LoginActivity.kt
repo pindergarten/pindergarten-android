@@ -50,7 +50,9 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
             R.id.findPwd->{
-                //findpwd
+                val intent = Intent(this, FindPwdActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
         }
