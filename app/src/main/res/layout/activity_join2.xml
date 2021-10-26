@@ -10,7 +10,7 @@
             type="com.example.pindergarten_android.PindergartenViewModel"/>
         <variable
             name="activity"
-            type="com.example.pindergarten_android.JoinActivity" />
+            type="com.example.pindergarten_android.Join2Activity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="89dp"
-            android:src="@drawable/join_line1"
+            android:src="@drawable/join2_line2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,98 +45,84 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="휴대폰번호"
+            android:text="비밀번호"
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="235dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/login_line"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <EditText
-            android:id="@+id/phoneNum"
-            android:layout_width="230dp"
+            android:id="@+id/pwd1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
-            android:hint="휴대폰 번호를 입력해주세요."
+            android:hint="8~16 이내의 비밀번호"
             android:textSize="15dp"
+            android:inputType="textPassword"
             android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/phone_info"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="*정확히 입력해주세요"
-            android:textColor="@color/brown"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
+            android:text="비밀번호 확인"
+            android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-        <ImageButton
-            android:id="@+id/sendNum"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="16dp"
-            android:onClick="@{activity::btnClick}"
-            android:src="@drawable/join_vertify"
-            android:backgroundTint="@color/white"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/phoneNum"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
+            app:layout_constraintTop_toBottomOf="@+id/pwd1" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="235dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/login_line"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <EditText
-            android:id="@+id/vertifyNum"
-            android:layout_width="230dp"
+            android:id="@+id/pwd2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
-            android:hint="인증번호"
-            android:textSize="15dp"
+            android:hint="8~16 이내의 비밀번호"
+            android:inputType="textPassword"
             android:singleLine="true"
+            android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView4"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageButton
-            android:id="@+id/confirmBtn"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="16dp"
-            android:backgroundTint="@color/white"
-            android:scaleType="centerCrop"
-            android:onClick="@{activity::btnClick}"
-            android:src="@drawable/join_vertifyconfirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vertifyNum"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="*비밀번호가 일치하지 않습니다."
+            android:textColor="@color/brown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <ImageButton
             android:id="@+id/nextBtn"
@@ -152,16 +138,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="*인증번호를 정확히 입력해주세요."
-            android:textColor="@color/brown"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

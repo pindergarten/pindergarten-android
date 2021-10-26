@@ -10,7 +10,7 @@
             type="com.example.pindergarten_android.PindergartenViewModel"/>
         <variable
             name="activity"
-            type="com.example.pindergarten_android.JoinActivity" />
+            type="com.example.pindergarten_android.Join3Activity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,14 +45,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
-            android:text="휴대폰번호"
+            android:text="계정 이름"
             android:textSize="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="235dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -62,22 +62,23 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <EditText
-            android:id="@+id/phoneNum"
-            android:layout_width="230dp"
+            android:id="@+id/id"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:backgroundTint="@color/white"
-            android:hint="휴대폰 번호를 입력해주세요."
+            android:hint="2자이상 입력해주세요"
             android:textSize="15dp"
+            android:inputType="textUri"
             android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/phone_info"
+            android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="*정확히 입력해주세요"
+            android:text="*영문으로 입력해주세요"
             android:textColor="@color/brown"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
@@ -85,61 +86,23 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <ImageButton
-            android:id="@+id/sendNum"
+            android:id="@+id/confirmIdBtn"
             android:layout_width="160dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
             android:onClick="@{activity::btnClick}"
-            android:src="@drawable/join_vertify"
+            android:src="@drawable/join3_confirm"
             android:backgroundTint="@color/white"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/phoneNum"
+            app:layout_constraintStart_toEndOf="@+id/id"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="235dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/login_line"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-        <EditText
-            android:id="@+id/vertifyNum"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:backgroundTint="@color/white"
-            android:hint="인증번호"
-            android:textSize="15dp"
-            android:singleLine="true"
-            app:layout_constraintBottom_toTopOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <ImageButton
-            android:id="@+id/confirmBtn"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="16dp"
-            android:backgroundTint="@color/white"
-            android:scaleType="centerCrop"
-            android:onClick="@{activity::btnClick}"
-            android:src="@drawable/join_vertifyconfirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vertifyNum"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-        <ImageButton
-            android:id="@+id/nextBtn"
+            android:id="@+id/finishBtn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
@@ -148,20 +111,22 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:onClick="@{activity::btnClick}"
-            android:background="@drawable/join_next"
+            android:background="@drawable/join3_finish"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/info"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="*인증번호를 정확히 입력해주세요."
+            android:gravity="center"
+            android:text="*계정을 만들면 핀더가든의 개인 정보 취급 방침 및 이용 약관에 동의하게 됩니다."
             android:textColor="@color/brown"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            android:textSize="11dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/finishBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pindergarten_android">
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".JoinActivity"/>
-        <activity android:name=".LoginActivty"/>
+        <activity android:name=".Join2Activity"/>
+        <activity android:name=".Join3Activity"/>
+        <activity android:name=".LoginActivity"/>
+
+
     </application>
+
 
 </manifest>

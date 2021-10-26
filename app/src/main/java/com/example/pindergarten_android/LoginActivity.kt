@@ -1,6 +1,10 @@
 package com.example.pindergarten_android
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -9,7 +13,7 @@ import com.example.pindergarten_android.databinding.ActivitySplashBinding
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class LoginActivty : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -20,16 +24,36 @@ class LoginActivty : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_login)
         val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.vm = PindergartenViewModel()
+        binding.activity =  this@LoginActivity
 
         //액션바 제거
-        var actionBar : ActionBar?
-        actionBar = supportActionBar
+        var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
 
         PreferenceManager.setString(this, "accessToken", "jihyun")
+
+
+
+    }
+
+    fun btnClick(view : View){
+
+        when(view?.id){
+            R.id.login->{
+                //서버연결
+            }
+            R.id.join->{
+                val intent = Intent(this, JoinActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            R.id.findPwd->{
+                //findpwd
+            }
+
+        }
 
     }
 

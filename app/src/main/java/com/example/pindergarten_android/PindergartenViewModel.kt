@@ -20,13 +20,5 @@ class PindergartenViewModel : ViewModel(){
         login.set("login.petbyung")
     }
 
-    fun splashClick() = splash.set("splash_Click")
-    fun joinClick() = join.set("join_Click")
-    fun loginClick() = login.set("login_Click")
 
-    fun onClick(view: View, view2: View) {
-        val context: Context = view.context
-        val intent = Intent(context, view2::class.java)
-        context.startActivity(intent)
-    }
 }
