@@ -7,10 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -154,20 +151,24 @@ class FindPwd2Activity : AppCompatActivity() {
             R.id.nextBtn->{
                 if(pwd1?.text.toString().length>7 && pwd2?.text.toString().length>7){
                     info?.visibility=View.INVISIBLE
+
                     //변경완료 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                    val view2 = inflater.inflate(R.layout.join_popup,null)
-                    val alertDialog = AlertDialog.Builder(this)
-                        .setTitle("변경완료되었습니다.")
-                        .setPositiveButton("로그인화면으로 돌아가기"){
-                                _, _ ->
-                            val intent = Intent(this, LoginActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        }
-                        .create()
+                    val view2 = inflater.inflate(R.layout.join_popup, null)
+                    var text : TextView = view2.findViewById(R.id.text)
+                    var button : Button = view2.findViewById(R.id.button)
+                    text.text="변경완료되었습니다."
+                    button.text="로그인화면으로 돌아가기"
+                    val alertDialog = AlertDialog.Builder(this).create()
+                    button.setOnClickListener{
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        alertDialog.dismiss()
+                    }
                     alertDialog.setView(view2)
                     alertDialog.show()
+
                 }
             }
 

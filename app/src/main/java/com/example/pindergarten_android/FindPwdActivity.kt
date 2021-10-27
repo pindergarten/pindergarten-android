@@ -10,10 +10,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -227,16 +224,17 @@ class FindPwdActivity : AppCompatActivity() {
                     finish()
                 } else {
                     //인증오류 메세지
-                    val inflater =
-                        getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                    val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                     val view2 = inflater.inflate(R.layout.join_popup, null)
-                    val alertDialog = AlertDialog.Builder(this)
-                        .setTitle("휴대폰을 인증 해주세요.")
-                        .setPositiveButton("확인") { _, _ ->
-                        }
-                        .create()
+                    var text : TextView = view2.findViewById(R.id.text)
+                    var button : Button = view2.findViewById(R.id.button)
+                    text.text="휴대폰을 인증 해주세요."
+                    button.text="확인"
+                    val alertDialog = AlertDialog.Builder(this).create()
+                    button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
+
                 }
             }
 
@@ -245,30 +243,32 @@ class FindPwdActivity : AppCompatActivity() {
     }
 
     fun popup(){
+
         //인증확인 메세지
-        val inflater =
-            getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view2 = inflater.inflate(R.layout.join_popup, null)
-        val alertDialog = AlertDialog.Builder(this)
-            .setTitle("인증되었습니다.")
-            .setPositiveButton("확인") { _, _ ->
-            }
-            .create()
+        var text : TextView = view2.findViewById(R.id.text)
+        var button : Button = view2.findViewById(R.id.button)
+        text.text="인증되었습니다."
+        button.text="확인"
+        val alertDialog = AlertDialog.Builder(this).create()
+        button.setOnClickListener{ alertDialog.dismiss() }
         alertDialog.setView(view2)
         alertDialog.show()
 
     }
 
     fun popup_fail(){
+
         //인증확인 메세지
-        val inflater =
-            getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view2 = inflater.inflate(R.layout.join_popup, null)
-        val alertDialog = AlertDialog.Builder(this)
-            .setTitle("인증번호를 다시 입력해주세요.")
-            .setPositiveButton("확인") { _, _ ->
-            }
-            .create()
+        var text : TextView = view2.findViewById(R.id.text)
+        var button : Button = view2.findViewById(R.id.button)
+        text.text="인증번호를 다시 입력해주세요."
+        button.text="확인"
+        val alertDialog = AlertDialog.Builder(this).create()
+        button.setOnClickListener{ alertDialog.dismiss() }
         alertDialog.setView(view2)
         alertDialog.show()
 

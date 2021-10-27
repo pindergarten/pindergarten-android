@@ -9,6 +9,7 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -108,29 +109,36 @@ class Join3Activity : AppCompatActivity() {
 
             R.id.finishBtn->{
                 if(pass){
+
                     //회원가입완료 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                    val view2 = inflater.inflate(R.layout.join_popup,null)
-                    val alertDialog = AlertDialog.Builder(this)
-                        .setTitle("회원가입이 완료되었습니다!\n로그인 화면으로 이동합니다.")
-                        .setPositiveButton("확인"){
-                                _, _ ->
-                            val intent = Intent(this, LoginActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        }
-                        .create()
+                    val view2 = inflater.inflate(R.layout.join_popup, null)
+                    var text : TextView = view2.findViewById(R.id.text)
+                    var button : Button = view2.findViewById(R.id.button)
+                    text.text="회원가입이 완료되었습니다!\n로그인 화면으로 이동합니다."
+                    button.text="확인"
+                    val alertDialog = AlertDialog.Builder(this).create()
+                    button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
+
                 }
                 else{
+
+                    //회원가입완료 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                    val view2 = inflater.inflate(R.layout.join_popup,null)
-                    val alertDialog = AlertDialog.Builder(this)
-                        .setTitle("계정 이름을 중복 확인해주세요.")
-                        .setPositiveButton("확인") { _, _ ->
-                        }
-                        .create()
+                    val view2 = inflater.inflate(R.layout.join_popup, null)
+                    var text : TextView = view2.findViewById(R.id.text)
+                    var button : Button = view2.findViewById(R.id.button)
+                    text.text="계정 이름을 중복 확인해주세요."
+                    button.text="확인"
+                    val alertDialog = AlertDialog.Builder(this).create()
+                    button.setOnClickListener{
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        alertDialog.dismiss()
+                    }
                     alertDialog.setView(view2)
                     alertDialog.show()
                 }
