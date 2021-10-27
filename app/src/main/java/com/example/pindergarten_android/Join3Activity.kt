@@ -26,7 +26,7 @@ class Join3Activity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl( "http://13.125.184.176:3000/")
+        .baseUrl("http://pindergarten.site:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -118,14 +118,18 @@ class Join3Activity : AppCompatActivity() {
                     text.text="회원가입이 완료되었습니다!\n로그인 화면으로 이동합니다."
                     button.text="확인"
                     val alertDialog = AlertDialog.Builder(this).create()
-                    button.setOnClickListener{ alertDialog.dismiss() }
+                    button.setOnClickListener{
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        alertDialog.dismiss()
+                    }
                     alertDialog.setView(view2)
                     alertDialog.show()
 
                 }
                 else{
 
-                    //회원가입완료 메세지
+                    //회원가입요청 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                     val view2 = inflater.inflate(R.layout.join_popup, null)
                     var text : TextView = view2.findViewById(R.id.text)
@@ -133,12 +137,7 @@ class Join3Activity : AppCompatActivity() {
                     text.text="계정 이름을 중복 확인해주세요."
                     button.text="확인"
                     val alertDialog = AlertDialog.Builder(this).create()
-                    button.setOnClickListener{
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                        alertDialog.dismiss()
-                    }
+                    button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
                 }
@@ -151,7 +150,7 @@ class Join3Activity : AppCompatActivity() {
 
     private fun isValidNickname(nickname: String?): Boolean {
         val trimmedNickname = nickname?.trim().toString()
-        val exp = Regex("^[a-zA-Z]*\$")
+        val exp = Regex("^[-_a-zA-Z0-9]+$")
         return !trimmedNickname.isNullOrEmpty() && exp.matches(trimmedNickname)
     }
 

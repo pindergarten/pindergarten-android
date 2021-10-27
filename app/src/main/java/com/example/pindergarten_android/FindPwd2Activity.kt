@@ -25,7 +25,7 @@ class FindPwd2Activity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl( "http://13.125.184.176:3000/")
+        .baseUrl("http://pindergarten.site:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -163,7 +163,6 @@ class FindPwd2Activity : AppCompatActivity() {
                     button.setOnClickListener{
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
-                        finish()
                         alertDialog.dismiss()
                     }
                     alertDialog.setView(view2)

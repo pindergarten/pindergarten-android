@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
@@ -28,7 +29,7 @@ class JoinActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://13.125.184.176:3000/")
+        .baseUrl("http://pindergarten.site:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -47,8 +48,7 @@ class JoinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_join)
-        val binding: ActivityJoinBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_join)
+        val binding: ActivityJoinBinding = DataBindingUtil.setContentView(this, R.layout.activity_join)
         binding.vm = PindergartenViewModel()
         binding.activity = this@JoinActivity
 
@@ -113,7 +113,7 @@ class JoinActivity : AppCompatActivity() {
                 info?.visibility = View.INVISIBLE
             }
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if(vertifyNum?.text.toString().length==6){
+                if(vertifyNum?.text.toString().length==4){
                     confirmBtn?.setImageResource(R.drawable.join_vertifyconfirm2)
                     confirmBtn?.isClickable = true
                     info?.visibility = View.INVISIBLE
@@ -125,7 +125,7 @@ class JoinActivity : AppCompatActivity() {
                 }
             }
             override fun afterTextChanged(editable: Editable) {
-                if(vertifyNum?.text.toString().length==6){
+                if(vertifyNum?.text.toString().length==4){
                     confirmBtn?.setImageResource(R.drawable.join_vertifyconfirm2)
                     confirmBtn?.isClickable = true
                     info?.visibility = View.INVISIBLE
@@ -162,14 +162,8 @@ class JoinActivity : AppCompatActivity() {
                         }
 
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                            if (response.body()?.success == "success") {
-                                Log.i("인증번호 전송: ", "success")
-                                Log.i("인증번호 전송: ", response.body().toString())
-
-                            } else {
-                                Log.i("인증번호 전송 : ", "fail")
-                                Log.i("인증번호 전송 : ", response.code().toString())
-                            }
+                            Log.i("인증번호 전송: ", "success")
+                            Log.i("인증번호 전송: ", response.body().toString())
                         }
                     })
 
@@ -177,12 +171,6 @@ class JoinActivity : AppCompatActivity() {
             }
             R.id.confirmBtn -> {
 
-                info?.visibility = View.INVISIBLE
-                nextBtn?.setImageResource(R.drawable.join_next2)
-                pass = true
-                popup()
-
-                /*
                 //서버: 휴대폰 인증번호 확인
                 var vertifyNum1: HashMap<String, String> = HashMap()
                 vertifyNum1["phone"] = phoneNum?.text.toString()
@@ -195,11 +183,13 @@ class JoinActivity : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        Log.i("휴대폰 인증번호 확인: ", response.body().toString())
                         if (response.body()?.success == "success") {
                             Log.i("휴대폰 인증번호 확인: ", "success")
                             Log.i("휴대폰 인증번호 확인: ", response.body().toString())
 
                             info?.visibility = View.INVISIBLE
+                            nextBtn?.setImageResource(R.drawable.join_next2)
                             pass = true
                             popup()
 
@@ -212,7 +202,7 @@ class JoinActivity : AppCompatActivity() {
                     }
                 })
 
-                 */
+
 
             }
 
@@ -221,7 +211,7 @@ class JoinActivity : AppCompatActivity() {
                     //화면이동
                     val intent = Intent(this, Join2Activity::class.java)
                     startActivity(intent)
-                    finish()
+
                 } else {
                     //인증오류 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -242,6 +232,9 @@ class JoinActivity : AppCompatActivity() {
     }
 
     fun popup(){
+
+        vertifyNum?.inputType = InputType.TYPE_NULL
+        phoneNum?.inputType = InputType.TYPE_NULL
 
         //인증확인 메세지
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

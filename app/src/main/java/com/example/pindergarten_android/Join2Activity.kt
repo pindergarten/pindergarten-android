@@ -27,7 +27,7 @@ class Join2Activity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl( "http://13.125.184.176:3000/")
+        .baseUrl("http://pindergarten.site:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -155,7 +155,6 @@ class Join2Activity : AppCompatActivity() {
                     info?.visibility=View.INVISIBLE
                     val intent = Intent(this, Join3Activity::class.java)
                     startActivity(intent)
-                    finish()
                 }
             }
 

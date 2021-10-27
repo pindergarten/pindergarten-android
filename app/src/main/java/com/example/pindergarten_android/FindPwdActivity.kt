@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
@@ -29,7 +30,7 @@ class FindPwdActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://13.125.184.176:3000/")
+        .baseUrl("http://pindergarten.site:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -113,7 +114,7 @@ class FindPwdActivity : AppCompatActivity() {
                 info?.visibility = View.INVISIBLE
             }
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if(vertifyNum?.text.toString().length==6){
+                if(vertifyNum?.text.toString().length==4){
                     confirmBtn?.setImageResource(R.drawable.join_vertifyconfirm2)
                     confirmBtn?.isClickable = true
                     info?.visibility = View.INVISIBLE
@@ -125,7 +126,7 @@ class FindPwdActivity : AppCompatActivity() {
                 }
             }
             override fun afterTextChanged(editable: Editable) {
-                if(vertifyNum?.text.toString().length==6){
+                if(vertifyNum?.text.toString().length==4){
                     confirmBtn?.setImageResource(R.drawable.join_vertifyconfirm2)
                     confirmBtn?.isClickable = true
                     info?.visibility = View.INVISIBLE
@@ -177,12 +178,6 @@ class FindPwdActivity : AppCompatActivity() {
             }
             R.id.confirmBtn -> {
 
-                info?.visibility = View.INVISIBLE
-                nextBtn?.setImageResource(R.drawable.join_next2)
-                pass = true
-                popup()
-
-                /*
                 //서버: 휴대폰 인증번호 확인
                 var vertifyNum1: HashMap<String, String> = HashMap()
                 vertifyNum1["phone"] = phoneNum?.text.toString()
@@ -193,13 +188,13 @@ class FindPwdActivity : AppCompatActivity() {
                         Log.d(ContentValues.TAG, "실패 : {${t}}")
                         info?.visibility = View.VISIBLE
                     }
-
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                         if (response.body()?.success == "success") {
                             Log.i("휴대폰 인증번호 확인: ", "success")
                             Log.i("휴대폰 인증번호 확인: ", response.body().toString())
 
                             info?.visibility = View.INVISIBLE
+                            nextBtn?.setImageResource(R.drawable.join_next2)
                             pass = true
                             popup()
 
@@ -212,7 +207,7 @@ class FindPwdActivity : AppCompatActivity() {
                     }
                 })
 
-                 */
+
 
             }
 
@@ -221,7 +216,6 @@ class FindPwdActivity : AppCompatActivity() {
                     //화면이동
                     val intent = Intent(this, FindPwd2Activity::class.java)
                     startActivity(intent)
-                    finish()
                 } else {
                     //인증오류 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -243,6 +237,9 @@ class FindPwdActivity : AppCompatActivity() {
     }
 
     fun popup(){
+
+        vertifyNum?.inputType = InputType.TYPE_NULL
+        phoneNum?.inputType = InputType.TYPE_NULL
 
         //인증확인 메세지
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

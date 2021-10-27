@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl( "http://13.125.184.176:3000/")
+        .baseUrl("http://pindergarten.site:3000/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -114,12 +114,12 @@ class LoginActivity : AppCompatActivity() {
             R.id.join->{
                 val intent = Intent(this, JoinActivity::class.java)
                 startActivity(intent)
-                finish()
+
             }
             R.id.findPwd->{
                 val intent = Intent(this, FindPwdActivity::class.java)
                 startActivity(intent)
-                finish()
+
             }
 
         }
