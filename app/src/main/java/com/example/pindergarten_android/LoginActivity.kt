@@ -2,8 +2,12 @@ package com.example.pindergarten_android
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +26,9 @@ class LoginActivity : AppCompatActivity() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+    var loginText :EditText?=null
+    var pwdText :EditText?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
@@ -33,6 +40,63 @@ class LoginActivity : AppCompatActivity() {
         actionBar?.hide()
 
         PreferenceManager.setString(this, "accessToken", "jihyun")
+        loginText = findViewById(R.id.editText2)
+        pwdText = findViewById(R.id.editText)
+        var login : ImageButton = findViewById(R.id.login)
+
+        loginText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                login?.setImageResource(R.drawable.login_loginbtn)
+                login?.isClickable = false
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(loginText?.text.toString().length>9 && pwdText?.text.toString().length>7){
+                    login?.setImageResource(R.drawable.login_loginbtn2)
+                    login?.isClickable = true
+                }
+                else{
+                    login?.setImageResource(R.drawable.login_loginbtn)
+                    login?.isClickable = false
+                }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(loginText?.text.toString().length>9 && pwdText?.text.toString().length>7){
+                    login?.setImageResource(R.drawable.login_loginbtn2)
+                    login?.isClickable = true
+                }
+                else{
+                    login?.setImageResource(R.drawable.login_loginbtn)
+                    login?.isClickable = false
+                }
+            }
+        })
+
+        pwdText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                login?.setImageResource(R.drawable.login_loginbtn)
+                login?.isClickable = false
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(loginText?.text.toString().length>9 && pwdText?.text.toString().length>7){
+                    login?.setImageResource(R.drawable.login_loginbtn2)
+                    login?.isClickable = true
+                }
+                else{
+                    login?.setImageResource(R.drawable.login_loginbtn)
+                    login?.isClickable = false
+                }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(loginText?.text.toString().length>9 && pwdText?.text.toString().length>7){
+                    login?.setImageResource(R.drawable.login_loginbtn2)
+                    login?.isClickable = true
+                }
+                else{
+                    login?.setImageResource(R.drawable.login_loginbtn)
+                    login?.isClickable = false
+                }
+            }
+        })
 
 
 
@@ -42,7 +106,10 @@ class LoginActivity : AppCompatActivity() {
 
         when(view?.id){
             R.id.login->{
-                //서버연결
+                if(loginText?.text?.length!!> 9 && pwdText?.text?.length!! >7){
+                    Log.i("login: ","login")
+                    //서버연결
+                }
             }
             R.id.join->{
                 val intent = Intent(this, JoinActivity::class.java)

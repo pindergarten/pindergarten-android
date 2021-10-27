@@ -10,6 +10,8 @@ class Post {
     val email: String? = null
     @SerializedName("password")
     val password: String? = null
+    @SerializedName("success")
+    val success: String? = null
 
 
 }

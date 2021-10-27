@@ -21,4 +21,9 @@ class PindergartenViewModel : ViewModel(){
     }
 
 
+    fun onClick(view: View, view2: View) {
+        val context: Context = view.context
+        val intent = Intent(context, view2::class.java)
+        context.startActivity(intent)
+    }
 }

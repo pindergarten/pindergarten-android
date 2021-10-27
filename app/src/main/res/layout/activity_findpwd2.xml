@@ -127,14 +127,16 @@
         <ImageButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:onClick="@{activity::btnClick}"
-            android:background="@drawable/join_next"
+            android:src="@drawable/join_next"
+            android:scaleType="fitCenter"
+            android:backgroundTint="#00ff0000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

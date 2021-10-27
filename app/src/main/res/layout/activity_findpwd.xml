@@ -86,15 +86,16 @@
 
         <ImageButton
             android:id="@+id/sendNum"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
+            android:layout_width="92dp"
+            android:layout_height="32dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
             android:onClick="@{activity::btnClick}"
             android:src="@drawable/join_vertify"
             android:backgroundTint="@color/white"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+            android:padding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/phoneNum"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -125,13 +126,14 @@
 
         <ImageButton
             android:id="@+id/confirmBtn"
-            android:layout_width="160dp"
-            android:layout_height="50dp"
+            android:layout_width="92dp"
+            android:layout_height="32dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+            android:padding="0dp"
             android:onClick="@{activity::btnClick}"
             android:src="@drawable/join_vertifyconfirm"
             app:layout_constraintEnd_toEndOf="parent"
@@ -141,14 +143,16 @@
         <ImageButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:onClick="@{activity::btnClick}"
-            android:background="@drawable/join_next"
+            android:src="@drawable/join_next"
+            android:scaleType="fitCenter"
+            android:backgroundTint="#00ff0000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

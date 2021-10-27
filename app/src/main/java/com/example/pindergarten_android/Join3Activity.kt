@@ -3,7 +3,10 @@ package com.example.pindergarten_android
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.text.InputFilter
+import android.text.InputType
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
@@ -30,6 +33,7 @@ class Join3Activity : AppCompatActivity() {
     var info:TextView ?=null
     var id:EditText ?= null
     var confirmIdBtn:ImageButton ?=null
+    var finishBtn:ImageButton ?=null
     var pass : Boolean =false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +51,38 @@ class Join3Activity : AppCompatActivity() {
 
         id = findViewById(R.id.id)
         confirmIdBtn = findViewById(R.id.confirmIdBtn)
+        finishBtn = findViewById(R.id.finishBtn)
+        confirmIdBtn?.isClickable = false
 
+        id?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                confirmIdBtn?.setImageResource(R.drawable.join3_confirm)
+                confirmIdBtn?.isClickable = false
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(id?.text.toString().length>=2&& isValidNickname(id?.text.toString())){
+                    confirmIdBtn?.setImageResource(R.drawable.join3_confirm2)
+                    confirmIdBtn?.isClickable = true
+                }else{
+                    info?.text="*2자 이상 영문으로 입력해주세요."
+                    info?.visibility=View.VISIBLE
+                    confirmIdBtn?.setImageResource(R.drawable.join3_confirm)
+                    confirmIdBtn?.isClickable = false
+                }
+
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(id?.text.toString().length>=2&& isValidNickname(id?.text.toString())){
+                    confirmIdBtn?.setImageResource(R.drawable.join3_confirm2)
+                    confirmIdBtn?.isClickable = true
+                }else{
+                    info?.text="*2자 이상 영문으로 입력해주세요."
+                    info?.visibility=View.VISIBLE
+                    confirmIdBtn?.setImageResource(R.drawable.join3_confirm)
+                    confirmIdBtn?.isClickable = false
+                }
+            }
+        })
 
     }
 
@@ -55,16 +90,22 @@ class Join3Activity : AppCompatActivity() {
 
         when(view?.id){
             R.id.confirmIdBtn->{
-                //서버연결
-                if(true){
-                    confirmIdBtn?.setImageResource(R.drawable.join3_confirm2)
-                    pass = true
+                if(id?.text.toString().length>=2&& isValidNickname(id?.text.toString())){
+                    //서버연결
+                    if(true){
+                        confirmIdBtn?.setImageResource(R.drawable.join3_confirmsame)
+                        finishBtn?.setImageResource(R.drawable.join_finish2)
+                        info?.visibility=View.INVISIBLE
+                        pass = true
+                        id?.setInputType(InputType.TYPE_NULL)
+                    }
+                    else{
+                        info?.text="*이 계정 이름은 이미 다른 사람이 사용하고 있습니다."
+                        info?.visibility=View.VISIBLE
+                    }
                 }
-                else{
-                    info?.text="*이 계정 이름은 이미 다른 사람이 사용하고 있습니다."
-                }
-
             }
+
             R.id.finishBtn->{
                 if(pass){
                     //회원가입완료 메세지
@@ -82,12 +123,30 @@ class Join3Activity : AppCompatActivity() {
                     alertDialog.setView(view2)
                     alertDialog.show()
                 }
+                else{
+                    val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                    val view2 = inflater.inflate(R.layout.join_popup,null)
+                    val alertDialog = AlertDialog.Builder(this)
+                        .setTitle("계정 이름을 중복 확인해주세요.")
+                        .setPositiveButton("확인") { _, _ ->
+                        }
+                        .create()
+                    alertDialog.setView(view2)
+                    alertDialog.show()
+                }
             }
             }
 
 
 
         }
+
+    private fun isValidNickname(nickname: String?): Boolean {
+        val trimmedNickname = nickname?.trim().toString()
+        val exp = Regex("^[a-zA-Z]*\$")
+        return !trimmedNickname.isNullOrEmpty() && exp.matches(trimmedNickname)
+    }
+
 
     }
 
