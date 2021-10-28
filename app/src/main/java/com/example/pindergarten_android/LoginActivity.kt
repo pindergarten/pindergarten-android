@@ -1,5 +1,6 @@
 package com.example.pindergarten_android
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -14,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityLoginBinding
 import com.example.pindergarten_android.databinding.ActivitySplashBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -39,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
         var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
 
-        PreferenceManager.setString(this, "accessToken", "jihyun")
         loginText = findViewById(R.id.editText2)
         pwdText = findViewById(R.id.editText)
         var login : ImageButton = findViewById(R.id.login)
@@ -107,8 +110,37 @@ class LoginActivity : AppCompatActivity() {
         when(view?.id){
             R.id.login->{
                 if(loginText?.text?.length!!> 9 && pwdText?.text?.length!! >7){
-                    Log.i("login: ","login")
-                    //서버연결
+
+                    //서버: 로그인
+                    var login: HashMap<String, String> = HashMap()
+                    login["phone"] = loginText?.text.toString()
+                    login["password"] = pwdText?.text.toString()
+
+                    apiService.loginAPI(login)?.enqueue(object : Callback<Post?> {
+                        override fun onFailure(call: Call<Post?>, t: Throwable) {
+                            Log.d(ContentValues.TAG, "실패 : {${t}}")
+                            Log.i("login: ","fail")
+                        }
+
+                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                            if(response.body()?.success==true){
+
+                                PreferenceManager.setString(applicationContext, "jwt", response.body()?.getResultList()?.jwt)
+                                response.body()?.getResultList()?.userId?.let {
+                                    PreferenceManager.setInt(applicationContext, "userId", it)
+                                }
+
+                                response.body()?.getResultList()?.jwt?.let { Log.i("jwt", it) }
+                                Log.i("userId: ", response.body()?.getResultList()?.userId.toString())
+                                Log.i("login: ","success")
+
+                            }
+                            else{
+                                Log.i("login: ","fail")
+                            }
+                        }
+                    })
+
                 }
             }
             R.id.join->{

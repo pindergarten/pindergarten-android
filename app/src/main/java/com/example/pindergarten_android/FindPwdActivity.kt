@@ -163,7 +163,7 @@ class FindPwdActivity : AppCompatActivity() {
                         }
 
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                            if (response.body()?.success == "success") {
+                            if (response.body()?.success == true) {
                                 Log.i("인증번호 전송: ", "success")
                                 Log.i("인증번호 전송: ", response.body().toString())
 
@@ -189,7 +189,7 @@ class FindPwdActivity : AppCompatActivity() {
                         info?.visibility = View.VISIBLE
                     }
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                        if (response.body()?.success == "success") {
+                        if (response.body()?.success == true) {
                             Log.i("휴대폰 인증번호 확인: ", "success")
                             Log.i("휴대폰 인증번호 확인: ", response.body().toString())
 

@@ -184,7 +184,7 @@ class JoinActivity : AppCompatActivity() {
 
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                         Log.i("휴대폰 인증번호 확인: ", response.body().toString())
-                        if (response.body()?.success == "success") {
+                        if (response.body()?.success==true) {
                             Log.i("휴대폰 인증번호 확인: ", "success")
                             Log.i("휴대폰 인증번호 확인: ", response.body().toString())
 

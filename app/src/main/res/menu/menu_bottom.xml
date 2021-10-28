@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/socialPet"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="소셜 펫"
+        android:icon="@drawable/social_pet"/>
+
+    <item android:id="@+id/pindergarten"
+        app:showAsAction="ifRoom"
+        android:title="펫 유치원"
+        android:icon="@drawable/pindergarten"/>
+
+    <item android:id="@+id/Meandpet"
+        app:showAsAction="ifRoom"
+        android:title="나와 펫"
+        android:icon="@drawable/me_and_pet"/>
+
+
+</menu>

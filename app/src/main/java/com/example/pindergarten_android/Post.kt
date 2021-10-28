@@ -5,13 +5,22 @@ import java.util.*
 
 class Post {
 
-    //usersiginup
+
     @SerializedName("email")
     val email: String? = null
-    @SerializedName("password")
-    val password: String? = null
-    @SerializedName("success")
-    val success: String? = null
+    @SerializedName("isSuccess")
+    val success: Boolean? = null
 
+    //login
+    @SerializedName("result")
+    private val resultList: Result = Result()
+    fun getResultList(): Result? { return resultList }
+    class Result {
+        @SerializedName("jwt")
+        val jwt: String? = null
+        @SerializedName("userId")
+        val userId: Int? = null
+
+    }
 
 }

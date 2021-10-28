@@ -40,5 +40,10 @@ interface RetrofitAPI {
     @GET("api/users/{userId}")
     fun mypageAPI(@Path("userId") userId: String?): Call<Post?>?
 
+    //로그아웃
+    @FormUrlEncoded
+    @POST("api/users/sign-in")
+    fun loginAPI(@FieldMap param: HashMap<String, String>): Call<Post?>?
+
 
 }

@@ -27,12 +27,13 @@ class SplashActivity : AppCompatActivity() {
         hideNavigationBar()
 
 
-        var accessToken = PreferenceManager.getString(this, "accessToken")
-        if (accessToken != null) {
-            Log.d("accessToken",accessToken)
+        var jwt = PreferenceManager.getString(this, "jwt")
+        var userId = PreferenceManager.getInt(this, "userId")
+        if (jwt != null) {
+            Log.d("jwt",jwt)
         }
         else{
-            Log.d("accessToken", "accessToken 없음")
+            Log.d("jwt", "정보없음")
         }
 
         var joinBtn : ImageButton = findViewById(R.id.join)
@@ -45,9 +46,10 @@ class SplashActivity : AppCompatActivity() {
             loginBtn.visibility= View.VISIBLE
         },3000L)
 
-        if (accessToken != null) {
+        if (jwt != null) {
             //토큰 있을경우 -> 서버전달/정보 담아서 메인화면 (viewModel)
-            Log.i("accessToken",accessToken)
+            Log.i("jwt: ",jwt)
+            Log.i("userId: ", userId.toString())
             /*
             val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
