@@ -1,6 +1,5 @@
 package com.example.pindergarten_android
 
-import android.R.attr.button
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -17,7 +16,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityFindpwdBinding
-import com.example.pindergarten_android.databinding.ActivityJoinBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,8 +46,7 @@ class FindPwdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityFindpwdBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_findpwd)
+        val binding: ActivityFindpwdBinding = DataBindingUtil.setContentView(this, R.layout.activity_findpwd)
         binding.vm = PindergartenViewModel()
         binding.activity = this@FindPwdActivity
 
@@ -104,7 +101,13 @@ class FindPwdActivity : AppCompatActivity() {
                     sendNum?.isClickable = true
                     phone_info?.visibility = View.INVISIBLE
                 }
+                sendNum?.isClickable = true
+                line?.visibility = View.INVISIBLE
+                confirmBtn?.visibility = View.INVISIBLE
+                info?.visibility = View.INVISIBLE
+                vertifyNum?.visibility = View.INVISIBLE
             }
+
         })
 
         vertifyNum?.addTextChangedListener(object : TextWatcher {
@@ -147,34 +150,53 @@ class FindPwdActivity : AppCompatActivity() {
         when (view?.id) {
             R.id.sendNum -> {
 
-                if(phoneNum?.text.toString().length>1){
-                    line?.visibility = View.VISIBLE
-                    confirmBtn?.visibility = View.VISIBLE
-                    info?.visibility = View.VISIBLE
-                    vertifyNum?.visibility = View.VISIBLE
-                    confirmBtn?.isClickable = false
+                //서버: 휴대폰번호로 회원확인
+                var vertifyNum1: HashMap<String, String> = HashMap()
+                vertifyNum1["phone"] = phoneNum?.text.toString()
 
-                    //서버: 휴대폰 인증번호 전송
-                    var vertifyNum: HashMap<String, String> = HashMap()
-                    vertifyNum["phone"] = phoneNum?.text.toString()
-                    apiService.smssendAPI(vertifyNum)?.enqueue(object : Callback<Post?> {
-                        override fun onFailure(call: Call<Post?>, t: Throwable) {
-                            Log.d(ContentValues.TAG, "실패 : {${t}}")
+                apiService.userconfirmAPI(vertifyNum1)?.enqueue(object : Callback<Post?> {
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.d(ContentValues.TAG, "실패 : {${t}}")
+                    }
+
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        Log.i("userCheck: ", "success")
+                        if (response.body()?.success == true) {
+                            //비회원
+                            popup_notuser()
                         }
+                        else {
+                            //회원
+                            if (phoneNum?.text.toString().length > 1) {
+                                line?.visibility = View.VISIBLE
+                                confirmBtn?.visibility = View.VISIBLE
+                                info?.visibility = View.VISIBLE
+                                vertifyNum?.visibility = View.VISIBLE
+                                confirmBtn?.isClickable = false
 
-                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                            if (response.body()?.success == true) {
-                                Log.i("인증번호 전송: ", "success")
-                                Log.i("인증번호 전송: ", response.body().toString())
 
-                            } else {
-                                Log.i("인증번호 전송 : ", "fail")
-                                Log.i("인증번호 전송 : ", response.code().toString())
+                                //서버: 휴대폰 인증번호 전송
+                                var vertifyNum: HashMap<String, String> = HashMap()
+                                vertifyNum["phone"] = phoneNum?.text.toString()
+                                apiService.smssendAPI(vertifyNum)
+                                    ?.enqueue(object : Callback<Post?> {
+                                        override fun onFailure(call: Call<Post?>, t: Throwable) {
+                                            Log.d(ContentValues.TAG, "실패 : {${t}}")
+                                        }
+
+                                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                                            Log.i("인증번호 전송: ", "success")
+                                            Log.i("인증번호 전송: ", response.body().toString())
+
+                                            sendNum?.isClickable = false
+                                        }
+                                    })
+
                             }
                         }
-                    })
+                    }
+                })
 
-                }
             }
             R.id.confirmBtn -> {
 
@@ -188,8 +210,10 @@ class FindPwdActivity : AppCompatActivity() {
                         Log.d(ContentValues.TAG, "실패 : {${t}}")
                         info?.visibility = View.VISIBLE
                     }
+
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                        if (response.body()?.success == true) {
+                        Log.i("휴대폰 인증번호 확인: ", response.body().toString())
+                        if (response.body()?.success==true) {
                             Log.i("휴대폰 인증번호 확인: ", "success")
                             Log.i("휴대폰 인증번호 확인: ", response.body().toString())
 
@@ -208,14 +232,15 @@ class FindPwdActivity : AppCompatActivity() {
                 })
 
 
-
             }
 
             R.id.nextBtn -> {
                 if (pass) {
                     //화면이동
                     val intent = Intent(this, FindPwd2Activity::class.java)
+                    intent.putExtra("phone",phoneNum?.text.toString())
                     startActivity(intent)
+
                 } else {
                     //인증오류 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -228,7 +253,6 @@ class FindPwdActivity : AppCompatActivity() {
                     button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
-
                 }
             }
 
@@ -252,7 +276,6 @@ class FindPwdActivity : AppCompatActivity() {
         button.setOnClickListener{ alertDialog.dismiss() }
         alertDialog.setView(view2)
         alertDialog.show()
-
     }
 
     fun popup_fail(){
@@ -270,6 +293,28 @@ class FindPwdActivity : AppCompatActivity() {
         alertDialog.show()
 
     }
+
+    fun popup_notuser(){
+
+        //비회원
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view2 = inflater.inflate(R.layout.join_popup, null)
+        var text : TextView = view2.findViewById(R.id.text)
+        var button : Button = view2.findViewById(R.id.button)
+        text.text="가입되어있지 않은 회원입니다.\n로그인 화면으로 이동합니다."
+        button.text="확인"
+        val alertDialog = AlertDialog.Builder(this).create()
+        button.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            alertDialog.dismiss()
+        }
+        alertDialog.setView(view2)
+        alertDialog.show()
+
+    }
+
+
 
 
 }

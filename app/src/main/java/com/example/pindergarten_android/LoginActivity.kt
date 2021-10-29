@@ -9,12 +9,10 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityLoginBinding
-import com.example.pindergarten_android.databinding.ActivitySplashBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -133,6 +131,9 @@ class LoginActivity : AppCompatActivity() {
                                 response.body()?.getResultList()?.jwt?.let { Log.i("jwt", it) }
                                 Log.i("userId: ", response.body()?.getResultList()?.userId.toString())
                                 Log.i("login: ","success")
+
+                                val intent = Intent(applicationContext, MainActivity::class.java)
+                                startActivity(intent)
 
                             }
                             else{

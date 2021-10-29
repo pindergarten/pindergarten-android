@@ -8,6 +8,12 @@
     tools:context=".Fragment_meAndPet">
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="나와 펫 화면입니다."/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

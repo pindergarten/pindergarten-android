@@ -7,7 +7,11 @@
     android:background="@android:color/white"
     tools:context=".Fragment_socialPet">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="소셜 펫 화면입니다."/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

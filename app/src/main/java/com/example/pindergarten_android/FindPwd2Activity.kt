@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -13,13 +14,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityFindpwd2Binding
-import com.example.pindergarten_android.databinding.ActivityJoin2Binding
-import com.example.pindergarten_android.databinding.ActivityJoinBinding
-import com.example.pindergarten_android.databinding.ActivitySplashBinding
-import org.w3c.dom.Text
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.regex.Pattern
 
 class FindPwd2Activity : AppCompatActivity() {
 
@@ -34,6 +33,7 @@ class FindPwd2Activity : AppCompatActivity() {
     var pwd1:EditText ?= null
     var pwd2:EditText ?= null
     var nextBtn:ImageButton ?=null
+    var phoneNum : String ?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +44,9 @@ class FindPwd2Activity : AppCompatActivity() {
         //액션바 제거
         var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
+
+        var intent : Intent = intent
+        phoneNum = intent.getStringExtra("phone")
 
         info = findViewById(R.id.info)
         info?.visibility=View.INVISIBLE
@@ -152,27 +155,56 @@ class FindPwd2Activity : AppCompatActivity() {
                 if(pwd1?.text.toString().length>7 && pwd2?.text.toString().length>7){
                     info?.visibility=View.INVISIBLE
 
-                    //변경완료 메세지
-                    val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                    val view2 = inflater.inflate(R.layout.join_popup, null)
-                    var text : TextView = view2.findViewById(R.id.text)
-                    var button : Button = view2.findViewById(R.id.button)
-                    text.text="변경완료되었습니다."
-                    button.text="로그인화면으로 돌아가기"
-                    val alertDialog = AlertDialog.Builder(this).create()
-                    button.setOnClickListener{
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        alertDialog.dismiss()
-                    }
-                    alertDialog.setView(view2)
-                    alertDialog.show()
+                    //서버: 비밀번호 재설정
+                    var password: HashMap<String, String> = HashMap()
+                    password["password"] = pwd1?.text.toString()
+                    password["password_check"] = pwd2?.text.toString()
+                    password["phone"] = phoneNum.toString()
+
+                    apiService.passwordAPI(password)?.enqueue(object : Callback<Post?> {
+                        override fun onFailure(call: Call<Post?>, t: Throwable) {
+                            Log.d("비밀번호 재설정 실패: ", t.toString())
+                        }
+
+                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                            if (response.body()?.success==true) {
+                                Log.i("비밀번호 재설정: ", "success")
+                                Log.i("비밀번호 재설정: ", response.body().toString())
+                                popup()
+
+                            } else {
+                                Log.i("비밀번호 재설정: ","fail")
+                                Log.i("비밀번호 재설정: ", response.code().toString())
+                            }
+                        }
+                    })
+
 
                 }
             }
 
 
         }
+
+    }
+
+    fun popup(){
+
+        //변경완료 메세지
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view2 = inflater.inflate(R.layout.join_popup, null)
+        var text : TextView = view2.findViewById(R.id.text)
+        var button : Button = view2.findViewById(R.id.button)
+        text.text="변경완료되었습니다!\n로그인 화면으로 이동합니다."
+        button.text="확인"
+        val alertDialog = AlertDialog.Builder(this).create()
+        button.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            alertDialog.dismiss()
+        }
+        alertDialog.setView(view2)
+        alertDialog.show()
 
     }
 

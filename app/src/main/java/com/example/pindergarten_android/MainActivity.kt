@@ -40,16 +40,27 @@ class MainActivity : AppCompatActivity() {
 
     private fun initNavigationBar() {
 
+        //icon 변경
+        binding.bottomNavigation.itemIconTintList = null
         binding.bottomNavigation.run{
             setOnNavigationItemSelectedListener{
                 when(it.itemId){
                     R.id.socialPet->{
+                        it.setIcon(R.drawable.social_pet2)
+                        menu.findItem(R.id.pindergarten).setIcon(R.drawable.pindergarten)
+                        menu.findItem(R.id.Meandpet).setIcon(R.drawable.me_and_pet)
                         changeFragment(fragmentSocialpet)
                     }
                     R.id.pindergarten->{
+                        it.setIcon(R.drawable.pindergarten2)
+                        menu.findItem(R.id.socialPet).setIcon(R.drawable.social_pet)
+                        menu.findItem(R.id.Meandpet).setIcon(R.drawable.me_and_pet)
                         changeFragment(fragmentPindergarten)
                     }
                     R.id.Meandpet->{
+                        it.setIcon(R.drawable.me_and_pet2)
+                        menu.findItem(R.id.pindergarten).setIcon(R.drawable.pindergarten)
+                        menu.findItem(R.id.socialPet).setIcon(R.drawable.social_pet)
                         changeFragment(fragmentMeandpet)
                     }
                 }

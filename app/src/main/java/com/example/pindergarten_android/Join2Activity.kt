@@ -1,27 +1,19 @@
 package com.example.pindergarten_android
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityJoin2Binding
-import com.example.pindergarten_android.databinding.ActivityJoinBinding
-import com.example.pindergarten_android.databinding.ActivitySplashBinding
-import org.w3c.dom.Text
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.regex.Pattern
 
 class Join2Activity : AppCompatActivity() {
 
@@ -36,6 +28,8 @@ class Join2Activity : AppCompatActivity() {
     var pwd1:EditText ?= null
     var pwd2:EditText ?= null
     var nextBtn:ImageButton ?=null
+    var phoneNum : String ?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +40,9 @@ class Join2Activity : AppCompatActivity() {
         //액션바 제거
         var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
+
+        var intent : Intent = intent
+        phoneNum = intent.getStringExtra("phone")
 
         info = findViewById(R.id.info)
         info?.visibility=View.INVISIBLE
@@ -154,6 +151,8 @@ class Join2Activity : AppCompatActivity() {
                 if(pwd1?.text.toString().length>7 && pwd2?.text.toString().length>7){
                     info?.visibility=View.INVISIBLE
                     val intent = Intent(this, Join3Activity::class.java)
+                    intent.putExtra("phone",phoneNum)
+                    intent.putExtra("password",pwd1?.text.toString())
                     startActivity(intent)
                 }
             }

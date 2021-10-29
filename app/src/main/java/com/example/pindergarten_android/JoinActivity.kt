@@ -1,6 +1,5 @@
 package com.example.pindergarten_android
 
-import android.R.attr.button
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -103,7 +102,13 @@ class JoinActivity : AppCompatActivity() {
                     sendNum?.isClickable = true
                     phone_info?.visibility = View.INVISIBLE
                 }
+                sendNum?.isClickable = true
+                line?.visibility = View.INVISIBLE
+                confirmBtn?.visibility = View.INVISIBLE
+                info?.visibility = View.INVISIBLE
+                vertifyNum?.visibility = View.INVISIBLE
             }
+
         })
 
         vertifyNum?.addTextChangedListener(object : TextWatcher {
@@ -146,28 +151,53 @@ class JoinActivity : AppCompatActivity() {
         when (view?.id) {
             R.id.sendNum -> {
 
-                if(phoneNum?.text.toString().length>1){
-                    line?.visibility = View.VISIBLE
-                    confirmBtn?.visibility = View.VISIBLE
-                    info?.visibility = View.VISIBLE
-                    vertifyNum?.visibility = View.VISIBLE
-                    confirmBtn?.isClickable = false
 
-                    //서버: 휴대폰 인증번호 전송
-                    var vertifyNum: HashMap<String, String> = HashMap()
-                    vertifyNum["phone"] = phoneNum?.text.toString()
-                    apiService.smssendAPI(vertifyNum)?.enqueue(object : Callback<Post?> {
-                        override fun onFailure(call: Call<Post?>, t: Throwable) {
-                            Log.d(ContentValues.TAG, "실패 : {${t}}")
+                //서버: 휴대폰번호로 회원확인
+                var vertifyNum1: HashMap<String, String> = HashMap()
+                vertifyNum1["phone"] = phoneNum?.text.toString()
+                apiService.userconfirmAPI(vertifyNum1)?.enqueue(object : Callback<Post?> {
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.d(ContentValues.TAG, "실패 : {${t}}")
+                    }
+
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        Log.i("userCheck: ", "success")
+                        if (response.body()?.success == false) {
+                            popup_user()
+                        } else {
+                            //비회원
+                            if (phoneNum?.text.toString().length > 1) {
+                                line?.visibility = View.VISIBLE
+                                confirmBtn?.visibility = View.VISIBLE
+                                info?.visibility = View.VISIBLE
+                                vertifyNum?.visibility = View.VISIBLE
+                                confirmBtn?.isClickable = false
+
+
+                                //서버: 휴대폰 인증번호 전송
+                                var vertifyNum: HashMap<String, String> = HashMap()
+                                vertifyNum["phone"] = phoneNum?.text.toString()
+                                apiService.smssendAPI(vertifyNum)
+                                    ?.enqueue(object : Callback<Post?> {
+                                        override fun onFailure(call: Call<Post?>, t: Throwable) {
+                                            Log.d(ContentValues.TAG, "실패 : {${t}}")
+                                        }
+
+                                        override fun onResponse(
+                                            call: Call<Post?>,
+                                            response: Response<Post?>
+                                        ) {
+                                            Log.i("인증번호 전송: ", "success")
+                                            Log.i("인증번호 전송: ", response.body().toString())
+                                            sendNum?.isClickable = false
+                                        }
+                                    })
+
+                            }
                         }
+                    }
+                })
 
-                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                            Log.i("인증번호 전송: ", "success")
-                            Log.i("인증번호 전송: ", response.body().toString())
-                        }
-                    })
-
-                }
             }
             R.id.confirmBtn -> {
 
@@ -203,13 +233,13 @@ class JoinActivity : AppCompatActivity() {
                 })
 
 
-
             }
 
             R.id.nextBtn -> {
                 if (pass) {
                     //화면이동
                     val intent = Intent(this, Join2Activity::class.java)
+                    intent.putExtra("phone",phoneNum?.text.toString())
                     startActivity(intent)
 
                 } else {
@@ -263,8 +293,26 @@ class JoinActivity : AppCompatActivity() {
         alertDialog.setView(view2)
         alertDialog.show()
 
-
     }
+
+    fun popup_user(){
+        //회원
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view2 = inflater.inflate(R.layout.join_popup, null)
+        var text: TextView = view2.findViewById(R.id.text)
+        var button: Button = view2.findViewById(R.id.button)
+        text.text = "가입되어있는 회원입니다.\n로그인 화면으로 이동합니다."
+        button.text = "확인"
+        val alertDialog = AlertDialog.Builder(this).create()
+        button.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            alertDialog.dismiss()
+        }
+        alertDialog.setView(view2)
+        alertDialog.show()
+    }
+
 
 
 }
