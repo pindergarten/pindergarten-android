@@ -1,21 +1,12 @@
 package com.example.pindergarten_android
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.content.Intent.getIntent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 
 class Fragment_socialPet : Fragment() {
@@ -24,7 +15,17 @@ class Fragment_socialPet : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_socialpet,container,false)
+
+        var view = inflater.inflate(R.layout.fragment_socialpet,container,false)
+        var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
+
+        var recyclerView = recyclerview_main // recyclerview id
+        var layoutManager = LinearLayoutManager(container?.context)
+        recyclerView.layoutManager = layoutManager
+        var adapter = MyAdapter()
+        recyclerView.adapter = adapter
+
+        return view
     }
 
 

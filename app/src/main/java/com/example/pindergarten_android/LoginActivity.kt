@@ -107,7 +107,15 @@ class LoginActivity : AppCompatActivity() {
 
         when(view?.id){
             R.id.login->{
-                if(loginText?.text?.length!!> 9 && pwdText?.text?.length!! >7){
+
+                //관리자모드 (테스트용)
+                if(loginText?.text?.toString()=="01097011968" && pwdText?.text?.toString()=="00000000"){
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+                else if(loginText?.text?.length!!> 9 && pwdText?.text?.length!! >7){
 
                     //서버: 로그인
                     var login: HashMap<String, String> = HashMap()
