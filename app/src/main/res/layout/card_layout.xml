@@ -11,7 +11,6 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_gravity="center_horizontal"
-    android:layout_marginBottom="26dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,14 +21,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout1"
             android:layout_width="175dp"
-            android:layout_height="175dp"
+            android:layout_height="230dp"
+            android:background="@drawable/dialog_list"
+            android:elevation="5dp"
+            android:layout_marginTop="10dp"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent">
 
+
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                card_view:cardCornerRadius="15dp">
+                android:id="@+id/cardView5"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                card_view:cardCornerRadius="15dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/item_image1"
@@ -42,20 +48,57 @@
 
             </androidx.cardview.widget.CardView>
 
+            <ImageView
+                android:id="@+id/user1_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView5"/>
+
+            <TextView
+                android:id="@+id/user1_id"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:autoSizeTextType="uniform"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                card_view:layout_constraintStart_toEndOf="@+id/user1_img"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView5" />
+
+            <TextView
+                android:id="@+id/user1_text"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:autoSizeTextType="uniform"
+                android:singleLine="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="35dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/user1_id" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="175dp"
-            android:layout_height="215dp"
+            android:layout_height="270dp"
+            android:background="@drawable/dialog_list"
+            android:elevation="5dp"
+            android:layout_marginTop="10dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                card_view:cardCornerRadius="15dp">
+                android:id="@+id/cardView6"
+                android:layout_width="175dp"
+                android:layout_height="215dp"
+                card_view:cardCornerRadius="15dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/item_image2"
@@ -68,20 +111,57 @@
 
             </androidx.cardview.widget.CardView>
 
+            <ImageView
+                android:id="@+id/user2_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView6"/>
+
+            <TextView
+                android:id="@+id/user2_id"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                card_view:layout_constraintStart_toEndOf="@+id/user2_img"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView6" />
+
+            <TextView
+                android:id="@+id/user2_text"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:singleLine="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="35dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/user2_id" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="175dp"
-            android:layout_height="215dp"
+            android:layout_height="270dp"
             android:layout_marginTop="26dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/dialog_list"
+            android:elevation="5dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/constraintLayout1">
 
+
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                card_view:cardCornerRadius="15dp">
+                android:id="@+id/cardView7"
+                android:layout_width="175dp"
+                android:layout_height="215dp"
+                card_view:cardCornerRadius="15dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/item_image3"
@@ -93,21 +173,58 @@
                     android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
 
+            <ImageView
+                android:id="@+id/user3_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView7"/>
+
+            <TextView
+                android:id="@+id/user3_id"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                card_view:layout_constraintStart_toEndOf="@+id/user3_img"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView7" />
+
+            <TextView
+                android:id="@+id/user3_text"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:singleLine="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="35dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/user3_id" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="175dp"
-            android:layout_height="175dp"
+            android:layout_height="230dp"
             android:layout_marginTop="26dp"
+            android:background="@drawable/dialog_list"
+            android:layout_marginBottom="16dp"
+            android:elevation="5dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
+
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                card_view:cardCornerRadius="15dp">
+                android:id="@+id/cardView8"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                card_view:cardCornerRadius="15dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/item_image4"
@@ -119,6 +236,37 @@
                     android:scaleType="centerCrop"
                     card_view:layout_constraintEnd_toEndOf="parent" />
             </androidx.cardview.widget.CardView>
+
+
+            <ImageView
+                android:id="@+id/user4_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView8"/>
+
+            <TextView
+                android:id="@+id/user4_id"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                card_view:layout_constraintStart_toEndOf="@+id/user4_img"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardView8" />
+
+            <TextView
+                android:id="@+id/user4_text"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:singleLine="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="35dp"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/user4_id" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -29,18 +29,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/eventBtn"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="5dp"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/evnetbtn"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="16dp" />
+
+        <ImageButton
+            android:id="@+id/plusBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="56dp"
+            android:backgroundTint="@color/white"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/socialpet_plus"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

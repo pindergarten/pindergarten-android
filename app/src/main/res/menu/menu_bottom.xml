@@ -5,7 +5,8 @@
     <item android:id="@+id/socialPet"
         android:enabled="true"
         app:showAsAction="ifRoom"
-        android:title="소셜 펫"
+        android:title="핀더가든"
+
         android:icon="@drawable/social_pet"/>
 
     <item android:id="@+id/pindergarten"

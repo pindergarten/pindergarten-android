@@ -18,10 +18,11 @@ class Fragment_socialPet : Fragment() {
 
         var view = inflater.inflate(R.layout.fragment_socialpet,container,false)
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
-
         var recyclerView = recyclerview_main // recyclerview id
         var layoutManager = LinearLayoutManager(container?.context)
+
         recyclerView.layoutManager = layoutManager
+
         var adapter = MyAdapter()
         recyclerView.adapter = adapter
 
