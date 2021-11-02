@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="진행중인 이벤트"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 

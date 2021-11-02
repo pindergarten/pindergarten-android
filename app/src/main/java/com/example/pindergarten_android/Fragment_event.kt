@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,20 @@ class Fragment_event : Fragment() {
         recyclerView.layoutManager = gridLayoutManager
         recyclerView.adapter = adapter
 
+        adapter.setItemClickListener( object : EventAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.i("clicked: ", "${eventTitle.get(position)} ")
+                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                val fragment : Fragment = Fragment_eventdetail()
+                val bundle = Bundle()
+                bundle.putString("eventTitle",eventTitle.get(position))
+                bundle.putInt("eventDay",eventDay.get(position))
+                bundle.putString("eventImage", eventImage.get(position).toString())
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.commit()
+            }
+        })
 
         //서버요청
         for(i in 0 until 10){

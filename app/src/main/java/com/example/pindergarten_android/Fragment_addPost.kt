@@ -79,7 +79,6 @@ class Fragment_addPost: Fragment() {
                     val fragment : Fragment = Fragment_socialPet()
                     transaction.replace(R.id.container,fragment)
                     transaction.commit()
-
                     alertDialog.dismiss()
                 }
                 alertDialog.setView(view2)

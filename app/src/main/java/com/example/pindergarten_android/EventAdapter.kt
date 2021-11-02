@@ -1,7 +1,6 @@
 package com.example.pindergarten_android
 
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,16 @@ import com.bumptech.glide.Glide
 class EventAdapter(private val eventImage:ArrayList<Uri>,private val eventTitle:ArrayList<String> ,private val eventDay:ArrayList<Int> , val context: Fragment_event): RecyclerView.Adapter<EventAdapter.ViewHolder>(){
 
     override fun getItemCount(): Int = eventImage.size
+
+    interface ItemClickListener {
+        fun onClick(view: View, position: Int)
+    }
+
+    private lateinit var itemClickListner: ItemClickListener
+
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        this.itemClickListner = itemClickListener
+    }
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
         val inflateView = LayoutInflater.from(parent.context).inflate(R.layout.event_image_item,parent,false)
@@ -36,14 +45,14 @@ class EventAdapter(private val eventImage:ArrayList<Uri>,private val eventTitle:
 
         holder.title.text = eventTitle[position]
         holder.day.text="D-${eventDay[position]}"
-        holder.itemView.setOnClickListener {
-            Log.i("clicked: ", "${eventTitle.get(position)} ")
 
+        holder.itemView.setOnClickListener{
+            itemClickListner.onClick(it,position)
         }
-
-
-
 
     }
 
 }
+
+
+

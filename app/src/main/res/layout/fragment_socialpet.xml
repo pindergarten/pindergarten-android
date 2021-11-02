@@ -30,8 +30,8 @@
 
         <ImageButton
             android:id="@+id/eventBtn"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:padding="5dp"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
@@ -44,10 +44,10 @@
 
         <ImageButton
             android:id="@+id/plusBtn"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="24dp"
-            android:layout_marginRight="56dp"
+            android:layout_marginRight="50dp"
             android:backgroundTint="@color/white"
             android:padding="5dp"
             android:scaleType="fitCenter"
