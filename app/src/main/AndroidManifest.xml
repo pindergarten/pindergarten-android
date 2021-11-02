@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:usesCleartextTraffic="true"
@@ -29,8 +30,17 @@
         <activity android:name=".FindPwdActivity"/>
         <activity android:name=".FindPwd2Activity"/>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity"  android:windowSoftInputMode="adjustResize|adjustPan" />
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="{com.example.pindergarten_android}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
 
     </application>
 

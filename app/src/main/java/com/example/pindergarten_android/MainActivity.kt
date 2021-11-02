@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun HideBottomNavigation(state: Boolean){
-        if(state) binding.bottomNavigation.visibility= View.INVISIBLE else binding.bottomNavigation.visibility=View.VISIBLE
+        if(state) binding.bottomNavigation.visibility= View.GONE else binding.bottomNavigation.visibility=View.VISIBLE
     }
 
 

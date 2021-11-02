@@ -8,8 +8,8 @@
     android:id="@+id/card_view"
     android:backgroundTint="@color/white"
     android:outlineProvider="none"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
     android:layout_gravity="center_horizontal"
     >
 
@@ -20,19 +20,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout1"
-            android:layout_width="175dp"
-            android:layout_height="230dp"
+            android:layout_width="156dp"
+            android:layout_height="203dp"
             android:background="@drawable/dialog_list"
             android:elevation="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="9dp"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent">
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView5"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="156dp"
+                android:layout_height="159dp"
                 card_view:cardCornerRadius="15dp"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent">
@@ -60,7 +60,7 @@
             <TextView
                 android:id="@+id/user1_id"
                 android:layout_width="100dp"
-                android:layout_height="20dp"
+                android:layout_height="14dp"
                 android:autoSizeTextType="uniform"
                 android:singleLine="true"
                 android:layout_marginTop="8dp"
@@ -70,8 +70,8 @@
 
             <TextView
                 android:id="@+id/user1_text"
-                android:layout_width="120dp"
-                android:layout_height="20dp"
+                android:layout_width="117dp"
+                android:layout_height="14dp"
                 android:autoSizeTextType="uniform"
                 android:singleLine="true"
                 android:layout_marginTop="2dp"
@@ -84,18 +84,18 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
-            android:layout_width="175dp"
-            android:layout_height="270dp"
+            android:layout_width="156dp"
+            android:layout_height="243dp"
             android:background="@drawable/dialog_list"
             android:elevation="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="9dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView6"
-                android:layout_width="175dp"
-                android:layout_height="215dp"
+                android:layout_width="156dp"
+                android:layout_height="198dp"
                 card_view:cardCornerRadius="15dp"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent">
@@ -123,7 +123,7 @@
             <TextView
                 android:id="@+id/user2_id"
                 android:layout_width="100dp"
-                android:layout_height="20dp"
+                android:layout_height="14dp"
                 android:singleLine="true"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="5dp"
@@ -132,8 +132,8 @@
 
             <TextView
                 android:id="@+id/user2_text"
-                android:layout_width="120dp"
-                android:layout_height="20dp"
+                android:layout_width="117dp"
+                android:layout_height="14dp"
                 android:singleLine="true"
                 android:layout_marginTop="2dp"
                 android:layout_marginLeft="35dp"
@@ -144,10 +144,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
-            android:layout_width="175dp"
-            android:layout_height="270dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="156dp"
+            android:layout_height="243dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/dialog_list"
             android:elevation="5dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
@@ -157,8 +157,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView7"
-                android:layout_width="175dp"
-                android:layout_height="215dp"
+                android:layout_width="156dp"
+                android:layout_height="198dp"
                 card_view:cardCornerRadius="15dp"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent">
@@ -185,7 +185,7 @@
             <TextView
                 android:id="@+id/user3_id"
                 android:layout_width="100dp"
-                android:layout_height="20dp"
+                android:layout_height="14dp"
                 android:singleLine="true"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="5dp"
@@ -194,8 +194,8 @@
 
             <TextView
                 android:id="@+id/user3_text"
-                android:layout_width="120dp"
-                android:layout_height="20dp"
+                android:layout_width="117dp"
+                android:layout_height="14dp"
                 android:singleLine="true"
                 android:layout_marginTop="2dp"
                 android:layout_marginLeft="35dp"
@@ -207,11 +207,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="175dp"
-            android:layout_height="230dp"
-            android:layout_marginTop="26dp"
+            android:layout_width="156dp"
+            android:layout_height="203dp"
+            android:layout_marginTop="19dp"
             android:background="@drawable/dialog_list"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="10dp"
             android:elevation="5dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -220,8 +220,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView8"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="156dp"
+                android:layout_height="159dp"
                 card_view:cardCornerRadius="15dp"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent">
@@ -250,7 +250,7 @@
             <TextView
                 android:id="@+id/user4_id"
                 android:layout_width="100dp"
-                android:layout_height="20dp"
+                android:layout_height="14dp"
                 android:singleLine="true"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="5dp"
@@ -259,8 +259,8 @@
 
             <TextView
                 android:id="@+id/user4_text"
-                android:layout_width="120dp"
-                android:layout_height="20dp"
+                android:layout_width="117dp"
+                android:layout_height="14dp"
                 android:singleLine="true"
                 android:layout_marginTop="2dp"
                 android:layout_marginLeft="35dp"
