@@ -1,95 +1,89 @@
 package com.example.pindergarten_android
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 
-class MyAdapter(): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:ArrayList<String>, private val userImage:ArrayList<Uri>,private val userId:ArrayList<String>, val context: Fragment_socialPet): RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
-    var images = intArrayOf(R.drawable.test1, R.drawable.test2, R.drawable.test3, R.drawable.test4 )
-    var users_id = arrayOf("one", "two", "three", "four")
-    var users_details = arrayOf("Item one", "Item two", "Item three", "Item four")
-    var users_img = intArrayOf(R.drawable.test1, R.drawable.test2, R.drawable.test3, R.drawable.test4 )
+    override fun getItemCount(): Int = postImage.size
 
-
-    class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-        var itemimage1: ImageView = itemview.findViewById(R.id.item_image1)
-        var itemimage2: ImageView = itemview.findViewById(R.id.item_image2)
-        var itemimage3: ImageView = itemview.findViewById(R.id.item_image3)
-        var itemimage4: ImageView = itemview.findViewById(R.id.item_image4)
-
-        var user1_id: TextView = itemview.findViewById(R.id.user1_id)
-        var user2_id: TextView = itemview.findViewById(R.id.user2_id)
-        var user3_id: TextView = itemview.findViewById(R.id.user3_id)
-        var user4_id: TextView = itemview.findViewById(R.id.user4_id)
-
-        var user1_text: TextView = itemview.findViewById(R.id.user1_text)
-        var user2_text: TextView = itemview.findViewById(R.id.user2_text)
-        var user3_text: TextView = itemview.findViewById(R.id.user3_text)
-        var user4_text: TextView = itemview.findViewById(R.id.user4_text)
-
-        var user1_img: ImageView = itemview.findViewById(R.id.user1_img)
-        var user2_img: ImageView = itemview.findViewById(R.id.user2_img)
-        var user3_img: ImageView = itemview.findViewById(R.id.user3_img)
-        var user4_img: ImageView = itemview.findViewById(R.id.user4_img)
+    interface ItemClickListener {
+        fun onClick(view: View, position: Int)
     }
 
-    override fun onCreateViewHolder(viewgroup: ViewGroup, position: Int): MyViewHolder {
-        var v: View = LayoutInflater.from(viewgroup.context).inflate(R.layout.card_layout, viewgroup, false)
-        return MyViewHolder(v)
+    private lateinit var itemClickListner: ItemClickListener
+
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        this.itemClickListner = itemClickListener
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.itemimage1.setImageResource(images[0])
-        holder.itemimage2.setImageResource(images[1])
-        holder.itemimage3.setImageResource(images[2])
-        holder.itemimage4.setImageResource(images[3])
+    override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
+        val inflateView = LayoutInflater.from(parent.context).inflate(R.layout.socialpet_post_item,parent,false)
+        return ViewHolder(inflateView)
+    }
 
-        holder.user1_id.text = users_id[0]
-        holder.user2_id.text = users_id[1]
-        holder.user3_id.text = users_id[2]
-        holder.user4_id.text = users_id[3]
-
-        holder.user1_text.text = users_details[0]
-        holder.user2_text.text = users_details[1]
-        holder.user3_text.text = users_details[2]
-        holder.user4_text.text = users_details[3]
-
-
-        Glide.with(holder.itemView)
-            .load(users_img[0])
-            .centerCrop()
-            .circleCrop()
-            .into(holder.user1_img)
-
-        Glide.with(holder.itemView)
-            .load(users_img[1])
-            .centerCrop()
-            .circleCrop()
-            .into(holder.user2_img)
-
-        Glide.with(holder.itemView)
-            .load(users_img[2])
-            .centerCrop()
-            .circleCrop()
-            .into(holder.user3_img)
-
-        Glide.with(holder.itemView)
-            .load(users_img[3])
-            .centerCrop()
-            .circleCrop()
-            .into(holder.user4_img)
-
+    class ViewHolder(v: View): RecyclerView.ViewHolder(v){
+        private var view : View = v
+        var post_Img = v.findViewById<ImageView>(R.id.postImg)
+        var post_Text = v.findViewById<TextView>(R.id.postText)
+        var user_Img = v.findViewById<ImageView>(R.id.userImg)
+        var user_Id = v.findViewById<TextView>(R.id.userId)
+        var constraintLayout = v.findViewById<ConstraintLayout>(R.id.constraintLayout)
 
     }
 
-    override fun getItemCount(): Int {
-        return images.size
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item_postImage = postImage[position]
+        val item_userImg = userImage[position]
+
+
+        Glide.with(context)
+            .load(item_postImage)
+            .centerCrop()
+            .into(holder.post_Img)
+
+        Glide.with(context)
+            .load(item_userImg)
+            .centerCrop()
+            .circleCrop()
+            .into(holder.user_Img)
+
+        holder.post_Text.text = postText[position]
+        holder.user_Id.text=userId[position]
+
+        when(position%4){
+            0-> {
+                holder.post_Img.layoutParams.height  = 400
+                //holder.constraintLayout.maxHeight = 550
+            }
+            1-> {
+                holder.post_Img.layoutParams.height  = 400
+                //holder.constraintLayout.maxHeight = 450
+            }
+            2-> {
+                holder.post_Img.layoutParams.height  = 400
+                //holder.constraintLayout.maxHeight = 450
+            }
+            3-> {
+                holder.post_Img.layoutParams.height  = 400
+                //holder.constraintLayout.maxHeight = 550
+            }
+        }
+
+        holder.constraintLayout.layoutParams.height= ConstraintLayout.LayoutParams.WRAP_CONTENT
+
+        holder.itemView.setOnClickListener{
+            itemClickListner.onClick(it,position)
+        }
+
     }
 
 }

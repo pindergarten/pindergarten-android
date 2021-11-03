@@ -122,6 +122,7 @@ class LoginActivity : AppCompatActivity() {
                     login["phone"] = loginText?.text.toString()
                     login["password"] = pwdText?.text.toString()
 
+
                     apiService.loginAPI(login)?.enqueue(object : Callback<Post?> {
                         override fun onFailure(call: Call<Post?>, t: Throwable) {
                             Log.d(ContentValues.TAG, "실패 : {${t}}")
@@ -149,6 +150,8 @@ class LoginActivity : AppCompatActivity() {
                             }
                         }
                     })
+
+
 
                 }
             }

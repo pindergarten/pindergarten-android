@@ -1,9 +1,7 @@
 package com.example.pindergarten_android
 
 import retrofit2.Call
-import retrofit2.http.FieldMap
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 interface RetrofitAPI {
@@ -42,5 +40,23 @@ interface RetrofitAPI {
     @FormUrlEncoded
     @POST("api/users/find-pw")
     fun passwordAPI(@FieldMap param: HashMap<String, String>): Call<Post?>?
+
+    //전체 게시글 조회
+    @GET("api/posts")
+    fun searchAllPostAPI(): Call<Post?>?
+
+    //특정 게시글 정보
+    @GET("api/posts/{postId}")
+    fun postDetailAPI(@Path("postId") postId: Int): Call<Post?>?
+
+    //게시물 좋아요
+    @FormUrlEncoded
+    @POST("api/posts/{postId}/like")
+    fun postLikeAPI(@Path("postId") postId: Int ,@FieldMap param: HashMap<String, String>): Call<Post?>?
+
+    //게시글 댓글 확인
+    @GET("api/posts/{postId}/comments")
+    fun postCommentAPI(@Path("postId") postId: Int): Call<Post?>?
+
 
 }

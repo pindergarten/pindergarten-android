@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="이벤트 제목"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         app:cardElevation="0dp"
         >
 
@@ -64,6 +64,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
     </androidx.cardview.widget.CardView>
 
     </LinearLayout>
@@ -72,8 +73,8 @@
         android:id="@+id/relativeLayout"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="@+id/linear_cardView"
         app:layout_constraintTop_toTopOf="@+id/linear_cardView">
 
@@ -85,14 +86,8 @@
 
         <TextView
             android:id="@+id/day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
@@ -113,7 +108,7 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="310dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@drawable/dialog_corner"
         android:backgroundTint="@color/yellow_white"
@@ -145,7 +140,7 @@
         android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_cardView"
@@ -190,7 +185,7 @@
         android:id="@+id/recyclerview_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"

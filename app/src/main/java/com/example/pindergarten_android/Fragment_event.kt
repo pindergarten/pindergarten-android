@@ -20,6 +20,7 @@ class Fragment_event : Fragment() {
     var eventImage = ArrayList<Uri>()
     var eventTitle = ArrayList<String>()
     var eventDay = ArrayList<Int>()
+    var eventId = ArrayList<Int>()
     val adapter = EventAdapter(eventImage,eventTitle,eventDay,this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,6 +42,7 @@ class Fragment_event : Fragment() {
                 val transaction = myContext!!.supportFragmentManager.beginTransaction()
                 val fragment : Fragment = Fragment_eventdetail()
                 val bundle = Bundle()
+                //bundle.putInt("eventId",eventId.get(position))
                 bundle.putString("eventTitle",eventTitle.get(position))
                 bundle.putInt("eventDay",eventDay.get(position))
                 bundle.putString("eventImage", eventImage.get(position).toString())
@@ -55,9 +57,12 @@ class Fragment_event : Fragment() {
             val event_img = Uri.parse("android.resource://com.example.pindergarten_android/drawable/test1")
             val event_title = "이벤트 ${i+1}"
             val event_day = 30
+            //val event_Id=0
             eventImage.add(event_img)
             eventTitle.add(event_title)
             eventDay.add(event_day)
+            //eventId.add(event_Id)
+
         }
         adapter.notifyDataSetChanged()
 
