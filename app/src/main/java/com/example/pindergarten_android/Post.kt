@@ -23,14 +23,12 @@ class Post {
         @SerializedName("userId")
         val userId: Int? = null
 
-        @SerializedName("isSet")
-        val liked: Int? = null
 
     }
 
-    /*
-    //postComment
-    @SerializedName("result")
+
+    //postComment & eventComment
+    @SerializedName("comments")
     val commentList: ArrayList<postComment> = ArrayList()
     class postComment{
         @SerializedName("id")
@@ -44,9 +42,6 @@ class Post {
         @SerializedName("content")
         var content: String? = null
     }
-
-     */
-
 
 
 
@@ -65,6 +60,9 @@ class Post {
         var thumbnail: String? = null
         @SerializedName("content")
         var content: String? = null
+        @SerializedName("isLiked")
+        var isLiked: Int? = null
+
     }
 
     //post
@@ -72,7 +70,6 @@ class Post {
     var postList : Post = Post()
 
     class Post{
-
         @SerializedName("content")
         var postText : String ?=null
         @SerializedName("date")
@@ -85,6 +82,8 @@ class Post {
         var likeCount : Int ?=null
         @SerializedName("commentCount")
         var commentCount : Int ?=null
+        @SerializedName("isLiked")
+        var isLiked: Int? = null
 
         @SerializedName("imgUrls")
         var postImage : ArrayList<postImage> = ArrayList()
@@ -95,6 +94,46 @@ class Post {
         var postImageUrl: String? = null
     }
 
+
+    //allEvent
+    @SerializedName("allevents")
+    var allEventList : ArrayList<allEvent> = ArrayList()
+
+    class allEvent{
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("title")
+        var title: String? = null
+        @SerializedName("thumbnail")
+        var thumbnail: String? = null
+        @SerializedName("expired_at")
+        var expired_at: String? = null
+        @SerializedName("created_at")
+        var created_at: Int? = null
+
+    }
+
+    //event
+    @SerializedName("event")
+    var eventList : EventList = EventList()
+
+    class EventList{
+        @SerializedName("id")
+        var id : Int ?=null
+        @SerializedName("title")
+        var title : String ?=null
+        @SerializedName("thumbnail")
+        var thumbnail : String ?=null
+        @SerializedName("expired_at")
+        var expired_at : String ?=null
+        @SerializedName("likeCount")
+        var likeCount : Int ?=null
+        @SerializedName("commentCount")
+        var commentCount : Int ?=null
+        @SerializedName("created_at")
+        var created_at: Int? = null
+
+    }
 
 
 

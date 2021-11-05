@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,26 +14,27 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class Fragment_eventdetail : Fragment() {
 
     private var myContext: FragmentActivity? = null
 
 
-    var userImg = ArrayList<Uri>()
-    var userId = ArrayList<String>()
-    var userDetail = ArrayList<String>()
-    var userDate = ArrayList<String>()
-    val adapter = CommentAdapter(userImg,userId,userDetail,userDate,this)
-
-    var eventTitle : String =""
-    var eventImage : String =""
-    var eventDay : Int = 0
+    var eventId : Int = 0
     var liked : Boolean ?= null
 
+    //Retrofit
+    val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("http://pindergarten.site:3000/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val apiService = retrofit.create(RetrofitAPI::class.java)
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,70 +46,86 @@ class Fragment_eventdetail : Fragment() {
         mainAct.HideBottomNavigation(true)
 
 
-        var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
-        var recyclerView = recyclerview_main // recyclerview id
-        var layoutManager = LinearLayoutManager(container?.context)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
-
         //fragment 데이터 전달 받는
         var bundle: Bundle
         if(arguments!=null){
             bundle = arguments as Bundle
-
-            eventTitle = bundle.getString("eventTitle").toString()
-            eventImage = bundle.getString("eventImage").toString()
-            eventDay = bundle.getInt("eventDay",0)
-
-            var event_title = view.findViewById<TextView>(R.id.eventTitle)
-            var event_Image = view.findViewById<ImageView>(R.id.eventImage)
-            var day = view.findViewById<TextView>(R.id.day)
-
-            event_title.text = eventTitle
-            context?.let {
-                Glide.with(it)
-                    .load(eventImage)
-                    .override(500,500)
-                    .into(event_Image)
-            }
-            day.text="D-${eventDay}"
-
+            eventId = bundle.getInt("eventId")
         }
+
+        var event_title = view.findViewById<TextView>(R.id.eventTitle)
+        var event_Image = view.findViewById<ImageView>(R.id.eventImage)
+        var day = view.findViewById<TextView>(R.id.day)
+        var ReviewCount = view.findViewById<TextView>(R.id.ReviewCount)
+        var likeCount = view.findViewById<TextView>(R.id.likeCount)
 
         //수정필요
         liked = false
 
-        //서버요청
-        for(i in 0 until 10){
-            val temp_img = Uri.parse("android.resource://com.example.pindergarten_android/drawable/test1")
-            val temp_title = "재밌는 이벤트네요~"
-            val temp_day = "2021-01-01"
-            val temp_id = "지현"
-            userImg.add(temp_img)
-            userId.add(temp_id)
-            userDetail.add(temp_title)
-            userDate.add(temp_day)
-        }
-        adapter.notifyDataSetChanged()
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
+
+        //서버: 이벤트 세부확인
+        apiService.eventDetailAPI(eventId,sharedPreferences.toString())?.enqueue(object :
+            Callback<Post?> {
+            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                Log.i("event Detail: ","success")
+                context?.let {
+                    Glide.with(it)
+                        .load(Uri.parse(response.body()?.eventList?.thumbnail))
+                        .override(500,500)
+                        .into(event_Image)
+                }
+                event_title.text = response.body()?.eventList?.title.toString()
+                ReviewCount.text= response.body()?.eventList?.commentCount.toString()
+                likeCount.text= response.body()?.eventList?.likeCount.toString()
+                //계산 필요
+                day.text="D-${0}"
+
+            }
+
+            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                Log.i("post Detail: ","fail")
+            }
+
+        })
+
 
         var button =view.findViewById<Button>(R.id.button)
         button.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_comment()
+            val bundle = Bundle()
+            bundle.putInt("eventId", eventId)
+            fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.commit()
         }
 
         var ReviewId = view.findViewById<ImageButton>(R.id.ReviewId)
-        var likeCount = view.findViewById<TextView>(R.id.likeCount)
         var likeId = view.findViewById<ImageButton>(R.id.likeId)
+        var editText = view.findViewById<TextView>(R.id.editText)
+
+        editText.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_comment()
+            val bundle = Bundle()
+            bundle.putInt("eventId", eventId)
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
+        }
 
         ReviewId.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_comment()
+            val bundle = Bundle()
+            bundle.putInt("eventId", eventId)
+            fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.commit()
         }
+
         likeId.setOnClickListener{
             if(liked==false){
                 likeId.setImageResource(R.drawable.liked)
@@ -119,6 +137,27 @@ class Fragment_eventdetail : Fragment() {
                 liked = false
                 likeCount.setText("${Integer.parseInt(likeCount.text.toString())-1}")
             }
+            //좋아요 변경 API
+            apiService.eventLikeAPI(eventId,sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                    Log.i("eventId Liked: ","수정 성공")
+                }
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("eventId Detail: ","fail")
+                }
+
+            })
+        }
+
+        var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_event()
+            val bundle = Bundle()
+            bundle.putInt("eventId", eventId)
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
         }
 
         return view

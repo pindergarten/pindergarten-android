@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 
-class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:ArrayList<String>, private val userImage:ArrayList<Uri>,private val userId:ArrayList<String>, val context: Fragment_socialPet): RecyclerView.Adapter<MyAdapter.ViewHolder>(){
+class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:ArrayList<String>, private val userImage:ArrayList<Uri>,private val userId:ArrayList<String>,private val postLiked:ArrayList<Int>, val context: Fragment_socialPet): RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
     override fun getItemCount(): Int = postImage.size
 
@@ -37,7 +37,7 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         var user_Img = v.findViewById<ImageView>(R.id.userImg)
         var user_Id = v.findViewById<TextView>(R.id.userId)
         var constraintLayout = v.findViewById<ConstraintLayout>(R.id.constraintLayout)
-
+        var post_Liked = v.findViewById<ImageView>(R.id.postLike)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -61,20 +61,29 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
 
         when(position%4){
             0-> {
-                holder.post_Img.layoutParams.height  = 400
+                holder.post_Img.layoutParams.height  = 550
                 //holder.constraintLayout.maxHeight = 550
             }
             1-> {
-                holder.post_Img.layoutParams.height  = 400
+                holder.post_Img.layoutParams.height  = 450
                 //holder.constraintLayout.maxHeight = 450
             }
             2-> {
-                holder.post_Img.layoutParams.height  = 400
+                holder.post_Img.layoutParams.height  = 450
                 //holder.constraintLayout.maxHeight = 450
             }
             3-> {
-                holder.post_Img.layoutParams.height  = 400
+                holder.post_Img.layoutParams.height  = 550
                 //holder.constraintLayout.maxHeight = 550
+            }
+        }
+
+        when(postLiked[position]){
+            0->{
+                holder.post_Liked.setImageResource(R.drawable.post_unliked)
+            }
+            1->{
+                holder.post_Liked.setImageResource(R.drawable.post_liked)
             }
         }
 

@@ -12,4 +12,5 @@
     <color name="yellow_white">#FFE9A0</color>
     <color name="brown">#9F5D1F</color>
     <color name="pink">#F4847D</color>
+    <color name="transparency">#00ff0000</color>
 </resources>

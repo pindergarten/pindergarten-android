@@ -10,8 +10,9 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,6 +28,7 @@ class Fragment_socialPet : Fragment() {
     var userId = ArrayList<String>()
     var postText = ArrayList<String>()
     var postId = ArrayList<Int>()
+    var postLiked = ArrayList<Int>()
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -34,7 +36,7 @@ class Fragment_socialPet : Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
-
+    val adapter = MyAdapter(postImage,postText,userImage,userId,postLiked,this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -43,11 +45,17 @@ class Fragment_socialPet : Fragment() {
         var recyclerView = recyclerview_main // recyclerview id
 
 
-        val gridLayoutManager = GridLayoutManager(context,2)
-        recyclerView.layoutManager = gridLayoutManager
+        recyclerView.adapter = adapter
+
+        val StaggeredGridLayoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+        recyclerView.layoutManager = StaggeredGridLayoutManager
+
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
+
 
         //서버: 전체 게시글 확인
-        apiService.searchAllPostAPI()?.enqueue(object : Callback<Post?> {
+        apiService.searchAllPostAPI(sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                 Log.i("allPost count:", response.body()?.allPostList?.size.toString())
@@ -66,12 +74,14 @@ class Fragment_socialPet : Fragment() {
                     Log.i("${i}번째 userId: ",response.body()?.allPostList!![i].user_id.toString())
                     Log.i("${i}번째 postText: ",response.body()?.allPostList!![i].content.toString())
                     Log.i("${i}번째 postId: ",response.body()?.allPostList!![i].id.toString())
+                    Log.i("${i}번째 postLiked: ",response.body()?.allPostList!![i].isLiked.toString())
 
                     postImage.add(Uri.parse(response.body()?.allPostList!![i].thumbnail.toString()))
                     userImage.add(Uri.parse(response.body()?.allPostList!![i].user_image.toString()))
                     userId.add(response.body()?.allPostList!![i].user_id.toString())
                     postText.add(response.body()?.allPostList!![i].content.toString())
                     postId.add(Integer.parseInt(response.body()?.allPostList!![i].id.toString()))
+                    postLiked.add(Integer.parseInt(response.body()?.allPostList!![i].isLiked.toString()))
                 }
 
                 Log.i("socialPet: ","성공")
@@ -83,7 +93,6 @@ class Fragment_socialPet : Fragment() {
 
         })
 
-        val adapter = MyAdapter(postImage,postText,userImage,userId,this)
 
         adapter.setItemClickListener( object : MyAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
@@ -102,7 +111,6 @@ class Fragment_socialPet : Fragment() {
         })
 
         adapter.notifyDataSetChanged()
-        recyclerView.adapter = adapter
 
 
         return view

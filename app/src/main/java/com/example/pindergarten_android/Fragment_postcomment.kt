@@ -8,10 +8,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -31,7 +37,7 @@ class Fragment_postcomment : Fragment() {
     var userDetail = ArrayList<String>()
     var userDate = ArrayList<String>()
     var commentId = ArrayList<String>()
-    val adapter = postCommentAdapter(userImg,userId,userDetail,userDate,this)
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -58,25 +64,13 @@ class Fragment_postcomment : Fragment() {
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerView)
         var recyclerView = recyclerview_main // recyclerview id
         var layoutManager = LinearLayoutManager(container?.context)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
 
 
-        //서버요청
-        for(i in 0 until 10){
-            val temp_img = Uri.parse("android.resource://com.example.pindergarten_android/drawable/test1")
-            val temp_title = "재밌는 이벤트네요~"
-            val temp_day = "2021-01-01"
-            val temp_id = "지현"
-            userImg.add(temp_img)
-            userId.add(temp_id)
-            userDetail.add(temp_title)
-            userDate.add(temp_day)
-        }
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
 
-        /*
         //서버: 게시글 댓글 확인
-        apiService.postCommentAPI(postId)?.enqueue(object : Callback<Post?> {
+        apiService.postCommentAPI(postId, sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                 Log.i("post Comment: ", "success")
 
@@ -86,6 +80,7 @@ class Fragment_postcomment : Fragment() {
                 userDetail.clear()
                 userDate.clear()
                 commentId.clear()
+
 
                 for( i in 0 until response.body()?.commentList!!.size){
 
@@ -112,9 +107,54 @@ class Fragment_postcomment : Fragment() {
 
         })
 
-         */
-
+        val adapter = postCommentAdapter(userImg,userId,userDetail,userDate,this)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
+
+        var comment = view.findViewById<EditText>(R.id.editText)
+        var button =  view.findViewById<Button>(R.id.button)
+        val sharedPreferences2 = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences2.toString())
+        var content: HashMap<String, String> = HashMap()
+        content["content"] = comment.text.toString()
+
+        button.setOnClickListener{
+            if(comment.text.isNotEmpty()){
+                //서버에 댓글 저장
+                apiService.addPostCommentAPI(postId,sharedPreferences2.toString(),content)?.enqueue(object : Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        Log.i("add Comment: ", "성공")
+                        Log.i("add comment: ",comment.text.toString())
+
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_postcomment()
+                        val bundle = Bundle()
+                        bundle.putInt("postId", postId)
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.commit()
+                    }
+
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("add Comment: ", "실패")
+                    }
+
+                })
+
+            }
+        }
+
+        var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_postdetail()
+            val bundle = Bundle()
+            bundle.putInt("postId", postId)
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
+        }
 
         return view
     }

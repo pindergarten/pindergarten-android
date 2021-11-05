@@ -12,6 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class Fragment_event : Fragment() {
 
@@ -22,6 +27,13 @@ class Fragment_event : Fragment() {
     var eventDay = ArrayList<Int>()
     var eventId = ArrayList<Int>()
     val adapter = EventAdapter(eventImage,eventTitle,eventDay,this)
+
+    //Retrofit
+    val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("http://pindergarten.site:3000/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val apiService = retrofit.create(RetrofitAPI::class.java)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -42,28 +54,55 @@ class Fragment_event : Fragment() {
                 val transaction = myContext!!.supportFragmentManager.beginTransaction()
                 val fragment : Fragment = Fragment_eventdetail()
                 val bundle = Bundle()
-                //bundle.putInt("eventId",eventId.get(position))
-                bundle.putString("eventTitle",eventTitle.get(position))
-                bundle.putInt("eventDay",eventDay.get(position))
-                bundle.putString("eventImage", eventImage.get(position).toString())
+                bundle.putInt("eventId", eventId.get(position))
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
                 transaction.commit()
             }
         })
 
-        //서버요청
-        for(i in 0 until 10){
-            val event_img = Uri.parse("android.resource://com.example.pindergarten_android/drawable/test1")
-            val event_title = "이벤트 ${i+1}"
-            val event_day = 30
-            //val event_Id=0
-            eventImage.add(event_img)
-            eventTitle.add(event_title)
-            eventDay.add(event_day)
-            //eventId.add(event_Id)
 
-        }
+
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
+
+
+        //서버: 전체 이벤트 확인
+        apiService.searchAllEventAPI()?.enqueue(object :
+            Callback<Post?> {
+            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                Log.i("allEvent success:", response.body()?.success.toString())
+
+                eventImage.clear()
+                eventTitle.clear()
+                eventDay.clear()
+                eventId.clear()
+
+
+                for( i in 0 until response.body()?.allEventList?.size!!){
+
+                    Log.i("${i}번째 eventImage: ",response.body()?.allEventList!![i].thumbnail.toString())
+                    Log.i("${i}번째 eventTitle: ",response.body()?.allEventList!![i].title.toString())
+                    Log.i("${i}번째 eventId: ",response.body()?.allEventList!![i].id.toString())
+
+
+                    eventImage.add(Uri.parse(response.body()?.allEventList!![i].thumbnail.toString()))
+                    eventTitle.add(response.body()?.allEventList!![i].title.toString())
+                    eventId.add(Integer.parseInt(response.body()?.allEventList!![i].id.toString()))
+                    //계산필요
+                    eventDay.add(Integer.parseInt("0"))
+                }
+
+                Log.i("allEvent: ","성공")
+            }
+
+            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                Log.i("allEvent 실패: ",t.toString())
+            }
+
+        })
+
         adapter.notifyDataSetChanged()
 
 
@@ -85,6 +124,7 @@ class Fragment_event : Fragment() {
 
 
     }
+
 
 
 }

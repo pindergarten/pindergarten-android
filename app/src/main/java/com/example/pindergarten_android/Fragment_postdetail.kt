@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,13 +32,17 @@ class Fragment_postdetail : Fragment() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
-    var likeTemp : Int = 0
+
     var dialog : AlertDialog ?=null
+    var liked = -1
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_postdetail,container,false)
+
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
 
         //navigate hide
         val mainAct = activity as MainActivity
@@ -66,21 +71,7 @@ class Fragment_postdetail : Fragment() {
         var likeId : ImageButton = view.findViewById(R.id.likeId)
         var ReviewId :ImageButton = view.findViewById(R.id.ReviewId)
 
-        likeId.setOnClickListener{
-            if(likeTemp == 1){
-                //좋아요
-                likeId.setImageResource(R.drawable.unliked)
-                likeCount.text = ("${Integer.parseInt(likeCount.text.toString())-1}")
-                likeTemp = 0
-            }
-            else{
-                //좋아요 아님
-                likeId.setImageResource(R.drawable.liked)
-                likeCount.text = ("${Integer.parseInt(likeCount.text.toString())+1}")
-                likeTemp = 1
-            }
-            //서버 연결 (게시물 좋아요)
-        }
+
 
         ReviewId.setOnClickListener{
             //게시물 댓글 보기
@@ -95,26 +86,65 @@ class Fragment_postdetail : Fragment() {
 
         noticeBtn.setOnClickListener{
             //신고하기 기능
+            Log.i("신고하기 기능","!!")
             val builder = AlertDialog.Builder(myContext)
             val view: View = LayoutInflater.from(myContext).inflate(R.layout.post_declare, null)
-            val declareBtn = dialog?.findViewById<ImageButton>(R.id.delcareBtn)
-            val cancelBtn = dialog?.findViewById<ImageButton>(R.id.cancelBtn)
+            val declareBtn = view?.findViewById<ImageButton>(R.id.delcareBtn)
+            val cancelBtn = view?.findViewById<ImageButton>(R.id.cancelBtn)
             dialog = builder.create()
             dialog!!.setView(view)
             dialog!!.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog!!.window!!.setGravity(Gravity.BOTTOM)
+            dialog!!.show()
 
             cancelBtn?.setOnClickListener{
                 dialog!!.dismiss()
             }
             declareBtn?.setOnClickListener{
                 Log.i("신고","!!")
+                //게시물 댓글 보기
+                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                val fragment : Fragment = Fragment_postDeclare()
+                val bundle = Bundle()
+                bundle.putInt("postId", postId)
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.commit()
+                dialog!!.dismiss()
             }
+        }
+
+
+        likeId?.setOnClickListener{
+            //게시물 좋아요
+            if(liked==0){
+                Log.i("post Liked: ","좋아요")
+                likeId.setImageResource(R.drawable.liked)
+                liked = 1
+            }
+            else{
+                Log.i("post Liked: ","좋아요 취소")
+                likeId.setImageResource(R.drawable.unliked)
+                liked = 0
+            }
+
+            //좋아요 변경 API
+            apiService.postLikeAPI(postId,sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                    Log.i("post Liked: ","수정 성공")
+                }
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("post Detail: ","fail")
+                }
+
+            })
+
 
         }
 
 
         //서버: 게시글 세부확인
-        apiService.postDetailAPI(postId)?.enqueue(object : Callback<Post?> {
+        apiService.postDetailAPI(postId,sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                     Log.i("post Detail: ","success")
                     Log.i("post Detail: ",response.body()?.postList?.postText.toString())
@@ -129,7 +159,7 @@ class Fragment_postdetail : Fragment() {
                             .into(userImage)
 
                         Glide.with(it1)
-                            .load(Uri.parse(response.body()?.postList?.postImage?.get(0)?.postImageUrl.toString()))
+                            .load(Uri.parse(response.body()?.postList?.postImage!![0]?.postImageUrl.toString()))
                             .centerCrop()
                             .into(postImage)
 
@@ -139,6 +169,20 @@ class Fragment_postdetail : Fragment() {
                     postText.text = response.body()?.postList?.postText
                     likeCount.text = response.body()?.postList?.likeCount.toString()
                     ReviewCount.text = response.body()?.postList?.commentCount.toString()
+
+                    var tempLiked = response.body()?.postList?.isLiked
+                    if(tempLiked ==0){
+                        //좋아요 x
+                        Log.i("post Liked: ","좋아요 x")
+                        likeId.setImageResource(R.drawable.unliked)
+                        liked = 1
+                    }
+                    else{
+                        //좋아요
+                        Log.i("post Liked: ","좋아요")
+                        likeId.setImageResource(R.drawable.liked)
+                        liked = 0
+                    }
                 }
 
                 override fun onFailure(call: Call<Post?>, t: Throwable) {
@@ -147,33 +191,16 @@ class Fragment_postdetail : Fragment() {
 
             })
 
-        var postLike: HashMap<String, String> = HashMap()
-        postLike["x-access-token"] = PreferenceManager.getString(myContext!!.applicationContext, "jwt").toString()
-        Log.i("jwt: ",PreferenceManager.getString(myContext!!.applicationContext, "jwt").toString())
-
-        apiService.postLikeAPI(postId,postLike)?.enqueue(object : Callback<Post?> {
-            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                Log.i("post Liked: ","success")
-                if(response.body()?.getResultList()?.liked==1 ){
-                    //좋아요
-                    Log.i("post Liked: ","좋아요")
-                    likeId.setImageResource(R.drawable.liked)
-                    likeTemp = 1
-                }
-                else{
-                    //좋아요 x
-                    Log.i("post Liked: ","좋아요 x")
-                    likeId.setImageResource(R.drawable.unliked)
-                    likeTemp = 0
-                }
-
-            }
-
-            override fun onFailure(call: Call<Post?>, t: Throwable) {
-                Log.i("post Liked: ","fail")
-            }
-
-        })
+        var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_socialPet()
+            val bundle = Bundle()
+            bundle.putInt("postId", postId)
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
+        }
 
 
         return view

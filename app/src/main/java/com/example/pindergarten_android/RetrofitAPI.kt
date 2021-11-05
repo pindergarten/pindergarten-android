@@ -43,20 +43,47 @@ interface RetrofitAPI {
 
     //전체 게시글 조회
     @GET("api/posts")
-    fun searchAllPostAPI(): Call<Post?>?
+    fun searchAllPostAPI(@Header("x-access-token") value : String): Call<Post?>?
 
     //특정 게시글 정보
     @GET("api/posts/{postId}")
-    fun postDetailAPI(@Path("postId") postId: Int): Call<Post?>?
+    fun postDetailAPI(@Path("postId") postId: Int , @Header("x-access-token") value : String): Call<Post?>?
 
     //게시물 좋아요
     @FormUrlEncoded
     @POST("api/posts/{postId}/like")
-    fun postLikeAPI(@Path("postId") postId: Int ,@FieldMap param: HashMap<String, String>): Call<Post?>?
+    fun postLikeAPI(@Path("postId") postId: Int , @Header("x-access-token") value : String): Call<Post?>?
 
-    //게시글 댓글 확인
+    //게시글 댓글 조회
     @GET("api/posts/{postId}/comments")
-    fun postCommentAPI(@Path("postId") postId: Int): Call<Post?>?
+    fun postCommentAPI(@Path("postId") postId: Int,@Header("x-access-token") value : String): Call<Post?>?
+
+    //게시글 댓글 등록
+    @FormUrlEncoded
+    @POST("api/posts/{postId}/comments")
+    fun addPostCommentAPI(@Path("postId") postId: Int,@Header("x-access-token") value : String,@FieldMap param: HashMap<String, String>): Call<Post?>?
+
+    //전체 이벤트 조회
+    @GET("api/events")
+    fun searchAllEventAPI(): Call<Post?>?
+
+    //이벤트 상세 조회
+    @GET("api/events/{eventId}")
+    fun eventDetailAPI(@Path("eventId") eventId: Int , @Header("x-access-token") value : String): Call<Post?>?
+
+    //이벤트 댓글 조회
+    @GET("api/posts/{eventId}/comments")
+    fun eventCommentAPI(@Path("eventId") eventId: Int,@Header("x-access-token") value : String): Call<Post?>?
+
+    //이벤트 좋아요
+    @FormUrlEncoded
+    @POST("api/events/{eventId}/like")
+    fun eventLikeAPI(@Path("eventId") eventId: Int , @Header("x-access-token") value : String): Call<Post?>?
+
+    //이벤트 댓글 등록
+    @FormUrlEncoded
+    @POST("api/events/{eventId}/comments")
+    fun addEventCommentAPI(@Path("eventId") eventId: Int,@Header("x-access-token") value : String,@FieldMap param: HashMap<String, String>): Call<Post?>?
 
 
 }
