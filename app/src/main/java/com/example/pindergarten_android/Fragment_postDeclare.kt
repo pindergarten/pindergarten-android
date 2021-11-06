@@ -57,10 +57,9 @@ class Fragment_postDeclare : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
                 when(position) {
-                    0 -> { }
-                    1 -> { declareText.setText(items[0]) }
-                    2 -> { declareText.setText(items[1]) }
-                    3 -> { declareText.setText(items[2]) }
+                    0 -> { declareText.setText(items[0]) }
+                    1 -> { declareText.setText(items[1]) }
+                    2 -> { declareText.setText(items[2]) }
                 }
 
             }
@@ -81,7 +80,7 @@ class Fragment_postDeclare : Fragment() {
             val alertDialog = dialogBuilder.create()
             button.setOnClickListener{
                 val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_socialPet()
+                val fragment : Fragment = Fragment_postdetail()
                 val bundle = Bundle()
                 bundle.putInt("postId", postId)
                 fragment.arguments=bundle

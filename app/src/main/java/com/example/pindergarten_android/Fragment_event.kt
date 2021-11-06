@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -91,9 +92,10 @@ class Fragment_event : Fragment() {
                     eventTitle.add(response.body()?.allEventList!![i].title.toString())
                     eventId.add(Integer.parseInt(response.body()?.allEventList!![i].id.toString()))
                     //계산필요
-                    eventDay.add(Integer.parseInt("0"))
+                    eventDay.add(0)
                 }
 
+                adapter.notifyDataSetChanged()
                 Log.i("allEvent: ","성공")
             }
 
@@ -103,7 +105,15 @@ class Fragment_event : Fragment() {
 
         })
 
-        adapter.notifyDataSetChanged()
+        var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_socialPet()
+            val bundle = Bundle()
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
+        }
 
 
         return view

@@ -1,10 +1,12 @@
 package com.example.pindergarten_android
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,10 +38,10 @@ class Fragment_postcomment : Fragment() {
     var userId = ArrayList<String>()
     var userDetail = ArrayList<String>()
     var userDate = ArrayList<String>()
-    var commentId = ArrayList<String>()
+    var commentId = ArrayList<Int>()
+    var dialog : AlertDialog ?=null
 
-
-
+    val adapter = postCommentAdapter(userImg,userId,userDetail,userDate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_postcomment,container,false)
@@ -95,10 +97,10 @@ class Fragment_postcomment : Fragment() {
                     userId.add(response.body()?.commentList!![i].user_id.toString())
                     userDetail.add(response.body()?.commentList!![i].content.toString())
                     userDate.add(response.body()?.commentList!![i].date.toString())
-                    commentId.add(response.body()?.commentList!![i].id.toString())
+                    commentId.add(response.body()?.commentList!![i].id!!.toInt())
                 }
 
-
+                adapter.notifyDataSetChanged()
             }
 
             override fun onFailure(call: Call<Post?>, t: Throwable) {
@@ -107,10 +109,9 @@ class Fragment_postcomment : Fragment() {
 
         })
 
-        val adapter = postCommentAdapter(userImg,userId,userDetail,userDate,this)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
-        adapter.notifyDataSetChanged()
+
 
         var comment = view.findViewById<EditText>(R.id.editText)
         var button =  view.findViewById<Button>(R.id.button)
@@ -124,7 +125,7 @@ class Fragment_postcomment : Fragment() {
                 //서버에 댓글 저장
                 apiService.addPostCommentAPI(postId,sharedPreferences2.toString(),content)?.enqueue(object : Callback<Post?> {
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                        Log.i("add Comment: ", "성공")
+                        Log.i("add Comment: ", response.body()?.success.toString())
                         Log.i("add comment: ",comment.text.toString())
 
                         val transaction = myContext!!.supportFragmentManager.beginTransaction()
@@ -144,6 +145,66 @@ class Fragment_postcomment : Fragment() {
 
             }
         }
+
+        //댓글 삭제하기
+        adapter.setItemLongClickListener(object :postCommentAdapter.ItemLongClickListener{
+            override fun onClick(view: View, position: Int) {
+                var myId =  myContext?.let { PreferenceManager.getString(it,"nickName") }
+                if(userId[position]==myId){
+                    //삭제하기 기능
+                    Log.i("삭제하기 기능","!!")
+                    val builder = AlertDialog.Builder(myContext)
+                    val view: View = LayoutInflater.from(myContext).inflate(R.layout.post_delete, null)
+                    val deleteBtn = view?.findViewById<ImageButton>(R.id.deleteBtn)
+                    val cancelBtn = view?.findViewById<ImageButton>(R.id.cancelBtn)
+                    dialog = builder.create()
+                    dialog!!.setView(view)
+                    dialog!!.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                    dialog!!.window!!.setGravity(Gravity.BOTTOM)
+                    dialog!!.show()
+
+                    cancelBtn?.setOnClickListener{
+                        dialog!!.dismiss()
+                    }
+                    deleteBtn?.setOnClickListener{
+                        //댓글 삭제
+                        apiService.deletePostCommentAPI(sharedPreferences.toString(),postId,commentId[position])?.enqueue(object :
+                            Callback<Post?> {
+                            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                                Log.i("delete post Comment: ", response.body()?.success.toString())
+
+                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                                val fragment : Fragment = Fragment_postcomment()
+                                val bundle = Bundle()
+                                bundle.putInt("postId", postId)
+                                fragment.arguments=bundle
+                                transaction.replace(R.id.container,fragment)
+                                transaction.commit()
+
+                                dialog!!.dismiss()
+                            }
+
+                            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                                Log.i("delete post Comment: ", "실패")
+
+                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                                val fragment : Fragment = Fragment_postcomment()
+                                val bundle = Bundle()
+                                bundle.putInt("postId", postId)
+                                fragment.arguments=bundle
+                                transaction.replace(R.id.container,fragment)
+                                transaction.commit()
+
+                                dialog!!.dismiss()
+                            }
+
+                        })
+
+                    }
+
+                }
+
+            }})
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{

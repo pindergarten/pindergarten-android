@@ -137,8 +137,10 @@ class Fragment_eventdetail : Fragment() {
                 liked = false
                 likeCount.setText("${Integer.parseInt(likeCount.text.toString())-1}")
             }
+            var temp: HashMap<String, String> = HashMap()
+
             //좋아요 변경 API
-            apiService.eventLikeAPI(eventId,sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
+            apiService.eventLikeAPI(eventId,sharedPreferences.toString(),temp)?.enqueue(object : Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                     Log.i("eventId Liked: ","수정 성공")
                 }

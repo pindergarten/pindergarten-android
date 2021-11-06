@@ -25,6 +25,7 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         this.itemClickListner = itemClickListener
     }
 
+
     override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
         val inflateView = LayoutInflater.from(parent.context).inflate(R.layout.socialpet_post_item,parent,false)
         return ViewHolder(inflateView)
@@ -61,20 +62,16 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
 
         when(position%4){
             0-> {
-                holder.post_Img.layoutParams.height  = 550
-                //holder.constraintLayout.maxHeight = 550
+                holder.post_Img.layoutParams.height  = changeDP(153)
             }
             1-> {
-                holder.post_Img.layoutParams.height  = 450
-                //holder.constraintLayout.maxHeight = 450
+                holder.post_Img.layoutParams.height  = changeDP(193)
             }
             2-> {
-                holder.post_Img.layoutParams.height  = 450
-                //holder.constraintLayout.maxHeight = 450
+                holder.post_Img.layoutParams.height  = changeDP(193)
             }
             3-> {
-                holder.post_Img.layoutParams.height  = 550
-                //holder.constraintLayout.maxHeight = 550
+                holder.post_Img.layoutParams.height  = changeDP(153)
             }
         }
 
@@ -87,12 +84,15 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
             }
         }
 
-        holder.constraintLayout.layoutParams.height= ConstraintLayout.LayoutParams.WRAP_CONTENT
-
         holder.itemView.setOnClickListener{
             itemClickListner.onClick(it,position)
         }
 
+    }
+
+    private fun changeDP(value: Int): Int {
+        var displayMetrics = context.resources.displayMetrics
+        return Math.round(value * displayMetrics.density)
     }
 
 }

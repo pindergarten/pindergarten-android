@@ -36,11 +36,17 @@ class Fragment_socialPet : Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
+
     val adapter = MyAdapter(postImage,postText,userImage,userId,postLiked,this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_socialpet,container,false)
+
+        //navigate hide
+        val mainAct = activity as MainActivity
+        mainAct.HideBottomNavigation(false)
+
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
         var recyclerView = recyclerview_main // recyclerview id
 
@@ -82,8 +88,10 @@ class Fragment_socialPet : Fragment() {
                     postText.add(response.body()?.allPostList!![i].content.toString())
                     postId.add(Integer.parseInt(response.body()?.allPostList!![i].id.toString()))
                     postLiked.add(Integer.parseInt(response.body()?.allPostList!![i].isLiked.toString()))
+
                 }
 
+                adapter.notifyDataSetChanged()
                 Log.i("socialPet: ","성공")
             }
 
@@ -110,7 +118,7 @@ class Fragment_socialPet : Fragment() {
             }
         })
 
-        adapter.notifyDataSetChanged()
+
 
 
         return view
@@ -134,6 +142,7 @@ class Fragment_socialPet : Fragment() {
             transaction.replace(R.id.container,fragment)
             transaction.commit()
         }
+
 
 
     }

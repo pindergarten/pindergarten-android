@@ -6,6 +6,7 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,16 +18,24 @@ class CommentAdapter2(private val userImg:ArrayList<Uri>, private val userId:Arr
 
     override fun getItemCount(): Int = userImg.size
 
+
     interface ItemClickListener {
+        fun onClick(view: View, position: Int)
+    }
+    interface ItemLongClickListener {
         fun onClick(view: View, position: Int)
     }
 
     private lateinit var itemClickListner: ItemClickListener
+    private lateinit var itemLongClickListner: AdapterView.OnItemLongClickListener
 
     fun setItemClickListener(itemClickListener: ItemClickListener) {
         this.itemClickListner = itemClickListener
     }
 
+    fun setItemLongClickListener(itemClickListener: ItemLongClickListener) {
+        this.itemLongClickListner = itemLongClickListner
+    }
     override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
         val inflateView = LayoutInflater.from(parent.context).inflate(R.layout.comment_item,parent,false)
         return ViewHolder(inflateView)
