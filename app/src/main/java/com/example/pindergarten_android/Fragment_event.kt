@@ -69,8 +69,7 @@ class Fragment_event : Fragment() {
 
 
         //서버: 전체 이벤트 확인
-        apiService.searchAllEventAPI()?.enqueue(object :
-            Callback<Post?> {
+        apiService.searchAllEventAPI()?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                 Log.i("allEvent success:", response.body()?.success.toString())

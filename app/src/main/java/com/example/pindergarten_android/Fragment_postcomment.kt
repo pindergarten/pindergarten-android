@@ -35,13 +35,14 @@ class Fragment_postcomment : Fragment() {
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
     var userImg = ArrayList<Uri>()
-    var userId = ArrayList<String>()
+    var nickName = ArrayList<String>()
+    var userId = ArrayList<Int>()
     var userDetail = ArrayList<String>()
     var userDate = ArrayList<String>()
     var commentId = ArrayList<Int>()
     var dialog : AlertDialog ?=null
 
-    val adapter = postCommentAdapter(userImg,userId,userDetail,userDate,this)
+    val adapter = postCommentAdapter(userImg,nickName,userDetail,userDate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_postcomment,container,false)
@@ -82,22 +83,24 @@ class Fragment_postcomment : Fragment() {
                 userDetail.clear()
                 userDate.clear()
                 commentId.clear()
+                nickName.clear()
 
 
                 for( i in 0 until response.body()?.commentList!!.size){
 
                     Log.i("${i}번째 date: ",response.body()?.commentList!![i].date.toString())
                     Log.i("${i}번째 userImage: ",response.body()?.commentList!![i].user_image.toString())
-                    Log.i("${i}번째 userId: ",response.body()?.commentList!![i].user_id.toString())
+                    Log.i("${i}번째 nickName: ",response.body()?.commentList!![i].nickname.toString())
                     Log.i("${i}번째 comment: ",response.body()?.commentList!![i].content.toString())
                     Log.i("${i}번째 commentId: ",response.body()?.commentList!![i].id.toString())
 
 
                     userImg.add(Uri.parse(response.body()?.commentList!![i].user_image.toString()))
-                    userId.add(response.body()?.commentList!![i].user_id.toString())
+                    nickName.add(response.body()?.commentList!![i].nickname.toString())
                     userDetail.add(response.body()?.commentList!![i].content.toString())
                     userDate.add(response.body()?.commentList!![i].date.toString())
                     commentId.add(response.body()?.commentList!![i].id!!.toInt())
+                    userId.add(response.body()?.commentList!![i].userId!!.toInt())
                 }
 
                 adapter.notifyDataSetChanged()
@@ -149,7 +152,7 @@ class Fragment_postcomment : Fragment() {
         //댓글 삭제하기
         adapter.setItemLongClickListener(object :postCommentAdapter.ItemLongClickListener{
             override fun onClick(view: View, position: Int) {
-                var myId =  myContext?.let { PreferenceManager.getString(it,"nickName") }
+                var myId =  myContext?.let { PreferenceManager.getInt(it,"userId") }
                 if(userId[position]==myId){
                     //삭제하기 기능
                     Log.i("삭제하기 기능","!!")

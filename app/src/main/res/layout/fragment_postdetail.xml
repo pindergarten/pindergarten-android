@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/post_image"
         android:layout_width="match_parent"
         android:layout_height="379dp"
@@ -70,6 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_id" />
+
 
     <LinearLayout
         android:id="@+id/linearlayout"

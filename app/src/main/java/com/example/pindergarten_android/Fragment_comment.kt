@@ -30,11 +30,12 @@ class Fragment_comment : Fragment() {
 
     var eventId : Int = 0
     var userImg = ArrayList<Uri>()
-    var userId = ArrayList<String>()
+    var nickName = ArrayList<String>()
+    var userId = ArrayList<Int>()
     var userDetail = ArrayList<String>()
     var userDate = ArrayList<String>()
     var commentId = ArrayList<Int>()
-    val adapter = CommentAdapter2(userImg,userId,userDetail,userDate,this)
+    val adapter = CommentAdapter2(userImg,nickName,userDetail,userDate,this)
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -71,7 +72,7 @@ class Fragment_comment : Fragment() {
         val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences.toString())
 
-        //서버: 게시글 댓글 확인
+        //서버: 이벤트 댓글 확인
         apiService.eventCommentAPI(eventId, sharedPreferences.toString())?.enqueue(object :
             Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
@@ -82,21 +83,23 @@ class Fragment_comment : Fragment() {
                 userDetail.clear()
                 userDate.clear()
                 commentId.clear()
+                nickName.clear()
 
                 for( i in 0 until response.body()?.commentList!!.size){
 
                     Log.i("${i}번째 date: ",response.body()?.commentList!![i].date.toString())
                     Log.i("${i}번째 userImage: ",response.body()?.commentList!![i].user_image.toString())
-                    Log.i("${i}번째 userId: ",response.body()?.commentList!![i].user_id.toString())
+                    Log.i("${i}번째 nickName: ",response.body()?.commentList!![i].nickname.toString())
                     Log.i("${i}번째 comment: ",response.body()?.commentList!![i].content.toString())
                     Log.i("${i}번째 commentId: ",response.body()?.commentList!![i].id.toString())
 
 
                     userImg.add(Uri.parse(response.body()?.commentList!![i].user_image.toString()))
-                    userId.add(response.body()?.commentList!![i].user_id.toString())
+                    nickName.add(response.body()?.commentList!![i].nickname.toString())
                     userDetail.add(response.body()?.commentList!![i].content.toString())
                     userDate.add(response.body()?.commentList!![i].date.toString())
                     commentId.add(response.body()?.commentList!![i].id!!.toInt())
+                    userId.add(response.body()?.commentList!![i].userId!!.toInt())
                 }
 
                 adapter.notifyDataSetChanged()
@@ -115,35 +118,32 @@ class Fragment_comment : Fragment() {
         content["content"] = comment.text.toString()
 
         button.setOnClickListener{
-            if(comment.text.isNotEmpty()){
-                //서버에 댓글 저장
-                apiService.addEventCommentAPI(eventId,sharedPreferences.toString(),content)?.enqueue(object : Callback<Post?> {
-                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                        Log.i("add Comment: ", "성공")
-                        Log.i("add comment: ",comment.text.toString())
+            //서버에 댓글 저장
+            apiService.addEventCommentAPI(eventId,sharedPreferences.toString(),content)?.enqueue(object : Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                    Log.i("add Comment", "성공")
+                    Log.i("add comment",comment.text.toString())
 
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_comment()
-                        val bundle = Bundle()
-                        bundle.putInt("eventId", eventId)
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
-                    }
+                    val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                    val fragment : Fragment = Fragment_comment()
+                    val bundle = Bundle()
+                    bundle.putInt("eventId", eventId)
+                    fragment.arguments=bundle
+                    transaction.replace(R.id.container,fragment)
+                    transaction.commit()
+                }
 
-                    override fun onFailure(call: Call<Post?>, t: Throwable) {
-                        Log.i("add Comment: ", "실패")
-                    }
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("add Comment", "실패")
+                }
 
-                })
-
-            }
+            })
         }
 
         //댓글 삭제하기
         adapter.setItemLongClickListener(object :CommentAdapter2.ItemLongClickListener{
             override fun onClick(view: View, position: Int) {
-                var myId =  myContext?.let { PreferenceManager.getString(it,"nickName") }
+                var myId =  myContext?.let { PreferenceManager.getInt(it,"userId") }
                 if(userId[position]==myId){
                 //삭제하기 기능
                 Log.i("삭제하기 기능","!!")

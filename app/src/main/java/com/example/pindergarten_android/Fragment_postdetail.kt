@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,7 +33,9 @@ class Fragment_postdetail : Fragment() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+    internal lateinit var viewpager : ViewPager
 
+    var postImageList = ArrayList<String>()
     var dialog : AlertDialog ?=null
     var liked = -1
 
@@ -63,7 +66,7 @@ class Fragment_postdetail : Fragment() {
         var userImage : ImageView = view.findViewById(R.id.user_image)
         var userId : TextView = view.findViewById(R.id.user_id)
         var noticeBtn : ImageButton = view.findViewById(R.id.noticeBtn)
-        var postImage : ImageView = view.findViewById(R.id.post_image)
+        viewpager = view.findViewById(R.id.post_image)
         var likeCount : TextView = view.findViewById(R.id.likeCount)
         var ReviewCount : TextView =view.findViewById(R.id.ReviewCount)
         var date : TextView = view.findViewById(R.id.date)
@@ -71,6 +74,7 @@ class Fragment_postdetail : Fragment() {
         var likeId : ImageButton = view.findViewById(R.id.likeId)
         var ReviewId :ImageButton = view.findViewById(R.id.ReviewId)
 
+        val pagerAdapter = postImageList?.let { myContext?.let { it2 -> PostViewPagerAdapter(it, it2) } }
 
 
         ReviewId.setOnClickListener{
@@ -218,13 +222,17 @@ class Fragment_postdetail : Fragment() {
                             .centerCrop()
                             .circleCrop()
                             .into(userImage)
-
-                        Glide.with(it1)
-                            .load(Uri.parse(response.body()?.postList?.postImage!![0]?.postImageUrl.toString()))
-                            .centerCrop()
-                            .into(postImage)
-
                     }
+
+                    //viewpager
+                    postImageList!!.clear()
+                    for (i in 0 until response.body()?.postList?.postImage!!.size){
+                        postImageList!!.add(response.body()?.postList?.postImage!![i]?.postImageUrl.toString())
+                    }
+                    viewpager.adapter=pagerAdapter
+                    pagerAdapter!!.notifyDataSetChanged()
+
+
                     userId.text = response.body()?.postList?.postUserId
                     date.text = response.body()?.postList?.date
                     postText.text = response.body()?.postList?.postText

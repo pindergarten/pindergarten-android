@@ -34,13 +34,15 @@ class Post {
         @SerializedName("id")
         var id: Int? = null
         @SerializedName("nickname")
-        var user_id: String? = null
+        var nickname: String? = null
         @SerializedName("profile_img")
         var user_image: String? = null
         @SerializedName("date")
         var date: String? = null
         @SerializedName("content")
         var content: String? = null
+        @SerializedName("userId")
+        var userId: Int? = null
     }
 
 
@@ -109,7 +111,7 @@ class Post {
         @SerializedName("expired_at")
         var expired_at: String? = null
         @SerializedName("created_at")
-        var created_at: Int? = null
+        var created_at: String? = null
 
     }
 
@@ -131,7 +133,10 @@ class Post {
         @SerializedName("commentCount")
         var commentCount : Int ?=null
         @SerializedName("created_at")
-        var created_at: Int? = null
+        var created_at: String? = null
+        @SerializedName("isLiked")
+        var isLiked: Int? = null
+
 
     }
 

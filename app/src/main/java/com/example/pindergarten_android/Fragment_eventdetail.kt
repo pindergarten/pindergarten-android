@@ -8,12 +8,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +28,7 @@ class Fragment_eventdetail : Fragment() {
 
 
     var eventId : Int = 0
-    var liked : Boolean ?= null
+    var liked = -1
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -35,6 +36,16 @@ class Fragment_eventdetail : Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
+
+    var userImg = ArrayList<Uri>()
+    var userId = ArrayList<Int>()
+    var nickName = ArrayList<String>()
+    var userDetail = ArrayList<String>()
+    var userDate = ArrayList<String>()
+    var commentId = ArrayList<Int>()
+    var eventImg = ArrayList<Uri>()
+    val adapter = CommentAdapter(userImg,nickName,userDetail,userDate,this)
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,6 +55,12 @@ class Fragment_eventdetail : Fragment() {
         //navigate hide
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(true)
+
+        var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerView)
+        var recyclerView = recyclerview_main // recyclerview id
+        var layoutManager = LinearLayoutManager(container?.context)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
 
 
         //fragment 데이터 전달 받는
@@ -58,9 +75,8 @@ class Fragment_eventdetail : Fragment() {
         var day = view.findViewById<TextView>(R.id.day)
         var ReviewCount = view.findViewById<TextView>(R.id.ReviewCount)
         var likeCount = view.findViewById<TextView>(R.id.likeCount)
+        var likeId = view.findViewById<ImageButton>(R.id.likeId)
 
-        //수정필요
-        liked = false
 
         val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences.toString())
@@ -69,29 +85,87 @@ class Fragment_eventdetail : Fragment() {
         apiService.eventDetailAPI(eventId,sharedPreferences.toString())?.enqueue(object :
             Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                Log.i("event Detail: ","success")
+                Log.i("event Detail","success")
+
                 context?.let {
                     Glide.with(it)
                         .load(Uri.parse(response.body()?.eventList?.thumbnail))
                         .override(500,500)
                         .into(event_Image)
                 }
+
                 event_title.text = response.body()?.eventList?.title.toString()
                 ReviewCount.text= response.body()?.eventList?.commentCount.toString()
                 likeCount.text= response.body()?.eventList?.likeCount.toString()
                 //계산 필요
                 day.text="D-${0}"
 
+
+                var tempLiked = response.body()?.eventList?.isLiked
+                if(tempLiked ==0){
+                    //좋아요 x
+                    Log.i("event Liked: ","좋아요 x")
+                    likeId.setImageResource(R.drawable.unliked)
+                    liked = 0
+                }
+                else{
+                    //좋아요
+                    Log.i("event Liked: ","좋아요")
+                    likeId.setImageResource(R.drawable.liked)
+                    liked = 1
+                }
+
             }
 
             override fun onFailure(call: Call<Post?>, t: Throwable) {
-                Log.i("post Detail: ","fail")
+                Log.i("event Detail","fail")
+                Log.i("event Detail",t.toString())
+            }
+
+        })
+
+        //서버: 게시글 댓글 확인
+        apiService.eventCommentAPI(eventId, sharedPreferences.toString())?.enqueue(object :
+            Callback<Post?> {
+            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                Log.i("event Comment: ", "success")
+
+                userImg.clear()
+                userId.clear()
+                nickName.clear()
+                userDetail.clear()
+                userDate.clear()
+                commentId.clear()
+
+                for( i in 0 until response.body()?.commentList!!.size){
+
+                    Log.i("${i}번째 date: ",response.body()?.commentList!![i].date.toString())
+                    Log.i("${i}번째 userImage: ",response.body()?.commentList!![i].user_image.toString())
+                    Log.i("${i}번째 nickName: ",response.body()?.commentList!![i].nickname.toString())
+                    Log.i("${i}번째 comment: ",response.body()?.commentList!![i].content.toString())
+                    Log.i("${i}번째 commentId: ",response.body()?.commentList!![i].id.toString())
+
+
+                    userImg.add(Uri.parse(response.body()?.commentList!![i].user_image.toString()))
+                    nickName.add(response.body()?.commentList!![i].nickname.toString())
+                    userDetail.add(response.body()?.commentList!![i].content.toString())
+                    userDate.add(response.body()?.commentList!![i].date.toString())
+                    commentId.add(response.body()?.commentList!![i].id!!.toInt())
+                    userId.add(response.body()?.commentList!![i].userId!!.toInt())
+                }
+
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                Log.i("event Comment: ", "실패")
             }
 
         })
 
 
-        var button =view.findViewById<Button>(R.id.button)
+
+        var button =view.findViewById<ImageButton>(R.id.button)
         button.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_comment()
@@ -103,18 +177,6 @@ class Fragment_eventdetail : Fragment() {
         }
 
         var ReviewId = view.findViewById<ImageButton>(R.id.ReviewId)
-        var likeId = view.findViewById<ImageButton>(R.id.likeId)
-        var editText = view.findViewById<TextView>(R.id.editText)
-
-        editText.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_comment()
-            val bundle = Bundle()
-            bundle.putInt("eventId", eventId)
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.commit()
-        }
 
         ReviewId.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
@@ -126,30 +188,37 @@ class Fragment_eventdetail : Fragment() {
             transaction.commit()
         }
 
-        likeId.setOnClickListener{
-            if(liked==false){
+        likeId?.setOnClickListener{
+            //게시물 좋아요
+            if(liked==0){
+                Log.i("event Liked: ","좋아요")
                 likeId.setImageResource(R.drawable.liked)
-                liked = true
-                likeCount.setText("${Integer.parseInt(likeCount.text.toString())+1}")
+                liked = 1
+                likeCount.text = "${ Integer.parseInt(likeCount.text.toString()) + 1 }"
             }
             else{
+                Log.i("event Liked: ","좋아요 취소")
                 likeId.setImageResource(R.drawable.unliked)
-                liked = false
-                likeCount.setText("${Integer.parseInt(likeCount.text.toString())-1}")
+                liked = 0
+                likeCount.text = "${ Integer.parseInt(likeCount.text.toString()) - 1 }"
             }
+
             var temp: HashMap<String, String> = HashMap()
 
             //좋아요 변경 API
             apiService.eventLikeAPI(eventId,sharedPreferences.toString(),temp)?.enqueue(object : Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                    Log.i("eventId Liked: ","수정 성공")
+                    Log.i("event Liked: ","수정 성공")
                 }
                 override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("eventId Detail: ","fail")
+                    Log.i("event Detail: ","fail")
                 }
 
             })
+
+
         }
+
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{

@@ -20,11 +20,18 @@ class CommentAdapter(private val userImg:ArrayList<Uri>, private val userId:Arra
     interface ItemClickListener {
         fun onClick(view: View, position: Int)
     }
+    interface ItemLongClickListener {
+        fun onClick(view: View, position: Int)
+    }
 
     private lateinit var itemClickListner: ItemClickListener
+    private lateinit var itemLongClickListener: ItemLongClickListener
 
     fun setItemClickListener(itemClickListener: ItemClickListener) {
         this.itemClickListner = itemClickListener
+    }
+    fun setItemLongClickListener(itemLongClickListener: ItemLongClickListener) {
+        this.itemLongClickListener = itemLongClickListener
     }
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
