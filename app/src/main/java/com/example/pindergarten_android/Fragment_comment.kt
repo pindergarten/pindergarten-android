@@ -114,12 +114,10 @@ class Fragment_comment : Fragment() {
         var button = view.findViewById<Button>(R.id.button)
         var comment = view.findViewById<EditText>(R.id.editText)
 
-        var content: HashMap<String, String> = HashMap()
-        content["content"] = comment.text.toString()
 
         button.setOnClickListener{
             //서버에 댓글 저장
-            apiService.addEventCommentAPI(eventId,sharedPreferences.toString(),content)?.enqueue(object : Callback<Post?> {
+            apiService.addEventCommentAPI(eventId,sharedPreferences.toString(),comment.text.toString())?.enqueue(object : Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                     Log.i("add Comment", "성공")
                     Log.i("add comment",comment.text.toString())

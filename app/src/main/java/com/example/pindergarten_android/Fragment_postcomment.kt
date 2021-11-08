@@ -42,6 +42,8 @@ class Fragment_postcomment : Fragment() {
     var commentId = ArrayList<Int>()
     var dialog : AlertDialog ?=null
 
+    var comment : EditText?=null
+
     val adapter = postCommentAdapter(userImg,nickName,userDetail,userDate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -116,37 +118,33 @@ class Fragment_postcomment : Fragment() {
         recyclerView.adapter = adapter
 
 
-        var comment = view.findViewById<EditText>(R.id.editText)
+        comment = view.findViewById(R.id.editText)
         var button =  view.findViewById<Button>(R.id.button)
         val sharedPreferences2 = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences2.toString())
-        var content: HashMap<String, String> = HashMap()
-        content["content"] = comment.text.toString()
+
 
         button.setOnClickListener{
-            if(comment.text.isNotEmpty()){
-                //서버에 댓글 저장
-                apiService.addPostCommentAPI(postId,sharedPreferences2.toString(),content)?.enqueue(object : Callback<Post?> {
-                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                        Log.i("add Comment: ", response.body()?.success.toString())
-                        Log.i("add comment: ",comment.text.toString())
+            //서버에 댓글 저장
+            apiService.addPostCommentAPI(postId,sharedPreferences2.toString(),comment?.text.toString())?.enqueue(object : Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                    Log.i("add Comment: ", response.body()?.success.toString())
+                    Log.i("add comment: ",comment?.text.toString())
 
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_postcomment()
-                        val bundle = Bundle()
-                        bundle.putInt("postId", postId)
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
-                    }
+                    val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                    val fragment : Fragment = Fragment_postcomment()
+                    val bundle = Bundle()
+                    bundle.putInt("postId", postId)
+                    fragment.arguments=bundle
+                    transaction.replace(R.id.container,fragment)
+                    transaction.commit()
+                }
 
-                    override fun onFailure(call: Call<Post?>, t: Throwable) {
-                        Log.i("add Comment: ", "실패")
-                    }
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("add Comment: ", "실패")
+                }
 
-                })
-
-            }
+            })
         }
 
         //댓글 삭제하기

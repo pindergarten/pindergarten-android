@@ -130,8 +130,8 @@
                 android:id="@+id/linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +141,6 @@
                     android:id="@+id/likeId"
                     android:layout_width="23dp"
                     android:layout_height="20dp"
-                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="6dp"
                     android:background="@color/white"
                     android:scaleType="fitCenter"
@@ -171,19 +170,23 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:nestedScrollingEnabled="false"
-                android:focusable="true"
-                android:layout_marginBottom="70dp"
-                android:focusableInTouchMode="true"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/linearlayout"
-                />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearlayout">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical" />
+
+            </RelativeLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

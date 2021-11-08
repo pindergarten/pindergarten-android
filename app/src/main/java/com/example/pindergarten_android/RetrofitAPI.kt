@@ -61,7 +61,7 @@ interface RetrofitAPI {
     //게시글 댓글 등록
     @FormUrlEncoded
     @POST("api/posts/{postId}/comments")
-    fun addPostCommentAPI(@Path("postId") postId: Int,@Header("x-access-token") value : String,@FieldMap param: HashMap<String, String>): Call<Post?>?
+    fun addPostCommentAPI(@Path("postId") postId: Int,@Header("x-access-token") value : String, @Field("content") content : String): Call<Post?>?
 
     //전체 이벤트 조회
     @GET("api/events")
@@ -72,7 +72,7 @@ interface RetrofitAPI {
     fun eventDetailAPI(@Path("eventId") eventId: Int , @Header("x-access-token") value : String): Call<Post?>?
 
     //이벤트 댓글 조회
-    @GET("api/posts/{eventId}/comments")
+    @GET("api/events/{eventId}/comments")
     fun eventCommentAPI(@Path("eventId") eventId: Int,@Header("x-access-token") value : String): Call<Post?>?
 
     //이벤트 좋아요
@@ -83,7 +83,7 @@ interface RetrofitAPI {
     //이벤트 댓글 등록
     @FormUrlEncoded
     @POST("api/events/{eventId}/comments")
-    fun addEventCommentAPI(@Path("eventId") eventId: Int,@Header("x-access-token") value : String,@FieldMap param: HashMap<String, String>): Call<Post?>?
+    fun addEventCommentAPI(@Path("eventId") eventId: Int,@Header("x-access-token") value : String, @Field("content") content : String): Call<Post?>?
 
     //게시물 댓글 삭제
     @DELETE("api/posts/{postId}/comments/{commentId}")
