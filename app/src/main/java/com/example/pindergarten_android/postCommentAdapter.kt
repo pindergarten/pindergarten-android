@@ -24,11 +24,11 @@ class postCommentAdapter(private val userImg:ArrayList<Uri>, private val userId:
         fun onClick(view: View, position: Int)
     }
 
-    private lateinit var itemClickListner: ItemClickListener
+    private lateinit var itemClickListener: ItemClickListener
     private lateinit var itemLongClickListener: ItemLongClickListener
 
     fun setItemClickListener(itemClickListener: ItemClickListener) {
-        this.itemClickListner = itemClickListener
+        this.itemClickListener = itemClickListener
     }
 
     fun setItemLongClickListener(itemLongClickListener: ItemLongClickListener) {
@@ -59,6 +59,9 @@ class postCommentAdapter(private val userImg:ArrayList<Uri>, private val userId:
         holder.user_date.text = userDate[position]
         holder.user_comment.text = Html.fromHtml("<b>${userId[position]}</b> ${userDetail[position]}")
 
+        holder.itemView.setOnClickListener{
+            itemClickListener.onClick(it,position)
+        }
 
     }
 

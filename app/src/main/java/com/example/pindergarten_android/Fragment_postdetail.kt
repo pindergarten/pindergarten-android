@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
+import me.relex.circleindicator.CircleIndicator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,7 +35,8 @@ class Fragment_postdetail : Fragment() {
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
     internal lateinit var viewpager : ViewPager
-
+    var temp = ArrayList<Uri>()
+    var user_Id : Int ?= null
     var postImageList = ArrayList<String>()
     var dialog : AlertDialog ?=null
     var liked = -1
@@ -73,6 +75,7 @@ class Fragment_postdetail : Fragment() {
         var postText : TextView = view.findViewById(R.id.postText)
         var likeId : ImageButton = view.findViewById(R.id.likeId)
         var ReviewId :ImageButton = view.findViewById(R.id.ReviewId)
+        var indicator : CircleIndicator = view.findViewById(R.id.indicator)
 
         val pagerAdapter = postImageList?.let { myContext?.let { it2 -> PostViewPagerAdapter(it, it2) } }
 
@@ -90,8 +93,8 @@ class Fragment_postdetail : Fragment() {
 
         noticeBtn.setOnClickListener {
 
-            var myId = myContext?.let { PreferenceManager.getString(it, "nickName") }
-            if (userId.text.toString() == myId) {
+            var myId = myContext?.let { PreferenceManager.getInt(it, "userId") }
+            if (user_Id == myId) {
                 //삭제하기 기능
                 Log.i("삭제하기 기능","!!")
                 val builder = AlertDialog.Builder(myContext)
@@ -108,7 +111,7 @@ class Fragment_postdetail : Fragment() {
                     dialog!!.dismiss()
                 }
                 deleteBtn?.setOnClickListener{
-                    //댓글 삭제
+                    //삭제
                     apiService.deletePostAPI(sharedPreferences.toString(),postId)?.enqueue(object :
                         Callback<Post?> {
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
@@ -215,7 +218,7 @@ class Fragment_postdetail : Fragment() {
                     Log.i("post Detail: ",response.body()?.postList?.postText.toString())
                     Log.i("post Detail: ",response.body()?.postList?.date.toString())
 
-
+                    user_Id = response.body()?.postList?.userId
                     context?.let { it1 ->
                         Glide.with(it1)
                             .load(Uri.parse(response.body()?.postList?.postUserImage.toString()))
@@ -227,10 +230,14 @@ class Fragment_postdetail : Fragment() {
                     //viewpager
                     postImageList!!.clear()
                     for (i in 0 until response.body()?.postList?.postImage!!.size){
+                        //indicator
+                        temp.add(Uri.parse(response.body()?.postList?.postImage!![i]?.postImageUrl.toString()))
                         postImageList!!.add(response.body()?.postList?.postImage!![i]?.postImageUrl.toString())
                     }
                     viewpager.adapter=pagerAdapter
                     pagerAdapter!!.notifyDataSetChanged()
+
+                    indicator.setViewPager(viewpager)
 
 
                     userId.text = response.body()?.postList?.postUserId

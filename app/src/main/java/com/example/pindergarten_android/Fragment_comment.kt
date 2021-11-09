@@ -73,8 +73,7 @@ class Fragment_comment : Fragment() {
         Log.i("jwt : ",sharedPreferences.toString())
 
         //서버: 이벤트 댓글 확인
-        apiService.eventCommentAPI(eventId, sharedPreferences.toString())?.enqueue(object :
-            Callback<Post?> {
+        apiService.eventCommentAPI(eventId, sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                 Log.i("event Comment: ", "success")
 
@@ -138,15 +137,16 @@ class Fragment_comment : Fragment() {
             })
         }
 
+
         //댓글 삭제하기
-        adapter.setItemLongClickListener(object :CommentAdapter2.ItemLongClickListener{
+        adapter.setItemClickListener(object :CommentAdapter2.ItemClickListener{
             override fun onClick(view: View, position: Int) {
                 var myId =  myContext?.let { PreferenceManager.getInt(it,"userId") }
                 if(userId[position]==myId){
                 //삭제하기 기능
                 Log.i("삭제하기 기능","!!")
                 val builder = AlertDialog.Builder(myContext)
-                val view: View = LayoutInflater.from(myContext).inflate(R.layout.post_delete, null)
+                val view: View = LayoutInflater.from(myContext).inflate(R.layout.post_delete_comment, null)
                 val deleteBtn = view?.findViewById<ImageButton>(R.id.deleteBtn)
                 val cancelBtn = view?.findViewById<ImageButton>(R.id.cancelBtn)
                 dialog = builder.create()
@@ -160,8 +160,7 @@ class Fragment_comment : Fragment() {
                 }
                 deleteBtn?.setOnClickListener{
                     //댓글 삭제
-                    apiService.deleteEventCommentAPI(sharedPreferences.toString(),eventId,commentId[position])?.enqueue(object :
-                        Callback<Post?> {
+                    apiService.deleteEventCommentAPI(sharedPreferences.toString(),eventId,commentId[position])?.enqueue(object : Callback<Post?> {
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                             Log.i("delete event Comment: ", response.body()?.success.toString())
 

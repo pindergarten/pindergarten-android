@@ -90,10 +90,15 @@ interface RetrofitAPI {
     fun deletePostCommentAPI(@Header("x-access-token") value : String,@Path("postId") postId : Int,@Path("commentId") commentId : Int): Call<Post?>?
 
     //이벤트 댓글 삭제
-    @DELETE("api/posts/{eventId}/comments/{commentId}")
+    @DELETE("api/events/{eventId}/comments/{commentId}")
     fun deleteEventCommentAPI(@Header("x-access-token") value : String,@Path("eventId") eventId : Int,@Path("commentId") commentId : Int): Call<Post?>?
 
     //게시물 삭제
     @DELETE("api/posts/{postId}")
     fun deletePostAPI(@Header("x-access-token") value : String,@Path("postId") postId : Int): Call<Post?>?
+
+    //게시물 신고
+    @FormUrlEncoded
+    @POST("api/posts/{postId}/declaration?type=1")
+    fun declarePostAPI(@Header("x-access-token") value : String,@Path("postId") postId : Int, @FieldMap param: HashMap<String, String>): Call<Post?>?
 }

@@ -18,6 +18,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Fragment_event : Fragment() {
 
@@ -79,6 +81,9 @@ class Fragment_event : Fragment() {
                 eventDay.clear()
                 eventId.clear()
 
+                //날짜계산
+                var today : Calendar = Calendar.getInstance()
+                var eventday : Calendar = Calendar.getInstance()
 
                 for( i in 0 until response.body()?.allEventList?.size!!){
 
@@ -90,8 +95,13 @@ class Fragment_event : Fragment() {
                     eventImage.add(Uri.parse(response.body()?.allEventList!![i].thumbnail.toString()))
                     eventTitle.add(response.body()?.allEventList!![i].title.toString())
                     eventId.add(Integer.parseInt(response.body()?.allEventList!![i].id.toString()))
-                    //계산필요
-                    eventDay.add(0)
+                    //d-day 계산
+                    var day_temp = response.body()?.allEventList!![i].expired_at.toString()
+                    eventday.set(Integer.parseInt(day_temp.split(".")[0]),Integer.parseInt(day_temp.split(".")[1]),Integer.parseInt(day_temp.split(".")[2]))
+                    var event_day : Long = eventday.timeInMillis/86400000
+                    var to_day : Long = today.timeInMillis/86400000
+
+                    eventDay.add((to_day-event_day+1).toInt())
                 }
 
                 adapter.notifyDataSetChanged()

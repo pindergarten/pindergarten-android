@@ -118,6 +118,37 @@ class Fragment_socialPet : Fragment() {
             }
         })
 
+        adapter.setLikedClickListener(object:MyAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                if(postLiked[position]==0){
+                    //좋아요 누름
+                    postLiked[position]=1
+
+                }
+                else{
+                    //좋아요 취소
+                    postLiked[position]=0
+                }
+
+                //일정 부분의 adapter update
+                adapter.notifyItemChanged(position)
+                //좋아요 변경 API
+                var temp: HashMap<String, String> = HashMap()
+                apiService.postLikeAPI(postId[position],sharedPreferences.toString(),temp)?.enqueue(object : Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        Log.i("post Liked: ","수정 성공")
+                    }
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("post Detail: ","fail")
+                    }
+
+                })
+
+
+            }
+
+        })
+
 
 
 

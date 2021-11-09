@@ -25,16 +25,17 @@ class CommentAdapter2(private val userImg:ArrayList<Uri>, private val userId:Arr
         fun onClick(view: View, position: Int)
     }
 
-    private lateinit var itemClickListner: ItemClickListener
+    private lateinit var itemClickListener: ItemClickListener
     private lateinit var itemLongClickListener: ItemLongClickListener
 
     fun setItemClickListener(itemClickListener: ItemClickListener) {
-        this.itemClickListner = itemClickListener
+        this.itemClickListener = itemClickListener
     }
 
     fun setItemLongClickListener(itemLongClickListener: ItemLongClickListener) {
         this.itemLongClickListener = itemLongClickListener
     }
+
     override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): ViewHolder {
         val inflateView = LayoutInflater.from(parent.context).inflate(R.layout.comment_item,parent,false)
         return ViewHolder(inflateView)
@@ -59,6 +60,10 @@ class CommentAdapter2(private val userImg:ArrayList<Uri>, private val userId:Arr
         holder.user_date.text = userDate[position]
         holder.user_comment.text = Html.fromHtml("<b>${userId[position]}</b> ${userDetail[position]}")
 
+
+        holder.itemView.setOnClickListener{
+            itemClickListener.onClick(it,position)
+        }
 
     }
 

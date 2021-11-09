@@ -1,10 +1,12 @@
 package com.example.pindergarten_android
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +23,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class Fragment_eventdetail : Fragment() {
 
@@ -46,7 +51,7 @@ class Fragment_eventdetail : Fragment() {
     var eventImg = ArrayList<Uri>()
     val adapter = CommentAdapter(userImg,nickName,userDetail,userDate,this)
 
-
+    var dialog : AlertDialog ?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -97,8 +102,16 @@ class Fragment_eventdetail : Fragment() {
                 event_title.text = response.body()?.eventList?.title.toString()
                 ReviewCount.text= response.body()?.eventList?.commentCount.toString()
                 likeCount.text= response.body()?.eventList?.likeCount.toString()
-                //계산 필요
-                day.text="D-${0}"
+
+                //날짜계산
+                var today : Calendar = Calendar.getInstance()
+                var eventday : Calendar = Calendar.getInstance()
+                //d-day 계산
+                var day_temp = response.body()?.eventList?.expired_at.toString()
+                eventday.set(Integer.parseInt(day_temp.split(".")[0]),Integer.parseInt(day_temp.split(".")[1]),Integer.parseInt(day_temp.split(".")[2]))
+                var event_day : Long = eventday.timeInMillis/86400000
+                var to_day : Long = today.timeInMillis/86400000
+                day.text="D${(to_day-event_day+1).toInt()}"
 
 
                 var tempLiked = response.body()?.eventList?.isLiked
@@ -163,6 +176,65 @@ class Fragment_eventdetail : Fragment() {
 
         })
 
+        //댓글 삭제하기
+        adapter.setItemClickListener(object :CommentAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                var myId =  myContext?.let { PreferenceManager.getInt(it,"userId") }
+                if(userId[position]==myId){
+                    //삭제하기 기능
+                    Log.i("삭제하기 기능","!!")
+                    val builder = AlertDialog.Builder(myContext)
+                    val view: View = LayoutInflater.from(myContext).inflate(R.layout.post_delete_comment, null)
+                    val deleteBtn = view?.findViewById<ImageButton>(R.id.deleteBtn)
+                    val cancelBtn = view?.findViewById<ImageButton>(R.id.cancelBtn)
+                    dialog = builder.create()
+                    dialog!!.setView(view)
+                    dialog!!.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                    dialog!!.window!!.setGravity(Gravity.BOTTOM)
+                    dialog!!.show()
+
+                    cancelBtn?.setOnClickListener{
+                        dialog!!.dismiss()
+                    }
+                    deleteBtn?.setOnClickListener{
+                        //댓글 삭제
+                        apiService.deleteEventCommentAPI(sharedPreferences.toString(),eventId,commentId[position])?.enqueue(object :
+                            Callback<Post?> {
+                            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                                Log.i("delete event Comment: ", response.body()?.success.toString())
+
+                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                                val fragment : Fragment = Fragment_comment()
+                                val bundle = Bundle()
+                                bundle.putInt("eventId", eventId)
+                                fragment.arguments=bundle
+                                transaction.replace(R.id.container,fragment)
+                                transaction.commit()
+
+                                dialog!!.dismiss()
+                            }
+
+                            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                                Log.i("delete event Comment: ", "실패")
+
+                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                                val fragment : Fragment = Fragment_comment()
+                                val bundle = Bundle()
+                                bundle.putInt("eventId", eventId)
+                                fragment.arguments=bundle
+                                transaction.replace(R.id.container,fragment)
+                                transaction.commit()
+
+                                dialog!!.dismiss()
+                            }
+
+                        })
+
+                    }
+
+                }
+
+            }})
 
 
         var button =view.findViewById<ImageButton>(R.id.button)

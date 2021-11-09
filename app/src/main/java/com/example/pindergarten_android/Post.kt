@@ -86,6 +86,9 @@ class Post {
         var commentCount : Int ?=null
         @SerializedName("isLiked")
         var isLiked: Int? = null
+        //수정확인
+        @SerializedName("userId")
+        var userId: Int? = null
 
         @SerializedName("imgUrls")
         var postImage : ArrayList<postImage> = ArrayList()

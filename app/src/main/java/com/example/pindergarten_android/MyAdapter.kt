@@ -19,10 +19,14 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         fun onClick(view: View, position: Int)
     }
 
-    private lateinit var itemClickListner: ItemClickListener
+    private lateinit var itemClickListener: ItemClickListener
+    private lateinit var likedClickListener: ItemClickListener
 
     fun setItemClickListener(itemClickListener: ItemClickListener) {
-        this.itemClickListner = itemClickListener
+        this.itemClickListener = itemClickListener
+    }
+    fun setLikedClickListener(likedClickListener: ItemClickListener){
+        this.likedClickListener = likedClickListener
     }
 
 
@@ -85,8 +89,13 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         }
 
         holder.itemView.setOnClickListener{
-            itemClickListner.onClick(it,position)
+            itemClickListener.onClick(it,position)
         }
+
+        holder.post_Liked.setOnClickListener{
+            likedClickListener.onClick(it,position)
+        }
+
 
     }
 

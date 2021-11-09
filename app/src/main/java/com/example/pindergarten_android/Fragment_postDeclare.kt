@@ -10,8 +10,12 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class Fragment_postDeclare : Fragment() {
 
@@ -48,7 +52,8 @@ class Fragment_postDeclare : Fragment() {
 
         //spinner data
         val items = listOf("","광고성 글","스팸 컨텐츠","욕설/비방/혐오")
-        var declareText = view.findViewById<EditText>(R.id.textTitle)
+        var titleDeclare = view.findViewById<EditText>(R.id.textTitle)
+        var declareText = view.findViewById<EditText>(R.id.declareText)
         val spinner: Spinner = view.findViewById(R.id.spinner)
 
         val adapter = ArrayAdapter(requireContext(),R.layout.support_simple_spinner_dropdown_item, items)
@@ -56,43 +61,55 @@ class Fragment_postDeclare : Fragment() {
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-                when(position) {
-                    0 -> { declareText.setText(items[0]) }
-                    1 -> { declareText.setText(items[1]) }
-                    2 -> { declareText.setText(items[2]) }
-                }
+
 
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
 
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
+
         val addDeclareBtn = view.findViewById<Button>(R.id.addDeclareBtn)
         addDeclareBtn.setOnClickListener{
-            //서버 연결
-            //신고 완료 메세지
-            val dialogBuilder = AlertDialog.Builder(requireActivity())
-            val view = inflater.inflate(R.layout.join_popup, null)
-            var text : TextView = view.findViewById(R.id.text)
-            var button : Button = view.findViewById(R.id.button)
-            text.text="신고접수 되었습니다."
-            button.text="확인"
-            val alertDialog = dialogBuilder.create()
-            button.setOnClickListener{
-                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_postdetail()
-                val bundle = Bundle()
-                bundle.putInt("postId", postId)
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.commit()
-                alertDialog!!.dismiss()
-            }
-            alertDialog.setView(view)
-            alertDialog.show()
+
+            var declare: HashMap<String, String> = HashMap()
+            declare["title"] = titleDeclare?.text.toString()
+            declare["content"] = declareText?.text.toString()
+
+            apiService.declarePostAPI(sharedPreferences.toString(),postId, declare)?.enqueue(object : Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                    //신고 완료 메세지
+                    val dialogBuilder = AlertDialog.Builder(requireActivity())
+                    val view = inflater.inflate(R.layout.join_popup, null)
+                    var text : TextView = view.findViewById(R.id.text)
+                    var button : Button = view.findViewById(R.id.button)
+                    text.text="신고접수 되었습니다."
+                    button.text="확인"
+                    val alertDialog = dialogBuilder.create()
+                    button.setOnClickListener{
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_postdetail()
+                        val bundle = Bundle()
+                        bundle.putInt("postId", postId)
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.commit()
+                        alertDialog!!.dismiss()
+                    }
+                    alertDialog.setView(view)
+                    alertDialog.show()
+                }
+
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("declare",t.stackTraceToString())
+                }
+
+            })
+
         }
-
-
 
         return view
     }
