@@ -123,7 +123,6 @@ class Fragment_socialPet : Fragment() {
                 if(postLiked[position]==0){
                     //좋아요 누름
                     postLiked[position]=1
-
                 }
                 else{
                     //좋아요 취소

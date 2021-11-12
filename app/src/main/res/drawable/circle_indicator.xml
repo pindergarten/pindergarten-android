@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape='oval'>
-    <solid
-        android:color="@color/yellow_dark"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/selected_dot"
+        android:state_selected="true"/>
+    <item android:drawable="@drawable/unselected_dot"/>
+
+</selector>

@@ -17,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pindergarten_android">
 
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="7f1u7f4vb5" />
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

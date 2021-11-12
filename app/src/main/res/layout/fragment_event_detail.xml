@@ -214,7 +214,7 @@
         <ImageButton
             android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="37dp"
             android:background="@drawable/dialog_corner"
             android:backgroundTint="@color/yellow_white" />
 

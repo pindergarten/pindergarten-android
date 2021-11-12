@@ -65,8 +65,8 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="310dp"
-        android:layout_height="40dp"
+        android:layout_width="280dp"
+        android:layout_height="37dp"
         android:background="@drawable/dialog_corner"
         android:backgroundTint="@color/yellow_white"
         android:hint="댓글을 입력하세요 :)"
@@ -76,7 +76,7 @@
         android:paddingRight="15dp"
         android:textSize="15dp"
         android:layout_marginTop="11dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
@@ -85,9 +85,10 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:background="#00ff0000"
         android:text="등록"
+        android:textStyle="bold"
         android:textColor="#777777"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editText"

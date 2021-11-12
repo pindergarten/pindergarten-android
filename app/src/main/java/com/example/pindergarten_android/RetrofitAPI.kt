@@ -99,6 +99,6 @@ interface RetrofitAPI {
 
     //게시물 신고
     @FormUrlEncoded
-    @POST("api/posts/{postId}/declaration?type=1")
-    fun declarePostAPI(@Header("x-access-token") value : String,@Path("postId") postId : Int, @FieldMap param: HashMap<String, String>): Call<Post?>?
+    @POST("api/posts/{postId}/declaration")
+    fun declarePostAPI(@Header("x-access-token") value : String,@Path("postId") postId : Int, @FieldMap param: HashMap<String, String>, @Query("type") type : Int): Call<Post?>?
 }

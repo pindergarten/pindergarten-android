@@ -50,6 +50,8 @@ class Fragment_postDeclare : Fragment() {
             postId  = -1
         }
 
+
+        var type : Int = 0
         //spinner data
         val items = listOf("","광고성 글","스팸 컨텐츠","욕설/비방/혐오")
         var titleDeclare = view.findViewById<EditText>(R.id.textTitle)
@@ -60,9 +62,7 @@ class Fragment_postDeclare : Fragment() {
         spinner.adapter = adapter
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-
-
+                type = position
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -72,42 +72,48 @@ class Fragment_postDeclare : Fragment() {
         Log.i("jwt : ",sharedPreferences.toString())
 
         val addDeclareBtn = view.findViewById<Button>(R.id.addDeclareBtn)
-        addDeclareBtn.setOnClickListener{
 
+        addDeclareBtn.setOnClickListener{
+            Log.i("신고 접수 버튼눌림","ok")
             var declare: HashMap<String, String> = HashMap()
             declare["title"] = titleDeclare?.text.toString()
             declare["content"] = declareText?.text.toString()
 
-            apiService.declarePostAPI(sharedPreferences.toString(),postId, declare)?.enqueue(object : Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+            Log.i("type",type.toString())
+            if(type!=0){
+                apiService.declarePostAPI(sharedPreferences.toString(),postId, declare,type)?.enqueue(object :
+                    Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
-                    //신고 완료 메세지
-                    val dialogBuilder = AlertDialog.Builder(requireActivity())
-                    val view = inflater.inflate(R.layout.join_popup, null)
-                    var text : TextView = view.findViewById(R.id.text)
-                    var button : Button = view.findViewById(R.id.button)
-                    text.text="신고접수 되었습니다."
-                    button.text="확인"
-                    val alertDialog = dialogBuilder.create()
-                    button.setOnClickListener{
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_postdetail()
-                        val bundle = Bundle()
-                        bundle.putInt("postId", postId)
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
-                        alertDialog!!.dismiss()
+                        //신고 완료 메세지
+                        val dialogBuilder = AlertDialog.Builder(requireActivity())
+                        val view = inflater.inflate(R.layout.join_popup, null)
+                        var text : TextView = view.findViewById(R.id.text)
+                        var button : Button = view.findViewById(R.id.button)
+                        text.text="신고접수 되었습니다."
+                        button.text="확인"
+                        val alertDialog = dialogBuilder.create()
+                        button.setOnClickListener{
+                            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                            val fragment : Fragment = Fragment_postdetail()
+                            val bundle = Bundle()
+                            bundle.putInt("postId", postId)
+                            fragment.arguments=bundle
+                            transaction.replace(R.id.container,fragment)
+                            transaction.commit()
+                            alertDialog!!.dismiss()
+                        }
+                        alertDialog.setView(view)
+                        alertDialog.show()
                     }
-                    alertDialog.setView(view)
-                    alertDialog.show()
-                }
 
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("declare",t.stackTraceToString())
-                }
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("declare",t.stackTraceToString())
+                    }
 
-            })
+                })
+            }
+
 
         }
 

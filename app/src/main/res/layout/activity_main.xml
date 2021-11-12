@@ -34,6 +34,7 @@
         android:background="@drawable/bottomnavigation_corner"
         app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
         app:menu="@menu/menu_bottom"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"
         app:itemIconTint="@drawable/menu_selecter_color"
         app:itemTextColor="@drawable/menu_selecter_color"
         app:layout_constraintBottom_toBottomOf="parent"
