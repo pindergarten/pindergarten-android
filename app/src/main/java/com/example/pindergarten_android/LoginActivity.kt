@@ -144,12 +144,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                     })
                 }
-                //관리자모드 (테스트용)
-                else if(loginText?.text?.toString()=="01097011968" && pwdText?.text?.toString()=="00000000"){
-                    val intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+
             }
             R.id.join->{
                 val intent = Intent(this, JoinActivity::class.java)

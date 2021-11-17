@@ -120,8 +120,6 @@ obj/
 .idea/jarRepositories.xml
 .idea/navEditor.xml
 
-app/src/main/AndroidManifest.xml
-
 # OS-specific files
 .DS_Store
 .DS_Store?

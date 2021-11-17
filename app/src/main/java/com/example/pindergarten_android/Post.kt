@@ -1,7 +1,6 @@
 package com.example.pindergarten_android
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 class Post {
 
@@ -143,6 +142,165 @@ class Post {
 
     }
 
+    //all pindergartens
+    @SerializedName("allpindergartens")
+    var allPindergartenList : ArrayList<allPindergarten> = ArrayList()
+
+    class allPindergarten{
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("name")
+        var name: String? = null
+        @SerializedName("address")
+        var address: String? = null
+        @SerializedName("thumbnail")
+        var thumbnail: String? = null
+        @SerializedName("latitude")
+        var latitude: String? = null
+        @SerializedName("longitude")
+        var longitude: String? = null
+        @SerializedName("rating")
+        var rating: Double? = null
+        @SerializedName("distance")
+        var distance: Double? = null
+        @SerializedName("isLiked")
+        var isLiked: Int? = null
+    }
+
+    //like pindergartens
+    @SerializedName("likedPindergartens")
+    var likePindergartenList : ArrayList<likePindergarten> = ArrayList()
+
+    class likePindergarten{
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("name")
+        var name: String? = null
+        @SerializedName("address")
+        var address: String? = null
+        @SerializedName("thumbnail")
+        var thumbnail: String? = null
+        @SerializedName("rating")
+        var rating: Double? = null
+        @SerializedName("distance")
+        var distance: Double? = null
+    }
+
+    // search_query pindergartens
+    @SerializedName("searchPindergartens")
+    var searchpindergartenList : ArrayList<searchPindergarten> = ArrayList()
+
+    class searchPindergarten {
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("name")
+        var name: String? = null
+        @SerializedName("address")
+        var address: String? = null
+        @SerializedName("thumbnail")
+        var thumbnail: String? = null
+        @SerializedName("latitude")
+        var latitude: String? = null
+        @SerializedName("longitude")
+        var longitude: String? = null
+        @SerializedName("rating")
+        var rating: Double? = null
+        @SerializedName("distance")
+        var distance: Double? = null
+        @SerializedName("opening_hours")
+        var opening_hours: String? = null
+        @SerializedName("access_guide")
+        var access_guide: String? = null
+        @SerializedName("phone")
+        var phone: String? = null
+        @SerializedName("website")
+        var website: String? = null
+        @SerializedName("social")
+        var social: String? = null
+    }
+
+    //pindergation detail api
+    @SerializedName("pindergarten")
+    var pindergarten : Pindergarten = Pindergarten()
+
+    class Pindergarten{
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("name")
+        var name: String? = null
+        @SerializedName("address")
+        var address: String? = null
+        @SerializedName("thumbnail")
+        var thumbnail: String? = null
+        @SerializedName("latitude")
+        var latitude: String? = null
+        @SerializedName("longitude")
+        var longitude: String? = null
+        @SerializedName("rating")
+        var rating: Double? = null
+        @SerializedName("distance")
+        var distance: Double? = null
+        @SerializedName("opening_hours")
+        var opening_hours: String? = null
+        @SerializedName("access_guide")
+        var access_guide: String? = null
+        @SerializedName("phone")
+        var phone: String? = null
+        @SerializedName("website")
+        var website: String? = null
+        @SerializedName("social")
+        var social: String? = null
+        @SerializedName("isLiked")
+        var isLiked: Int? = null
+        @SerializedName("imgUrls")
+        var postImage : ArrayList<pindergartenImage> = ArrayList()
+    }
+
+    class pindergartenImage{
+        @SerializedName("image_url")
+        var postImageUrl: String? = null
+    }
+
+    //marker event
+    @SerializedName("nearPindergartens")
+    var nearPindergartens :  ArrayList<NearPindergartens> = ArrayList()
+
+    class NearPindergartens {
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("name")
+        var name: String? = null
+        @SerializedName("address")
+        var address: String? = null
+        @SerializedName("thumbnail")
+        var thumbnail: String? = null
+        @SerializedName("latitude")
+        var latitude: String? = null
+        @SerializedName("longitude")
+        var longitude: String? = null
+        @SerializedName("rating")
+        var rating: Double? = null
+        @SerializedName("isLiked")
+        var isLiked: Int? = null
+        @SerializedName("distance")
+        var distance: Double? = null
+    }
+
+    //blog review
+    @SerializedName("blogReviews")
+    var blogReviews :  ArrayList<BlogReviews> = ArrayList()
+
+    class BlogReviews {
+        @SerializedName("title")
+        var title: String? = null
+        @SerializedName("content")
+        var content: String? = null
+        @SerializedName("date")
+        var date: String? = null
+        @SerializedName("link")
+        var link: String? = null
+
+    }
 
 
 

@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
 }
 
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -79,4 +80,8 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    //sliding panel
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 }
+

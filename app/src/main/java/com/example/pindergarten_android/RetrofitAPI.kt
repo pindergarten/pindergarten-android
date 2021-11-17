@@ -101,4 +101,34 @@ interface RetrofitAPI {
     @FormUrlEncoded
     @POST("api/posts/{postId}/declaration")
     fun declarePostAPI(@Header("x-access-token") value : String,@Path("postId") postId : Int, @FieldMap param: HashMap<String, String>, @Query("type") type : Int): Call<Post?>?
+
+    //펫 유치원 전체 조회
+    @GET("api/pindergartens")
+    fun searchAllPindergartenAPI(@Header("x-access-token") value : String, @Query("latitude") latitude : Double,@Query("longitude") longitude : Double): Call<Post?>?
+
+    //펫 유치원 상세 조회
+    @GET("api/pindergartens/{pindergartenId}")
+    fun PindergartenAPI(@Header("x-access-token") value : String,@Path("pindergartenId") pindergartenId : Int): Call<Post?>?
+
+    //펫 유치원 좋아요
+    @FormUrlEncoded
+    @POST("api/pindergartens/{pindergartenId}/like")
+    fun pindergartenLikeAPI(@Path("pindergartenId") pindergartenId: Int , @Header("x-access-token") value : String,@FieldMap param: HashMap<String, String>): Call<Post?>?
+
+    //좋아요한 펫 유치원
+    @GET("api/like/pindergartens")
+    fun likedPindergartenAPI(@Header("x-access-token") value : String, @Query("latitude") latitude : Double,@Query("longitude") longitude : Double): Call<Post?>?
+
+    //유치원 검색
+    @GET("api/serch/pindergartens")
+    fun searchPindergartenAPI(@Header("x-access-token") value : String,@Query("query") query: String, @Query("latitude") latitude : Double,@Query("longitude") longitude : Double): Call<Post?>?
+
+    //유치원 블로그 검색
+    @GET("api/pindergartens/{pindergartenId}/review")
+    fun pindergartenBlogAPI(@Path("pindergartenId") pindergartenId: Int ): Call<Post?>?
+
+    //마커클릭 이벤트
+    @GET("api/near/pindergartens")
+    fun markerAPI(@Header("x-access-token") value : String, @Query("latitude") latitude : Double,@Query("longitude") longitude : Double): Call<Post?>?
+
 }
