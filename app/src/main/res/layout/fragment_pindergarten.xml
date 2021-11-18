@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:id="@+id/main_panel"
     android:gravity="bottom"
-    app:umanoPanelHeight="17dp"
+    app:umanoPanelHeight="20dp"
     app:umanoOverlay="true"
     app:umanoShadowHeight="0dp"
     app:umanoDragView="@id/slide_layout"
@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginTop="34dp"
-        android:text="펫 유치원"
+        android:text="핀더가든"
+        android:textColor="#424242"
         android:textStyle="bold"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,15 +33,15 @@
 
     <ImageButton
         android:id="@+id/like_Pindergarten"
-        android:layout_width="23dp"
-        android:layout_height="20dp"
+        android:layout_width="25dp"
+        android:layout_height="23dp"
         android:layout_gravity="end"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginTop="35dp"
         android:background="@color/transparency"
         android:scaleType="fitCenter"
-        android:src="@drawable/unliked"
+        android:src="@drawable/pin_unlike"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,7 +74,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/slide_layout"
         android:background="@drawable/bottomnavigation_corner"
-        android:elevation="5dp"
+        android:elevation="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="72dp">
@@ -91,7 +92,7 @@
             android:id="@+id/recyclerView"
             android:nestedScrollingEnabled="false"
             android:focusable="true"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="20dp"
             android:focusableInTouchMode="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -10,10 +10,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -74,6 +72,7 @@ class Fragment_detailPindergarten : Fragment() {
 
     var dialog : AlertDialog ?=null
 
+    private lateinit var callback: OnBackPressedCallback
     val adapter = pindergartenBlogAdapter(blogTitle,blogDescription,blogPostdate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -157,12 +156,12 @@ class Fragment_detailPindergarten : Fragment() {
             if(liked==0){
                 //좋아요 누름
                 liked=1
-                likeBtn!!.setImageResource(R.drawable.pinder_liked)
+                likeBtn!!.setImageResource(R.drawable.pindergarten_liked)
             }
             else{
                 //좋아요 취소
                 liked=0
-                likeBtn!!.setImageResource(R.drawable.pinder_unliked)
+                likeBtn!!.setImageResource(R.drawable.pindergarten_unliked)
             }
 
             //좋아요 변경 API
@@ -191,6 +190,7 @@ class Fragment_detailPindergarten : Fragment() {
                 current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
                 transaction.commit()
             }
             else if (moved=="search"){
@@ -202,6 +202,7 @@ class Fragment_detailPindergarten : Fragment() {
                 bundle.putString("query",query!!)
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
                 transaction.commit()
             }
             else if(moved=="map"){
@@ -215,6 +216,7 @@ class Fragment_detailPindergarten : Fragment() {
                 bundle.putInt("pindergarten",pindergartenId!!)
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
                 transaction.commit()
             }
         }
@@ -256,13 +258,13 @@ class Fragment_detailPindergarten : Fragment() {
                 if(tempLiked ==0){
                     //좋아요 x
                     Log.i("pindergarten Liked: ","좋아요 x")
-                    likeBtn!!.setImageResource(R.drawable.pinder_unliked)
+                    likeBtn!!.setImageResource(R.drawable.pindergarten_unliked)
                     liked = 0
                 }
                 else{
                     //좋아요
                     Log.i("pindergarten Liked: ","좋아요")
-                    likeBtn!!.setImageResource(R.drawable.pinder_liked)
+                    likeBtn!!.setImageResource(R.drawable.pindergarten_liked)
                     liked = 1
                 }
 
@@ -280,6 +282,8 @@ class Fragment_detailPindergarten : Fragment() {
             startActivity(intent)
         }
 
+        var review_notexist = view.findViewById<ImageView>(R.id.review_notexist)
+
         //블로그 api
         apiService.pindergartenBlogAPI(pindergartenId!!)?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
@@ -295,6 +299,11 @@ class Fragment_detailPindergarten : Fragment() {
                     size =2
                     moreReviewBtn!!.visibility = View.VISIBLE
                     moreReviewBtn!!.text = "${response.body()?.blogReviews!!.size-2}개 블로그 리뷰 더보기 "
+                }
+                else if (response.body()?.blogReviews!!.size==0){
+                    size =0
+                    moreReviewBtn!!.visibility = View.GONE
+                    review_notexist!!.visibility = View.VISIBLE
                 }
                 else{
                     size = response.body()?.blogReviews!!.size
@@ -344,14 +353,15 @@ class Fragment_detailPindergarten : Fragment() {
                 bundle.putString("query",query!!)
             }
             if(current_latitude!=null){
-                current_latitude?.let { it1 -> bundle.putDouble("current_latitude", it1) }
+                current_latitude?.let { it1 -> bundle.putDouble("latitude", it1) }
             }
             if(current_longitude!=null){
-                current_longitude?.let { it1 -> bundle.putDouble("current_longitude", it1) }
+                current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
             }
 
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -366,8 +376,18 @@ class Fragment_detailPindergarten : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
+    }
 
 
 }

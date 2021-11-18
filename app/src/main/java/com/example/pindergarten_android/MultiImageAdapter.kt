@@ -17,6 +17,7 @@ class MultiImageAdapter(private val items:ArrayList<Uri>, val context: Fragment_
         Glide.with(context)
             .load(item)
             .override(500,500)
+            .centerCrop()
             .into(holder.image)
     }
 

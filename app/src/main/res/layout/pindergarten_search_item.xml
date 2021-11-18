@@ -21,22 +21,25 @@
 
     <TextView
         android:id="@+id/pindergartenName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="16dp"
-        android:singleLine="false"
+        android:layout_marginRight="36dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="14dp"
+        android:singleLine="true"
         android:text="유치원 이름"
         android:textSize="17dp"
         android:textStyle="bold"
+        android:textColor="#424242"
         app:layout_constraintStart_toEndOf="@+id/img"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pindergartenAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginLeft="45dp"
         android:layout_marginTop="5dp"
         android:singleLine="true"
         android:text="유치원 주소"

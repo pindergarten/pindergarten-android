@@ -24,6 +24,7 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="34dp"
         android:text="댓글"
+        android:textColor="#424242"
         android:textStyle="bold"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="92dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="85dp"
         />

@@ -154,9 +154,9 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\jihyun\.gradle
 	android:label
 		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:16:9-41
 	android:roundIcon
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:17:9-54
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:17:9-60
 	android:icon
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:15:9-43
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:15:9-49
 	android:allowBackup
 		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme

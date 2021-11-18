@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,8 @@ class Fragment_moreReview : Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
+
+    private lateinit var callback: OnBackPressedCallback
 
     var pindergartenId : Int ?=null
     var current_latitude :Double ?=null
@@ -62,11 +65,11 @@ class Fragment_moreReview : Fragment() {
             bundle = arguments as Bundle
             pindergartenId = bundle.getInt("pindergartenId")
             Log.i("pindergartenId", pindergartenId.toString())
-            if(bundle.getDouble("current_latitude")!=null){
-                current_latitude = bundle.getDouble("current_latitude")
+            if(bundle.getDouble("latitude")!=null){
+                current_latitude = bundle.getDouble("latitude")
             }
-            if(bundle.getDouble("current_longitude")!=null){
-                current_longitude = bundle.getDouble("current_longitude")
+            if(bundle.getDouble("longitude")!=null){
+                current_longitude = bundle.getDouble("longitude")
             }
             if(bundle.getString("moved")!=null){
                 moved = bundle.getString("moved")
@@ -93,13 +96,14 @@ class Fragment_moreReview : Fragment() {
                 bundle.putString("query",query!!)
             }
             if(current_latitude!=null){
-                bundle.putDouble("current_latitude", current_latitude!!)
+                bundle.putDouble("latitude", current_latitude!!)
             }
             if(current_longitude!=null){
-                bundle.putDouble("current_longitude", current_longitude!!)
+                bundle.putDouble("longitude", current_longitude!!)
             }
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -150,6 +154,17 @@ class Fragment_moreReview : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

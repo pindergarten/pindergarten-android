@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +45,7 @@ class Fragment_postcomment : Fragment() {
 
     var comment : EditText?=null
 
+    private lateinit var callback: OnBackPressedCallback
     val adapter = postCommentAdapter(userImg,nickName,userDetail,userDate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -137,6 +139,7 @@ class Fragment_postcomment : Fragment() {
                     bundle.putInt("postId", postId)
                     fragment.arguments=bundle
                     transaction.replace(R.id.container,fragment)
+                    transaction.addToBackStack(null)
                     transaction.commit()
                 }
 
@@ -180,6 +183,7 @@ class Fragment_postcomment : Fragment() {
                                 bundle.putInt("postId", postId)
                                 fragment.arguments=bundle
                                 transaction.replace(R.id.container,fragment)
+                                transaction.addToBackStack(null)
                                 transaction.commit()
 
                                 dialog!!.dismiss()
@@ -194,6 +198,7 @@ class Fragment_postcomment : Fragment() {
                                 bundle.putInt("postId", postId)
                                 fragment.arguments=bundle
                                 transaction.replace(R.id.container,fragment)
+                                transaction.addToBackStack(null)
                                 transaction.commit()
 
                                 dialog!!.dismiss()
@@ -215,6 +220,7 @@ class Fragment_postcomment : Fragment() {
             bundle.putInt("postId", postId)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -229,6 +235,17 @@ class Fragment_postcomment : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -23,7 +23,7 @@
             android:layout_marginTop="46dp"
             android:gravity="center_horizontal"
             android:text="로그인"
-            android:textSize="25dp"
+            android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
             android:layout_marginTop="87dp"
             android:text="아이디"
             android:textColor="@color/black"
-            android:textSize="17dp"
+            android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/login_line"
@@ -64,7 +64,10 @@
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
             android:hint="휴대폰번호"
+            android:paddingLeft="0dp"
             android:singleLine="true"
+            android:textSize="13dp"
+            android:inputType="number"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -78,7 +81,7 @@
             android:layout_marginTop="24dp"
             android:text="비밀번호"
             android:textColor="@color/black"
-            android:textSize="17dp"
+            android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -88,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/login_line"
@@ -105,8 +108,10 @@
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
             android:hint="8~16자 이내의 비밀번호"
+            android:paddingLeft="0dp"
             android:inputType="textPassword"
             android:singleLine="true"
+            android:textSize="13dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -131,7 +136,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"

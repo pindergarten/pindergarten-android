@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -29,7 +30,7 @@ class Fragment_postDeclare : Fragment() {
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
 
-
+    private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_post_declare,container,false)
@@ -100,6 +101,7 @@ class Fragment_postDeclare : Fragment() {
                             bundle.putInt("postId", postId)
                             fragment.arguments=bundle
                             transaction.replace(R.id.container,fragment)
+                            transaction.addToBackStack(null)
                             transaction.commit()
                             alertDialog!!.dismiss()
                         }
@@ -134,8 +136,18 @@ class Fragment_postDeclare : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
+    }
 
 
 }

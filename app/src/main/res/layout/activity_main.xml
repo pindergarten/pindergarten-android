@@ -29,12 +29,16 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:id="@+id/bottom_navigation"
         android:background="@drawable/bottomnavigation_corner"
+        app:itemBackground="@null"
         app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
         app:menu="@menu/menu_bottom"
         app:itemIconSize="@dimen/bottom_navigation_icon_size"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:backgroundTint="@color/transparency"
         app:itemIconTint="@drawable/menu_selecter_color"
         app:itemTextColor="@drawable/menu_selecter_color"
         app:layout_constraintBottom_toBottomOf="parent"

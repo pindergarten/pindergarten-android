@@ -1995,6 +1995,7 @@ drawable login_line
 drawable login_loginbtn
 drawable login_loginbtn2
 drawable marker
+drawable marker2
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2080,15 +2081,21 @@ drawable notify_panel_notification_icon_bg
 drawable pager_indicator
 drawable panel_drawer_start
 drawable phone_icon
+drawable pin_unlike
 drawable pinder_liked
 drawable pinder_unliked
 drawable pindergarten
 drawable pindergarten2
 drawable pindergarten_background
+drawable pindergarten_liked
+drawable pindergarten_logo_background
+drawable pindergarten_unliked
 drawable post_liked
 drawable post_unliked
 drawable postdetail_notice
+drawable register_btn
 drawable review_logo
+drawable review_notexist
 drawable search_icon
 drawable selected_dot
 drawable social_pet
@@ -2378,6 +2385,7 @@ id imageView6
 id imageView7
 id imageView8
 id imageView9
+id image_count
 id img
 id immediateStop
 id included
@@ -2569,6 +2577,7 @@ id relativeLayout
 id relativeLayout2
 id reverseSawtooth
 id review_date
+id review_notexist
 id review_text
 id review_title
 id right
@@ -2726,6 +2735,7 @@ id user_image
 id vertical
 id vertical_only
 id vertifyNum
+id view_moreText
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -2956,6 +2966,9 @@ layout viewpager_post_layout
 menu menu_bottom
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap pindergarten_logo
+mipmap pindergarten_logo_foreground
+mipmap pindergarten_logo_round
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description

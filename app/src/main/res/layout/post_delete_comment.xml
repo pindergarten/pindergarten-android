@@ -17,7 +17,7 @@
         android:src="@drawable/delete_btn_comment"
         android:layout_marginLeft="13dp"
         android:layout_marginRight="13dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -32,7 +32,7 @@
         android:src="@drawable/cancel_btn"
         android:layout_marginLeft="13dp"
         android:layout_marginRight="13dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

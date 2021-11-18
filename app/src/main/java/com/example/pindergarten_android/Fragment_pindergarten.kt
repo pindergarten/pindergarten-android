@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageButton
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -55,6 +56,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var pindergartenTargetId : Int ?=null
 
     var panel : SlidingUpPanelLayout ?=null
+    var currentMarker : Marker ?=null
 
     var pindergartenId = ArrayList<Int>()
     var pindergartenName = ArrayList<String>()
@@ -69,6 +71,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var recyclerView : RecyclerView ?=null
     val adapter = pindergartenAdapter(pindergartenThumbnail, pindergartenName, pindergartenAddress, pindergartenRating, pindergartenIsLiked, pindergartenDistance,this)
 
+    private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_pindergarten,container,false)
@@ -115,6 +118,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                 bundle.putInt("pindergartenId",pindergartenId[position])
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
                 transaction.commit()
             }
         })
@@ -162,6 +166,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
         searchPindergarten.setOnClickListener{
@@ -172,10 +177,11 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
         panel = view.findViewById(R.id.main_panel)
-        panel!!.panelHeight = changeDP(25)
+        panel!!.panelHeight = changeDP(20)
 
 
         return view
@@ -239,11 +245,38 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         val uiSetting = naverMap.uiSettings
         uiSetting.isLocationButtonEnabled = true
         uiSetting.logoGravity= Gravity.TOP
-        uiSetting.setLogoMargin(5,5,0,0)
+        uiSetting.isCompassEnabled = false
+        uiSetting.setLogoMargin(10,10,0,0)
 
        naverMap.setOnMapClickListener{point,coord ->
-           panel!!.panelHeight = changeDP(25)
+           panel!!.panelHeight = changeDP(20)
+           if(currentMarker!=null){
+               currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
+               currentMarker!!.width = 70
+               currentMarker!!.height = 70
+           }
        }
+
+        //focus
+        panel!!.setOnClickListener{
+            if(panel!!.panelHeight==changeDP(20)){
+                recyclerView?.smoothScrollToPosition(0)
+            }
+            else if(panel!!.panelHeight<changeDP(250)){
+                panel!!.requestFocus()
+            }
+            else{
+                recyclerView!!.requestFocus()
+            }
+        }
+        recyclerView!!.setOnClickListener{
+            if(panel!!.panelHeight<changeDP(250)){
+                panel!!.requestFocus()
+            }
+            else{
+                recyclerView!!.requestFocus()
+            }
+        }
 
         // -> onRequestPermissionsResult // 위치 권한 요청
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
@@ -294,6 +327,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                         )
                         pindergartenDistance.add(String.format("%.1f", response.body()?.allPindergartenList!![i].distance!!.toDouble()) + "Km")
                         Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
+
                     }
 
                     //펫유치원 표시
@@ -308,6 +342,18 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                         Log.i("${i + 1}번째 pindergarten", pindergartenName[i])
 
                         marker.onClickListener = Overlay.OnClickListener {
+
+                            //marker image 변경
+                            if(currentMarker!=null){
+                                currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
+                                currentMarker!!.width = 70
+                                currentMarker!!.height = 70
+                            }
+                            currentMarker = marker
+                            currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker2)
+                            marker.width = 90
+                            marker.height = 90
+
                             apiService.markerAPI(sharedPreferences.toString(), marker.position.latitude!!,marker.position.longitude!!)?.enqueue(object : Callback<Post?> {
                                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                                     Log.i("marker event","success")
@@ -339,7 +385,12 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                                 response.body()?.nearPindergartens!![i].longitude!!.toDouble()
                                             )
                                         )
-                                        pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
+                                        try{
+                                            pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
+                                        }catch(e :Exception){
+                                            Log.i("error",e.toString())
+                                        }
+                                        //pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
                                         Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
                                     }
 
@@ -383,6 +434,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                     )
                                     pindergartenIsLiked.add(Integer.parseInt(response.body()?.nearPindergartens!![i].isLiked.toString()))
                                     pindergartenLocation.add(LatLng(response.body()?.nearPindergartens!![i].latitude!!.toDouble(), response.body()?.nearPindergartens!![i].longitude!!.toDouble()))
+
                                     pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
                                     Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
                                 }
@@ -402,6 +454,8 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                         })
                     }
 
+                    //최상단으로 이동
+                    recyclerView?.smoothScrollToPosition(0)
                     adapter.notifyDataSetChanged()
                     Log.i("pindergarten 조회", "성공")
                 }
@@ -432,6 +486,17 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
     private fun getLatLng(): Location{

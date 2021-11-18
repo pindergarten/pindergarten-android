@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +45,7 @@ class Fragment_likePindergarten : Fragment() {
     var current_latitude :Double ?=null
     var current_longitude :Double ?=null
 
+    private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_likepindergarten,container,false)
@@ -117,6 +119,7 @@ class Fragment_likePindergarten : Fragment() {
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_pindergarten()
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -161,6 +164,7 @@ class Fragment_likePindergarten : Fragment() {
                 bundle.putString("moved","liked")
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
                 transaction.commit()
 
             }
@@ -178,6 +182,17 @@ class Fragment_likePindergarten : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

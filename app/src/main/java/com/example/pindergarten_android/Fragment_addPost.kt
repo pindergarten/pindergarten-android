@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,9 +26,12 @@ class Fragment_addPost: Fragment() {
 
     private var myContext: FragmentActivity? = null
     var addPhoto : ImageButton ?=null
+    private lateinit var callback: OnBackPressedCallback
 
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list,this)
+
+    var image_count : TextView ?= null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -42,6 +47,8 @@ class Fragment_addPost: Fragment() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
 
+        image_count = view.findViewById(R.id.image_count)
+
         addPhoto = view.findViewById(R.id.addPhoto_btn)
         addPhoto!!.setOnClickListener{
             var intent = Intent(Intent.ACTION_PICK)
@@ -52,7 +59,7 @@ class Fragment_addPost: Fragment() {
             startActivityForResult(intent,200)
         }
 
-        val addPostBtn : Button = view.findViewById<Button>(R.id.addPostBtn)
+        val addPostBtn : ImageButton = view.findViewById<ImageButton>(R.id.addPostBtn)
         addPostBtn!!.setOnClickListener{
             if(list.size ==0){
                 //1개이상 사진업로드 공고메세지
@@ -78,6 +85,7 @@ class Fragment_addPost: Fragment() {
                     val transaction = myContext!!.supportFragmentManager.beginTransaction()
                     val fragment : Fragment = Fragment_socialPet()
                     transaction.replace(R.id.container,fragment)
+                    transaction.addToBackStack(null)
                     transaction.commit()
                     alertDialog.dismiss()
                 }
@@ -85,6 +93,7 @@ class Fragment_addPost: Fragment() {
                 alertDialog.show()
             }
         }
+
 
         return view
     }
@@ -97,6 +106,17 @@ class Fragment_addPost: Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
 
@@ -115,6 +135,8 @@ class Fragment_addPost: Fragment() {
                 for(i in 0 until count){
                     val imageUri = data.clipData!!.getItemAt(i).uri
                     list.add(imageUri)
+
+                    image_count!!.text = "${count}/10"
                 }
             }
             else{

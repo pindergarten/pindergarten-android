@@ -46,7 +46,7 @@
                 android:layout_width="31dp"
                 android:layout_height="31dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -58,6 +58,7 @@
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="20dp"
                 android:text="사용자 이름"
+                android:textSize="15dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/user_image"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +67,7 @@
                 android:id="@+id/noticeBtn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
                 android:background="#00FFFFFF"
                 android:scaleType="fitCenter"
@@ -78,7 +79,7 @@
                 android:id="@+id/post_image"
                 android:layout_width="match_parent"
                 android:layout_height="379dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -155,16 +156,28 @@
                 android:id="@+id/postText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="45dp"
-                android:layout_marginRight="10dp"
-
+                android:layout_marginRight="16dp"
                 android:text="text"
+                android:textSize="13dp"
+                android:maxLines="2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/post_image" />
 
 
-
+            <TextView
+                android:id="@+id/view_moreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="더보기"
+                android:textSize="11dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="23dp"
+                android:textColor="#858585"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

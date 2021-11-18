@@ -33,7 +33,7 @@
                     android:id="@+id/pindergartenImg"
                     android:layout_width="match_parent"
                     android:layout_height="337dp"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="centerCrop" />
 
                 <ImageButton
                     android:id="@+id/backBtn"
@@ -66,16 +66,18 @@
                     android:layout_marginTop="319dp"
                     android:background="@color/transparency"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/like_icon" />
+                    android:src="@drawable/pindergarten_unliked" />
 
                 <TextView
                     android:id="@+id/pindergartenName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pindergartenImg"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginStart="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="45dp"
                     android:singleLine="true"
@@ -85,14 +87,16 @@
 
                 <TextView
                     android:id="@+id/pindergartenAddress"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pindergartenName"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="2dp"
                     android:singleLine="true"
                     android:text="핀더가든 주소"
                     android:textSize="14dp" />
@@ -113,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5/5"
-                        android:textSize="10dp" />
+                        android:textSize="12dp" />
 
                     <RatingBar
                         android:id="@+id/pindergartenRating"
@@ -121,7 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="8dp"
                         android:isIndicator="false"
                         android:progressTint="@color/yellow_white" />
 
@@ -130,7 +134,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:background="@color/white"
                 android:orientation="vertical"
@@ -144,20 +148,23 @@
                     android:textStyle="bold"
                     android:textSize="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="28dp"/>
+                    android:layout_marginTop="25dp"/>
 
                 <TextView
                     android:id="@+id/openingHour"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="18dp"
+                    android:lineSpacingExtra ="5dp"
                     android:text="영업시간입니다." />
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="3dp"
+                    android:layout_height="1dp"
                     android:src="@drawable/dialog_line"
+                    android:scaleType="centerCrop"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="18dp" />
@@ -169,20 +176,23 @@
                     android:textStyle="bold"
                     android:textSize="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="28dp"/>
+                    android:layout_marginTop="25dp"/>
 
                 <TextView
                     android:id="@+id/access_guide"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="18dp"
+                    android:lineSpacingExtra ="5dp"
                     android:text="이용안내입니다." />
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="3dp"
+                    android:layout_height="1dp"
                     android:src="@drawable/dialog_line"
+                    android:scaleType="centerCrop"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="18dp" />
@@ -194,7 +204,7 @@
                     android:textStyle="bold"
                     android:textSize="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="28dp"/>
+                    android:layout_marginTop="25dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -238,7 +248,7 @@
 
                     <TextView
                         android:id="@+id/address"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
                         android:layout_marginLeft="52dp"
@@ -252,6 +262,7 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="18dp"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="43dp"
                     android:layout_marginRight="16dp">
 
                     <TextView
@@ -263,10 +274,11 @@
 
                     <TextView
                         android:id="@+id/website"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
                         android:textStyle="bold"
+                        android:lineSpacingExtra ="8dp"
                         android:layout_marginLeft="27dp"
                         android:text="홈페이지 주소"/>
 
@@ -295,17 +307,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/recyclerView"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
                     />
+
+                <ImageView
+                    android:id="@+id/review_notexist"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginLeft="103dp"
+                    android:layout_marginRight="103dp"
+                    android:src="@drawable/review_notexist"
+                    android:visibility="gone" />
 
                 <Button
                     android:id="@+id/moreReviewBtn"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/more_review_btn"

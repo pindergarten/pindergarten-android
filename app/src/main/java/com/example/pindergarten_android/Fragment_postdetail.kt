@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager.widget.ViewPager
@@ -41,7 +42,7 @@ class Fragment_postdetail : Fragment() {
     var dialog : AlertDialog ?=null
     var liked = -1
 
-
+    private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_postdetail,container,false)
@@ -88,6 +89,7 @@ class Fragment_postdetail : Fragment() {
             bundle.putInt("postId", postId)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -122,6 +124,7 @@ class Fragment_postdetail : Fragment() {
                             val bundle = Bundle()
                             fragment.arguments=bundle
                             transaction.replace(R.id.container,fragment)
+                            transaction.addToBackStack(null)
                             transaction.commit()
 
                             dialog!!.dismiss()
@@ -136,6 +139,7 @@ class Fragment_postdetail : Fragment() {
                             bundle.putInt("postId", postId)
                             fragment.arguments=bundle
                             transaction.replace(R.id.container,fragment)
+                            transaction.addToBackStack(null)
                             transaction.commit()
 
                             dialog!!.dismiss()
@@ -170,6 +174,7 @@ class Fragment_postdetail : Fragment() {
                     bundle.putInt("postId", postId)
                     fragment.arguments = bundle
                     transaction.replace(R.id.container, fragment)
+                    transaction.addToBackStack(null)
                     transaction.commit()
                     dialog!!.dismiss()
                 }
@@ -275,9 +280,20 @@ class Fragment_postdetail : Fragment() {
             bundle.putInt("postId", postId)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
+
+        var view_moreText = view.findViewById<TextView>(R.id.view_moreText)
+        view_moreText.setOnClickListener{
+            postText.maxLines = 100
+            view_moreText.visibility =View.GONE
+        }
+
+        if(postText.lineCount ==1){
+            view_moreText.visibility =View.GONE
+        }
 
         return view
     }
@@ -296,6 +312,17 @@ class Fragment_postdetail : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.i("callback","뒤로가기")
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
 
