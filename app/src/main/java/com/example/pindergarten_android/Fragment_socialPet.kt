@@ -48,6 +48,7 @@ class Fragment_socialPet : Fragment() {
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(false)
 
+
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
         var recyclerView = recyclerview_main // recyclerview id
 

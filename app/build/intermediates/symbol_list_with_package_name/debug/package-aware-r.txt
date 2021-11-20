@@ -1989,6 +1989,7 @@ drawable join_vertifyconfirm
 drawable join_vertifyconfirm2
 drawable like_icon
 drawable liked
+drawable liked2
 drawable likedicon
 drawable location_icon
 drawable login_line
@@ -2094,6 +2095,7 @@ drawable post_liked
 drawable post_unliked
 drawable postdetail_notice
 drawable register_btn
+drawable review2
 drawable review_logo
 drawable review_notexist
 drawable search_icon
@@ -2115,6 +2117,7 @@ drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable unliked
+drawable unliked2
 drawable unselected_dot
 drawable white_radius
 id ALT

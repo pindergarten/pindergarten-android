@@ -1988,6 +1988,7 @@ int drawable join_vertifyconfirm 0x7f0800a4
 int drawable join_vertifyconfirm2 0x7f0800a5
 int drawable like_icon 0x7f0800a6
 int drawable liked 0x7f0800a7
+int drawable liked2 0x7f080128
 int drawable likedicon 0x7f0800a8
 int drawable location_icon 0x7f0800a9
 int drawable login_line 0x7f0800aa
@@ -2093,6 +2094,7 @@ int drawable post_liked 0x7f08010d
 int drawable post_unliked 0x7f08010e
 int drawable postdetail_notice 0x7f08010f
 int drawable register_btn 0x7f080110
+int drawable review2 0x7f080129
 int drawable review_logo 0x7f080111
 int drawable review_notexist 0x7f080112
 int drawable search_icon 0x7f080113
@@ -2114,6 +2116,7 @@ int drawable test_custom_background 0x7f080122
 int drawable tooltip_frame_dark 0x7f080123
 int drawable tooltip_frame_light 0x7f080124
 int drawable unliked 0x7f080125
+int drawable unliked2 0x7f08012a
 int drawable unselected_dot 0x7f080126
 int drawable white_radius 0x7f080127
 int id ALT 0x7f090000

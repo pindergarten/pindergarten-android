@@ -56,7 +56,7 @@ class CommentAdapter(private val userImg:ArrayList<Uri>, private val userId:Arra
             .into(holder.user_img)
 
         holder.user_date.text = userDate[position]
-        holder.user_comment.text = Html.fromHtml("<b>${userId[position]}</b> ${userDetail[position]}")
+        holder.user_comment.text = Html.fromHtml("<b>${userId[position] }</b> ${userDetail[position]}")
 
         holder.itemView.setOnClickListener{
             itemClickListener.onClick(it,position)

@@ -232,11 +232,42 @@ class Fragment_detailPindergarten : Fragment() {
                 pindergartenAddress?.text=response.body()?.pindergarten?.address
                 rating_text?.text="${response.body()?.pindergarten?.rating}/5"
                 pindergartenRating?.rating= response.body()?.pindergarten?.rating?.toFloat()!!
-                openingHour?.text=response.body()?.pindergarten?.opening_hours
-                access_guide?.text=response.body()?.pindergarten?.access_guide
-                phoneNum?.text=response.body()?.pindergarten?.phone
-                address?.text=response.body()?.pindergarten?.address
-                website?.text=response.body()?.pindergarten?.website
+
+                if(response.body()?.pindergarten?.opening_hours!=""){
+                    openingHour?.text=response.body()?.pindergarten?.opening_hours
+                }
+                else{
+                    openingHour?.text="-"
+                }
+
+                if(response.body()?.pindergarten?.access_guide!=""){
+                    access_guide?.text=response.body()?.pindergarten?.access_guide
+                }
+                else{
+                    access_guide?.text="-"
+                }
+
+                if(response.body()?.pindergarten?.phone!=""){
+                    phoneNum?.text=response.body()?.pindergarten?.phone
+                }
+                else{
+                    phoneNum?.text="-"
+                }
+
+                if(response.body()?.pindergarten?.address!=""){
+                    address?.text=response.body()?.pindergarten?.address
+                }
+                else{
+                    address?.text="-"
+                }
+
+                if(response.body()?.pindergarten?.website!=""){
+                    website?.text=response.body()?.pindergarten?.website
+                }
+                else{
+                    website?.text="-"
+                }
+
                 pindergartenLatLng = LatLng(response.body()?.pindergarten!!.latitude!!.toDouble(),response.body()?.pindergarten!!.longitude!!.toDouble())
 
                 //viewpager

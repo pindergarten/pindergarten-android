@@ -120,11 +120,7 @@
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:onClick="@{activity::btnClick}"
             android:src="@drawable/login_loginbtn"
             android:scaleType="fitCenter"
@@ -136,7 +132,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -147,21 +142,21 @@
                 android:id="@+id/findPwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:onClick="@{activity::btnClick}"
                 android:text="비밀번호 찾기"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:text="   |   "/>
 
             <TextView
                 android:id="@+id/join"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:onClick="@{activity::btnClick}"
                 android:text="회원가입"/>
 

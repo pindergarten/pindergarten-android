@@ -11,10 +11,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -32,6 +32,7 @@ class Fragment_addPost: Fragment() {
     val adapter = MultiImageAdapter(list,this)
 
     var image_count : TextView ?= null
+    var imm : InputMethodManager ?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -75,11 +76,17 @@ class Fragment_addPost: Fragment() {
             }
             else{
                 //서버요청
+
+                //keyboard control
+                imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm?.hideSoftInputFromWindow(view.windowToken,0)
+
                 val view2 = View.inflate(context,R.layout.join_popup,null)
                 var text : TextView = view2.findViewById(R.id.text)
                 var button : Button = view2.findViewById(R.id.button)
                 text.text="게시물이 정상적으로 등록 되었습니다."
                 button.text="확인"
+
                 val alertDialog = AlertDialog.Builder(context).create()
                 button.setOnClickListener{
                     val transaction = myContext!!.supportFragmentManager.beginTransaction()
@@ -92,6 +99,16 @@ class Fragment_addPost: Fragment() {
                 alertDialog.setView(view2)
                 alertDialog.show()
             }
+        }
+
+        var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_socialPet()
+            val bundle = Bundle()
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
         }
 
 
@@ -129,14 +146,24 @@ class Fragment_addPost: Fragment() {
             if(data?.clipData!=null){
                 val count = data.clipData!!.itemCount
                 if(count>10){
-                    Toast.makeText(context,"사진은 10장까지 가능합니다.",Toast.LENGTH_LONG)
+                    val view2 = View.inflate(context,R.layout.join_popup,null)
+                    var text : TextView = view2.findViewById(R.id.text)
+                    var button : Button = view2.findViewById(R.id.button)
+                    text.text="사진은 10장까지 가능합니다."
+                    button.text="확인"
+                    val alertDialog = AlertDialog.Builder(context).create()
+                    button.setOnClickListener{ alertDialog.dismiss() }
+                    alertDialog.setView(view2)
+                    alertDialog.show()
                     return
                 }
-                for(i in 0 until count){
-                    val imageUri = data.clipData!!.getItemAt(i).uri
-                    list.add(imageUri)
+                else{
+                    for(i in 0 until count){
+                        val imageUri = data.clipData!!.getItemAt(i).uri
+                        list.add(imageUri)
 
-                    image_count!!.text = "${count}/10"
+                        image_count!!.text = "${count}/10"
+                    }
                 }
             }
             else{

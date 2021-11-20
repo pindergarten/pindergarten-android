@@ -20,7 +20,8 @@
         android:layout_marginRight="16dp"
         android:singleLine="true"
         android:text="블로그 제목"
-        android:textSize="15dp"
+        android:textColor="#5A5A5A"
+        android:textSize="14dp"
         android:textStyle="bold" />
 
     <TextView
@@ -29,8 +30,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:maxLines="3"
+        android:textColor="#5A5A5A"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
 

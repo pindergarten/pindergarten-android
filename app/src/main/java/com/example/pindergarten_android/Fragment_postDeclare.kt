@@ -115,8 +115,18 @@ class Fragment_postDeclare : Fragment() {
 
                 })
             }
+        }
 
-
+        var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
+        backBtn.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_postdetail()
+            val bundle = Bundle()
+            bundle.putInt("postId", postId)
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         return view

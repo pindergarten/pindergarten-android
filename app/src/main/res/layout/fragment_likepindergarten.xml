@@ -59,6 +59,7 @@
         android:nestedScrollingEnabled="false"
         android:focusable="true"
         android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
         android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

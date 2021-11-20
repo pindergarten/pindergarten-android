@@ -188,13 +188,13 @@ class Fragment_postdetail : Fragment() {
             //게시물 좋아요
             if(liked==0){
                 Log.i("post Liked: ","좋아요")
-                likeId.setImageResource(R.drawable.liked)
+                likeId.setImageResource(R.drawable.liked2)
                 liked = 1
                 likeCount.text = "${ Integer.parseInt(likeCount.text.toString()) + 1 }"
             }
             else{
                 Log.i("post Liked: ","좋아요 취소")
-                likeId.setImageResource(R.drawable.unliked)
+                likeId.setImageResource(R.drawable.unliked2)
                 liked = 0
                 likeCount.text = "${ Integer.parseInt(likeCount.text.toString()) - 1 }"
             }
@@ -255,13 +255,13 @@ class Fragment_postdetail : Fragment() {
                     if(tempLiked ==0){
                         //좋아요 x
                         Log.i("post Liked: ","좋아요 x")
-                        likeId.setImageResource(R.drawable.unliked)
+                        likeId.setImageResource(R.drawable.unliked2)
                         liked = 0
                     }
                     else{
                         //좋아요
                         Log.i("post Liked: ","좋아요")
-                        likeId.setImageResource(R.drawable.liked)
+                        likeId.setImageResource(R.drawable.liked2)
                         liked = 1
                     }
                 }

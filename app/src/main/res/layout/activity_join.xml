@@ -33,8 +33,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="20dp"
             android:text="기본정보"
-            android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textColor="#424242"
+            android:textSize="17dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -46,7 +46,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:text="휴대폰번호"
-            android:textSize="16dp"
+            android:textSize="14dp"
+            android:textColor="#5A5A5A"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -68,7 +69,7 @@
             android:layout_marginLeft="16dp"
             android:backgroundTint="@color/white"
             android:hint="휴대폰 번호를 입력해주세요."
-            android:textSize="15dp"
+            android:textSize="13dp"
             android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent" />
@@ -81,6 +82,7 @@
             android:textColor="@color/brown"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -89,8 +91,7 @@
             android:id="@+id/sendNum"
             android:layout_width="92dp"
             android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="14dp"
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
             android:onClick="@{activity::btnClick}"
@@ -98,8 +99,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/join_vertify"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.465"
-            app:layout_constraintStart_toEndOf="@+id/phoneNum"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <ImageView
@@ -122,7 +121,7 @@
             android:backgroundTint="@color/white"
             android:hint="인증번호"
             android:singleLine="true"
-            android:textSize="15dp"
+            android:textSize="13dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView4"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -130,26 +129,20 @@
             android:id="@+id/confirmBtn"
             android:layout_width="92dp"
             android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
-            android:scaleType="fitCenter"
-            android:padding="0dp"
             android:onClick="@{activity::btnClick}"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/join_vertifyconfirm"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vertifyNum"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <ImageButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:onClick="@{activity::btnClick}"
             android:src="@drawable/join_next"
@@ -164,6 +157,7 @@
             android:layout_height="wrap_content"
             android:text="*인증번호를 정확히 입력해주세요."
             android:textColor="@color/brown"
+            android:textSize="12dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"

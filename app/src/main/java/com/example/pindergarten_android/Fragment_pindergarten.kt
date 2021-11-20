@@ -258,6 +258,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
        }
 
         //focus
+        panel!!.panelHeight = changeDP(20)
         panel!!.setOnClickListener{
             if(panel!!.panelHeight==changeDP(20)){
                 recyclerView?.smoothScrollToPosition(0)
@@ -337,8 +338,8 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                         marker.map = naverMap
                         marker.tag = pindergartenId[i]
                         marker.icon = OverlayImage.fromResource(R.drawable.marker)
-                        marker.width = 70
-                        marker.height = 70
+                        marker.width = 80
+                        marker.height = 80
                         Log.i("${i + 1}번째 pindergarten", pindergartenName[i])
 
                         marker.onClickListener = Overlay.OnClickListener {
@@ -346,13 +347,13 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                             //marker image 변경
                             if(currentMarker!=null){
                                 currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
-                                currentMarker!!.width = 70
-                                currentMarker!!.height = 70
+                                currentMarker!!.width = 80
+                                currentMarker!!.height = 80
                             }
                             currentMarker = marker
                             currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker2)
-                            marker.width = 90
-                            marker.height = 90
+                            marker.width = 100
+                            marker.height = 100
 
                             apiService.markerAPI(sharedPreferences.toString(), marker.position.latitude!!,marker.position.longitude!!)?.enqueue(object : Callback<Post?> {
                                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {

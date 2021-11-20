@@ -17,6 +17,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@color/transparency"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back_btn"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/addDeclareBtn"
@@ -27,6 +40,7 @@
         android:text="완료"
         android:textSize="15dp"
         android:textColor="#ABABAB"
+        android:paddingRight="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Button>
 
@@ -61,6 +75,7 @@
             android:layout_height="wrap_content"
             android:text="신고 유형"
             android:textSize="16dp"
+            android:textColor="#3D3D3D"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
@@ -105,6 +120,7 @@
             android:layout_height="wrap_content"
             android:text="신고 제목"
             android:textSize="16dp"
+            android:textColor="#3D3D3D"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
@@ -117,7 +133,7 @@
             android:background="@drawable/spinner_background"
             android:spinnerMode="dropdown"
             android:hint="신고 제목을 입력하세요(최대 40자)"
-            android:textSize="15dp"
+            android:textSize="14dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
@@ -151,7 +167,7 @@
         android:gravity="left"
         android:inputType="textMultiLine"
         android:hint="신고하실 내용을 설명해주세요.(최소 10자, 최대 500자 입력 가능)"
-        android:textSize="13dp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
