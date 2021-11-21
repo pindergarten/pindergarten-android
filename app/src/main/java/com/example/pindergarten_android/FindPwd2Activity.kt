@@ -2,6 +2,8 @@ package com.example.pindergarten_android
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +38,7 @@ class FindPwd2Activity : AppCompatActivity() {
     var nextBtn:ImageButton ?=null
     var phoneNum : String ?=null
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityFindpwd2Binding = DataBindingUtil.setContentView(this, R.layout.activity_findpwd2)
@@ -44,6 +48,13 @@ class FindPwd2Activity : AppCompatActivity() {
         //액션바 제거
         var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
+
+        //상태바
+        val window = window
+        window?.decorView?.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        window.statusBarColor = Color.WHITE
+
 
         var intent : Intent = intent
         phoneNum = intent.getStringExtra("phone")

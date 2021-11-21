@@ -1910,6 +1910,7 @@ drawable abc_vector_test
 drawable above_shadow
 drawable addpost_addphoto
 drawable addpost_line
+drawable app_pet_btn
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_btn
@@ -2095,11 +2096,13 @@ drawable post_liked
 drawable post_unliked
 drawable postdetail_notice
 drawable register_btn
+drawable register_btn2
 drawable review2
 drawable review_logo
 drawable review_notexist
 drawable search_icon
 drawable selected_dot
+drawable setting_icon
 drawable social_pet
 drawable social_pet2
 drawable socialpet_plus
@@ -2197,6 +2200,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addDeclareBtn
+id addPetBtn
 id addPhoto_btn
 id addPostBtn
 id address
@@ -2482,6 +2486,8 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id myId
+id myImg
 id navermap_bar
 id navermap_compass
 id navermap_compass_icon
@@ -2546,6 +2552,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id petLayout
 id phoneBtn
 id phoneNum
 id phone_info
@@ -2617,6 +2624,7 @@ id select_dialog_listview
 id selected
 id selection_type
 id sendNum
+id settingBtn
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -2884,6 +2892,7 @@ layout material_time_input
 layout material_timepicker
 layout material_timepicker_dialog
 layout material_timepicker_textinput_display
+layout meandpet_post_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

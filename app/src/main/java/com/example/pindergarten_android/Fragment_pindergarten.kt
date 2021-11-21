@@ -436,7 +436,14 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                     pindergartenIsLiked.add(Integer.parseInt(response.body()?.nearPindergartens!![i].isLiked.toString()))
                                     pindergartenLocation.add(LatLng(response.body()?.nearPindergartens!![i].latitude!!.toDouble(), response.body()?.nearPindergartens!![i].longitude!!.toDouble()))
 
-                                    pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
+
+                                    if(response.body()?.nearPindergartens!![i].distance!!.toDouble()!=null){
+                                        pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
+                                    }
+                                    else{
+                                        Log.i("nearPindergarten","Null error")
+                                    }
+
                                     Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
                                 }
 
@@ -455,6 +462,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                         })
                     }
 
+                    panel!!.panelHeight = changeDP(20)
                     //최상단으로 이동
                     recyclerView?.smoothScrollToPosition(0)
                     adapter.notifyDataSetChanged()

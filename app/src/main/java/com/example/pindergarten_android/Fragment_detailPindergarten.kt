@@ -51,8 +51,7 @@ class Fragment_detailPindergarten : Fragment() {
 
     var phoneNum : TextView?= null
     var address : TextView ?= null
-    var website : TextView ?= null
-
+    var website : LinearLayout ?= null
     var moreReviewBtn : Button?= null
 
     var phoneBtn : ImageButton ?= null
@@ -262,10 +261,28 @@ class Fragment_detailPindergarten : Fragment() {
                 }
 
                 if(response.body()?.pindergarten?.website!=""){
-                    website?.text=response.body()?.pindergarten?.website
+
+                    response.body()?.pindergarten?.website?.let { Log.i("websiteList", it) }
+                    var websiteList = response.body()?.pindergarten!!.website?.split("\n")
+
+
+                    if (websiteList != null) {
+                        for ( i in websiteList ){
+                            val textView = TextView(myContext)
+                            textView.text = "${i}\n"
+                            textView!!.setOnClickListener{
+                                var intent = Intent(Intent.ACTION_VIEW,Uri.parse("${i}"))
+                                startActivity(intent) }
+                            website!!.addView(textView)
+                        }
+                    }
+
+
                 }
                 else{
-                    website?.text="-"
+                    val textView = TextView(myContext)
+                    textView.text = "-"
+                    website!!.addView(textView)
                 }
 
                 pindergartenLatLng = LatLng(response.body()?.pindergarten!!.latitude!!.toDouble(),response.body()?.pindergarten!!.longitude!!.toDouble())
@@ -279,6 +296,12 @@ class Fragment_detailPindergarten : Fragment() {
                     //indicator
                     temp.add(Uri.parse(response.body()?.pindergarten?.postImage!![i]?.postImageUrl.toString()))
                     pindergartenImageList!!.add(response.body()?.pindergarten?.postImage!![i]?.postImageUrl.toString())
+                }
+
+                //default image
+                if(response.body()?.pindergarten?.postImage?.size==0){
+                    temp.add(Uri.parse("android.resource:// com.example.pindergarten_android/drawable/temp"))
+                    pindergartenImageList!!.add("android.resource:// com.example.pindergarten_android/drawable/temp")
                 }
 
                 viewpager.adapter=pagerAdapter
@@ -308,10 +331,6 @@ class Fragment_detailPindergarten : Fragment() {
 
         })
 
-        website!!.setOnClickListener{
-            var intent = Intent(Intent.ACTION_VIEW,Uri.parse(website!!.text.toString()))
-            startActivity(intent)
-        }
 
         var review_notexist = view.findViewById<ImageView>(R.id.review_notexist)
 

@@ -32,6 +32,7 @@ class Fragment_addPost: Fragment() {
     val adapter = MultiImageAdapter(list,this)
 
     var image_count : TextView ?= null
+    var addPostBtn : ImageButton ?=null
     var imm : InputMethodManager ?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -60,7 +61,7 @@ class Fragment_addPost: Fragment() {
             startActivityForResult(intent,200)
         }
 
-        val addPostBtn : ImageButton = view.findViewById<ImageButton>(R.id.addPostBtn)
+        addPostBtn = view.findViewById(R.id.addPostBtn)
         addPostBtn!!.setOnClickListener{
             if(list.size ==0){
                 //1개이상 사진업로드 공고메세지
@@ -69,6 +70,7 @@ class Fragment_addPost: Fragment() {
                 var button : Button = view2.findViewById(R.id.button)
                 text.text="게시물 등록시 1개 이상의\n" + "사진이 필요합니다."
                 button.text="확인"
+                addPostBtn!!.setImageResource(R.drawable.register_btn)
                 val alertDialog = AlertDialog.Builder(context).create()
                 button.setOnClickListener{ alertDialog.dismiss() }
                 alertDialog.setView(view2)
@@ -155,12 +157,14 @@ class Fragment_addPost: Fragment() {
                     button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
+                    addPostBtn!!.setImageResource(R.drawable.register_btn)
                     return
                 }
                 else{
                     for(i in 0 until count){
                         val imageUri = data.clipData!!.getItemAt(i).uri
                         list.add(imageUri)
+                        addPostBtn!!.setImageResource(R.drawable.register_btn2)
 
                         image_count!!.text = "${count}/10"
                     }
@@ -172,6 +176,7 @@ class Fragment_addPost: Fragment() {
                     val imageUri : Uri?= data?.data
                     if(imageUri!=null){
                         list.add(imageUri)
+                        addPostBtn!!.setImageResource(R.drawable.register_btn2)
                     }
                 }
             }

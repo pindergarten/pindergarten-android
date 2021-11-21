@@ -1,7 +1,6 @@
 package com.example.pindergarten_android
 
 import android.content.Context
-import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -37,16 +36,15 @@ class PindergartenPagerAdapter(Image : ArrayList<String>, private val context : 
         val v = layoutInflater!!.inflate(R.layout.viewpager_pindergarten_layout,null)
         val image = v.findViewById<ImageView>(R.id.post_image)
         val textIndicator = v.findViewById<TextView>(R.id.textIndicator)
-        val drawable : GradientDrawable = context!!.getDrawable(R.drawable.pindergarten_background) as GradientDrawable
-        image.background = drawable
         image.clipToOutline = true
 
         textIndicator.text = "${position+1} / ${Image.size}"
 
         Glide.with(context)
-            .load(Image[position])
+            .load(R.drawable.temp)
             .centerCrop()
             .into(image)
+
 
         val vp = container as ViewPager
         vp.addView(v,0)

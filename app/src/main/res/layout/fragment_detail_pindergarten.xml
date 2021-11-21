@@ -162,8 +162,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="18dp"
-                    android:lineSpacingExtra ="5dp"
+                    android:layout_marginTop="28dp"
+                    android:lineSpacingExtra ="7dp"
                     android:textSize="14dp"
                     android:textColor="#5A5A5A"
                     android:text="영업시간입니다." />
@@ -175,7 +175,7 @@
                     android:scaleType="centerCrop"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="18dp" />
+                    android:layout_marginTop="28dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,7 +206,7 @@
                     android:scaleType="centerCrop"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="18dp" />
+                    android:layout_marginTop="28dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -222,7 +222,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
 
@@ -249,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="23dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
 
@@ -266,6 +266,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14dp"
+                        android:lineSpacingExtra ="7dp"
                         android:layout_marginLeft="48dp"
                         android:textColor="#5A5A5A"
                         android:text="주소입니다."/>
@@ -276,9 +277,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="23dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="43dp"
+                    android:layout_marginBottom="33dp"
                     android:layout_marginRight="16dp">
 
                     <TextView
@@ -289,15 +290,14 @@
                         android:textStyle="bold"
                         android:text="홈페이지"/>
 
-                    <TextView
+                    <LinearLayout
                         android:id="@+id/website"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:textSize="14dp"
                         android:textColor="#5A5A5A"
-                        android:lineSpacingExtra ="5dp"
-                        android:layout_marginLeft="22.5dp"
-                        android:text="홈페이지 주소"/>
+                        android:layout_marginLeft="25dp" />
 
                 </LinearLayout>
 
@@ -314,7 +314,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="블로그 정보"
+                    android:text="블로그 리뷰"
                     android:textStyle="bold"
                     android:textSize="16dp"
                     android:textColor="#3D3D3D"
@@ -337,6 +337,7 @@
                     android:scaleType="fitCenter"
                     android:layout_marginLeft="103dp"
                     android:layout_marginRight="103dp"
+                    android:layout_marginTop="-30dp"
                     android:src="@drawable/review_notexist"
                     android:visibility="gone" />
 

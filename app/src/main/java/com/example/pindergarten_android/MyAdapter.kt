@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +63,7 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
 
         Glide.with(context)
             .load(item_postImage)
-            .centerCrop()
+            .fitCenter()
             .into(holder.post_Img)
 
         Glide.with(context)
@@ -74,7 +75,12 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         holder.post_Text.text = postText[position]
         holder.user_Id.text=userId[position]
 
+        holder.post_Img.layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+
+        //간격유지
+        /*
         when(position%4){
+
             0-> {
                 holder.post_Img.layoutParams.height  = changeDP(153)
             }
@@ -88,6 +94,8 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
                 holder.post_Img.layoutParams.height  = changeDP(153)
             }
         }
+
+         */
 
         when(postLiked[position]){
             0->{
