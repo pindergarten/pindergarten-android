@@ -1908,6 +1908,8 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable above_shadow
+drawable addpet_petimg
+drawable addpet_photo
 drawable addpost_addphoto
 drawable addpost_line
 drawable app_pet_btn
@@ -2082,6 +2084,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pager_indicator
 drawable panel_drawer_start
+drawable petimg
 drawable phone_icon
 drawable pin_unlike
 drawable pinder_liked
@@ -2095,6 +2098,10 @@ drawable pindergarten_unliked
 drawable post_liked
 drawable post_unliked
 drawable postdetail_notice
+drawable radio_btn_custom
+drawable radio_btn_text
+drawable radiobtn_selected
+drawable radiobtn_unselected
 drawable register_btn
 drawable register_btn2
 drawable review2
@@ -2200,8 +2207,10 @@ id actions
 id activity_chooser_view_content
 id add
 id addDeclareBtn
+id addPet
 id addPetBtn
 id addPhoto_btn
+id addPost
 id addPostBtn
 id address
 id adjust_height
@@ -2342,6 +2351,7 @@ id expand_activities_button
 id expanded
 id expanded_menu
 id fade
+id female
 id fill
 id fill_horizontal
 id fill_vertical
@@ -2356,6 +2366,7 @@ id forever
 id fragment_container_view_tag
 id frameLayout
 id frost
+id genderGroup
 id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
@@ -2427,6 +2438,7 @@ id listMode
 id list_item
 id login
 id main_panel
+id male
 id map_view
 id masked
 id match_constraint
@@ -2520,6 +2532,9 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
+id neuteringGroup
+id neutering_no
+id neutering_yes
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
@@ -2552,7 +2567,13 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id petCategory
+id petImg
+id petImgBtn
+id petImgLayout
+id petInfo
 id petLayout
+id petName
 id phoneBtn
 id phoneNum
 id phone_info
@@ -2573,6 +2594,9 @@ id postLayout
 id postLike
 id postText
 id post_image
+id preventGroup
+id prevent_no
+id prevent_yes
 id progress_circular
 id progress_horizontal
 id pwd1
@@ -2698,6 +2722,7 @@ id textTop
 id textView
 id textView10
 id textView11
+id textView12
 id textView2
 id textView3
 id textView4
@@ -2862,6 +2887,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout event_image_item
+layout fragment_addpet
 layout fragment_addpost
 layout fragment_comment
 layout fragment_detail_pindergarten
@@ -2892,6 +2918,7 @@ layout material_time_input
 layout material_timepicker
 layout material_timepicker_dialog
 layout material_timepicker_textinput_display
+layout meandpet_popup
 layout meandpet_post_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions

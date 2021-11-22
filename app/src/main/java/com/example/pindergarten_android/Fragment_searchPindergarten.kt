@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
@@ -29,6 +30,8 @@ class Fragment_searchPindergarten : Fragment() {
     var pindergartenAddress = ArrayList<String>()
     val adapter = searchPindergartenAdapter(pindergartenName,pindergartenAddress,this)
     var queryText : String ?=null
+    var imm : InputMethodManager ?=null
+
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -78,6 +81,10 @@ class Fragment_searchPindergarten : Fragment() {
                             pindergartenAddress.add(response.body()?.searchpindergartenList!![i].address.toString())
                             pindergartenId.add(response.body()?.searchpindergartenList!![i].id!!.toInt())
                         }
+
+                        //keyboard control
+                        imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                        imm?.hideSoftInputFromWindow(view.windowToken,0)
 
                         adapter.notifyDataSetChanged()
                     }

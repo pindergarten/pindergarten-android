@@ -34,6 +34,7 @@ class Fragment_addPost: Fragment() {
     var image_count : TextView ?= null
     var addPostBtn : ImageButton ?=null
     var imm : InputMethodManager ?=null
+    var fragment : String ?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -42,6 +43,12 @@ class Fragment_addPost: Fragment() {
         //navigate hide
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(true)
+
+        var bundle: Bundle
+        if(arguments!=null){
+            bundle = arguments as Bundle
+            fragment = bundle.getString("fragment").toString()
+        }
 
         var recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         val layoutManager = LinearLayoutManager(context)
@@ -91,12 +98,24 @@ class Fragment_addPost: Fragment() {
 
                 val alertDialog = AlertDialog.Builder(context).create()
                 button.setOnClickListener{
-                    val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                    val fragment : Fragment = Fragment_socialPet()
-                    transaction.replace(R.id.container,fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
                     alertDialog.dismiss()
+                    if(fragment == "socialPet"){
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_socialPet()
+                        val bundle = Bundle()
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.commit()
+                    }
+                    else if (fragment == "meAndPet"){
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_meAndPet()
+                        val bundle = Bundle()
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.commit()
+                    }
+
                 }
                 alertDialog.setView(view2)
                 alertDialog.show()
@@ -105,12 +124,23 @@ class Fragment_addPost: Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_socialPet()
-            val bundle = Bundle()
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.commit()
+            if(fragment == "socialPet"){
+                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                val fragment : Fragment = Fragment_socialPet()
+                val bundle = Bundle()
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.commit()
+            }
+            else if (fragment == "meAndPet"){
+                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                val fragment : Fragment = Fragment_meAndPet()
+                val bundle = Bundle()
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.commit()
+            }
+
         }
 
 

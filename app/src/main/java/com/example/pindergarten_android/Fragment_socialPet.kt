@@ -164,6 +164,9 @@ class Fragment_socialPet : Fragment() {
         plusBtn.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_addPost()
+            val bundle = Bundle()
+            bundle.putString("fragment", "socialPet")
+            fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)
             transaction.commit()

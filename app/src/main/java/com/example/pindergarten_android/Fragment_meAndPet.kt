@@ -1,12 +1,14 @@
 package com.example.pindergarten_android
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
@@ -29,6 +31,7 @@ class Fragment_meAndPet : Fragment() {
 
     var postImage = ArrayList<Uri>()
     var myImg  : ImageView?=null
+    var plusBtn : ImageButton ?=null
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -52,6 +55,7 @@ class Fragment_meAndPet : Fragment() {
         var recyclerView = recyclerview_main // recyclerview id
 
         myImg = view.findViewById(R.id.myImg)
+        plusBtn = view.findViewById(R.id.plusBtn)
 
         recyclerView.adapter = adapter
 
@@ -96,6 +100,50 @@ class Fragment_meAndPet : Fragment() {
             }
         })
 
+
+        plusBtn!!.setOnClickListener{
+            val view2 = View.inflate(context,R.layout.meandpet_popup,null)
+            var addPet : Button = view2.findViewById(R.id.addPet)
+            var addPost : Button = view2.findViewById(R.id.addPost)
+
+            val alertDialog = AlertDialog.Builder(context).create()
+            addPet.setOnClickListener{
+                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                val fragment : Fragment = Fragment_addPet()
+                transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+                alertDialog.dismiss()
+            }
+
+            addPost.setOnClickListener{
+                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                val fragment : Fragment = Fragment_addPost()
+                val bundle = Bundle()
+                bundle.putString("fragment", "meAndPet")
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+                alertDialog.dismiss()
+            }
+
+            alertDialog.setView(view2)
+            alertDialog.show()
+        }
+
+        var settingBtn : ImageButton = view!!.findViewById(R.id.settingBtn)
+        settingBtn.setOnClickListener{
+            /*
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_event()
+            transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+             */
+        }
+
         return view
     }
 
@@ -113,34 +161,6 @@ class Fragment_meAndPet : Fragment() {
     override fun onDetach() {
         super.onDetach()
         callback.remove()
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        var plusBtn : ImageButton = myContext!!.findViewById<ImageButton>(R.id.plusBtn)
-        plusBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_addPost()
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-
-        var settingBtn : ImageButton = myContext!!.findViewById<ImageButton>(R.id.settingBtn)
-        settingBtn.setOnClickListener{
-            /*
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_event()
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-
-             */
-        }
-
-
-
     }
 
 

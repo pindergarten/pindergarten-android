@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="2dp" android:height="2dp" android:drawable="@drawable/radiobtn_selected" android:state_checked="true"></item>
+    <item android:width="2dp" android:height="2dp" android:drawable="@drawable/radiobtn_unselected" android:state_checked="false" />
+    <item android:width="2dp" android:height="2dp" android:drawable="@drawable/radiobtn_unselected" />   <!-- 아무 상태도 지정하지 않으면 기본 값 -->
+</selector>
+
