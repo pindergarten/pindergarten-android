@@ -1,5 +1,6 @@
 package com.example.pindergarten_android
 
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -131,4 +132,17 @@ interface RetrofitAPI {
     @GET("api/near/pindergartens")
     fun markerAPI(@Header("x-access-token") value : String, @Query("latitude") latitude : Double,@Query("longitude") longitude : Double): Call<Post?>?
 
+    //펫 등록
+    @Multipart
+    @FormUrlEncoded
+    @POST("api/pets")
+    fun addPetAPI(@Header("x-access-token") value : String,@FieldMap param: HashMap<String, Any>,@Part file: MultipartBody.Part?): Call<Post?>?
+
+    //나의 펫 조회
+    @GET("api/pets")
+    fun myPetSearchAPI(@Header("x-access-token") value : String): Call<Post?>?
+
+    //펫 상세조회
+    @GET("api/pets/{petId}")
+    fun petDetailAPI(@Header("x-access-token") value : String, @Query("petId") petId : Int ): Call<Post?>?
 }

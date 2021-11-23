@@ -2084,6 +2084,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pager_indicator
 drawable panel_drawer_start
+drawable pet_line
 drawable petimg
 drawable phone_icon
 drawable pin_unlike
@@ -2208,7 +2209,6 @@ id activity_chooser_view_content
 id add
 id addDeclareBtn
 id addPet
-id addPetBtn
 id addPhoto_btn
 id addPost
 id addPostBtn
@@ -2574,6 +2574,7 @@ id petImgLayout
 id petInfo
 id petLayout
 id petName
+id petNameText
 id phoneBtn
 id phoneNum
 id phone_info
@@ -2896,6 +2897,7 @@ layout fragment_event_detail
 layout fragment_likepindergarten
 layout fragment_meandpet
 layout fragment_morereview
+layout fragment_petinfo
 layout fragment_pindergarten
 layout fragment_post_declare
 layout fragment_postcomment
@@ -3393,6 +3395,8 @@ style MaterialAlertDialog_MaterialComponents_Title_Panel
 style MaterialAlertDialog_MaterialComponents_Title_Panel_CenterStacked
 style MaterialAlertDialog_MaterialComponents_Title_Text
 style MaterialAlertDialog_MaterialComponents_Title_Text_CenterStacked
+style MySpinnerDatePicker
+style MySpinnerDatePickerStyle
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents

@@ -26,8 +26,9 @@ class PindergartenPagerAdapter(Image : ArrayList<String>, private val context : 
     }
 
 
-    override fun destroyItem(container: View, position: Int, `object`: Any) {
-        super.destroyItem(container, position, `object`)
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        //destroyItem(container, position, `object`)
+        (container as ViewPager).removeView(`object` as View)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

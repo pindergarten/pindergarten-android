@@ -113,6 +113,7 @@ class Fragment_socialPet : Fragment() {
                 val fragment : Fragment = Fragment_postdetail()
                 val bundle = Bundle()
                 bundle.putInt("postId", postId[position])
+                bundle.putString("moveFragment", "socialPet")
                 fragment.arguments=bundle
                 transaction.replace(R.id.container,fragment)
                 transaction.addToBackStack(null)
@@ -152,15 +153,7 @@ class Fragment_socialPet : Fragment() {
         })
 
 
-
-
-        return view
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        var plusBtn : ImageButton = myContext!!.findViewById<ImageButton>(R.id.plusBtn)
+        var plusBtn : ImageButton = view!!.findViewById(R.id.plusBtn)
         plusBtn.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_addPost()
@@ -172,7 +165,7 @@ class Fragment_socialPet : Fragment() {
             transaction.commit()
         }
 
-        var eventBtn : ImageButton = myContext!!.findViewById<ImageButton>(R.id.eventBtn)
+        var eventBtn : ImageButton = view!!.findViewById(R.id.eventBtn)
         eventBtn.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_event()
@@ -180,6 +173,13 @@ class Fragment_socialPet : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
+
+
+        return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
 
 

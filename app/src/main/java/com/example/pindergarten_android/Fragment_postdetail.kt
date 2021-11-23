@@ -41,6 +41,7 @@ class Fragment_postdetail : Fragment() {
     var postImageList = ArrayList<String>()
     var dialog : AlertDialog ?=null
     var liked = -1
+    var moveFragment : String?=null
 
     private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -60,6 +61,7 @@ class Fragment_postdetail : Fragment() {
         if(arguments!=null){
             bundle = arguments as Bundle
             postId = bundle.getInt("postId")
+            moveFragment = bundle.getString("moveFragment")
             Log.i("bundle_postId",postId.toString())
         }
         else {
@@ -87,6 +89,7 @@ class Fragment_postdetail : Fragment() {
             val fragment : Fragment = Fragment_postcomment()
             val bundle = Bundle()
             bundle.putInt("postId", postId)
+            bundle.putString("moveFragment", moveFragment)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)
@@ -137,6 +140,7 @@ class Fragment_postdetail : Fragment() {
                             val fragment : Fragment = Fragment_postdetail()
                             val bundle = Bundle()
                             bundle.putInt("postId", postId)
+                            bundle.putString("moveFragment", moveFragment)
                             fragment.arguments=bundle
                             transaction.replace(R.id.container,fragment)
                             transaction.addToBackStack(null)
@@ -171,6 +175,7 @@ class Fragment_postdetail : Fragment() {
                     val transaction = myContext!!.supportFragmentManager.beginTransaction()
                     val fragment: Fragment = Fragment_postDeclare()
                     val bundle = Bundle()
+                    bundle.putString("moveFragment", moveFragment)
                     bundle.putInt("postId", postId)
                     fragment.arguments = bundle
                     transaction.replace(R.id.container, fragment)
@@ -275,13 +280,24 @@ class Fragment_postdetail : Fragment() {
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_socialPet()
-            val bundle = Bundle()
-            bundle.putInt("postId", postId)
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            if(moveFragment=="socialPet"){
+                val fragment : Fragment = Fragment_socialPet()
+                val bundle = Bundle()
+                bundle.putInt("postId", postId)
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+            }
+            else if(moveFragment=="meAndPet"){
+                val fragment : Fragment = Fragment_meAndPet()
+                val bundle = Bundle()
+                bundle.putInt("postId", postId)
+                fragment.arguments=bundle
+                transaction.replace(R.id.container,fragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+            }
         }
 
 

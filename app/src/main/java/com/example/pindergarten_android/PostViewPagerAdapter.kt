@@ -23,8 +23,10 @@ class PostViewPagerAdapter(Image : ArrayList<String> ,private val context : Cont
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        super.destroyItem(container, position, `object`)
+        //destroyItem(container, position, `object`)
+        (container as ViewPager).removeView(`object` as View)
     }
+
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

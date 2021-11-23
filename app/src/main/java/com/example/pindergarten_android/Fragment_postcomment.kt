@@ -44,6 +44,7 @@ class Fragment_postcomment : Fragment() {
     var dialog : AlertDialog ?=null
 
     var comment : EditText?=null
+    var moveFragment : String ?=null
 
     private lateinit var callback: OnBackPressedCallback
     val adapter = postCommentAdapter(userImg,nickName,userDetail,userDate,this)
@@ -61,6 +62,7 @@ class Fragment_postcomment : Fragment() {
         if(arguments!=null){
             bundle = arguments as Bundle
             postId = bundle.getInt("postId")
+            moveFragment = bundle.getString("moveFragment")
             Log.i("bundle_postId",postId.toString())
         }
         else {
@@ -137,6 +139,7 @@ class Fragment_postcomment : Fragment() {
                     val fragment : Fragment = Fragment_postcomment()
                     val bundle = Bundle()
                     bundle.putInt("postId", postId)
+                    bundle.putString("moveFragment",moveFragment)
                     fragment.arguments=bundle
                     transaction.replace(R.id.container,fragment)
                     transaction.addToBackStack(null)
@@ -181,6 +184,7 @@ class Fragment_postcomment : Fragment() {
                                 val fragment : Fragment = Fragment_postcomment()
                                 val bundle = Bundle()
                                 bundle.putInt("postId", postId)
+                                bundle.putString("moveFragment",moveFragment)
                                 fragment.arguments=bundle
                                 transaction.replace(R.id.container,fragment)
                                 transaction.addToBackStack(null)
@@ -196,6 +200,7 @@ class Fragment_postcomment : Fragment() {
                                 val fragment : Fragment = Fragment_postcomment()
                                 val bundle = Bundle()
                                 bundle.putInt("postId", postId)
+                                bundle.putString("moveFragment",moveFragment)
                                 fragment.arguments=bundle
                                 transaction.replace(R.id.container,fragment)
                                 transaction.addToBackStack(null)
@@ -218,6 +223,7 @@ class Fragment_postcomment : Fragment() {
             val fragment : Fragment = Fragment_postdetail()
             val bundle = Bundle()
             bundle.putInt("postId", postId)
+            bundle.putString("moveFragment",moveFragment)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)

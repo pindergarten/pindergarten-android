@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -56,10 +55,9 @@ class meAndPetAdapter(private val postImage:ArrayList<Uri>,val context: Fragment
             .into(holder.post_Img)
 
 
-        holder.post_Img.layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+        //holder.post_Img.layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
 
         //간격유지
-        /*
         when(position%4){
 
             0-> {
@@ -76,7 +74,7 @@ class meAndPetAdapter(private val postImage:ArrayList<Uri>,val context: Fragment
             }
         }
 
-         */
+
 
 
         holder.itemView.setOnClickListener{

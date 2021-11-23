@@ -14,14 +14,12 @@ class Post {
     //login
     @SerializedName("result")
     private val resultList: Result = Result()
-
     fun getResultList(): Result? { return resultList }
     class Result {
         @SerializedName("jwt")
         val jwt: String? = null
         @SerializedName("userId")
         val userId: Int? = null
-
 
     }
 
@@ -299,6 +297,45 @@ class Post {
         var date: String? = null
         @SerializedName("link")
         var link: String? = null
+
+    }
+
+    //myPet Search
+    @SerializedName("pets")
+    val mypetList: ArrayList<myPet> = ArrayList()
+
+    class myPet{
+
+        @SerializedName("id")
+        val id: Int? = null
+        @SerializedName("name")
+        val name: String? = null
+        @SerializedName("profile_image")
+        val profile_image: String? = null
+
+    }
+
+    //pet Search
+    @SerializedName("pet")
+    var pet : Pet = Pet()
+
+    class Pet{
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("name")
+        var name: String? = null
+        @SerializedName("profile_image")
+        var profile_image: String? = null
+        @SerializedName("gender")
+        var gender: Int? = null
+        @SerializedName("breed")
+        var breed: String? = null
+        @SerializedName("birth")
+        var birth: String? = null
+        @SerializedName("vaccination")
+        var vaccination: Int? = null
+        @SerializedName("neutering")
+        var neutering: Int? = null
 
     }
 

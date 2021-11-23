@@ -2,8 +2,10 @@ package com.example.pindergarten_android
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
@@ -15,9 +17,20 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.util.*
 
 
 class Fragment_addPet : Fragment() {
@@ -32,6 +45,15 @@ class Fragment_addPet : Fragment() {
     var petImg : ImageView?=null
     var petUri : Uri ?=null
     var petName : EditText ?=null
+
+    var tempFile: File? = null
+
+    //Retrofit
+    val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("http://pindergarten.site:3000/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val apiService = retrofit.create(RetrofitAPI::class.java)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -89,56 +111,103 @@ class Fragment_addPet : Fragment() {
         var preventGroup : RadioGroup = view.findViewById(R.id.preventGroup)
         var neuteringGroup : RadioGroup = view.findViewById(R.id.neuteringGroup)
 
-        var gender =""
-        var prevent =""
-        var neutering =""
+        var gender : Int ?=null
+        var prevent : Int ?=null
+        var neutering : Int ?=null
 
         genderGroup.setOnCheckedChangeListener{
             group, checkId -> when(checkId){
-                R.id.female -> gender = "female"
-                R.id.male -> gender = "male"
+                R.id.female -> gender = 0
+                R.id.male -> gender = 1
             }
         }
 
         preventGroup.setOnCheckedChangeListener{
                 group, checkId -> when(checkId){
-            R.id.prevent_yes -> prevent = "prevent_yes"
-            R.id.prevent_no -> prevent = "prevent_no"
+            R.id.prevent_yes -> prevent = 0
+            R.id.prevent_no -> prevent = 1
             }
         }
 
         neuteringGroup.setOnCheckedChangeListener{
                 group, checkId -> when(checkId){
-            R.id.neutering_yes -> prevent = "neutering_yes"
-            R.id.neutering_no -> prevent = "neutering_no" }
+            R.id.neutering_yes -> neutering = 0
+            R.id.neutering_no -> neutering = 1 }
         }
+
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
+
+
 
         addPostBtn = view.findViewById(R.id.addPostBtn)
         addPostBtn!!.setOnClickListener{
-            if(petName!!.text!=null && petUri!=null){
-                val view2 = View.inflate(context,R.layout.join_popup,null)
-                var text : TextView = view2.findViewById(R.id.text)
-                var button : Button = view2.findViewById(R.id.button)
-                text.text="펫이 정상적으로 등록 되었습니다."
-                button.text="확인"
+            if(petName!!.text!=null && petUri!=null && petCategory!!.text!=null && gender!=null&& prevent!=null&& neutering!=null){
 
-                val alertDialog = AlertDialog.Builder(context).create()
-                button.setOnClickListener{
-                    alertDialog.dismiss()
-                    //서버연결
-                    val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                    val fragment : Fragment = Fragment_meAndPet()
-                    transaction.replace(R.id.container,fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                var pet: HashMap<String, Any> = HashMap()
+                pet["name"] = petName!!.text.toString()
+                //pet["profile_image"] = petUri!!.toString()
+                pet["gender"] = gender!!
+                pet["breed"] = petCategory!!.text.toString()
+                pet["birth"] = petInfo!!.text.toString()
+                pet["vaccination"] = prevent!!
+                pet["neutering"] = neutering!!
 
-                }
-                alertDialog.setView(view2)
-                alertDialog.show()
+                var fileBody : RequestBody = RequestBody.create(MediaType.parse("image/jpeg"),tempFile)
+                var filepart : MultipartBody.Part = MultipartBody.Part.createFormData("profile_image",tempFile?.getName(),fileBody)
+
+                //서버: 펫 등록
+                apiService.addPetAPI(sharedPreferences.toString(),pet,filepart)?.enqueue(object :
+                    Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                        Log.i("addPet","성공")
+
+                        val view2 = View.inflate(context,R.layout.join_popup,null)
+                        var text : TextView = view2.findViewById(R.id.text)
+                        var button : Button = view2.findViewById(R.id.button)
+                        text.text="펫이 정상적으로 등록 되었습니다."
+                        button.text="확인"
+
+                        val alertDialog = AlertDialog.Builder(context).create()
+                        button.setOnClickListener{
+                            alertDialog.dismiss()
+                            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                            val fragment : Fragment = Fragment_meAndPet()
+                            transaction.replace(R.id.container,fragment)
+                            transaction.addToBackStack(null)
+                            transaction.commit()
+
+                        }
+                        alertDialog.setView(view2)
+                        alertDialog.show()
+
+                    }
+
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("addPet 실패: ",t.toString())
+                    }
+
+                })
+
             }
             else{
                 //
             }
+
+        }
+
+
+        petInfo.setOnClickListener{
+            val mcurrentTime = Calendar.getInstance()
+            val year = mcurrentTime.get(Calendar.YEAR)
+            val month = mcurrentTime.get(Calendar.MONTH)
+            val day = mcurrentTime.get(Calendar.DAY_OF_MONTH)
+
+            val datePicker = DatePickerDialog(requireContext(),R.style.MySpinnerDatePickerStyle,
+                { view, year, month, dayOfMonth -> petInfo.setText(String.format("%d-%d-%d", year, month + 1, dayOfMonth)) }, year, month, day)
+
+            datePicker.show()
 
         }
 
@@ -166,15 +235,15 @@ class Fragment_addPet : Fragment() {
         callback.remove()
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == Activity.RESULT_OK && requestCode == 200) {
-            data?.data?.let{
-                    uri ->
-                val imageUri : Uri?= data?.data
-                petUri = data?.data
-                if(imageUri!=null){
+            data?.data?.let {
+
+                val imageUri: Uri? = data?.data
+                if (imageUri != null) {
                     context?.let {
                         Glide.with(it)
                             .load(imageUri)
@@ -184,12 +253,12 @@ class Fragment_addPet : Fragment() {
                     }
                 }
 
-                if(petName!!.text!=null && petUri!=null){
+                if (petName!!.text != null && petUri != null) {
                     addPostBtn!!.setImageResource(R.drawable.register_btn2)
-                }
-                else{
+                } else {
                     addPostBtn!!.setImageResource(R.drawable.register_btn)
                 }
+
             }
         }
     }

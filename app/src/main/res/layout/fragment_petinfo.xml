@@ -7,12 +7,12 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/petNameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:gravity="center_horizontal"
-        android:text="펫 추가하기"
+        android:text="펫이름"
         android:textColor="#424242"
         android:textSize="17dp"
         android:textStyle="bold"
@@ -32,17 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/addPostBtn"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="33dp"
-        android:background="#00ff0000"
-        android:layout_marginRight="16dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/register_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageButton>
+
 
     <ImageView
         android:id="@+id/imageView6"
@@ -65,28 +55,17 @@
 
         <ImageView
             android:id="@+id/petImg"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:src="@drawable/petimg" />
 
-        <ImageButton
-            android:id="@+id/petImgBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="@color/transparency"
-            android:scaleType="fitCenter"
-            android:padding="0dp"
-            android:layout_alignEnd="@+id/petImg"
-            android:layout_alignRight="@+id/petImg"
-            android:src="@drawable/addpet_photo" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -106,8 +85,10 @@
             android:layout_height="wrap_content"
             android:textSize="13dp"
             android:singleLine="true"
+            android:enabled="false"
+            android:textColor="#5A5A5A"
             android:backgroundTint="@color/transparency"
-            android:hint="이름을 입력해주세요."/>
+            android:text="이름을 입력해주세요."/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -127,6 +108,7 @@
             android:id="@+id/genderGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:contextClickable="false"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_height="30dp">
@@ -136,6 +118,7 @@
                 android:text="여자아이"
                 android:textSize="13dp"
                 android:id="@+id/female"
+                android:enabled="false"
                 android:layout_width="0dp"
                 android:buttonTint="@color/brown"
                 android:layout_height="wrap_content"
@@ -147,6 +130,7 @@
                 android:text="남자아이"
                 android:textSize="13dp"
                 android:id="@+id/male"
+                android:enabled="false"
                 android:layout_width="0dp"
                 android:buttonTint="@color/brown"
                 android:layout_height="wrap_content"
@@ -175,8 +159,10 @@
             android:layout_height="wrap_content"
             android:textSize="13dp"
             android:singleLine="true"
+            android:enabled="false"
+            android:textColor="#5A5A5A"
             android:backgroundTint="@color/transparency"
-            android:hint="반려견 견종을 입력해주세요."/>
+            android:text="반려견 견종을 입력해주세요."/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -192,14 +178,17 @@
             android:textColor="#5A5A5A"
             android:textSize="14dp"/>
 
+
         <EditText
             android:id="@+id/petInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13dp"
             android:singleLine="true"
+            android:enabled="false"
+            android:textColor="#5A5A5A"
             android:backgroundTint="@color/transparency"
-            android:hint="생년월일과 나이를 입력해주세요."/>
+            android:text="생년월일과 나이를 입력해주세요."/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -220,6 +209,7 @@
             android:id="@+id/preventGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:contextClickable="false"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_height="30dp">
@@ -230,6 +220,7 @@
                 android:textSize="13dp"
                 android:id="@+id/prevent_yes"
                 android:layout_width="0dp"
+                android:enabled="false"
                 android:buttonTint="@color/brown"
                 android:layout_height="wrap_content"
                 android:textColor="@drawable/radio_btn_text"
@@ -241,6 +232,7 @@
                 android:textSize="13dp"
                 android:id="@+id/prevent_no"
                 android:layout_width="0dp"
+                android:enabled="false"
                 android:buttonTint="@color/brown"
                 android:layout_height="wrap_content"
                 android:textColor="@drawable/radio_btn_text"
@@ -266,6 +258,7 @@
             android:id="@+id/neuteringGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:contextClickable="false"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_height="30dp">
@@ -276,6 +269,7 @@
                 android:textSize="13dp"
                 android:id="@+id/neutering_yes"
                 android:layout_width="0dp"
+                android:enabled="false"
                 android:buttonTint="@color/brown"
                 android:layout_height="wrap_content"
                 android:textColor="@drawable/radio_btn_text"
@@ -287,6 +281,7 @@
                 android:textSize="13dp"
                 android:id="@+id/neutering_no"
                 android:layout_width="0dp"
+                android:enabled="false"
                 android:buttonTint="@color/brown"
                 android:layout_height="wrap_content"
                 android:textColor="@drawable/radio_btn_text"

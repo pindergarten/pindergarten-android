@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
@@ -29,6 +30,9 @@ class Fragment_postDeclare : Fragment() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+    var moveFragment : String ?=null
+    var imm : InputMethodManager?=null
+
 
     private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -45,6 +49,7 @@ class Fragment_postDeclare : Fragment() {
         if(arguments!=null){
             bundle = arguments as Bundle
             postId = bundle.getInt("postId")
+            moveFragment = bundle.getString("moveFragment")
             Log.i("bundle_postId",postId.toString())
         }
         else {
@@ -76,6 +81,12 @@ class Fragment_postDeclare : Fragment() {
 
         addDeclareBtn.setOnClickListener{
             Log.i("신고 접수 버튼눌림","ok")
+
+            //keyboard control
+            imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm?.hideSoftInputFromWindow(view.windowToken,0)
+
+
             var declare: HashMap<String, String> = HashMap()
             declare["title"] = titleDeclare?.text.toString()
             declare["content"] = declareText?.text.toString()
@@ -98,12 +109,15 @@ class Fragment_postDeclare : Fragment() {
                             val transaction = myContext!!.supportFragmentManager.beginTransaction()
                             val fragment : Fragment = Fragment_postdetail()
                             val bundle = Bundle()
+                            bundle.putString("moveFragment",moveFragment)
                             bundle.putInt("postId", postId)
                             fragment.arguments=bundle
                             transaction.replace(R.id.container,fragment)
                             transaction.addToBackStack(null)
                             transaction.commit()
                             alertDialog!!.dismiss()
+
+
                         }
                         alertDialog.setView(view)
                         alertDialog.show()
@@ -123,6 +137,7 @@ class Fragment_postDeclare : Fragment() {
             val fragment : Fragment = Fragment_postdetail()
             val bundle = Bundle()
             bundle.putInt("postId", postId)
+            bundle.putString("moveFragment",moveFragment)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)

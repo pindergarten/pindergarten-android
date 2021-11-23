@@ -186,7 +186,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="반려견 생년월일/나이"
+            android:text="반려견 생년월일"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:textColor="#5A5A5A"
@@ -198,6 +198,7 @@
             android:layout_height="wrap_content"
             android:textSize="13dp"
             android:singleLine="true"
+            android:editable="false"
             android:backgroundTint="@color/transparency"
             android:hint="생년월일과 나이를 입력해주세요."/>
 
