@@ -36,7 +36,7 @@
         <activity android:name=".FindPwdActivity"/>
         <activity android:name=".FindPwd2Activity"/>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".MainActivity"  android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity android:name=".MainActivity"  android:windowSoftInputMode="adjustResize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

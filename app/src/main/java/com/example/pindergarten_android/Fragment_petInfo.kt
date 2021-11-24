@@ -1,9 +1,11 @@
 package com.example.pindergarten_android
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +34,9 @@ class Fragment_petInfo : Fragment() {
     var genderGroup : RadioGroup?=null
     var preventGroup : RadioGroup?=null
     var neuteringGroup : RadioGroup?=null
+    var noticeBtn : ImageButton ?=null
 
+    var dialog : AlertDialog ?=null
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -94,17 +98,17 @@ class Fragment_petInfo : Fragment() {
         apiService.petDetailAPI(sharedPreferences.toString(),petId!!)?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
-                petCategory!!.setText(response.body()!!.pet.breed)
-                petInfo!!.setText(response.body()!!.pet.birth)
+                petCategory!!.setText(response.body()!!.pet.breed.toString())
+                petInfo!!.setText(response.body()!!.pet.birth.toString())
 
-                if(response.body()!!.pet.gender==0){
+                if(response.body()!!.pet.gender== 0){
                     genderGroup!!.check(R.id.female)
                 }
                 else{
                     genderGroup!!.check(R.id.male)
                 }
 
-                if(response.body()!!.pet.vaccination==0){
+                if(response.body()!!.pet.vaccination== 0){
                     preventGroup!!.check(R.id.prevent_yes)
                 }
                 else{
@@ -112,7 +116,7 @@ class Fragment_petInfo : Fragment() {
                 }
 
 
-                if(response.body()!!.pet.neutering==0){
+                if(response.body()!!.pet.neutering== 0){
                     neuteringGroup!!.check(R.id.neutering_yes)
                 }
                 else{
@@ -127,6 +131,50 @@ class Fragment_petInfo : Fragment() {
             }
 
         })
+
+        noticeBtn = view.findViewById(R.id.noticeBtn)
+        noticeBtn!!.setOnClickListener{
+            //삭제하기 기능
+            Log.i("삭제하기 기능","!!")
+            val builder = AlertDialog.Builder(myContext)
+            val view: View = LayoutInflater.from(myContext).inflate(R.layout.pet_delete, null)
+            val deleteBtn = view?.findViewById<ImageButton>(R.id.deleteBtn)
+            val cancelBtn = view?.findViewById<ImageButton>(R.id.cancelBtn)
+            dialog = builder.create()
+            dialog!!.setView(view)
+            dialog!!.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog!!.window!!.setGravity(Gravity.BOTTOM)
+            dialog!!.show()
+
+            cancelBtn?.setOnClickListener{
+                dialog!!.dismiss()
+            }
+            deleteBtn?.setOnClickListener{
+                //삭제
+                apiService.deletePetAPI(sharedPreferences.toString(),petId!!)?.enqueue(object :
+                    Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        Log.i("delete pet ", response.body()?.success.toString())
+
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_meAndPet()
+                        val bundle = Bundle()
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.addToBackStack(null)
+                        transaction.commit()
+
+                        dialog!!.dismiss()
+                    }
+
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("delete pet: ", "실패")
+                    }
+
+                })
+
+            }
+        }
 
 
 

@@ -32,9 +32,11 @@ class Fragment_meAndPet : Fragment() {
 
     var postImage = ArrayList<Uri>()
     var myImg  : ImageView?=null
+    var myId : TextView ?=null
     var plusBtn : ImageButton ?=null
     var petLayout : LinearLayout?= null
     var postId = ArrayList<Int>()
+    var userId : Int ?= null
 
     //petInfo
     var petId = ArrayList<Int>()
@@ -64,6 +66,7 @@ class Fragment_meAndPet : Fragment() {
         var recyclerView = recyclerview_main // recyclerview id
 
         myImg = view.findViewById(R.id.myImg)
+        myId = view.findViewById(R.id.myId)
         plusBtn = view.findViewById(R.id.plusBtn)
 
         recyclerView.adapter = adapter
@@ -73,6 +76,19 @@ class Fragment_meAndPet : Fragment() {
 
         val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences.toString())
+
+
+        //user 프로필조회
+        myImg!!.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_userprofile()
+            val bundle = Bundle()
+            bundle.putInt("userId",userId!!)
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         //펫 정보
         petLayout = view.findViewById(R.id.petLayout)
@@ -150,17 +166,14 @@ class Fragment_meAndPet : Fragment() {
                         dynamicView.layoutParams = viewParams
                         dynamicView.adjustViewBounds=true
 
-                        if(petImgUri.size!=0){
-                            context?.let {
-                                Glide.with(it)
-                                    .load(Uri.parse(petImgUri[i]))
-                                    .override(200, 200)
-                                    .centerCrop()
-                                    .circleCrop()
-                                    .into(dynamicView)
-                            }
+                        context?.let {
+                            Glide.with(it)
+                                .load(petImgUri[i])
+                                .override(200, 200)
+                                .centerCrop()
+                                .circleCrop()
+                                .into(dynamicView)
                         }
-
 
                         //텍스트
                         val dynamicText = TextView(context)
@@ -212,24 +225,28 @@ class Fragment_meAndPet : Fragment() {
 
 
         //서버: 사용자 게시글 확인
-        apiService.searchAllPostAPI(sharedPreferences.toString())?.enqueue(object :
+        apiService.myPostAPI(sharedPreferences.toString())?.enqueue(object :
             Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                 postImage.clear()
                 postId.clear()
 
-                for( i in 0 until response.body()?.allPostList?.size!!){
-                    postImage.add(Uri.parse(response.body()?.allPostList!![i].thumbnail.toString()))
-                    postId.add(Integer.parseInt(response.body()?.allPostList!![i].id.toString()))
+                for( i in 0 until response.body()?.mypostsList?.size!!){
+                    postImage.add(Uri.parse(response.body()?.mypostsList!![i].thumbnail.toString()))
+                    postId.add(Integer.parseInt(response.body()?.mypostsList!![i].id.toString()))
                 }
 
-                //임시
+
                 Glide.with(context!!)
-                    .load(Uri.parse(response.body()?.allPostList!![0].user_image.toString()))
+                    .load(Uri.parse(response.body()?.user?.profile_img.toString()))
                     .centerCrop()
                     .circleCrop()
                     .into(myImg!!)
+
+                myId!!.text = response.body()?.user?.nickname
+
+                userId = response.body()?.user?.id
 
                 adapter.notifyDataSetChanged()
                 Log.i("meAndPet: ","성공")
@@ -292,14 +309,13 @@ class Fragment_meAndPet : Fragment() {
 
         var settingBtn : ImageButton = view!!.findViewById(R.id.settingBtn)
         settingBtn.setOnClickListener{
-            /*
+
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_event()
+            val fragment : Fragment = Fragment_setting()
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)
             transaction.commit()
 
-             */
         }
 
         return view

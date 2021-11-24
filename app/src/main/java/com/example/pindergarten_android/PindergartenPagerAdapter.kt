@@ -42,7 +42,7 @@ class PindergartenPagerAdapter(Image : ArrayList<String>, private val context : 
         textIndicator.text = "${position+1} / ${Image.size}"
 
         Glide.with(context)
-            .load(R.drawable.temp)
+            .load(Image[position])
             .centerCrop()
             .into(image)
 

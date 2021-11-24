@@ -110,11 +110,11 @@
 56-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:9-50
 56-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:19-48
 57        <activity
-57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-104
+57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-94
 58            android:name="com.example.pindergarten_android.MainActivity"
 58-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:19-47
-59            android:windowSoftInputMode="adjustResize|adjustPan" />
-59-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:49-101
+59            android:windowSoftInputMode="adjustResize" />
+59-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:49-91
 60
 61        <provider
 61-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:9-49:20

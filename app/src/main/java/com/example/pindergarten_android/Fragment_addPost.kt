@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
@@ -20,6 +23,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
 
 
 class Fragment_addPost: Fragment() {
@@ -32,9 +47,19 @@ class Fragment_addPost: Fragment() {
     val adapter = MultiImageAdapter(list,this)
 
     var image_count : TextView ?= null
+    var postText : EditText ?= null
     var addPostBtn : ImageButton ?=null
     var imm : InputMethodManager ?=null
     var fragment : String ?=null
+
+    val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+
+    //Retrofit
+    val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("http://pindergarten.site:3000/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val apiService = retrofit.create(RetrofitAPI::class.java)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -68,10 +93,15 @@ class Fragment_addPost: Fragment() {
             startActivityForResult(intent,200)
         }
 
+        postText = view.findViewById(R.id.postText)
+        postText!!.requestFocus()
+
         addPostBtn = view.findViewById(R.id.addPostBtn)
         addPostBtn!!.setOnClickListener{
+            Log.i("게시물 등록","clicked")
             if(list.size ==0){
                 //1개이상 사진업로드 공고메세지
+                Log.i("게시물 등록","fail (1개이상 업로드)")
                 val view2 = View.inflate(context,R.layout.join_popup,null)
                 var text : TextView = view2.findViewById(R.id.text)
                 var button : Button = view2.findViewById(R.id.button)
@@ -84,41 +114,39 @@ class Fragment_addPost: Fragment() {
                 alertDialog.show()
             }
             else{
-                //서버요청
-
                 //keyboard control
+                Log.i("게시물 등록","api 연동")
                 imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
                 imm?.hideSoftInputFromWindow(view.windowToken,0)
 
-                val view2 = View.inflate(context,R.layout.join_popup,null)
-                var text : TextView = view2.findViewById(R.id.text)
-                var button : Button = view2.findViewById(R.id.button)
-                text.text="게시물이 정상적으로 등록 되었습니다."
-                button.text="확인"
+                //content
+                var content : RequestBody = RequestBody.create(MediaType.parse("text/plain"),postText?.text.toString())
 
-                val alertDialog = AlertDialog.Builder(context).create()
-                button.setOnClickListener{
-                    alertDialog.dismiss()
-                    if(fragment == "socialPet"){
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_socialPet()
-                        val bundle = Bundle()
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
-                    }
-                    else if (fragment == "meAndPet"){
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_meAndPet()
-                        val bundle = Bundle()
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
+
+                //image
+                var images : ArrayList<MultipartBody.Part> = ArrayList()
+                for ( index in 0 until list.size){
+
+                    var file = File(list[index]!!.path)
+                    var inputStream : InputStream?= null
+                    try{
+                        inputStream = context?.contentResolver?.openInputStream(list[index]!!)!!
+                    }catch (e : IOException){
+                        e.printStackTrace()
                     }
 
+
+                    val bitmap = BitmapFactory.decodeStream(inputStream)
+                    val byteArrayOutputStream = ByteArrayOutputStream()
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+                    val requestBody: RequestBody = RequestBody.create(MediaType.parse("image/jpg"), byteArrayOutputStream.toByteArray())
+                    val uploadFile = MultipartBody.Part.createFormData("images", file.name, requestBody)
+
+                    Log.i("images",uploadFile.toString())
+                    images.add(uploadFile)
                 }
-                alertDialog.setView(view2)
-                alertDialog.show()
+
+                addPost(images,content)
             }
         }
 
@@ -204,15 +232,69 @@ class Fragment_addPost: Fragment() {
                 data?.data?.let{
                     uri ->
                     val imageUri : Uri?= data?.data
+                    val count = data.clipData!!.itemCount
                     if(imageUri!=null){
                         list.add(imageUri)
                         addPostBtn!!.setImageResource(R.drawable.register_btn2)
+
+                        image_count!!.text = "${count}/10"
                     }
                 }
             }
             adapter.notifyDataSetChanged()
         }
+    }
 
+    fun addPost(images : ArrayList<MultipartBody.Part>,content : RequestBody){
+
+        Log.i("images",images.toString())
+        Log.i("content",content.toString())
+
+        //서버 : addPost
+        apiService.addPostAPI(sharedPreferences.toString(),content,images)?.enqueue(object : Callback<Post?> {
+            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                Log.i("addPost",response.body()?.success.toString())
+
+                val view2 = View.inflate(context,R.layout.join_popup,null)
+                var text : TextView = view2.findViewById(R.id.text)
+                var button : Button = view2.findViewById(R.id.button)
+                text.text="게시물이 정상적으로 등록 되었습니다."
+                button.text="확인"
+
+                val alertDialog = AlertDialog.Builder(context).create()
+                button.setOnClickListener{
+                    alertDialog.dismiss()
+                    if(fragment == "socialPet"){
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_socialPet()
+                        val bundle = Bundle()
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.commit()
+                    }
+                    else if (fragment == "meAndPet"){
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_meAndPet()
+                        val bundle = Bundle()
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.commit()
+                    }
+
+                }
+                alertDialog.setView(view2)
+                alertDialog.show()
+
+                Log.i("addPost: ","성공")
+            }
+
+            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                Log.i("addPost 실패: ",t.toString())
+            }
+
+        })
 
     }
+
 }

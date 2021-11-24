@@ -123,6 +123,8 @@ class Fragment_postcomment : Fragment() {
 
 
         comment = view.findViewById(R.id.editText)
+        comment!!.requestFocus()
+
         var button =  view.findViewById<Button>(R.id.button)
         val sharedPreferences2 = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences2.toString())

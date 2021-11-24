@@ -15,12 +15,14 @@ public class ActivityLoginBindingImpl extends ActivityLoginBinding  {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.textView, 4);
-        sViewsWithIds.put(R.id.textView2, 5);
-        sViewsWithIds.put(R.id.imageView, 6);
-        sViewsWithIds.put(R.id.editText2, 7);
-        sViewsWithIds.put(R.id.textView4, 8);
-        sViewsWithIds.put(R.id.imageView5, 9);
-        sViewsWithIds.put(R.id.editText, 10);
+        sViewsWithIds.put(R.id.layout1, 5);
+        sViewsWithIds.put(R.id.textView2, 6);
+        sViewsWithIds.put(R.id.imageView, 7);
+        sViewsWithIds.put(R.id.editText2, 8);
+        sViewsWithIds.put(R.id.layout2, 9);
+        sViewsWithIds.put(R.id.textView4, 10);
+        sViewsWithIds.put(R.id.imageView5, 11);
+        sViewsWithIds.put(R.id.editText, 12);
     }
     // views
     @NonNull
@@ -32,20 +34,22 @@ public class ActivityLoginBindingImpl extends ActivityLoginBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityLoginBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 13, sIncludes, sViewsWithIds));
     }
     private ActivityLoginBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.EditText) bindings[10]
-            , (android.widget.EditText) bindings[7]
-            , (android.widget.TextView) bindings[2]
-            , (android.widget.ImageView) bindings[6]
-            , (android.widget.ImageView) bindings[9]
-            , (android.widget.TextView) bindings[3]
+            , (android.widget.EditText) bindings[12]
+            , (android.widget.EditText) bindings[8]
+            , (android.widget.ImageButton) bindings[2]
+            , (android.widget.ImageView) bindings[7]
+            , (android.widget.ImageView) bindings[11]
+            , (android.widget.ImageButton) bindings[3]
+            , (android.widget.RelativeLayout) bindings[5]
+            , (android.widget.RelativeLayout) bindings[9]
             , (android.widget.ImageButton) bindings[1]
-            , (android.widget.TextView) bindings[4]
-            , (android.widget.TextView) bindings[5]
-            , (android.widget.TextView) bindings[8]
+            , (android.widget.ImageView) bindings[4]
+            , (android.widget.TextView) bindings[6]
+            , (android.widget.TextView) bindings[10]
             );
         this.findPwd.setTag(null);
         this.join.setTag(null);

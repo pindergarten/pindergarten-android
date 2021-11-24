@@ -298,12 +298,6 @@ class Fragment_detailPindergarten : Fragment() {
                     pindergartenImageList!!.add(response.body()?.pindergarten?.postImage!![i]?.postImageUrl.toString())
                 }
 
-                //default image
-                if(response.body()?.pindergarten?.postImage?.size==0){
-                    temp.add(Uri.parse("android.resource:// com.example.pindergarten_android/drawable/temp"))
-                    pindergartenImageList!!.add("android.resource:// com.example.pindergarten_android/drawable/temp")
-                }
-
                 viewpager.adapter=pagerAdapter
                 pagerAdapter!!.notifyDataSetChanged()
 

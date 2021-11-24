@@ -9,6 +9,17 @@ class Post {
     val email: String? = null
     @SerializedName("isSuccess")
     val success: Boolean? = null
+    @SerializedName("id")
+    val id: Int? = null
+    @SerializedName("nickname")
+    val nickname: String? = null
+    @SerializedName("phone")
+    val phone: String? = null
+    @SerializedName("profile_img")
+    val profile_img: String? = null
+    @SerializedName("message")
+    val message: String? = null
+
 
 
     //login
@@ -339,6 +350,32 @@ class Post {
 
     }
 
+    //my Page
+    @SerializedName("user")
+    var user : User = User()
+
+    class User{
+        @SerializedName("id")
+        var id: Int? = null
+        @SerializedName("nickname")
+        var nickname: String? = null
+        @SerializedName("phone")
+        var phone: String? = null
+        @SerializedName("profile_img")
+        var profile_img: String? = null
+    }
+
+    @SerializedName("posts")
+    val mypostsList: ArrayList<myPost> = ArrayList()
+
+    class myPost{
+
+        @SerializedName("id")
+        val id: Int? = null
+        @SerializedName("thumbnail")
+        val thumbnail: String? = null
+
+    }
 
 
 }

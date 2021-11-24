@@ -1,6 +1,7 @@
 package com.example.pindergarten_android
 
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -134,9 +135,8 @@ interface RetrofitAPI {
 
     //펫 등록
     @Multipart
-    @FormUrlEncoded
     @POST("api/pets")
-    fun addPetAPI(@Header("x-access-token") value : String,@FieldMap param: HashMap<String, Any>,@Part file: MultipartBody.Part?): Call<Post?>?
+    fun addPetAPI(@Header("x-access-token") value : String,@PartMap param: HashMap<String, RequestBody>,@Part file: MultipartBody.Part?): Call<Post?>?
 
     //나의 펫 조회
     @GET("api/pets")
@@ -144,5 +144,36 @@ interface RetrofitAPI {
 
     //펫 상세조회
     @GET("api/pets/{petId}")
-    fun petDetailAPI(@Header("x-access-token") value : String, @Query("petId") petId : Int ): Call<Post?>?
+    fun petDetailAPI(@Header("x-access-token") value : String, @Path("petId") petId : Int ): Call<Post?>?
+
+    //게시글 등록
+    @Multipart
+    @POST("api/posts")
+    fun addPostAPI(@Header("x-access-token") value : String,@Part("content") content:RequestBody,@Part file: List<MultipartBody.Part>): Call<Post?>?
+
+    //내 게시물 조회
+    @GET("api/users/post")
+    fun myPostAPI(@Header("x-access-token") value : String): Call<Post?>?
+
+    //펫 삭제
+    @DELETE("api/pets/{petId}")
+    fun deletePetAPI(@Header("x-access-token") value : String,@Path("petId") petId : Int): Call<Post?>?
+
+    //사용자 프로필 조회
+    @GET("api/users/{userId}")
+    fun userProfileAPI(@Path("userId") userId : Int): Call<Post?>?
+
+    //사용자 프로필 수정
+    @Multipart
+    @POST("api/users/{userId}")
+    fun userProfileUpdateAPI(@Header("x-access-token") value : String,@Part file: MultipartBody.Part?): Call<Post?>?
+
+    //로그아웃
+    @PATCH("api/users/sign-out")
+    fun logoutAPI(@Header("x-access-token") value : String) : Call<Post?>?
+
+    //회원탈퇴
+    @PATCH("api/users/:userId/status")
+    fun exitAPI(@Header("x-access-token") value : String,@Path("userId") userId : Int) : Call<Post?>?
+
 }

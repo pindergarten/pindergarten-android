@@ -116,6 +116,7 @@ class Fragment_comment : Fragment() {
         var button = view.findViewById<Button>(R.id.button)
         var comment = view.findViewById<EditText>(R.id.editText)
 
+        comment.requestFocus()
 
         button.setOnClickListener{
             //서버에 댓글 저장

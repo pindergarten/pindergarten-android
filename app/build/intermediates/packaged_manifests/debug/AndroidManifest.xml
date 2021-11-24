@@ -56,7 +56,7 @@
         <activity android:name="com.example.pindergarten_android.LoginActivity" />
         <activity
             android:name="com.example.pindergarten_android.MainActivity"
-            android:windowSoftInputMode="adjustResize|adjustPan" />
+            android:windowSoftInputMode="adjustResize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

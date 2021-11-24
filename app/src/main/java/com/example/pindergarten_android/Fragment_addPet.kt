@@ -4,8 +4,9 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
@@ -14,10 +15,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
@@ -29,7 +30,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.IOException
+import java.io.InputStream
 import java.util.*
 
 
@@ -63,6 +67,9 @@ class Fragment_addPet : Fragment() {
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(true)
 
+        //keyboard
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED)
+
         backBtn = view.findViewById(R.id.backBtn)
         backBtn!!.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
@@ -78,7 +85,7 @@ class Fragment_addPet : Fragment() {
         petImgBtn!!.setOnClickListener{
 
             var intent = Intent(Intent.ACTION_PICK)
-            intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            intent.type = MediaStore.Images.Media.CONTENT_TYPE
             intent.action= Intent.ACTION_GET_CONTENT
 
             startActivityForResult(intent,200)
@@ -107,6 +114,10 @@ class Fragment_addPet : Fragment() {
 
         var petCategory : EditText = view.findViewById(R.id.petCategory)
         var petInfo : EditText =view.findViewById(R.id.petInfo)
+
+        petCategory.requestFocus()
+        petInfo.requestFocus()
+
         var genderGroup : RadioGroup = view.findViewById(R.id.genderGroup)
         var preventGroup : RadioGroup = view.findViewById(R.id.preventGroup)
         var neuteringGroup : RadioGroup = view.findViewById(R.id.neuteringGroup)
@@ -144,20 +155,38 @@ class Fragment_addPet : Fragment() {
         addPostBtn!!.setOnClickListener{
             if(petName!!.text!=null && petUri!=null && petCategory!!.text!=null && gender!=null&& prevent!=null&& neutering!=null){
 
-                var pet: HashMap<String, Any> = HashMap()
-                pet["name"] = petName!!.text.toString()
-                //pet["profile_image"] = petUri!!.toString()
-                pet["gender"] = gender!!
-                pet["breed"] = petCategory!!.text.toString()
-                pet["birth"] = petInfo!!.text.toString()
-                pet["vaccination"] = prevent!!
-                pet["neutering"] = neutering!!
+                var pet: HashMap<String, RequestBody> = HashMap()
 
-                var fileBody : RequestBody = RequestBody.create(MediaType.parse("image/jpeg"),tempFile)
-                var filepart : MultipartBody.Part = MultipartBody.Part.createFormData("profile_image",tempFile?.getName(),fileBody)
+                var name : RequestBody = RequestBody.create(MediaType.parse("text/plain"),petName!!.text.toString())
+                var gender : RequestBody = RequestBody.create(MediaType.parse("text/plain"),gender!!.toString())
+                var breed : RequestBody = RequestBody.create(MediaType.parse("text/plain"),petCategory!!.text.toString())
+                var birth : RequestBody = RequestBody.create(MediaType.parse("text/plain"),petInfo!!.text.toString())
+                var vaccination : RequestBody = RequestBody.create(MediaType.parse("text/plain"),prevent!!.toString())
+                var neutering : RequestBody = RequestBody.create(MediaType.parse("text/plain"),neutering!!.toString())
+
+                pet["name"] = name
+                pet["gender"] = gender
+                pet["breed"] = breed
+                pet["birth"] = birth
+                pet["vaccination"] = vaccination
+                pet["neutering"] = neutering
+
+                var file = File(petUri!!.path)
+                var inputStream : InputStream ?= null
+                try{
+                    inputStream = context?.contentResolver?.openInputStream(petUri!!)!!
+                }catch (e : IOException){
+                    e.printStackTrace()
+                }
+
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                val byteArrayOutputStream = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+                val requestBody: RequestBody = RequestBody.create(MediaType.parse("image/jpg"), byteArrayOutputStream.toByteArray())
+                val uploadFile = MultipartBody.Part.createFormData("profile_image", file.name, requestBody)
 
                 //서버: 펫 등록
-                apiService.addPetAPI(sharedPreferences.toString(),pet,filepart)?.enqueue(object :
+                apiService.addPetAPI(sharedPreferences.toString(),pet,uploadFile)?.enqueue(object :
                     Callback<Post?> {
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
@@ -235,14 +264,13 @@ class Fragment_addPet : Fragment() {
         callback.remove()
     }
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == Activity.RESULT_OK && requestCode == 200) {
-            data?.data?.let {
-
+            data?.data?.let { uri ->
                 val imageUri: Uri? = data?.data
+                petUri = data?.data
                 if (imageUri != null) {
                     context?.let {
                         Glide.with(it)
@@ -258,9 +286,34 @@ class Fragment_addPet : Fragment() {
                 } else {
                     addPostBtn!!.setImageResource(R.drawable.register_btn)
                 }
-
             }
+
+            /*
+            if (resultCode == Activity.RESULT_OK && requestCode == 200) {
+
+                petUri = data?.data
+                var cursor: Cursor? = null
+
+                try {
+                    val proj = arrayOf(MediaStore.Images.Media.DATA)
+                    assert(petUri != null)
+                    cursor =
+                        petUri?.let { context?.contentResolver?.query(it, proj, null, null, null) }
+
+                    assert(cursor != null)
+                    val column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+
+                    cursor!!.moveToFirst()
+                    tempFile = File(cursor.getString(column_index))
+                } finally {
+                    if (cursor != null) {
+                        cursor.close()
+                    }
+                }
+            }
+        */
         }
+
     }
 
 }

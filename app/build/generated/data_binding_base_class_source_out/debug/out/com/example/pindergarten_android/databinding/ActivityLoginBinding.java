@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,7 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   public final EditText editText2;
 
   @NonNull
-  public final TextView findPwd;
+  public final ImageButton findPwd;
 
   @NonNull
   public final ImageView imageView;
@@ -36,13 +37,19 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   public final ImageView imageView5;
 
   @NonNull
-  public final TextView join;
+  public final ImageButton join;
+
+  @NonNull
+  public final RelativeLayout layout1;
+
+  @NonNull
+  public final RelativeLayout layout2;
 
   @NonNull
   public final ImageButton login;
 
   @NonNull
-  public final TextView textView;
+  public final ImageView textView;
 
   @NonNull
   public final TextView textView2;
@@ -57,9 +64,9 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   protected LoginActivity mActivity;
 
   protected ActivityLoginBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      EditText editText, EditText editText2, TextView findPwd, ImageView imageView,
-      ImageView imageView5, TextView join, ImageButton login, TextView textView, TextView textView2,
-      TextView textView4) {
+      EditText editText, EditText editText2, ImageButton findPwd, ImageView imageView,
+      ImageView imageView5, ImageButton join, RelativeLayout layout1, RelativeLayout layout2,
+      ImageButton login, ImageView textView, TextView textView2, TextView textView4) {
     super(_bindingComponent, _root, _localFieldCount);
     this.editText = editText;
     this.editText2 = editText2;
@@ -67,6 +74,8 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
     this.imageView = imageView;
     this.imageView5 = imageView5;
     this.join = join;
+    this.layout1 = layout1;
+    this.layout2 = layout2;
     this.login = login;
     this.textView = textView;
     this.textView2 = textView2;

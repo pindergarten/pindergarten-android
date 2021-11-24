@@ -64,6 +64,9 @@ class Fragment_postDeclare : Fragment() {
         var declareText = view.findViewById<EditText>(R.id.declareText)
         val spinner: Spinner = view.findViewById(R.id.spinner)
 
+        titleDeclare.requestFocus()
+        declareText.requestFocus()
+
         val adapter = ArrayAdapter(requireContext(),R.layout.support_simple_spinner_dropdown_item, items)
         spinner.adapter = adapter
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{

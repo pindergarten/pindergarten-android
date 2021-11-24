@@ -1982,6 +1982,7 @@ drawable join3_confirm
 drawable join3_confirm2
 drawable join3_confirmsame
 drawable join3_finish
+drawable join_btn
 drawable join_finish2
 drawable join_line1
 drawable join_next
@@ -1995,6 +1996,7 @@ drawable liked
 drawable liked2
 drawable likedicon
 drawable location_icon
+drawable login_icon
 drawable login_line
 drawable login_loginbtn
 drawable login_loginbtn2
@@ -2084,6 +2086,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pager_indicator
 drawable panel_drawer_start
+drawable pet_delete_btn
 drawable pet_line
 drawable petimg
 drawable phone_icon
@@ -2109,6 +2112,7 @@ drawable review2
 drawable review_logo
 drawable review_notexist
 drawable search_icon
+drawable search_pwd_btn
 drawable selected_dot
 drawable setting_icon
 drawable social_pet
@@ -2130,6 +2134,8 @@ drawable tooltip_frame_light
 drawable unliked
 drawable unliked2
 drawable unselected_dot
+drawable white_box
+drawable white_box2
 drawable white_radius
 id ALT
 id BOTTOM_END
@@ -2213,6 +2219,7 @@ id addPhoto_btn
 id addPost
 id addPostBtn
 id address
+id adjustBtn
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2347,6 +2354,7 @@ id eventImage
 id eventTitle
 id event_layout
 id exitUntilCollapsed
+id exituser
 id expand_activities_button
 id expanded
 id expanded_menu
@@ -2419,6 +2427,7 @@ id jumpToStart
 id labeled
 id layout
 id layout1
+id layout2
 id left
 id leftToRight
 id legacy
@@ -2437,6 +2446,7 @@ id linearlayout1
 id listMode
 id list_item
 id login
+id logout
 id main_panel
 id male
 id map_view
@@ -2712,7 +2722,13 @@ id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
 id text
+id text1
 id text2
+id text3
+id text4
+id text5
+id text6
+id text7
 id textEnd
 id textIndicator
 id textSpacerNoButtons
@@ -2765,6 +2781,9 @@ id up
 id useLogo
 id userId
 id userImg
+id userImgBtn
+id userName
+id userPhone
 id user_comment
 id user_date
 id user_id
@@ -2781,6 +2800,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id website
+id welcomeText
 id west
 id wide
 id withText
@@ -2903,7 +2923,9 @@ layout fragment_post_declare
 layout fragment_postcomment
 layout fragment_postdetail
 layout fragment_searchpindergarten
+layout fragment_setting
 layout fragment_socialpet
+layout fragment_userprofile
 layout gallery_image_item
 layout join_popup
 layout material_chip_input_combo
@@ -2977,6 +2999,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout pet_delete
 layout pindergarten_panel_item
 layout pindergarten_search_item
 layout post_declare
