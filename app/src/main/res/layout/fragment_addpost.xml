@@ -31,17 +31,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
+    <TextView
         android:id="@+id/addPostBtn"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
-        android:background="#00ff0000"
+        android:textColor="#B6B6B6"
         android:layout_marginRight="16dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/register_btn"
+        android:text="등록"
+        android:textSize="15dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageButton>
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <ImageView
         android:id="@+id/imageView6"
@@ -120,6 +121,7 @@
         android:background="@color/white"
         android:scrollbars="vertical"
         android:gravity="left"
+        android:maxLength="2000"
         android:inputType="textMultiLine"
         android:hint="내용은 최소 10자 이상, 사진은 최소 1장 이상 등록해주세요:)\n(본문 최대 2,000자까지, 사진 최대 10장까지)"
         android:textSize="13dp"

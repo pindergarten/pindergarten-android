@@ -2412,6 +2412,7 @@ id imageView7
 id imageView8
 id imageView9
 id image_count
+id imageviewBox
 id img
 id immediateStop
 id included
@@ -2925,6 +2926,8 @@ layout fragment_postdetail
 layout fragment_searchpindergarten
 layout fragment_setting
 layout fragment_socialpet
+layout fragment_term1
+layout fragment_term2
 layout fragment_userprofile
 layout gallery_image_item
 layout join_popup
@@ -3009,6 +3012,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout socialpet_post_item
+layout spinner_item
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius

@@ -1,6 +1,5 @@
 package com.example.pindergarten_android
 
-import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -128,7 +127,7 @@ class LoginActivity : AppCompatActivity() {
 
                     apiService.loginAPI(login)?.enqueue(object : Callback<Post?> {
                         override fun onFailure(call: Call<Post?>, t: Throwable) {
-                            Log.d(ContentValues.TAG, "실패 : {${t}}")
+                            Log.d("실패", t.toString())
                             Log.i("login: ","fail")
                         }
 
@@ -149,9 +148,7 @@ class LoginActivity : AppCompatActivity() {
 
                             }
                             else{
-
-
-                                Log.i("login: ","fail")
+                                Log.i("login: ","response fail")
                             }
                         }
                     })

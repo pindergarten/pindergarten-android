@@ -13,7 +13,6 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#FFFAE8"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -30,7 +29,7 @@
         <RelativeLayout
             android:id="@+id/layout1"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="110dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -51,7 +50,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="35dp"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="아이디"
                 android:textColor="#424242"
                 android:textSize="14dp" />
@@ -92,19 +91,20 @@
         <RelativeLayout
             android:id="@+id/layout2"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginTop="-20dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="-10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout1">
 
             <ImageView
+                android:id="@+id/imageviewBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="0dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:padding="0dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_box2"/>
+                android:src="@drawable/white_box2" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -113,11 +113,11 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="35dp"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="비밀번호"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="parent" />
+                 />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -136,7 +136,7 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imageView5"
+                android:layout_above="@+id/imageView5"
                 android:layout_marginStart="34dp"
                 android:layout_marginLeft="34dp"
                 android:layout_marginEnd="34dp"
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="-10dp"
+
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +164,7 @@
             <ImageButton
                 android:id="@+id/login"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:onClick="@{activity::btnClick}"
@@ -175,7 +175,8 @@
             <ImageButton
                 android:id="@+id/findPwd"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@color/transparency"
@@ -187,7 +188,8 @@
             <ImageButton
                 android:id="@+id/join"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
                 android:onClick="@{activity::btnClick}"
                 android:src="@drawable/join_btn"
                 android:padding="0dp"

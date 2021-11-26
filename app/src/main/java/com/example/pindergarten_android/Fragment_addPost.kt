@@ -6,9 +6,12 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +51,7 @@ class Fragment_addPost: Fragment() {
 
     var image_count : TextView ?= null
     var postText : EditText ?= null
-    var addPostBtn : ImageButton ?=null
+    var addPostBtn : TextView ?=null
     var imm : InputMethodManager ?=null
     var fragment : String ?=null
 
@@ -93,10 +96,30 @@ class Fragment_addPost: Fragment() {
             startActivityForResult(intent,200)
         }
 
+        addPostBtn = view.findViewById(R.id.addPostBtn)
         postText = view.findViewById(R.id.postText)
         postText!!.requestFocus()
+        postText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(list.size>0){
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
+                }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(list.size>0){
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
+                }
+            }
+        })
 
-        addPostBtn = view.findViewById(R.id.addPostBtn)
         addPostBtn!!.setOnClickListener{
             Log.i("게시물 등록","clicked")
             if(list.size ==0){
@@ -107,7 +130,6 @@ class Fragment_addPost: Fragment() {
                 var button : Button = view2.findViewById(R.id.button)
                 text.text="게시물 등록시 1개 이상의\n" + "사진이 필요합니다."
                 button.text="확인"
-                addPostBtn!!.setImageResource(R.drawable.register_btn)
                 val alertDialog = AlertDialog.Builder(context).create()
                 button.setOnClickListener{ alertDialog.dismiss() }
                 alertDialog.setView(view2)
@@ -124,10 +146,13 @@ class Fragment_addPost: Fragment() {
 
 
                 //image
-                var images : ArrayList<MultipartBody.Part> = ArrayList()
+                var images = ArrayList<MultipartBody.Part>()
                 for ( index in 0 until list.size){
 
-                    var file = File(list[index]!!.path)
+
+                    var file = File(list[index].path)
+                    Log.i("file",list[index].toString())
+
                     var inputStream : InputStream?= null
                     try{
                         inputStream = context?.contentResolver?.openInputStream(list[index]!!)!!
@@ -135,10 +160,10 @@ class Fragment_addPost: Fragment() {
                         e.printStackTrace()
                     }
 
-
                     val bitmap = BitmapFactory.decodeStream(inputStream)
                     val byteArrayOutputStream = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+
                     val requestBody: RequestBody = RequestBody.create(MediaType.parse("image/jpg"), byteArrayOutputStream.toByteArray())
                     val uploadFile = MultipartBody.Part.createFormData("images", file.name, requestBody)
 
@@ -215,14 +240,19 @@ class Fragment_addPost: Fragment() {
                     button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
-                    addPostBtn!!.setImageResource(R.drawable.register_btn)
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
                     return
                 }
                 else{
                     for(i in 0 until count){
                         val imageUri = data.clipData!!.getItemAt(i).uri
                         list.add(imageUri)
-                        addPostBtn!!.setImageResource(R.drawable.register_btn2)
+                        if(addPostBtn!!.text.length>9){
+                            addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                        }
+                        else{
+                            addPostBtn!!.setTextColor(Color.LTGRAY)
+                        }
 
                         image_count!!.text = "${count}/10"
                     }
@@ -235,7 +265,12 @@ class Fragment_addPost: Fragment() {
                     val count = data.clipData!!.itemCount
                     if(imageUri!=null){
                         list.add(imageUri)
-                        addPostBtn!!.setImageResource(R.drawable.register_btn2)
+                        if(addPostBtn!!.text.length>9){
+                            addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                        }
+                        else{
+                            addPostBtn!!.setTextColor(Color.LTGRAY)
+                        }
 
                         image_count!!.text = "${count}/10"
                     }

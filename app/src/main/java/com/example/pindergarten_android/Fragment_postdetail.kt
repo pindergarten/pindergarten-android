@@ -248,6 +248,11 @@ class Fragment_postdetail : Fragment() {
                     pagerAdapter!!.notifyDataSetChanged()
 
                     indicator.setViewPager(viewpager)
+                    indicator.visibility= View.VISIBLE
+
+                    if(postImageList.size==1){
+                        indicator.visibility= View.INVISIBLE
+                    }
 
 
                     userId.text = response.body()?.postList?.postUserId

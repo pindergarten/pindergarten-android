@@ -1,5 +1,6 @@
 package com.example.pindergarten_android
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +12,21 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivitySplashBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class SplashActivity : AppCompatActivity() {
+
+    //Retrofit
+    val retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl("http://pindergarten.site/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val apiService = retrofit.create(RetrofitAPI::class.java)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_splash)
@@ -28,43 +42,57 @@ class SplashActivity : AppCompatActivity() {
 
 
         var jwt = PreferenceManager.getString(this, "jwt")
-        var userId = PreferenceManager.getInt(this, "userId")
-        if (jwt != null) {
-            Log.d("jwt",jwt)
-        }
-        else{
-            Log.d("jwt", "정보없음")
-        }
 
         var joinBtn : ImageButton = findViewById(R.id.join)
         var loginBtn : ImageButton = findViewById(R.id.login)
         joinBtn.visibility= View.INVISIBLE
         loginBtn.visibility= View.INVISIBLE
 
-        Handler().postDelayed({
-            joinBtn.visibility= View.VISIBLE
-            loginBtn.visibility= View.VISIBLE
-        },3000L)
 
         if (jwt != null) {
-            //토큰 있을경우 -> 서버전달/정보 담아서 메인화면 (viewModel)
-            Log.i("jwt: ",jwt)
-            Log.i("userId: ", userId.toString())
-            /*
-            val intent = Intent(this, JoinActivity::class.java)
-            startActivity(intent)
-            finish()
 
-             */
+            //토큰 유효성 검사
+            apiService.autoLoginAPI(jwt)?.enqueue(object : Callback<Post?> {
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.d(ContentValues.TAG, "실패 : {${t}}")
+                    Log.i("autoLogin","fail")
+
+                    Handler().postDelayed({
+                        joinBtn.visibility= View.VISIBLE
+                        loginBtn.visibility= View.VISIBLE
+                    },3000L)
+                }
+
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                    if(response.body()?.success==true){
+
+                        Log.i("jwt: ",jwt)
+
+                        Handler().postDelayed({
+                            val intent = Intent(applicationContext, MainActivity::class.java)
+                            startActivity(intent)
+                        },2000L)
+
+
+                    }
+                    else{
+
+                        Handler().postDelayed({
+                            joinBtn.visibility= View.VISIBLE
+                            loginBtn.visibility= View.VISIBLE
+                        },3000L)
+
+                        Log.i("autoLogin: ","fail")
+                    }
+                }
+            })
+
         }
         else{
-            //토큰 없을경우 -> 로그인/회원가입
-            /*
-            val intent = Intent(this, LoginActivty::class.java)
-            startActivity(intent)
-            finish()
-
-             */
+            Handler().postDelayed({
+                joinBtn.visibility= View.VISIBLE
+                loginBtn.visibility= View.VISIBLE
+            },3000L)
         }
 
     }

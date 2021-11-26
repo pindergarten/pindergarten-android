@@ -1,6 +1,5 @@
 package com.example.pindergarten_android
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -174,6 +173,8 @@ class Fragment_userprofile : Fragment() {
                 Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
+                    PreferenceManager.setString(requireContext(), "jwt", null)
+
                     val intent = Intent(requireContext(), LoginActivity::class.java)
                     startActivity(intent)
 
@@ -237,7 +238,6 @@ class Fragment_userprofile : Fragment() {
         callback.remove()
     }
 
-    @SuppressLint("ResourceAsColor")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -254,7 +254,7 @@ class Fragment_userprofile : Fragment() {
                             .into(userImg!!)
                     }
 
-                    adjustBtn!!.setTextColor(R.color.brown)
+                    adjustBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
 
             }

@@ -50,6 +50,7 @@ class Fragment_meAndPet : Fragment() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+
     val adapter = meAndPetAdapter(postImage,this)
     private lateinit var callback: OnBackPressedCallback
     @SuppressLint("ResourceAsColor")
@@ -143,7 +144,7 @@ class Fragment_meAndPet : Fragment() {
                         val dynamicLayout = LinearLayout(context)
                         dynamicLayout.orientation = LinearLayout.VERTICAL
                         dynamicLayout.gravity = Gravity.CENTER
-                        val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,changeDP(90),1.0f)
+                        val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.MATCH_PARENT)
                         dynamicLayout.layoutParams = params
                         dynamicLayout.setOnClickListener{
                             Log.i("clicked",petId[i].toString())
@@ -177,13 +178,13 @@ class Fragment_meAndPet : Fragment() {
 
                         //텍스트
                         val dynamicText = TextView(context)
-                        val textParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                        val textParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.WRAP_CONTENT)
                         dynamicText.setTextColor(Color.GRAY)
                         dynamicText.textSize = 12.0f
                         dynamicText.layoutParams = textParams
                         dynamicText.text = petName[i]
                         dynamicText.gravity = Gravity.CENTER
-                        textParams.setMargins(0, changeDP(4), 0, 0)
+                        textParams.setMargins(0, changeDP(3), 0, 0)
 
                         val lineView = ImageView(context)
                         val lineParams = LinearLayout.LayoutParams(changeDP(1), changeDP(70))
@@ -206,7 +207,7 @@ class Fragment_meAndPet : Fragment() {
                         val dynamicLayout = LinearLayout(context)
                         dynamicLayout.orientation = LinearLayout.VERTICAL
                         dynamicLayout.gravity = Gravity.CENTER
-                        val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,changeDP(90),1.0f)
+                        val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.MATCH_PARENT)
                         dynamicLayout.layoutParams = params
 
                         petLayout!!.addView(dynamicLayout)

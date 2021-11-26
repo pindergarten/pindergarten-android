@@ -6,6 +6,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -44,7 +45,7 @@ class Fragment_addPet : Fragment() {
 
     var imm : InputMethodManager ?=null
     var backBtn : ImageButton ?=null
-    var addPostBtn : ImageButton ?=null
+    var addPostBtn : TextView ?=null
     var petImgBtn : ImageButton ?=null
     var petImg : ImageView?=null
     var petUri : Uri ?=null
@@ -96,18 +97,18 @@ class Fragment_addPet : Fragment() {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
                 if(petName!!.text!=null && petUri!=null){
-                    addPostBtn!!.setImageResource(R.drawable.register_btn2)
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
-                    addPostBtn!!.setImageResource(R.drawable.register_btn)
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
                 }
             }
             override fun afterTextChanged(editable: Editable) {
                 if(petName!!.text!=null&& petUri!=null){
-                    addPostBtn!!.setImageResource(R.drawable.register_btn2)
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
-                    addPostBtn!!.setImageResource(R.drawable.register_btn)
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
                 }
             }
         })
@@ -282,36 +283,12 @@ class Fragment_addPet : Fragment() {
                 }
 
                 if (petName!!.text != null && petUri != null) {
-                    addPostBtn!!.setImageResource(R.drawable.register_btn2)
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 } else {
-                    addPostBtn!!.setImageResource(R.drawable.register_btn)
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
                 }
             }
 
-            /*
-            if (resultCode == Activity.RESULT_OK && requestCode == 200) {
-
-                petUri = data?.data
-                var cursor: Cursor? = null
-
-                try {
-                    val proj = arrayOf(MediaStore.Images.Media.DATA)
-                    assert(petUri != null)
-                    cursor =
-                        petUri?.let { context?.contentResolver?.query(it, proj, null, null, null) }
-
-                    assert(cursor != null)
-                    val column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-
-                    cursor!!.moveToFirst()
-                    tempFile = File(cursor.getString(column_index))
-                } finally {
-                    if (cursor != null) {
-                        cursor.close()
-                    }
-                }
-            }
-        */
         }
 
     }

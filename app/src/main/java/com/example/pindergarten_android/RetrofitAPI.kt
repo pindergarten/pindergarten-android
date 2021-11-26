@@ -149,7 +149,7 @@ interface RetrofitAPI {
     //게시글 등록
     @Multipart
     @POST("api/posts")
-    fun addPostAPI(@Header("x-access-token") value : String,@Part("content") content:RequestBody,@Part file: List<MultipartBody.Part>): Call<Post?>?
+    fun addPostAPI(@Header("x-access-token") value : String,@Part("content") content:RequestBody,@Part file: ArrayList<MultipartBody.Part>): Call<Post?>?
 
     //내 게시물 조회
     @GET("api/users/post")
@@ -175,5 +175,9 @@ interface RetrofitAPI {
     //회원탈퇴
     @PATCH("api/users/:userId/status")
     fun exitAPI(@Header("x-access-token") value : String,@Path("userId") userId : Int) : Call<Post?>?
+
+    //자동로그인
+    @GET("api/users/auto-signin")
+    fun autoLoginAPI(@Header("x-access-token") value : String) : Call<Post?>?
 
 }

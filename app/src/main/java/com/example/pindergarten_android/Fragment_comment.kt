@@ -3,16 +3,19 @@ package com.example.pindergarten_android
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -113,26 +116,47 @@ class Fragment_comment : Fragment() {
 
         })
 
-        var button = view.findViewById<Button>(R.id.button)
+        var button = view.findViewById<TextView>(R.id.button)
         var comment = view.findViewById<EditText>(R.id.editText)
-
-        comment.requestFocus()
+        comment!!.requestFocus()
+        comment?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(comment!!.length()>0){
+                    button!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    button!!.setTextColor(Color.LTGRAY)
+                }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(comment!!.length()>0){
+                    button!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    button!!.setTextColor(Color.LTGRAY)
+                }
+            }
+        })
 
         button.setOnClickListener{
             //서버에 댓글 저장
             apiService.addEventCommentAPI(eventId,sharedPreferences.toString(),comment.text.toString())?.enqueue(object : Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                    Log.i("add Comment", "성공")
-                    Log.i("add comment",comment.text.toString())
+                    if(comment.text.isNotEmpty()){
+                        Log.i("add Comment", "성공")
+                        Log.i("add comment",comment.text.toString())
 
-                    val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                    val fragment : Fragment = Fragment_comment()
-                    val bundle = Bundle()
-                    bundle.putInt("eventId", eventId)
-                    fragment.arguments=bundle
-                    transaction.replace(R.id.container,fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                        val fragment : Fragment = Fragment_comment()
+                        val bundle = Bundle()
+                        bundle.putInt("eventId", eventId)
+                        fragment.arguments=bundle
+                        transaction.replace(R.id.container,fragment)
+                        transaction.addToBackStack(null)
+                        transaction.commit()
+                    }
                 }
 
                 override fun onFailure(call: Call<Post?>, t: Throwable) {

@@ -146,7 +146,7 @@
                     android:layout_marginRight="6dp"
                     android:background="@color/white"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/unliked" />
+                    android:src="@drawable/unliked2" />
 
                 <TextView
                     android:id="@+id/likeCount"

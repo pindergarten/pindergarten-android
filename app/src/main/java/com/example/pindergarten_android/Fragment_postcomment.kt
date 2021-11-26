@@ -3,16 +3,19 @@ package com.example.pindergarten_android
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -121,16 +124,38 @@ class Fragment_postcomment : Fragment() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
 
-
+        var button =  view.findViewById<TextView>(R.id.button)
         comment = view.findViewById(R.id.editText)
         comment!!.requestFocus()
+        comment?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+               if(comment!!.length()>0){
+                   button!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+               }
+                else{
+                   button!!.setTextColor(Color.LTGRAY)
+               }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(comment!!.length()>0){
+                    button!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    button!!.setTextColor(Color.LTGRAY)
+                }
+            }
+        })
 
-        var button =  view.findViewById<Button>(R.id.button)
+
+
         val sharedPreferences2 = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences2.toString())
 
 
         button.setOnClickListener{
+            if(comment!!.text.isNotEmpty()){
             //서버에 댓글 저장
             apiService.addPostCommentAPI(postId,sharedPreferences2.toString(),comment?.text.toString())?.enqueue(object : Callback<Post?> {
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
@@ -153,6 +178,7 @@ class Fragment_postcomment : Fragment() {
                 }
 
             })
+        }
         }
 
         //댓글 삭제하기

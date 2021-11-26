@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -39,6 +40,26 @@ class Fragment_setting : Fragment() {
         backBtn.setOnClickListener{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_meAndPet()
+            val bundle = Bundle()
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
+        }
+
+        var text4 = view.findViewById<TextView>(R.id.text4)
+        text4.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_term1()
+            val bundle = Bundle()
+            fragment.arguments=bundle
+            transaction.replace(R.id.container,fragment)
+            transaction.commit()
+        }
+
+        var text6 = view.findViewById<TextView>(R.id.text6)
+        text6.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_term2()
             val bundle = Bundle()
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)

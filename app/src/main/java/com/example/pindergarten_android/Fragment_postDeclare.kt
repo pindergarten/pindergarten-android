@@ -1,8 +1,12 @@
 package com.example.pindergarten_android
 
 import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,21 +61,95 @@ class Fragment_postDeclare : Fragment() {
         }
 
 
-        var type : Int = 0
+        var type : Int = -1
         //spinner data
-        val items = listOf("","광고성 글","스팸 컨텐츠","욕설/비방/혐오")
+        val items = listOf("광고성 글","스팸 컨텐츠","욕설/비방/혐오","노골적인 폭력 묘사")
         var titleDeclare = view.findViewById<EditText>(R.id.textTitle)
         var declareText = view.findViewById<EditText>(R.id.declareText)
+        val addDeclareBtn = view.findViewById<TextView>(R.id.addDeclareBtn)
         val spinner: Spinner = view.findViewById(R.id.spinner)
 
         titleDeclare.requestFocus()
         declareText.requestFocus()
 
-        val adapter = ArrayAdapter(requireContext(),R.layout.support_simple_spinner_dropdown_item, items)
+        titleDeclare?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(type!=-1 && titleDeclare.text.isNotEmpty() && declareText.text.isNotEmpty()){
+                    addDeclareBtn.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addDeclareBtn.setTextColor(Color.LTGRAY)
+                }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(type!=-1 && titleDeclare.text.isNotEmpty() && declareText.text.isNotEmpty()){
+                    addDeclareBtn.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addDeclareBtn.setTextColor(Color.LTGRAY)
+                }
+            }
+        })
+
+        declareText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(type!=-1 && titleDeclare.text.isNotEmpty() && declareText.text.isNotEmpty()){
+                    addDeclareBtn.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addDeclareBtn.setTextColor(Color.LTGRAY)
+                }
+            }
+            override fun afterTextChanged(editable: Editable) {
+                if(type!=-1 && titleDeclare.text.isNotEmpty() && declareText.text.isNotEmpty()){
+                    addDeclareBtn.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addDeclareBtn.setTextColor(Color.LTGRAY)
+                }
+            }
+        })
+
+
+        val adapter = object : ArrayAdapter<String>(requireContext(),R.layout.spinner_item){
+
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+
+                val v = super.getView(position, convertView, parent)
+                var text1 = v.findViewById<TextView>(R.id.text)
+
+                if (position == count) {
+                   text1.text = ""
+                   text1.hint = getItem(count)
+                }
+
+                return v
+            }
+
+            override fun getCount(): Int {
+                return super.getCount() -1
+            }
+        }
+
+        adapter.addAll(items)
+        adapter.add("신고 유형을 선택하세요")
         spinner.adapter = adapter
+        spinner.setSelection(adapter.count)
+        spinner.dropDownVerticalOffset = dipToPixels(45f).toInt()
+
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 type = position
+                if(type!=-1 && titleDeclare.text.isNotEmpty() && declareText.text.isNotEmpty()){
+                    addDeclareBtn.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addDeclareBtn.setTextColor(Color.LTGRAY)
+                }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -80,8 +158,6 @@ class Fragment_postDeclare : Fragment() {
         val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
         Log.i("jwt : ",sharedPreferences.toString())
 
-        val addDeclareBtn = view.findViewById<Button>(R.id.addDeclareBtn)
-
         addDeclareBtn.setOnClickListener{
             Log.i("신고 접수 버튼눌림","ok")
 
@@ -89,6 +165,7 @@ class Fragment_postDeclare : Fragment() {
             imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.hideSoftInputFromWindow(view.windowToken,0)
 
+            if(type!=-1 && titleDeclare.text.isNotEmpty() && declareText.text.isNotEmpty()){
 
             var declare: HashMap<String, String> = HashMap()
             declare["title"] = titleDeclare?.text.toString()
@@ -133,6 +210,7 @@ class Fragment_postDeclare : Fragment() {
                 })
             }
         }
+        }
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
@@ -176,7 +254,12 @@ class Fragment_postDeclare : Fragment() {
         super.onDetach()
         callback.remove()
     }
-
+    private fun dipToPixels(dipValue: Float): Float {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dipValue,
+            resources.displayMetrics
+        )}
 
 }
 

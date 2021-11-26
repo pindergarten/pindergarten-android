@@ -63,19 +63,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/petLayout"
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:scrollbars="horizontal"
+            android:scrollbars="none"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/myImg">
 
+            <LinearLayout
+                android:id="@+id/petLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                />
 
-        </LinearLayout>
+        </HorizontalScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
