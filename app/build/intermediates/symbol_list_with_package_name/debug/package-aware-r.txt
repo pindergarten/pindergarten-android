@@ -1983,6 +1983,7 @@ drawable join3_confirm2
 drawable join3_confirmsame
 drawable join3_finish
 drawable join_btn
+drawable join_btn2
 drawable join_finish2
 drawable join_line1
 drawable join_next
@@ -2014,6 +2015,7 @@ drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
 drawable me_and_pet
 drawable me_and_pet2
+drawable meandpet_line
 drawable menu_selecter_color
 drawable more_review_btn
 drawable mtrl_dialog_background
@@ -2084,6 +2086,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable onboarding1
+drawable onboarding2
+drawable onboarding3
 drawable pager_indicator
 drawable panel_drawer_start
 drawable pet_delete_btn
@@ -2114,6 +2119,7 @@ drawable review_notexist
 drawable search_icon
 drawable search_pwd_btn
 drawable selected_dot
+drawable selected_dot2
 drawable setting_icon
 drawable social_pet
 drawable social_pet2
@@ -2412,7 +2418,6 @@ id imageView7
 id imageView8
 id imageView9
 id image_count
-id imageviewBox
 id img
 id immediateStop
 id included
@@ -2695,6 +2700,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id startbtn
 id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
@@ -2794,6 +2800,7 @@ id vertical_only
 id vertifyNum
 id view_moreText
 id view_offset_helper
+id view_pager
 id view_transition
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
@@ -2887,6 +2894,7 @@ layout activity_join2
 layout activity_join3
 layout activity_login
 layout activity_main
+layout activity_onboarding
 layout activity_recycler
 layout activity_splash
 layout blog_review_item
@@ -3002,6 +3010,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout onboarding_item
 layout pet_delete
 layout pindergarten_panel_item
 layout pindergarten_search_item

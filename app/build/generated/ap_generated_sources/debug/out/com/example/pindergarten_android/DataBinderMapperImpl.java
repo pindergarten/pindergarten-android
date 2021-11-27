@@ -13,6 +13,7 @@ import com.example.pindergarten_android.databinding.ActivityJoin3BindingImpl;
 import com.example.pindergarten_android.databinding.ActivityJoinBindingImpl;
 import com.example.pindergarten_android.databinding.ActivityLoginBindingImpl;
 import com.example.pindergarten_android.databinding.ActivityMainBindingImpl;
+import com.example.pindergarten_android.databinding.ActivityOnboardingBindingImpl;
 import com.example.pindergarten_android.databinding.ActivitySplashBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -39,9 +40,11 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_ACTIVITYMAIN = 7;
 
-  private static final int LAYOUT_ACTIVITYSPLASH = 8;
+  private static final int LAYOUT_ACTIVITYONBOARDING = 8;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(8);
+  private static final int LAYOUT_ACTIVITYSPLASH = 9;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(9);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.pindergarten_android.R.layout.activity_findpwd, LAYOUT_ACTIVITYFINDPWD);
@@ -51,6 +54,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.pindergarten_android.R.layout.activity_join3, LAYOUT_ACTIVITYJOIN3);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.pindergarten_android.R.layout.activity_login, LAYOUT_ACTIVITYLOGIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.pindergarten_android.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.pindergarten_android.R.layout.activity_onboarding, LAYOUT_ACTIVITYONBOARDING);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.pindergarten_android.R.layout.activity_splash, LAYOUT_ACTIVITYSPLASH);
   }
 
@@ -104,6 +108,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ActivityMainBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_main is invalid. Received: " + tag);
+        }
+        case  LAYOUT_ACTIVITYONBOARDING: {
+          if ("layout/activity_onboarding_0".equals(tag)) {
+            return new ActivityOnboardingBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_onboarding is invalid. Received: " + tag);
         }
         case  LAYOUT_ACTIVITYSPLASH: {
           if ("layout/activity_splash_0".equals(tag)) {
@@ -166,7 +176,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(8);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(9);
 
     static {
       sKeys.put("layout/activity_findpwd_0", com.example.pindergarten_android.R.layout.activity_findpwd);
@@ -176,6 +186,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/activity_join3_0", com.example.pindergarten_android.R.layout.activity_join3);
       sKeys.put("layout/activity_login_0", com.example.pindergarten_android.R.layout.activity_login);
       sKeys.put("layout/activity_main_0", com.example.pindergarten_android.R.layout.activity_main);
+      sKeys.put("layout/activity_onboarding_0", com.example.pindergarten_android.R.layout.activity_onboarding);
       sKeys.put("layout/activity_splash_0", com.example.pindergarten_android.R.layout.activity_splash);
     }
   }

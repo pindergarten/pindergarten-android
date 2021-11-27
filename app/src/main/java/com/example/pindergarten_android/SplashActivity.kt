@@ -78,8 +78,8 @@ class SplashActivity : AppCompatActivity() {
                     else{
 
                         Handler().postDelayed({
-                            joinBtn.visibility= View.VISIBLE
-                            loginBtn.visibility= View.VISIBLE
+                            val intent = Intent(applicationContext, OnboardingActivity::class.java)
+                            startActivity(intent)
                         },3000L)
 
                         Log.i("autoLogin: ","fail")
@@ -90,8 +90,8 @@ class SplashActivity : AppCompatActivity() {
         }
         else{
             Handler().postDelayed({
-                joinBtn.visibility= View.VISIBLE
-                loginBtn.visibility= View.VISIBLE
+                val intent = Intent(applicationContext, OnboardingActivity::class.java)
+                startActivity(intent)
             },3000L)
         }
 
@@ -99,6 +99,7 @@ class SplashActivity : AppCompatActivity() {
 
     fun btnClick(view : View){
 
+        /*
         when(view?.id){
             R.id.login->{
                 val intent = Intent(this, LoginActivity::class.java)
@@ -112,6 +113,8 @@ class SplashActivity : AppCompatActivity() {
             }
 
         }
+
+         */
 
     }
 

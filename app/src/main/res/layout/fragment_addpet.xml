@@ -58,8 +58,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="72dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="80dp"
+        android:scrollbars="none"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,15 +80,15 @@
 
         <ImageView
             android:id="@+id/petImg"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/petimg" />
 
         <ImageButton
             android:id="@+id/petImgBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="67dp"
             android:backgroundTint="@color/transparency"
             android:scaleType="fitCenter"
             android:padding="0dp"
@@ -118,6 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13dp"
+            android:paddingLeft="0dp"
+            android:layout_marginTop="5dp"
             android:singleLine="true"
             android:backgroundTint="@color/transparency"
             android:hint="이름을 입력해주세요."/>
@@ -131,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="반려견 성별"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="23dp"
             android:textStyle="bold"
             android:textColor="#5A5A5A"
             android:textSize="14dp"/>
@@ -140,7 +144,7 @@
             android:id="@+id/genderGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="11dp"
             android:layout_marginBottom="8dp"
             android:layout_height="30dp">
 
@@ -177,7 +181,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="품종"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="23dp"
             android:textStyle="bold"
             android:textColor="#5A5A5A"
             android:textSize="14dp"/>
@@ -187,6 +191,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="13dp"
+            android:paddingLeft="0dp"
+            android:layout_marginTop="5dp"
             android:singleLine="true"
             android:backgroundTint="@color/transparency"
             android:hint="반려견 견종을 입력해주세요."/>
@@ -200,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="반려견 생년월일"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="23dp"
             android:textStyle="bold"
             android:textColor="#5A5A5A"
             android:textSize="14dp"/>
@@ -212,6 +218,8 @@
             android:textSize="13dp"
             android:singleLine="true"
             android:editable="false"
+            android:paddingLeft="0dp"
+            android:layout_marginTop="5dp"
             android:backgroundTint="@color/transparency"
             android:hint="생년월일과 나이를 입력해주세요."/>
 
@@ -225,7 +233,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="예방접종 여부"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="23dp"
             android:textStyle="bold"
             android:textColor="#5A5A5A"
             android:textSize="14dp"/>
@@ -234,7 +242,7 @@
             android:id="@+id/preventGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="11dp"
             android:layout_marginBottom="8dp"
             android:layout_height="30dp">
 
@@ -271,7 +279,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="중성화"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="23dp"
             android:textStyle="bold"
             android:textColor="#5A5A5A"
             android:textSize="14dp"/>
@@ -280,7 +288,7 @@
             android:id="@+id/neuteringGroup"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="11dp"
             android:layout_marginBottom="8dp"
             android:layout_height="30dp">
 
@@ -311,6 +319,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/login_line"/>
 
     </LinearLayout>

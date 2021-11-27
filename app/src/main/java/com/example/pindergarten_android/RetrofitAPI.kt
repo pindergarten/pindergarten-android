@@ -149,7 +149,7 @@ interface RetrofitAPI {
     //게시글 등록
     @Multipart
     @POST("api/posts")
-    fun addPostAPI(@Header("x-access-token") value : String,@Part("content") content:RequestBody,@Part file: ArrayList<MultipartBody.Part>): Call<Post?>?
+    fun addPostAPI(@Header("x-access-token") value : String, @PartMap content : HashMap<String, RequestBody>, @Part file: ArrayList<MultipartBody.Part>): Call<Post?>?
 
     //내 게시물 조회
     @GET("api/users/post")

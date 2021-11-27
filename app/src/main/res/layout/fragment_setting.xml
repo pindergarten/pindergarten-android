@@ -70,7 +70,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="30dp"
-            android:text="버전 정보(V 2.3.4)"
+            android:text="버전 정보(V 1.0)"
             android:textColor="#5A5A5A"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"

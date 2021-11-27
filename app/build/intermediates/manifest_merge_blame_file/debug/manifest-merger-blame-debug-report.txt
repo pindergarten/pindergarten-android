@@ -50,7 +50,7 @@
 26-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:20:22-73
 27
 28    <application
-28-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:12:5-51:19
+28-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:12:5-52:19
 29        android:name="androidx.multidex.MultiDexApplication"
 30        android:allowBackup="true"
 30-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:14:9-35
@@ -109,93 +109,96 @@
 56        <activity android:name="com.example.pindergarten_android.LoginActivity" />
 56-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:9-50
 56-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:19-48
-57        <activity
-57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-94
-58            android:name="com.example.pindergarten_android.MainActivity"
-58-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:19-47
-59            android:windowSoftInputMode="adjustResize" />
-59-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:49-91
-60
-61        <provider
-61-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:9-49:20
-62            android:name="androidx.core.content.FileProvider"
-62-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:42:13-62
-63            android:authorities="{com.example.pindergarten_android}.provider"
-63-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:43:13-78
-64            android:exported="false"
-64-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:44:13-37
-65            android:grantUriPermissions="true" >
-65-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:45:13-47
-66            <meta-data
-66-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:46:13-48:49
-67                android:name="android.support.FILE_PROVIDER_PATHS"
-67-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:47:17-67
-68                android:resource="@xml/paths" />
-68-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:48:17-46
-69        </provider>
-70
-71        <activity
-71-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:10:9-14:67
-72            android:name="com.gun0912.tedpermission.TedPermissionActivity"
-72-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:11:13-75
-73            android:configChanges="mcc|mnc|locale|keyboard|keyboardHidden|screenLayout|fontScale|uiMode|orientation|screenSize|layoutDirection"
-73-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:12:13-144
-74            android:screenOrientation="unspecified"
-74-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:13:13-52
-75            android:theme="@style/Theme.Transparent.Permission" />
-75-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:14:13-64
-76        <activity
-76-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:23:9-27:51
-77            android:name="com.naver.maps.map.app.LegendActivity"
-77-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:24:13-65
-78            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-78-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:25:13-91
-79            android:label="@string/navermap_legend"
-79-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:26:13-52
-80            android:theme="@style/navermap_app" />
-80-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:27:13-48
-81        <activity
-81-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:28:9-32:51
-82            android:name="com.naver.maps.map.app.LegalNoticeActivity"
-82-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:29:13-70
-83            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-83-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:30:13-91
-84            android:label="@string/navermap_legal_notice"
-84-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:31:13-58
-85            android:theme="@style/navermap_app" />
-85-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:32:13-48
-86        <activity
-86-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:33:9-37:51
-87            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
-87-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:34:13-76
-88            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-88-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:35:13-91
-89            android:label="@string/navermap_open_source_license"
-89-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:36:13-65
-90            android:theme="@style/navermap_app" /> <!-- Needs to be explicitly declared on P+ -->
-90-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:37:13-48
-91        <uses-library
-91-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\55858c8f309468bc21f2441c3324f2d4\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-92            android:name="org.apache.http.legacy"
-92-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\55858c8f309468bc21f2441c3324f2d4\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-93            android:required="false" />
-93-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\55858c8f309468bc21f2441c3324f2d4\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-94
-95        <activity
-95-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-96            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-96-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-97            android:exported="false"
-97-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-98            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-98-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-99
-100        <meta-data
-100-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\d43e87430f17f248f6e4befb155036bf\play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-101            android:name="com.google.android.gms.version"
-101-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\d43e87430f17f248f6e4befb155036bf\play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-102            android:value="@integer/google_play_services_version" />
-102-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\d43e87430f17f248f6e4befb155036bf\play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-103    </application>
-104
-105</manifest>
+57        <activity android:name="com.example.pindergarten_android.OnboardingActivity" />
+57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-55
+57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:19-53
+58        <activity
+58-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:9-94
+59            android:name="com.example.pindergarten_android.MainActivity"
+59-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:19-47
+60            android:windowSoftInputMode="adjustResize" />
+60-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:49-91
+61
+62        <provider
+62-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:42:9-50:20
+63            android:name="androidx.core.content.FileProvider"
+63-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:43:13-62
+64            android:authorities="{com.example.pindergarten_android}.provider"
+64-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:44:13-78
+65            android:exported="false"
+65-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:45:13-37
+66            android:grantUriPermissions="true" >
+66-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:46:13-47
+67            <meta-data
+67-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:47:13-49:49
+68                android:name="android.support.FILE_PROVIDER_PATHS"
+68-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:48:17-67
+69                android:resource="@xml/paths" />
+69-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:49:17-46
+70        </provider>
+71
+72        <activity
+72-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:10:9-14:67
+73            android:name="com.gun0912.tedpermission.TedPermissionActivity"
+73-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:11:13-75
+74            android:configChanges="mcc|mnc|locale|keyboard|keyboardHidden|screenLayout|fontScale|uiMode|orientation|screenSize|layoutDirection"
+74-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:12:13-144
+75            android:screenOrientation="unspecified"
+75-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:13:13-52
+76            android:theme="@style/Theme.Transparent.Permission" />
+76-->[gun0912.ted:tedpermission:2.2.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\a3368bf226be43156de47a68472855be\jetified-tedpermission-2.2.0\AndroidManifest.xml:14:13-64
+77        <activity
+77-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:23:9-27:51
+78            android:name="com.naver.maps.map.app.LegendActivity"
+78-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:24:13-65
+79            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+79-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:25:13-91
+80            android:label="@string/navermap_legend"
+80-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:26:13-52
+81            android:theme="@style/navermap_app" />
+81-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:27:13-48
+82        <activity
+82-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:28:9-32:51
+83            android:name="com.naver.maps.map.app.LegalNoticeActivity"
+83-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:29:13-70
+84            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+84-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:30:13-91
+85            android:label="@string/navermap_legal_notice"
+85-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:31:13-58
+86            android:theme="@style/navermap_app" />
+86-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:32:13-48
+87        <activity
+87-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:33:9-37:51
+88            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
+88-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:34:13-76
+89            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+89-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:35:13-91
+90            android:label="@string/navermap_open_source_license"
+90-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:36:13-65
+91            android:theme="@style/navermap_app" /> <!-- Needs to be explicitly declared on P+ -->
+91-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:37:13-48
+92        <uses-library
+92-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\55858c8f309468bc21f2441c3324f2d4\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+93            android:name="org.apache.http.legacy"
+93-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\55858c8f309468bc21f2441c3324f2d4\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+94            android:required="false" />
+94-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\55858c8f309468bc21f2441c3324f2d4\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+95
+96        <activity
+96-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+97            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+97-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+98            android:exported="false"
+98-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+99            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+99-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\40d1286e60a78e8a5f33ca97fc3f1928\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+100
+101        <meta-data
+101-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\d43e87430f17f248f6e4befb155036bf\play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+102            android:name="com.google.android.gms.version"
+102-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\d43e87430f17f248f6e4befb155036bf\play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+103            android:value="@integer/google_play_services_version" />
+103-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\d43e87430f17f248f6e4befb155036bf\play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+104    </application>
+105
+106</manifest>

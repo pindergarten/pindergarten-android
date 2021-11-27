@@ -71,6 +71,7 @@
             android:backgroundTint="@color/white"
             android:hint="8~16 이내의 비밀번호"
             android:textSize="14dp"
+            android:paddingLeft="0dp"
             android:inputType="textPassword"
             android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
@@ -110,6 +111,7 @@
             android:inputType="textPassword"
             android:singleLine="true"
             android:textSize="14dp"
+            android:paddingLeft="0dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView4"
             app:layout_constraintStart_toStartOf="parent" />
 

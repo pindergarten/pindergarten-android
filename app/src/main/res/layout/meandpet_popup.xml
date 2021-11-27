@@ -12,29 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:textColor="#969696"
+        android:textColor="#9F5D1F"
+        android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_weight=".1"
         android:textSize="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
         style="?android:attr/borderlessButtonStyle"
         android:text="게시물 등록하기" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/dialog_line"/>
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/meandpet_line"/>
 
     <Button
         android:id="@+id/addPet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:textColor="#969696"
+        android:textColor="#9F5D1F"
+        android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_weight=".1"
         android:textSize="16dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
         style="?android:attr/borderlessButtonStyle"
         android:text="펫 추가하기" />
 

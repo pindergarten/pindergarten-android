@@ -9,7 +9,7 @@
     android:id="@+id/main_panel"
     android:gravity="bottom"
     app:umanoPanelHeight="20dp"
-    android:layout_marginBottom="60dp"
+    android:layout_marginBottom="63dp"
     app:umanoOverlay="true"
     app:umanoShadowHeight="0dp"
     app:umanoDragView="@id/slide_layout"

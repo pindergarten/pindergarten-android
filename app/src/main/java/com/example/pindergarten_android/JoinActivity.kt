@@ -12,6 +12,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
@@ -46,6 +47,7 @@ class JoinActivity : AppCompatActivity() {
     var nextBtn: ImageButton? = null
     var pass: Boolean = false
 
+    var imm : InputMethodManager ?= null
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -231,6 +233,11 @@ class JoinActivity : AppCompatActivity() {
                             info?.visibility = View.INVISIBLE
                             nextBtn?.setImageResource(R.drawable.join_next2)
                             pass = true
+
+                            //키보드 내리기
+                            imm = applicationContext.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                            imm?.hideSoftInputFromWindow(view.windowToken,0)
+
                             popup()
 
                         } else {

@@ -30,7 +30,7 @@
             android:onClick="@{activity::btnClick}"
             android:padding="0dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/splash_login"
+            android:src="@drawable/login_loginbtn2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -46,7 +46,7 @@
             android:onClick="@{activity::btnClick}"
             android:padding="0dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/splash_join"
+            android:src="@drawable/join_btn2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

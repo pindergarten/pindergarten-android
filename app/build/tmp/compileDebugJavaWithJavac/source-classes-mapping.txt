@@ -4,6 +4,8 @@ com/example/pindergarten_android/DataBindingTriggerClass.java
  com.example.pindergarten_android.DataBindingTriggerClass
 com/example/pindergarten_android/databinding/ActivityMainBinding.java
  com.example.pindergarten_android.databinding.ActivityMainBinding
+com/example/pindergarten_android/databinding/ActivityOnboardingBinding.java
+ com.example.pindergarten_android.databinding.ActivityOnboardingBinding
 com/example/pindergarten_android/databinding/ActivityJoin3Binding.java
  com.example.pindergarten_android.databinding.ActivityJoin3Binding
 com/example/pindergarten_android/databinding/ActivityFindpwd2Binding.java

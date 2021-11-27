@@ -44,14 +44,17 @@
         android:singleLine="true"
         android:text="유치원 주소"
         android:textColor="#C1C1C1"
-        android:textSize="11dp"
+        android:textSize="13dp"
         app:layout_constraintStart_toEndOf="@+id/img"
         app:layout_constraintTop_toBottomOf="@+id/pindergartenName" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
         android:gravity="bottom"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="12dp"
         android:src="@drawable/addpost_line"
         app:layout_constraintTop_toBottomOf="@+id/pindergartenAddress" />

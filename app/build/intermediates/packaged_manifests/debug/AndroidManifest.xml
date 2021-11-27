@@ -54,6 +54,7 @@
         <activity android:name="com.example.pindergarten_android.FindPwdActivity" />
         <activity android:name="com.example.pindergarten_android.FindPwd2Activity" />
         <activity android:name="com.example.pindergarten_android.LoginActivity" />
+        <activity android:name="com.example.pindergarten_android.OnboardingActivity" />
         <activity
             android:name="com.example.pindergarten_android.MainActivity"
             android:windowSoftInputMode="adjustResize" />

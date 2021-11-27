@@ -117,8 +117,9 @@ class Fragment_meAndPet : Fragment() {
                 if(petId.size==0){
                     //버튼
                     val dynamicButton = ImageButton(context)
-                    val viewParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT)
-                    viewParams.setMargins((8), changeDP(8), 0, 0)
+                    val viewParams = LinearLayout.LayoutParams(changeDP(328),LinearLayout.LayoutParams.MATCH_PARENT)
+                    viewParams.setMargins(changeDP(16), 0, 0, 0)
+                    //dynamicButton.setPadding(changeDP(8), changeDP(8), 0, 0)
                     dynamicButton.layoutParams = viewParams
                     dynamicButton.scaleType = ImageView.ScaleType.FIT_CENTER
                     dynamicButton.setBackgroundColor(Color.WHITE)

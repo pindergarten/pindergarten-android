@@ -53,7 +53,7 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="250dp"
+            android:layout_width="235dp"
             android:layout_height="1dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -64,13 +64,13 @@
 
         <EditText
             android:id="@+id/id"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:backgroundTint="@color/white"
             android:hint="2자이상 입력해주세요"
-            android:inputType="textUri"
+            android:paddingLeft="0dp"
             android:singleLine="true"
             android:textSize="14dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
@@ -122,7 +122,7 @@
             android:text="*계정을 만들면 핀더가든의 개인 정보 취급 방침 및 이용 약관에 동의하게 됩니다."
             android:textColor="@color/brown"
             android:textSize="10dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="6dp"
             app:layout_constraintBottom_toTopOf="@+id/finishBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

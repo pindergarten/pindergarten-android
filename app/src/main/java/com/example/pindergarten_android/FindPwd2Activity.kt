@@ -38,6 +38,8 @@ class FindPwd2Activity : AppCompatActivity() {
     var nextBtn:ImageButton ?=null
     var phoneNum : String ?=null
 
+
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

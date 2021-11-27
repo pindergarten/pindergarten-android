@@ -41,6 +41,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
+
+
             <ImageView
                 android:id="@+id/user_image"
                 android:layout_width="31dp"
@@ -56,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="21dp"
                 android:text="사용자 이름"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -158,7 +160,7 @@
                 android:layout_width="296dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="41dp"
                 android:layout_marginRight="16dp"
                 android:text="text"
                 android:textSize="13dp"

@@ -2,8 +2,7 @@ package com.example.pindergarten_android
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
-import android.content.pm.PackageManager
+import android.content.Context.LOCATION_SERVICE
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
@@ -12,11 +11,11 @@ import android.util.Log
 import android.view.*
 import android.widget.ImageButton
 import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.location.LocationListener
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -30,6 +29,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Math.toRadians
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 import kotlin.math.pow
 
 
@@ -43,9 +45,18 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var current_latitude :Double ?=null
     var current_longitude :Double ?=null
 
+    var location : Location ? = null
+    var isGPSEnabled :Boolean ?= false
+    var isNetworkEnabled : Boolean?= false
+    private val MIN_DISTANCE_CHANGE_FOR_UPDATES: Long = 10
+    private val MIN_TIME_BW_UPDATES = (1000 * 60 * 1).toLong()
+
+    var REQUIRED_PERMISSIONS = arrayOf<String>( Manifest.permission.READ_EXTERNAL_STORAGE)
+    val PERMISSIONS_REQUEST_CODE = 100
+
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -66,7 +77,9 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var pindergartenIsLiked = ArrayList<Int>()
     var pindergartenLocation = ArrayList<LatLng>()
     var pindergartenDistance = ArrayList<String>()
+
     var locationManager : LocationManager?=null
+    var locationListener : LocationListener ?=null
 
     var recyclerView : RecyclerView ?=null
     val adapter = pindergartenAdapter(pindergartenThumbnail, pindergartenName, pindergartenAddress, pindergartenRating, pindergartenIsLiked, pindergartenDistance,this)
@@ -238,43 +251,41 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
 
 
     override fun onMapReady(map: NaverMap) {
-        Log.i("Naver map","ready")
+        Log.i("Naver map", "ready")
         naverMap = map
 
         // 현위치 버튼 기능
         val uiSetting = naverMap.uiSettings
         uiSetting.isLocationButtonEnabled = true
-        uiSetting.logoGravity= Gravity.TOP
+        uiSetting.logoGravity = Gravity.TOP
         uiSetting.isCompassEnabled = false
-        uiSetting.setLogoMargin(10,10,0,0)
+        uiSetting.setLogoMargin(10, 10, 0, 0)
 
-       naverMap.setOnMapClickListener{point,coord ->
-           panel!!.panelHeight = changeDP(20)
-           if(currentMarker!=null){
-               currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
-               currentMarker!!.width = 70
-               currentMarker!!.height = 70
-           }
-       }
+        naverMap.setOnMapClickListener { point, coord ->
+            panel!!.panelHeight = changeDP(20)
+            if (currentMarker != null) {
+                currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
+                currentMarker!!.width = 70
+                currentMarker!!.height = 70
+            }
+        }
+
 
         //focus
         panel!!.panelHeight = changeDP(20)
-        panel!!.setOnClickListener{
-            if(panel!!.panelHeight==changeDP(20)){
+        panel!!.setOnClickListener {
+            if (panel!!.panelHeight == changeDP(20)) {
                 recyclerView?.smoothScrollToPosition(0)
-            }
-            else if(panel!!.panelHeight<changeDP(250)){
+            } else if (panel!!.panelHeight < changeDP(250)) {
                 panel!!.requestFocus()
-            }
-            else{
+            } else {
                 recyclerView!!.requestFocus()
             }
         }
-        recyclerView!!.setOnClickListener{
-            if(panel!!.panelHeight<changeDP(250)){
+        recyclerView!!.setOnClickListener {
+            if (panel!!.panelHeight < changeDP(250)) {
                 panel!!.requestFocus()
-            }
-            else{
+            } else {
                 recyclerView!!.requestFocus()
             }
         }
@@ -282,139 +293,108 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         // -> onRequestPermissionsResult // 위치 권한 요청
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
         naverMap.locationSource = locationSource
-        naverMap.locationTrackingMode=LocationTrackingMode.Follow
+        naverMap.locationTrackingMode = LocationTrackingMode.Follow
 
         //현재위치
-        locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager?
-        var userLocation: Location = getLatLng()
 
-        current_latitude = userLocation.latitude
-        current_longitude = userLocation.longitude
+        Log.i("내 위치값", "$current_latitude,$current_longitude")
+        locationManager = requireActivity().getSystemService(LOCATION_SERVICE) as LocationManager
+        locationListener = LocationListener { location ->
+            var lat = 37.5283169
+            var lng = 126.9294254
+            if (location != null) {
+                lat = location.latitude
+                lng = location.longitude
+            }
+            current_latitude = lat
+            current_longitude = lng
+        }
 
-        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
-        Log.i("jwt : ",sharedPreferences.toString())
-        Log.i("현재위치", "위도: ${ current_latitude} | 경도: ${ current_longitude}")
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it, "jwt") }
+        Log.i("jwt : ", sharedPreferences.toString())
+        Log.i("현재위치", "위도: $current_latitude | 경도: $current_longitude")
 
 
-            //서버: 전체 펫유치원 조회
-            apiService.searchAllPindergartenAPI(sharedPreferences.toString(), current_latitude!!,current_longitude!!)?.enqueue(object : Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+        //서버: 전체 펫유치원 조회
+        apiService.searchAllPindergartenAPI(
+            sharedPreferences.toString(), current_latitude!!, current_longitude!!)?.enqueue(object : Callback<Post?> {
+            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
-                    Log.i("pindergarten Search", response.body()?.success.toString())
+                Log.i("pindergarten Search", response.body()?.success.toString())
 
-                    pindergartenId.clear()
-                    pindergartenName.clear()
-                    pindergartenAddress.clear()
-                    pindergartenThumbnail.clear()
-                    pindergartenRating.clear()
-                    pindergartenIsLiked.clear()
-                    pindergartenLocation.clear()
-                    pindergartenDistance.clear()
+                pindergartenId.clear()
+                pindergartenName.clear()
+                pindergartenAddress.clear()
+                pindergartenThumbnail.clear()
+                pindergartenRating.clear()
+                pindergartenIsLiked.clear()
+                pindergartenLocation.clear()
+                pindergartenDistance.clear()
 
-                    for (i in 0 until response.body()?.allPindergartenList?.size!!) {
-                        pindergartenId.add(Integer.parseInt(response.body()?.allPindergartenList!![i].id.toString()))
-                        pindergartenName.add(response.body()?.allPindergartenList!![i].name.toString())
-                        pindergartenAddress.add(response.body()?.allPindergartenList!![i].address.toString())
-                        pindergartenThumbnail.add(Uri.parse(response.body()?.allPindergartenList!![i].thumbnail.toString()))
-                        pindergartenRating.add(
-                            response.body()?.allPindergartenList!![i].rating.toString().toDouble()
+                for (i in 0 until response.body()?.allPindergartenList?.size!!) {
+                    pindergartenId.add(Integer.parseInt(response.body()?.allPindergartenList!![i].id.toString()))
+                    pindergartenName.add(response.body()?.allPindergartenList!![i].name.toString())
+                    pindergartenAddress.add(response.body()?.allPindergartenList!![i].address.toString())
+                    pindergartenThumbnail.add(Uri.parse(response.body()?.allPindergartenList!![i].thumbnail.toString()))
+                    pindergartenRating.add(
+                        response.body()?.allPindergartenList!![i].rating.toString().toDouble()
+                    )
+                    pindergartenIsLiked.add(Integer.parseInt(response.body()?.allPindergartenList!![i].isLiked.toString()))
+                    pindergartenLocation.add(
+                        LatLng(
+                            response.body()?.allPindergartenList!![i].latitude!!.toDouble(),
+                            response.body()?.allPindergartenList!![i].longitude!!.toDouble()
                         )
-                        pindergartenIsLiked.add(Integer.parseInt(response.body()?.allPindergartenList!![i].isLiked.toString()))
-                        pindergartenLocation.add(
-                            LatLng(
-                                response.body()?.allPindergartenList!![i].latitude!!.toDouble(),
-                                response.body()?.allPindergartenList!![i].longitude!!.toDouble()
-                            )
-                        )
-                        pindergartenDistance.add(String.format("%.1f", response.body()?.allPindergartenList!![i].distance!!.toDouble()) + "Km")
-                        Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
+                    )
+                    pindergartenDistance.add(
+                        String.format(
+                            "%.1f",
+                            response.body()?.allPindergartenList!![i].distance!!.toDouble()
+                        ) + "Km"
+                    )
+                    Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
 
-                    }
+                }
 
-                    //펫유치원 표시
-                    for (i in 0 until pindergartenLocation.size) {
-                        val marker = Marker()
-                        marker.position = pindergartenLocation[i]
-                        marker.map = naverMap
-                        marker.tag = pindergartenId[i]
-                        marker.icon = OverlayImage.fromResource(R.drawable.marker)
-                        marker.width = 80
-                        marker.height = 80
-                        Log.i("${i + 1}번째 pindergarten", pindergartenName[i])
+                //펫유치원 표시
+                for (i in 0 until pindergartenLocation.size) {
+                    val marker = Marker()
+                    marker.position = pindergartenLocation[i]
+                    marker.map = naverMap
+                    marker.tag = pindergartenId[i]
+                    marker.icon = OverlayImage.fromResource(R.drawable.marker)
+                    marker.width = 80
+                    marker.height = 80
+                    Log.i("${i + 1}번째 pindergarten", pindergartenName[i])
 
-                        marker.onClickListener = Overlay.OnClickListener {
+                    marker.onClickListener = Overlay.OnClickListener {
 
-                            //marker image 변경
-                            if(currentMarker!=null){
-                                currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
-                                currentMarker!!.width = 80
-                                currentMarker!!.height = 80
-                            }
-                            currentMarker = marker
-                            currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker2)
-                            marker.width = 100
-                            marker.height = 100
-
-                            apiService.markerAPI(sharedPreferences.toString(), marker.position.latitude!!,marker.position.longitude!!)?.enqueue(object : Callback<Post?> {
-                                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                                    Log.i("marker event","success")
-                                    val cameraUpdate = CameraUpdate.scrollTo(LatLng(marker.position.latitude!!,marker.position.longitude!!))
-                                    naverMap.moveCamera(cameraUpdate)
-                                    panel!!.panelHeight = changeDP(250)
-
-                                    pindergartenId.clear()
-                                    pindergartenName.clear()
-                                    pindergartenAddress.clear()
-                                    pindergartenThumbnail.clear()
-                                    pindergartenRating.clear()
-                                    pindergartenIsLiked.clear()
-                                    pindergartenLocation.clear()
-                                    pindergartenDistance.clear()
-
-                                    for (i in 0 until response.body()?.nearPindergartens?.size!!) {
-                                        pindergartenId.add(Integer.parseInt(response.body()?.nearPindergartens!![i].id.toString()))
-                                        pindergartenName.add(response.body()?.nearPindergartens!![i].name.toString())
-                                        pindergartenAddress.add(response.body()?.nearPindergartens!![i].address.toString())
-                                        pindergartenThumbnail.add(Uri.parse(response.body()?.nearPindergartens!![i].thumbnail.toString()))
-                                        pindergartenRating.add(
-                                            response.body()?.nearPindergartens!![i].rating.toString().toDouble()
-                                        )
-                                        pindergartenIsLiked.add(Integer.parseInt(response.body()?.nearPindergartens!![i].isLiked.toString()))
-                                        pindergartenLocation.add(
-                                            LatLng(
-                                                response.body()?.nearPindergartens!![i].latitude!!.toDouble(),
-                                                response.body()?.nearPindergartens!![i].longitude!!.toDouble()
-                                            )
-                                        )
-                                        try{
-                                            pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
-                                        }catch(e :Exception){
-                                            Log.i("error",e.toString())
-                                        }
-                                        //pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
-                                        Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
-                                    }
-
-                                    //최상단으로 이동
-                                    recyclerView?.smoothScrollToPosition(0)
-                                    adapter.notifyDataSetChanged()
-                                }
-
-                                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                                    Log.i("marker event fail",t.stackTraceToString())
-                                }
-
-                            })
-                            true
+                        //marker image 변경
+                        if (currentMarker != null) {
+                            currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
+                            currentMarker!!.width = 80
+                            currentMarker!!.height = 80
                         }
+                        currentMarker = marker
+                        currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker2)
+                        marker.width = 100
+                        marker.height = 100
 
-                    }
-
-
-                    if(moved=="map"){
-                        apiService.markerAPI(sharedPreferences.toString(), moved_latitude!!,moved_longitude!!)?.enqueue(object : Callback<Post?> {
+                        apiService.markerAPI(
+                            sharedPreferences.toString(),
+                            marker.position.latitude!!,
+                            marker.position.longitude!!
+                        )?.enqueue(object : Callback<Post?> {
                             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                                Log.i("moved event","success")
+                                Log.i("marker event", "success")
+                                val cameraUpdate = CameraUpdate.scrollTo(
+                                    LatLng(
+                                        marker.position.latitude!!,
+                                        marker.position.longitude!!
+                                    )
+                                )
+                                naverMap.moveCamera(cameraUpdate)
+                                panel!!.panelHeight = changeDP(250)
 
                                 pindergartenId.clear()
                                 pindergartenName.clear()
@@ -431,50 +411,125 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                     pindergartenAddress.add(response.body()?.nearPindergartens!![i].address.toString())
                                     pindergartenThumbnail.add(Uri.parse(response.body()?.nearPindergartens!![i].thumbnail.toString()))
                                     pindergartenRating.add(
-                                        response.body()?.nearPindergartens!![i].rating.toString().toDouble()
+                                        response.body()?.nearPindergartens!![i].rating.toString()
+                                            .toDouble()
                                     )
                                     pindergartenIsLiked.add(Integer.parseInt(response.body()?.nearPindergartens!![i].isLiked.toString()))
-                                    pindergartenLocation.add(LatLng(response.body()?.nearPindergartens!![i].latitude!!.toDouble(), response.body()?.nearPindergartens!![i].longitude!!.toDouble()))
-
-
-                                    if(response.body()?.nearPindergartens!![i].distance!!.toDouble()!=null){
-                                        pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
+                                    pindergartenLocation.add(
+                                        LatLng(
+                                            response.body()?.nearPindergartens!![i].latitude!!.toDouble(),
+                                            response.body()?.nearPindergartens!![i].longitude!!.toDouble()
+                                        )
+                                    )
+                                    try {
+                                        pindergartenDistance.add(
+                                            String.format(
+                                                "%.1f",
+                                                response.body()?.nearPindergartens!![i].distance!!.toDouble()
+                                            ) + "Km"
+                                        )
+                                    } catch (e: Exception) {
+                                        Log.i("error", e.toString())
                                     }
-                                    else{
-                                        Log.i("nearPindergarten","Null error")
-                                    }
-
+                                    //pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
                                     Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
                                 }
 
-                                adapter.notifyDataSetChanged()
-                                val cameraUpdate = CameraUpdate.scrollTo(LatLng(moved_latitude!!,moved_longitude!!))
-                                naverMap.moveCamera(cameraUpdate)
-                                panel!!.panelHeight = changeDP(250)
                                 //최상단으로 이동
                                 recyclerView?.smoothScrollToPosition(0)
+                                adapter.notifyDataSetChanged()
                             }
 
                             override fun onFailure(call: Call<Post?>, t: Throwable) {
-                                Log.i("moved event fail",t.stackTraceToString())
+                                Log.i("marker event fail", t.stackTraceToString())
                             }
 
                         })
+                        true
                     }
 
-                    panel!!.panelHeight = changeDP(20)
-                    //최상단으로 이동
-                    recyclerView?.smoothScrollToPosition(0)
-                    adapter.notifyDataSetChanged()
-                    Log.i("pindergarten 조회", "성공")
                 }
 
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("pindergarten 조회", t.toString())
+
+                if (moved == "map") {
+                    apiService.markerAPI(
+                        sharedPreferences.toString(),
+                        moved_latitude!!,
+                        moved_longitude!!
+                    )?.enqueue(object : Callback<Post?> {
+                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                            Log.i("moved event", "success")
+
+                            pindergartenId.clear()
+                            pindergartenName.clear()
+                            pindergartenAddress.clear()
+                            pindergartenThumbnail.clear()
+                            pindergartenRating.clear()
+                            pindergartenIsLiked.clear()
+                            pindergartenLocation.clear()
+                            pindergartenDistance.clear()
+
+                            for (i in 0 until response.body()?.nearPindergartens?.size!!) {
+                                pindergartenId.add(Integer.parseInt(response.body()?.nearPindergartens!![i].id.toString()))
+                                pindergartenName.add(response.body()?.nearPindergartens!![i].name.toString())
+                                pindergartenAddress.add(response.body()?.nearPindergartens!![i].address.toString())
+                                pindergartenThumbnail.add(Uri.parse(response.body()?.nearPindergartens!![i].thumbnail.toString()))
+                                pindergartenRating.add(
+                                    response.body()?.nearPindergartens!![i].rating.toString()
+                                        .toDouble()
+                                )
+                                pindergartenIsLiked.add(Integer.parseInt(response.body()?.nearPindergartens!![i].isLiked.toString()))
+                                pindergartenLocation.add(
+                                    LatLng(
+                                        response.body()?.nearPindergartens!![i].latitude!!.toDouble(),
+                                        response.body()?.nearPindergartens!![i].longitude!!.toDouble()
+                                    )
+                                )
+
+
+                                if (response.body()?.nearPindergartens!![i].distance!!.toDouble() != null) {
+                                    pindergartenDistance.add(
+                                        String.format(
+                                            "%.1f",
+                                            response.body()?.nearPindergartens!![i].distance!!.toDouble()
+                                        ) + "Km"
+                                    )
+                                } else {
+                                    Log.i("nearPindergarten", "Null error")
+                                }
+
+                                Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
+                            }
+
+                            adapter.notifyDataSetChanged()
+                            val cameraUpdate =
+                                CameraUpdate.scrollTo(LatLng(moved_latitude!!, moved_longitude!!))
+                            naverMap.moveCamera(cameraUpdate)
+                            panel!!.panelHeight = changeDP(250)
+                            //최상단으로 이동
+                            recyclerView?.smoothScrollToPosition(0)
+                        }
+
+                        override fun onFailure(call: Call<Post?>, t: Throwable) {
+                            Log.i("moved event fail", t.stackTraceToString())
+                        }
+
+                    })
                 }
 
-            })
-        }
+                panel!!.panelHeight = changeDP(20)
+                //최상단으로 이동
+                recyclerView?.smoothScrollToPosition(0)
+                adapter.notifyDataSetChanged()
+                Log.i("pindergarten 조회", "성공")
+            }
+
+            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                Log.i("pindergarten 조회", t.toString())
+            }
+
+        })
+    }
 
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -492,6 +547,10 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         }
     }
 
+
+
+
+
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
@@ -508,29 +567,15 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         callback.remove()
     }
 
-    private fun getLatLng(): Location{
-        var currentLatLng: Location? = null
-        var hasFineLocationPermission = ContextCompat.checkSelfPermission(requireActivity(),
-            Manifest.permission.ACCESS_FINE_LOCATION)
-        var hasCoarseLocationPermission = ContextCompat.checkSelfPermission(requireActivity(),
-            Manifest.permission.ACCESS_COARSE_LOCATION)
-
-        if(hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
-            hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED){
-            val locatioNProvider = LocationManager.GPS_PROVIDER
-            currentLatLng = locationManager?.getLastKnownLocation(locatioNProvider)
-        }else{
-            currentLatLng = getLatLng()
-        }
-        return currentLatLng!!
-    }
 
     private fun changeDP(value: Int): Int {
         var displayMetrics = requireContext().resources.displayMetrics
         return Math.round(value * displayMetrics.density)
     }
 
+
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
     }
+
 }

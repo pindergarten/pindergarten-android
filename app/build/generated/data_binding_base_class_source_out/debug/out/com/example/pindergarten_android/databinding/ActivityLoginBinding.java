@@ -37,9 +37,6 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   public final ImageView imageView5;
 
   @NonNull
-  public final ImageView imageviewBox;
-
-  @NonNull
   public final ImageButton join;
 
   @NonNull
@@ -68,16 +65,14 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
 
   protected ActivityLoginBinding(Object _bindingComponent, View _root, int _localFieldCount,
       EditText editText, EditText editText2, ImageButton findPwd, ImageView imageView,
-      ImageView imageView5, ImageView imageviewBox, ImageButton join, RelativeLayout layout1,
-      RelativeLayout layout2, ImageButton login, ImageView textView, TextView textView2,
-      TextView textView4) {
+      ImageView imageView5, ImageButton join, RelativeLayout layout1, RelativeLayout layout2,
+      ImageButton login, ImageView textView, TextView textView2, TextView textView4) {
     super(_bindingComponent, _root, _localFieldCount);
     this.editText = editText;
     this.editText2 = editText2;
     this.findPwd = findPwd;
     this.imageView = imageView;
     this.imageView5 = imageView5;
-    this.imageviewBox = imageviewBox;
     this.join = join;
     this.layout1 = layout1;
     this.layout2 = layout2;

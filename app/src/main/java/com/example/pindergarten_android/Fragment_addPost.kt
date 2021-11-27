@@ -59,7 +59,7 @@ class Fragment_addPost: Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -142,8 +142,8 @@ class Fragment_addPost: Fragment() {
                 imm?.hideSoftInputFromWindow(view.windowToken,0)
 
                 //content
-                var content : RequestBody = RequestBody.create(MediaType.parse("text/plain"),postText?.text.toString())
-
+                var content = HashMap<String, RequestBody>()
+                content["content"]=  RequestBody.create(MediaType.parse("text/plain"),postText?.text.toString())
 
                 //image
                 var images = ArrayList<MultipartBody.Part>()
@@ -160,9 +160,9 @@ class Fragment_addPost: Fragment() {
                         e.printStackTrace()
                     }
 
-                    val bitmap = BitmapFactory.decodeStream(inputStream)
+                    val bitmap = BitmapFactory.decodeStream(inputStream,null,BitmapFactory.Options())
                     val byteArrayOutputStream = ByteArrayOutputStream()
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+                    bitmap!!.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
 
                     val requestBody: RequestBody = RequestBody.create(MediaType.parse("image/jpg"), byteArrayOutputStream.toByteArray())
                     val uploadFile = MultipartBody.Part.createFormData("images", file.name, requestBody)
@@ -171,7 +171,55 @@ class Fragment_addPost: Fragment() {
                     images.add(uploadFile)
                 }
 
-                addPost(images,content)
+                if (content != null) {
+                    //서버 : addPost
+                    apiService.addPostAPI(sharedPreferences.toString(), content, images)
+                        ?.enqueue(object : Callback<Post?> {
+                            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                                Log.i("addPost", response.body()?.success.toString())
+
+                                val view2 = View.inflate(context, R.layout.join_popup, null)
+                                var text: TextView = view2.findViewById(R.id.text)
+                                var button: Button = view2.findViewById(R.id.button)
+                                text.text = "게시물이 정상적으로 등록 되었습니다."
+                                button.text = "확인"
+
+                                val alertDialog = AlertDialog.Builder(context).create()
+                                button.setOnClickListener {
+                                    alertDialog.dismiss()
+                                    if (fragment == "socialPet") {
+                                        val transaction =
+                                            myContext!!.supportFragmentManager.beginTransaction()
+                                        val fragment: Fragment = Fragment_socialPet()
+                                        val bundle = Bundle()
+                                        fragment.arguments = bundle
+                                        transaction.replace(R.id.container, fragment)
+                                        transaction.commit()
+                                    } else if (fragment == "meAndPet") {
+                                        val transaction =
+                                            myContext!!.supportFragmentManager.beginTransaction()
+                                        val fragment: Fragment = Fragment_meAndPet()
+                                        val bundle = Bundle()
+                                        fragment.arguments = bundle
+                                        transaction.replace(R.id.container, fragment)
+                                        transaction.commit()
+                                    }
+
+                                }
+                                alertDialog.setView(view2)
+                                alertDialog.show()
+
+                                Log.i("addPost: ", "성공")
+                            }
+
+                            override fun onFailure(call: Call<Post?>, t: Throwable) {
+                                Log.i("addPost 실패: ", t.toString())
+                            }
+
+                        })
+                }
+
             }
         }
 
@@ -213,7 +261,7 @@ class Fragment_addPost: Fragment() {
                 Log.i("callback","뒤로가기")
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+       requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onDetach() {
@@ -230,6 +278,14 @@ class Fragment_addPost: Fragment() {
 
             if(data?.clipData!=null){
                 val count = data.clipData!!.itemCount
+
+                if(list.size>0 && postText?.text?.length!! >0){
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
+                }
+
                 if(count>10){
                     val view2 = View.inflate(context,R.layout.join_popup,null)
                     var text : TextView = view2.findViewById(R.id.text)
@@ -240,47 +296,24 @@ class Fragment_addPost: Fragment() {
                     button.setOnClickListener{ alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
-                    addPostBtn!!.setTextColor(Color.LTGRAY)
                     return
                 }
                 else{
                     for(i in 0 until count){
                         val imageUri = data.clipData!!.getItemAt(i).uri
                         list.add(imageUri)
-                        if(addPostBtn!!.text.length>9){
-                            addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
-                        }
-                        else{
-                            addPostBtn!!.setTextColor(Color.LTGRAY)
-                        }
-
                         image_count!!.text = "${count}/10"
                     }
                 }
             }
             else{
-                data?.data?.let{
-                    uri ->
-                    val imageUri : Uri?= data?.data
-                    val count = data.clipData!!.itemCount
-                    if(imageUri!=null){
-                        list.add(imageUri)
-                        if(addPostBtn!!.text.length>9){
-                            addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
-                        }
-                        else{
-                            addPostBtn!!.setTextColor(Color.LTGRAY)
-                        }
 
-                        image_count!!.text = "${count}/10"
-                    }
-                }
             }
             adapter.notifyDataSetChanged()
         }
     }
 
-    fun addPost(images : ArrayList<MultipartBody.Part>,content : RequestBody){
+    fun addPost(images : ArrayList<MultipartBody.Part>,content : HashMap<String, RequestBody>){
 
         Log.i("images",images.toString())
         Log.i("content",content.toString())

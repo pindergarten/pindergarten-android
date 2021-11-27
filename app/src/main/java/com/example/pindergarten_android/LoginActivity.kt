@@ -8,18 +8,23 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityLoginBinding
+import com.google.android.material.button.MaterialButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -149,6 +154,25 @@ class LoginActivity : AppCompatActivity() {
                             }
                             else{
                                 Log.i("login: ","response fail")
+
+                                //로그인 오류 메세지
+
+                                val dialogView = layoutInflater.inflate(R.layout.join_popup, null)
+                                val alertDialog = AlertDialog.Builder(applicationContext)
+                                    .setView(R.layout.join_popup)
+                                    .create()
+
+                                val text = dialogView.findViewById<TextView>(R.id.text)
+                                val button = dialogView.findViewById<Button>(R.id.button)
+                                text.text= response.body()?.message.toString()
+                                button.text="확인"
+
+                                button.setOnClickListener {
+                                    alertDialog.dismiss()
+                                }
+
+                                alertDialog.show()
+
                             }
                         }
                     })

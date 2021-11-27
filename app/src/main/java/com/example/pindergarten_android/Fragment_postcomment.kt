@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
@@ -75,6 +76,10 @@ class Fragment_postcomment : Fragment() {
 
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerView)
         var recyclerView = recyclerview_main // recyclerview id
+
+        val spaceDecoration = VerticalSpaceItemDecoration(0)
+        recyclerView.addItemDecoration(spaceDecoration)
+
         var layoutManager = LinearLayoutManager(container?.context)
 
 
@@ -287,5 +292,16 @@ class Fragment_postcomment : Fragment() {
 
     }
 
+
+    inner class VerticalSpaceItemDecoration(private val verticalSpaceHeight: Int) :
+        RecyclerView.ItemDecoration() {
+
+        override fun getItemOffsets(
+            outRect: Rect, view: View, parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.bottom = verticalSpaceHeight
+        }
+    }
 
 }

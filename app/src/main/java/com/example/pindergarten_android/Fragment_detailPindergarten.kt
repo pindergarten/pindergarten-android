@@ -270,6 +270,9 @@ class Fragment_detailPindergarten : Fragment() {
                         for ( i in websiteList ){
                             val textView = TextView(myContext)
                             textView.text = "${i}\n"
+                            val viewParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
+                            viewParams.setMargins(0, 0, 0,changeDP(3))
+                            textView.layoutParams = viewParams
                             textView!!.setOnClickListener{
                                 var intent = Intent(Intent.ACTION_VIEW,Uri.parse("${i}"))
                                 startActivity(intent) }
@@ -432,6 +435,13 @@ class Fragment_detailPindergarten : Fragment() {
         super.onDetach()
         callback.remove()
     }
+
+
+    private fun changeDP(value: Int): Int {
+        var displayMetrics = requireContext().resources.displayMetrics
+        return Math.round(value * displayMetrics.density)
+    }
+
 
 
 }

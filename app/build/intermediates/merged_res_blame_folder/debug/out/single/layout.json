@@ -12,6 +12,10 @@
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_onboarding.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_onboarding.xml"
+    },
+    {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_findpwd2.xml",
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_findpwd2.xml"
     },

@@ -7,17 +7,15 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="3dp"
     android:orientation="vertical"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
     >
 
     <TextView
         android:id="@+id/review_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:singleLine="true"
         android:text="블로그 제목"
         android:textColor="#5A5A5A"
@@ -32,17 +30,13 @@
         android:layout_marginTop="6dp"
         android:textSize="14dp"
         android:maxLines="3"
-        android:textColor="#5A5A5A"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
+        android:textColor="#5A5A5A" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="14dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
+        android:layout_marginBottom="14dp">
 
         <TextView
             android:id="@+id/review_date"
@@ -69,9 +63,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:src="@drawable/login_line"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:src="@drawable/login_line" />
 
 
 </LinearLayout>
