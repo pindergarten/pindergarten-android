@@ -12,9 +12,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -54,7 +54,7 @@ class Fragment_meAndPet : Fragment() {
 
 
     val adapter = meAndPetAdapter(postImage,this)
-    private lateinit var callback: OnBackPressedCallback
+
     @SuppressLint("ResourceAsColor")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -63,6 +63,12 @@ class Fragment_meAndPet : Fragment() {
         //navigate hide
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(false)
+
+        //fragment popup
+        val fm: FragmentManager = requireActivity().supportFragmentManager
+        for (i in 0 until fm.backStackEntryCount) {
+            fm.popBackStack()
+        }
 
 
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
@@ -340,18 +346,9 @@ class Fragment_meAndPet : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-        callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.i("callback","뒤로가기")
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        callback.remove()
-    }
 
     private fun changeDP(value: Int): Int {
         var displayMetrics = requireContext().resources.displayMetrics

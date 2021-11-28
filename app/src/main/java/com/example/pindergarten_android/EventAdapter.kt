@@ -1,6 +1,7 @@
 package com.example.pindergarten_android
 
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class EventAdapter(private val eventImage:ArrayList<Uri>,private val eventTitle:ArrayList<String> ,private val eventDay:ArrayList<Int> , val context: Fragment_event): RecyclerView.Adapter<EventAdapter.ViewHolder>(){
 
@@ -37,11 +39,15 @@ class EventAdapter(private val eventImage:ArrayList<Uri>,private val eventTitle:
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = eventImage[position]
+
+        Log.i("eventAdapter",eventImage[position].toString())
+
         Glide.with(context)
-            .load(item)
-            .fitCenter()
+            .load(eventImage[position].toString())
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .centerCrop()
             .into(holder.image)
+
 
         holder.title.text = eventTitle[position]
         holder.day.text="D${eventDay[position]}"

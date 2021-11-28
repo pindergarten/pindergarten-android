@@ -4,7 +4,6 @@ package com.example.pindergarten_android.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.Bindable;
@@ -17,23 +16,14 @@ import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ActivitySplashBinding extends ViewDataBinding {
-  @NonNull
-  public final ImageButton join;
-
-  @NonNull
-  public final ImageButton login;
-
   @Bindable
   protected PindergartenViewModel mVm;
 
   @Bindable
   protected SplashActivity mActivity;
 
-  protected ActivitySplashBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageButton join, ImageButton login) {
+  protected ActivitySplashBinding(Object _bindingComponent, View _root, int _localFieldCount) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.join = join;
-    this.login = login;
   }
 
   public abstract void setVm(@Nullable PindergartenViewModel vm);

@@ -3,7 +3,6 @@ package com.example.pindergarten_android
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +42,7 @@ class Fragment_term1 : Fragment() {
             val bundle = Bundle()
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -189,17 +189,7 @@ class Fragment_term1 : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-        callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.i("callback","뒤로가기")
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        callback.remove()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -34,7 +34,7 @@ class Fragment_postcomment : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -274,17 +274,6 @@ class Fragment_postcomment : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-        callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.i("callback","뒤로가기")
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        callback.remove()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         actionBar = supportActionBar
         actionBar?.hide()
 
+
         //상태바
         val window = window
         window?.decorView?.systemUiVisibility =
@@ -70,13 +71,17 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container,fragment)
-            .addToBackStack(null)
             .commit()
     }
 
     fun HideBottomNavigation(state: Boolean){
         if(state) binding.bottomNavigation.visibility= View.GONE else binding.bottomNavigation.visibility=View.VISIBLE
     }
+
+
+
+
+
 
 
 }

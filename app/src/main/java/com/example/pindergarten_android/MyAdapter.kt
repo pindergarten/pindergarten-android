@@ -52,12 +52,6 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         val item_userImg = userImage[position]
 
         Log.i("item Count",itemCount.toString())
-        if(position==(itemCount-1)){
-            Log.i("last item",position.toString())
-            var param :ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(changeDP(180),ConstraintLayout.LayoutParams.WRAP_CONTENT)
-            param.setMargins(changeDP(10),changeDP(10),changeDP(10),250)
-            holder.constraintLayout.layoutParams = param
-        }
 
 
         Glide.with(context)
@@ -77,6 +71,7 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         //holder.post_Img.layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
 
         //간격유지
+
 
         when(position%4){
 

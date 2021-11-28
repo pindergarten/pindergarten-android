@@ -89,11 +89,11 @@
         android:id="@+id/recyclerview_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
         android:layout_marginTop="180dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:clipToPadding="false"
+        android:paddingBottom="90dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +119,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/dialog_line"
         app:layout_constraintBottom_toTopOf="@+id/recyclerview_main"
-        tools:layout_editor_absoluteX="4dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

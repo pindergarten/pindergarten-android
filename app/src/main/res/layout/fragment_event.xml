@@ -7,16 +7,17 @@
 
     <ImageButton
         android:id="@+id/backBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@color/transparency"
-        android:padding="0dp"
+        android:padding="5dp"
         android:scaleType="fitCenter"
         android:src="@drawable/back_btn"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="27dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:layout_width="match_parent"
@@ -54,13 +55,15 @@
         android:id="@+id/recyclerView"
         android:nestedScrollingEnabled="false"
         android:focusable="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:paddingBottom="90dp"
+        android:clipToPadding="false"
         android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="124dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         />
 

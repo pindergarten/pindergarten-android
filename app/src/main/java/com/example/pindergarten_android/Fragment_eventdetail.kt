@@ -99,11 +99,10 @@ class Fragment_eventdetail : Fragment() {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                 Log.i("event Detail","success")
 
-                context?.let {
-                    Glide.with(it)
-                        .load(Uri.parse(response.body()?.eventList?.thumbnail))
-                        .into(event_Image)
-                }
+                Glide.with(context!!)
+                    .load(Uri.parse(response.body()?.eventList?.image.toString()))
+                    .fitCenter()
+                    .into(event_Image)
 
                 event_title.text = response.body()?.eventList?.title.toString()
                 ReviewCount.text= response.body()?.eventList?.commentCount.toString()
@@ -113,11 +112,11 @@ class Fragment_eventdetail : Fragment() {
                 var today : Calendar = Calendar.getInstance()
                 var eventday : Calendar = Calendar.getInstance()
                 //d-day 계산
-                var day_temp = response.body()?.eventList?.expired_at.toString()
-                eventday.set(Integer.parseInt(day_temp.split(".")[0]),Integer.parseInt(day_temp.split(".")[1]),Integer.parseInt(day_temp.split(".")[2]))
-                var event_day : Long = eventday.timeInMillis/86400000
-                var to_day : Long = today.timeInMillis/86400000
-                day.text="D${(to_day-event_day+1).toInt()}"
+                //var day_temp = response.body()?.eventList?.expired_at.toString()
+                //eventday.set(Integer.parseInt(day_temp.split(".")[0]),Integer.parseInt(day_temp.split(".")[1]),Integer.parseInt(day_temp.split(".")[2]))
+                //var event_day : Long = eventday.timeInMillis/86400000
+                //var to_day : Long = today.timeInMillis/86400000
+                day.text="D${1}"
 
 
                 var tempLiked = response.body()?.eventList?.isLiked
@@ -325,17 +324,7 @@ class Fragment_eventdetail : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-        callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.i("callback","뒤로가기")
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        callback.remove()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

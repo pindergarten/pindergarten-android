@@ -41,12 +41,6 @@ class meAndPetAdapter(private val postImage:ArrayList<Uri>,val context: Fragment
         val item_postImage = postImage[position]
 
         Log.i("item Count",itemCount.toString())
-        if(position==(itemCount-1)){
-            Log.i("last item",position.toString())
-            var param :ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(changeDP(180),ConstraintLayout.LayoutParams.WRAP_CONTENT)
-            param.setMargins(changeDP(10),changeDP(10),changeDP(10),250)
-            holder.constraintLayout.layoutParams = param
-        }
 
 
         Glide.with(context)

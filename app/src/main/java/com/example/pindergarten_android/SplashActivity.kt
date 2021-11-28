@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -43,12 +42,6 @@ class SplashActivity : AppCompatActivity() {
 
         var jwt = PreferenceManager.getString(this, "jwt")
 
-        var joinBtn : ImageButton = findViewById(R.id.join)
-        var loginBtn : ImageButton = findViewById(R.id.login)
-        joinBtn.visibility= View.INVISIBLE
-        loginBtn.visibility= View.INVISIBLE
-
-
         if (jwt != null) {
 
             //토큰 유효성 검사
@@ -58,9 +51,9 @@ class SplashActivity : AppCompatActivity() {
                     Log.i("autoLogin","fail")
 
                     Handler().postDelayed({
-                        joinBtn.visibility= View.VISIBLE
-                        loginBtn.visibility= View.VISIBLE
-                    },3000L)
+                        val intent = Intent(applicationContext, OnboardingActivity::class.java)
+                        startActivity(intent)
+                    },2000L)
                 }
 
                 override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
@@ -80,7 +73,7 @@ class SplashActivity : AppCompatActivity() {
                         Handler().postDelayed({
                             val intent = Intent(applicationContext, OnboardingActivity::class.java)
                             startActivity(intent)
-                        },3000L)
+                        },2000L)
 
                         Log.i("autoLogin: ","fail")
                     }
@@ -92,31 +85,11 @@ class SplashActivity : AppCompatActivity() {
             Handler().postDelayed({
                 val intent = Intent(applicationContext, OnboardingActivity::class.java)
                 startActivity(intent)
-            },3000L)
+            },2000L)
         }
 
     }
 
-    fun btnClick(view : View){
-
-        /*
-        when(view?.id){
-            R.id.login->{
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-            R.id.join->{
-                val intent = Intent(this, JoinActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-
-        }
-
-         */
-
-    }
 
     private fun hideNavigationBar() {
         val uiOptions = window.decorView.systemUiVisibility
@@ -131,6 +104,10 @@ class SplashActivity : AppCompatActivity() {
         newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_FULLSCREEN
         newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         window.decorView.systemUiVisibility = newUiOptions
+    }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
     }
 
 

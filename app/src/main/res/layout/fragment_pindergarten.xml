@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.sothree.slidinguppanel.SlidingUpPanelLayout
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:id="@+id/main_panel"
-    android:gravity="bottom"
-    app:umanoPanelHeight="20dp"
     android:layout_marginBottom="63dp"
-    app:umanoOverlay="true"
-    app:umanoShadowHeight="0dp"
-    app:umanoDragView="@id/slide_layout"
-    app:umanoFadeColor="@color/transparency"
-    >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@android:color/white">
 
     <TextView
@@ -69,36 +60,42 @@
         />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/slide_layout"
         android:background="@drawable/bottomnavigation_corner"
         android:elevation="10dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="72dp">
+        android:layout_marginTop="72dp"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="100dp"
+        android:gravity="center"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <ImageView
+            android:id="@+id/image_bottom"
             android:layout_width="78dp"
             android:layout_height="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="9dp"
             android:src="@drawable/panel_drawer_start"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:nestedScrollingEnabled="false"
             android:focusable="true"
-            android:layout_marginTop="20dp"
-            android:focusableInTouchMode="true"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="20dp"
+            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+

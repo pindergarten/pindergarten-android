@@ -81,6 +81,7 @@ class pindergartenAdapter(private val pindergartenThumbnail:ArrayList<Uri>,priva
         }
 
 
+
     }
 
     private fun changeDP(value: Int): Int {

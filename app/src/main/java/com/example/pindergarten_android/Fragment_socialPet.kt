@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -48,6 +49,11 @@ class Fragment_socialPet : Fragment() {
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(false)
 
+        //fragment popup
+        val fm: FragmentManager = requireActivity().supportFragmentManager
+        for (i in 0 until fm.backStackEntryCount) {
+            fm.popBackStack()
+        }
 
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
         var recyclerView = recyclerview_main // recyclerview id
@@ -188,19 +194,8 @@ class Fragment_socialPet : Fragment() {
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-        callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.i("callback","뒤로가기")
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        callback.remove()
     }
-
 
 
 }

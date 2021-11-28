@@ -18,7 +18,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pindergarten_android.databinding.ActivityLoginBinding
-import com.google.android.material.button.MaterialButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -192,6 +191,10 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
     }
 
 }

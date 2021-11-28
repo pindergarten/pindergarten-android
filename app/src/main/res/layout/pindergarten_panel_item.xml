@@ -4,12 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constraintLayout"
-    android:layout_width="350dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:background="@color/transparency"
     android:elevation="4dp"
-    android:layout_marginHorizontal="4dp"
+    android:layout_marginHorizontal="6dp"
     card_view:layout_constraintBottom_toBottomOf="parent"
     card_view:layout_constraintStart_toStartOf="parent">
 
@@ -17,10 +17,13 @@
         android:id="@+id/cardView7"
         android:layout_width="match_parent"
         android:layout_height="134dp"
-        android:layout_marginTop="10dp"
-        card_view:cardCornerRadius="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
+        card_view:cardCornerRadius="15dp"
+        android:layout_marginEnd="16dp"
+        card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toTopOf="parent">
 
@@ -31,16 +34,16 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:scaleType="fitCenter" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:layout_gravity="right|top"
+            android:layout_marginTop="12dp"
             android:layout_marginRight="12dp"
             card_view:cardCornerRadius="10dp">
 
@@ -49,13 +52,13 @@
                 android:layout_width="49dp"
                 android:layout_height="20dp"
                 android:background="#8C2B2B2B"
-                android:text="2.2Km"
-                android:textSize="11dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
                 android:gravity="center"
                 android:padding="0dp"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:text="2.2Km"
+                android:textColor="@color/white"
+                android:textSize="11dp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
 

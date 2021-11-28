@@ -57,5 +57,8 @@ class OnboardingActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = newUiOptions
     }
 
+    override fun onBackPressed() {
+        //super.onBackPressed()
+    }
 
 }

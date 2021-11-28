@@ -135,8 +135,8 @@ class Post {
         var id : Int ?=null
         @SerializedName("title")
         var title : String ?=null
-        @SerializedName("thumbnail")
-        var thumbnail : String ?=null
+        @SerializedName("image")
+        var image : String ?=null
         @SerializedName("expired_at")
         var expired_at : String ?=null
         @SerializedName("likeCount")

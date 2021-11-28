@@ -10,19 +10,21 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageButton
-import androidx.activity.OnBackPressedCallback
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.LocationListener
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.util.FusedLocationSource
-import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,7 +68,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var moved_longitude : Double ?=null
     var pindergartenTargetId : Int ?=null
 
-    var panel : SlidingUpPanelLayout ?=null
     var currentMarker : Marker ?=null
 
     var pindergartenId = ArrayList<Int>()
@@ -82,9 +83,11 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var locationListener : LocationListener ?=null
 
     var recyclerView : RecyclerView ?=null
+    var image_bottom : ImageView?=null
+    var slide_layout : LinearLayout ?=null
     val adapter = pindergartenAdapter(pindergartenThumbnail, pindergartenName, pindergartenAddress, pindergartenRating, pindergartenIsLiked, pindergartenDistance,this)
 
-    private lateinit var callback: OnBackPressedCallback
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_pindergarten,container,false)
@@ -92,6 +95,13 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         //navigate hide
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(false)
+
+        //fragment popup
+        val fm: FragmentManager = requireActivity().supportFragmentManager
+        for (i in 0 until fm.backStackEntryCount) {
+            fm.popBackStack()
+        }
+
 
         var bundle: Bundle
         if(arguments!=null){
@@ -108,10 +118,14 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             Log.i("pindergartenId", null.toString())
         }
 
-        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView = view.findViewById(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(container?.context)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.adapter = adapter
+        image_bottom = view.findViewById(R.id.image_bottom)
+        slide_layout = view.findViewById(R.id.slide_layout)
+
+        initBottomSheet()
 
         mapView =view.findViewById(R.id.map_view)
         mapView!!.onCreate(savedInstanceState)
@@ -193,8 +207,8 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        panel = view.findViewById(R.id.main_panel)
-        panel!!.panelHeight = changeDP(20)
+        //panel = view.findViewById(R.id.main_panel)
+        hideBottomSheet()
 
 
         return view
@@ -250,6 +264,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     }
 
 
+
     override fun onMapReady(map: NaverMap) {
         Log.i("Naver map", "ready")
         naverMap = map
@@ -262,7 +277,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         uiSetting.setLogoMargin(10, 10, 0, 0)
 
         naverMap.setOnMapClickListener { point, coord ->
-            panel!!.panelHeight = changeDP(20)
+          //  panel!!.panelHeight = changeDP(20)
             if (currentMarker != null) {
                 currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
                 currentMarker!!.width = 70
@@ -272,6 +287,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
 
 
         //focus
+        /*
         panel!!.panelHeight = changeDP(20)
         panel!!.setOnClickListener {
             if (panel!!.panelHeight == changeDP(20)) {
@@ -289,6 +305,8 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                 recyclerView!!.requestFocus()
             }
         }
+
+         */
 
         // -> onRequestPermissionsResult // 위치 권한 요청
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
@@ -394,7 +412,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                     )
                                 )
                                 naverMap.moveCamera(cameraUpdate)
-                                panel!!.panelHeight = changeDP(250)
 
                                 pindergartenId.clear()
                                 pindergartenName.clear()
@@ -438,6 +455,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                 //최상단으로 이동
                                 recyclerView?.smoothScrollToPosition(0)
                                 adapter.notifyDataSetChanged()
+                                showBottomSheet()
                             }
 
                             override fun onFailure(call: Call<Post?>, t: Throwable) {
@@ -505,7 +523,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                             val cameraUpdate =
                                 CameraUpdate.scrollTo(LatLng(moved_latitude!!, moved_longitude!!))
                             naverMap.moveCamera(cameraUpdate)
-                            panel!!.panelHeight = changeDP(250)
+                            showBottomSheet()
                             //최상단으로 이동
                             recyclerView?.smoothScrollToPosition(0)
                         }
@@ -517,7 +535,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                     })
                 }
 
-                panel!!.panelHeight = changeDP(20)
+                hideBottomSheet()
                 //최상단으로 이동
                 recyclerView?.smoothScrollToPosition(0)
                 adapter.notifyDataSetChanged()
@@ -554,17 +572,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-        callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.i("callback","뒤로가기")
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
-    }
 
-    override fun onDetach() {
-        super.onDetach()
-        callback.remove()
     }
 
 
@@ -577,5 +585,39 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
     }
+
+    private fun initBottomSheet(){
+        image_bottom!!.setOnClickListener{
+            showBottomSheet()
+        }
+    }
+
+    private fun showBottomSheet() {
+        BottomSheetBehavior.from(slide_layout!!).let {
+            if (it.state != BottomSheetBehavior.STATE_EXPANDED) {
+                it.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+    }
+
+    private fun hideBottomSheet() {
+        BottomSheetBehavior.from(slide_layout!!).let {
+            if (it.state != BottomSheetBehavior.STATE_COLLAPSED) {
+                it.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+
+        }
+    }
+
+    private fun itemBottomSheet() {
+        BottomSheetBehavior.from(slide_layout!!).let {
+            if (it.state != BottomSheetBehavior.STATE_COLLAPSED) {
+                it.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
+    }
+
+
+
 
 }
