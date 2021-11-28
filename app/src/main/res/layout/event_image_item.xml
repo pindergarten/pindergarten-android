@@ -21,7 +21,7 @@
             android:layout_width="158dp"
             android:layout_height="158dp"
             android:background="@drawable/dialog_corner"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -55,6 +55,10 @@
                     android:layout_height="55dp"
                     android:layout_marginLeft="224dp"
                     android:layout_marginTop="319dp"
+                    android:layout_marginEnd="77dp"
+                    android:layout_marginRight="77dp"
+                    android:layout_toStartOf="@+id/likeBtn"
+                    android:layout_toLeftOf="@+id/likeBtn"
                     android:background="@color/transparency"
                     android:scaleType="fitCenter"
                     android:src="@drawable/phone_icon" />
@@ -63,8 +67,11 @@
                     android:id="@+id/likeBtn"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:layout_marginLeft="289dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_marginTop="319dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
                     android:background="@color/transparency"
                     android:scaleType="fitCenter"
                     android:src="@drawable/pindergarten_unliked" />

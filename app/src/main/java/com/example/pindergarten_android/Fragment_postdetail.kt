@@ -122,13 +122,24 @@ class Fragment_postdetail : Fragment() {
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                             Log.i("delete post ", response.body()?.success.toString())
 
-                            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                            val fragment : Fragment = Fragment_socialPet()
-                            val bundle = Bundle()
-                            fragment.arguments=bundle
-                            transaction.replace(R.id.container,fragment)
-                            transaction.addToBackStack(null)
-                            transaction.commit()
+                            if(moveFragment =="meAndPet"){
+                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                                val fragment : Fragment = Fragment_meAndPet()
+                                val bundle = Bundle()
+                                fragment.arguments=bundle
+                                transaction.replace(R.id.container,fragment)
+                                transaction.addToBackStack(null)
+                                transaction.commit()
+                            }
+                            else if( moveFragment =="socialPet"){
+                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
+                                val fragment : Fragment = Fragment_socialPet()
+                                val bundle = Bundle()
+                                fragment.arguments=bundle
+                                transaction.replace(R.id.container,fragment)
+                                transaction.addToBackStack(null)
+                                transaction.commit()
+                            }
 
                             dialog!!.dismiss()
                         }

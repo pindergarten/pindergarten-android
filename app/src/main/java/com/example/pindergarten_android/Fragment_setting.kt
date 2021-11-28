@@ -12,6 +12,9 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -26,6 +29,8 @@ class Fragment_setting : Fragment() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+    var userId : Int ? = null
+
 
     private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,6 +40,12 @@ class Fragment_setting : Fragment() {
         //navigate hide
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(true)
+
+        var bundle: Bundle
+        if(arguments!=null){
+            bundle = arguments as Bundle
+            userId = bundle.getInt("userId")
+        }
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
@@ -64,6 +75,56 @@ class Fragment_setting : Fragment() {
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.commit()
+        }
+
+        val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+        Log.i("jwt : ",sharedPreferences.toString())
+
+        var logout : TextView = view.findViewById(R.id.logout)
+        logout.setOnClickListener{
+
+            apiService.logoutAPI(sharedPreferences.toString())?.enqueue(object :
+                Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                    PreferenceManager.setString(requireContext(), "jwt", null)
+
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    startActivity(intent)
+
+                    Log.i("logout","성공")
+                }
+
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("logout",t.toString())
+                }
+
+            })
+
+        }
+
+        var exituser : TextView = view.findViewById(R.id.exituser)
+        exituser.setOnClickListener{
+
+
+            apiService.exitAPI(sharedPreferences.toString(),userId!!)?.enqueue(object :
+                Callback<Post?> {
+                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    startActivity(intent)
+
+                    Log.i("exit","성공")
+                }
+
+                override fun onFailure(call: Call<Post?>, t: Throwable) {
+                    Log.i("exit",t.toString())
+                }
+
+            })
+
+
+
         }
 
 

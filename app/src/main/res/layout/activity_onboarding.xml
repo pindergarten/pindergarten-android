@@ -28,6 +28,7 @@
         app:tabGravity="center"
         app:ci_height="7dp"
         app:ci_width="7dp"
+        android:paddingTop="20dp"
         app:ci_drawable="@drawable/selected_dot2"
         app:tabIndicatorHeight="0dp"
         android:background="@color/yellow_white"

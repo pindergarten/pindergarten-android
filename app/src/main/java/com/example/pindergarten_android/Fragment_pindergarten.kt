@@ -317,7 +317,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
 
         //서버: 전체 펫유치원 조회
         apiService.searchAllPindergartenAPI(
-            sharedPreferences.toString(), current_latitude!!, current_longitude!!)?.enqueue(object : Callback<Post?> {
+            sharedPreferences.toString(), 37.5283169, 126.9294254)?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                 Log.i("pindergarten Search", response.body()?.success.toString())

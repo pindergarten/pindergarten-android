@@ -122,4 +122,9 @@ class MyAdapter(private val postImage:ArrayList<Uri>, private val postText:Array
         return Math.round(value * displayMetrics.density)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+
 }

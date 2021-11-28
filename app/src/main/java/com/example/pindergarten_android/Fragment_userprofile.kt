@@ -166,53 +166,6 @@ class Fragment_userprofile : Fragment() {
             }
         }
 
-        var logout : TextView = view.findViewById(R.id.logout)
-        logout.setOnClickListener{
-
-            apiService.logoutAPI(sharedPreferences.toString())?.enqueue(object :
-                Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-
-                    PreferenceManager.setString(requireContext(), "jwt", null)
-
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
-                    startActivity(intent)
-
-                    Log.i("logout","성공")
-                }
-
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("logout",t.toString())
-                }
-
-            })
-
-        }
-
-        var exituser : TextView = view.findViewById(R.id.exituser)
-        exituser.setOnClickListener{
-
-            /*
-            apiService.exitAPI(sharedPreferences.toString(),userId!!)?.enqueue(object :
-                Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
-                    startActivity(intent)
-
-                    Log.i("exit","성공")
-                }
-
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("exit",t.toString())
-                }
-
-            })
-
-             */
-
-        }
-
 
         return view
     }

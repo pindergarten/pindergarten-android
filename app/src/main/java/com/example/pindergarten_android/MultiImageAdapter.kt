@@ -33,6 +33,13 @@ class MultiImageAdapter(private val items:ArrayList<Uri>, val context: Fragment_
         fun bind(listener: View.OnClickListener,item:String){
             view.setOnClickListener(listener)
         }
+
     }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+
 
 }

@@ -40,7 +40,7 @@ class EventAdapter(private val eventImage:ArrayList<Uri>,private val eventTitle:
         val item = eventImage[position]
         Glide.with(context)
             .load(item)
-            .override(500,500)
+            .fitCenter()
             .into(holder.image)
 
         holder.title.text = eventTitle[position]

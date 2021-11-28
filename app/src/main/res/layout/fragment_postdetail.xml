@@ -41,29 +41,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
-
-
-            <ImageView
-                android:id="@+id/user_image"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="15dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/user_id"
+            <LinearLayout
+                android:id="@+id/layout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_marginTop="21dp"
-                android:text="사용자 이름"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/user_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/user_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사용자 이름"
+                    android:layout_marginLeft="6dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
 
             <ImageButton
                 android:id="@+id/noticeBtn"
@@ -85,7 +91,7 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_image" />
+                app:layout_constraintTop_toBottomOf="@+id/layout1" />
 
             <me.relex.circleindicator.CircleIndicator
                 android:id="@+id/indicator"

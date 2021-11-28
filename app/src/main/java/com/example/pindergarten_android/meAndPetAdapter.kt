@@ -88,4 +88,9 @@ class meAndPetAdapter(private val postImage:ArrayList<Uri>,val context: Fragment
         return Math.round(value * displayMetrics.density)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+
 }

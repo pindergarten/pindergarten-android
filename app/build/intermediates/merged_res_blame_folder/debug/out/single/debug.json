@@ -72,6 +72,10 @@
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\pindergarten_logo_background.png"
     },
     {
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding_btn.png"
+    },
+    {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pet_delete_btn.png.flat",
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pet_delete_btn.png"
     },
@@ -150,6 +154,10 @@
     {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding_btn2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding_btn2.png"
     },
     {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_comment.xml.flat",
@@ -710,6 +718,10 @@
     {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo_foreground.png.flat",
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_null_post.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\null_post.png"
     },
     {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_register_btn2.png.flat",

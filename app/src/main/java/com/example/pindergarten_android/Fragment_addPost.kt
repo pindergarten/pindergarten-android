@@ -55,7 +55,6 @@ class Fragment_addPost: Fragment() {
     var imm : InputMethodManager ?=null
     var fragment : String ?=null
 
-    val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
@@ -101,9 +100,15 @@ class Fragment_addPost: Fragment() {
         postText!!.requestFocus()
         postText?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                if(list.size!=0){
+                    addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                }
+                else{
+                    addPostBtn!!.setTextColor(Color.LTGRAY)
+                }
             }
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if(list.size>0){
+                if(list.size!=0){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -111,7 +116,7 @@ class Fragment_addPost: Fragment() {
                 }
             }
             override fun afterTextChanged(editable: Editable) {
-                if(list.size>0){
+                if(list.size!=0){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -141,12 +146,15 @@ class Fragment_addPost: Fragment() {
                 imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
                 imm?.hideSoftInputFromWindow(view.windowToken,0)
 
+                val sharedPreferences = myContext?.let { PreferenceManager.getString(it,"jwt") }
+
                 //content
                 var content = HashMap<String, RequestBody>()
                 content["content"]=  RequestBody.create(MediaType.parse("text/plain"),postText?.text.toString())
 
                 //image
                 var images = ArrayList<MultipartBody.Part>()
+
                 for ( index in 0 until list.size){
 
 
@@ -278,8 +286,9 @@ class Fragment_addPost: Fragment() {
 
             if(data?.clipData!=null){
                 val count = data.clipData!!.itemCount
+                Log.i("imageUriCount",count.toString())
 
-                if(list.size>0 && postText?.text?.length!! >0){
+                if(list.size!=0 && postText?.text?.length!! >0){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -299,7 +308,8 @@ class Fragment_addPost: Fragment() {
                     return
                 }
                 else{
-                    for(i in 0 until count){
+                    for(i in 0 until count) {
+
                         val imageUri = data.clipData!!.getItemAt(i).uri
                         list.add(imageUri)
                         image_count!!.text = "${count}/10"
@@ -307,62 +317,24 @@ class Fragment_addPost: Fragment() {
                 }
             }
             else{
-
+                data?.data?.let{
+                        uri ->
+                    val imageUri : Uri?= data?.data
+                    if(imageUri!=null){
+                        list.add(imageUri)
+                        image_count!!.text = "1/10"
+                        if(postText?.text?.length!! >0){
+                            addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
+                        }
+                        else{
+                            addPostBtn!!.setTextColor(Color.LTGRAY)
+                        }
+                    }
+                }
             }
             adapter.notifyDataSetChanged()
         }
     }
 
-    fun addPost(images : ArrayList<MultipartBody.Part>,content : HashMap<String, RequestBody>){
-
-        Log.i("images",images.toString())
-        Log.i("content",content.toString())
-
-        //서버 : addPost
-        apiService.addPostAPI(sharedPreferences.toString(),content,images)?.enqueue(object : Callback<Post?> {
-            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-
-                Log.i("addPost",response.body()?.success.toString())
-
-                val view2 = View.inflate(context,R.layout.join_popup,null)
-                var text : TextView = view2.findViewById(R.id.text)
-                var button : Button = view2.findViewById(R.id.button)
-                text.text="게시물이 정상적으로 등록 되었습니다."
-                button.text="확인"
-
-                val alertDialog = AlertDialog.Builder(context).create()
-                button.setOnClickListener{
-                    alertDialog.dismiss()
-                    if(fragment == "socialPet"){
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_socialPet()
-                        val bundle = Bundle()
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
-                    }
-                    else if (fragment == "meAndPet"){
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_meAndPet()
-                        val bundle = Bundle()
-                        fragment.arguments=bundle
-                        transaction.replace(R.id.container,fragment)
-                        transaction.commit()
-                    }
-
-                }
-                alertDialog.setView(view2)
-                alertDialog.show()
-
-                Log.i("addPost: ","성공")
-            }
-
-            override fun onFailure(call: Call<Post?>, t: Throwable) {
-                Log.i("addPost 실패: ",t.toString())
-            }
-
-        })
-
-    }
 
 }

@@ -102,7 +102,6 @@ class Fragment_eventdetail : Fragment() {
                 context?.let {
                     Glide.with(it)
                         .load(Uri.parse(response.body()?.eventList?.thumbnail))
-                        .override(500,500)
                         .into(event_Image)
                 }
 

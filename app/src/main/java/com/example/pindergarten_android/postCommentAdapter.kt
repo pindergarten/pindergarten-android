@@ -65,4 +65,9 @@ class postCommentAdapter(private val userImg:ArrayList<Uri>, private val userId:
 
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+
 }

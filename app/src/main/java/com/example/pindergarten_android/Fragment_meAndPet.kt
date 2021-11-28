@@ -38,6 +38,8 @@ class Fragment_meAndPet : Fragment() {
     var postId = ArrayList<Int>()
     var userId : Int ?= null
 
+    var nullPost : ImageView ?=null
+
     //petInfo
     var petId = ArrayList<Int>()
     var petImgUri = ArrayList<String>()
@@ -69,6 +71,7 @@ class Fragment_meAndPet : Fragment() {
         myImg = view.findViewById(R.id.myImg)
         myId = view.findViewById(R.id.myId)
         plusBtn = view.findViewById(R.id.plusBtn)
+        nullPost = view.findViewById(R.id.null_post)
 
         recyclerView.adapter = adapter
 
@@ -102,6 +105,7 @@ class Fragment_meAndPet : Fragment() {
                 petName.clear()
 
                 Log.i("myPet",response.body()?.mypetList!!.size.toString())
+
 
                 for( i in 0 until response.body()?.mypetList!!.size){
 
@@ -234,6 +238,14 @@ class Fragment_meAndPet : Fragment() {
                 postImage.clear()
                 postId.clear()
 
+                //default image
+                if(response.body()?.mypostsList!!.size == 0){
+                    nullPost!!.visibility = View.VISIBLE
+                }
+                else{
+                    nullPost!!.visibility = View.INVISIBLE
+                }
+
                 for( i in 0 until response.body()?.mypostsList?.size!!){
                     postImage.add(Uri.parse(response.body()?.mypostsList!![i].thumbnail.toString()))
                     postId.add(Integer.parseInt(response.body()?.mypostsList!![i].id.toString()))
@@ -314,10 +326,12 @@ class Fragment_meAndPet : Fragment() {
 
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_setting()
+            val bundle = Bundle()
+            bundle.putInt("userId",userId!!)
+            fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)
             transaction.commit()
-
         }
 
         return view

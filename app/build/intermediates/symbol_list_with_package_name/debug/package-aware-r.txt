@@ -2086,9 +2086,12 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable null_post
 drawable onboarding1
 drawable onboarding2
 drawable onboarding3
+drawable onboarding_btn
+drawable onboarding_btn2
 drawable pager_indicator
 drawable panel_drawer_start
 drawable pet_delete_btn
@@ -2409,6 +2412,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView10
 id imageView2
 id imageView3
 id imageView4
@@ -2434,6 +2438,7 @@ id labeled
 id layout
 id layout1
 id layout2
+id layout3
 id left
 id leftToRight
 id legacy
@@ -2564,6 +2569,7 @@ id noticeBtn
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id null_post
 id off
 id on
 id onAttachStateChangeListener
@@ -2701,6 +2707,7 @@ id startHorizontal
 id startToEnd
 id startVertical
 id startbtn
+id starttext
 id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
@@ -2735,7 +2742,6 @@ id text3
 id text4
 id text5
 id text6
-id text7
 id textEnd
 id textIndicator
 id textSpacerNoButtons
