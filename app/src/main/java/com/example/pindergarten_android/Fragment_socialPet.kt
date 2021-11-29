@@ -94,8 +94,8 @@ class Fragment_socialPet : Fragment() {
                     userImage.add(Uri.parse(response.body()?.allPostList!![i].user_image.toString()))
                     userId.add(response.body()?.allPostList!![i].user_id.toString())
                     postText.add(response.body()?.allPostList!![i].content.toString())
-                    postId.add(Integer.parseInt(response.body()?.allPostList!![i].id.toString()))
-                    postLiked.add(Integer.parseInt(response.body()?.allPostList!![i].isLiked.toString()))
+                    postId.add((response.body()?.allPostList!![i].id.toString()).toInt())
+                    response.body()?.allPostList!![i].isLiked?.let { postLiked.add(it) }
 
                 }
 

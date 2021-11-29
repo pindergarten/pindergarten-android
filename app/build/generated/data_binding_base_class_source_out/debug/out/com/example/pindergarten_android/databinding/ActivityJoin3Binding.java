@@ -21,6 +21,9 @@ import java.lang.Object;
 
 public abstract class ActivityJoin3Binding extends ViewDataBinding {
   @NonNull
+  public final ImageButton backBtn;
+
+  @NonNull
   public final ImageButton confirmIdBtn;
 
   @NonNull
@@ -51,9 +54,11 @@ public abstract class ActivityJoin3Binding extends ViewDataBinding {
   protected Join3Activity mActivity;
 
   protected ActivityJoin3Binding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageButton confirmIdBtn, ImageButton finishBtn, EditText id, ImageView imageView2,
-      ImageView imageView3, TextView info, TextView textView3, TextView textView5) {
+      ImageButton backBtn, ImageButton confirmIdBtn, ImageButton finishBtn, EditText id,
+      ImageView imageView2, ImageView imageView3, TextView info, TextView textView3,
+      TextView textView5) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.backBtn = backBtn;
     this.confirmIdBtn = confirmIdBtn;
     this.finishBtn = finishBtn;
     this.id = id;

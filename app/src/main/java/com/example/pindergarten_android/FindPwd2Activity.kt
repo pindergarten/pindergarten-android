@@ -196,6 +196,11 @@ class FindPwd2Activity : AppCompatActivity() {
                 }
             }
 
+            R.id.backBtn -> {
+                val intent = Intent(this, FindPwdActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
 
         }
 

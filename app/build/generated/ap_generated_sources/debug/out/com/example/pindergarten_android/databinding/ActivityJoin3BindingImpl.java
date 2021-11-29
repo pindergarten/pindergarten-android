@@ -14,12 +14,12 @@ public class ActivityJoin3BindingImpl extends ActivityJoin3Binding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.imageView2, 3);
-        sViewsWithIds.put(R.id.textView3, 4);
-        sViewsWithIds.put(R.id.textView5, 5);
-        sViewsWithIds.put(R.id.imageView3, 6);
-        sViewsWithIds.put(R.id.id, 7);
-        sViewsWithIds.put(R.id.info, 8);
+        sViewsWithIds.put(R.id.imageView2, 4);
+        sViewsWithIds.put(R.id.textView3, 5);
+        sViewsWithIds.put(R.id.textView5, 6);
+        sViewsWithIds.put(R.id.imageView3, 7);
+        sViewsWithIds.put(R.id.id, 8);
+        sViewsWithIds.put(R.id.info, 9);
     }
     // views
     @NonNull
@@ -31,19 +31,21 @@ public class ActivityJoin3BindingImpl extends ActivityJoin3Binding  {
     // Inverse Binding Event Handlers
 
     public ActivityJoin3BindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 9, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
     }
     private ActivityJoin3BindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.ImageButton) bindings[1]
             , (android.widget.ImageButton) bindings[2]
-            , (android.widget.EditText) bindings[7]
-            , (android.widget.ImageView) bindings[3]
-            , (android.widget.ImageView) bindings[6]
-            , (android.widget.TextView) bindings[8]
-            , (android.widget.TextView) bindings[4]
+            , (android.widget.ImageButton) bindings[3]
+            , (android.widget.EditText) bindings[8]
+            , (android.widget.ImageView) bindings[4]
+            , (android.widget.ImageView) bindings[7]
+            , (android.widget.TextView) bindings[9]
             , (android.widget.TextView) bindings[5]
+            , (android.widget.TextView) bindings[6]
             );
+        this.backBtn.setTag(null);
         this.confirmIdBtn.setTag(null);
         this.finishBtn.setTag(null);
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
@@ -128,6 +130,7 @@ public class ActivityJoin3BindingImpl extends ActivityJoin3Binding  {
         if ((dirtyFlags & 0x6L) != 0) {
             // api target 1
 
+            this.backBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
             this.confirmIdBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
             this.finishBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
         }

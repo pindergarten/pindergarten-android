@@ -19,13 +19,15 @@
         <ImageView
             android:id="@+id/eventImage"
             android:layout_width="match_parent"
-            android:layout_height="158dp"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:src="@drawable/test1"
+            android:scaleType="fitCenter"
             android:background="@drawable/dialog_corner"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/eventTitle"

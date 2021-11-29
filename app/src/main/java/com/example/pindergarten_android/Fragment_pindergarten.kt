@@ -2,7 +2,6 @@ package com.example.pindergarten_android
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context.LOCATION_SERVICE
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
@@ -10,21 +9,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.LocationListener
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.util.FusedLocationSource
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,8 +41,9 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     private lateinit var naverMap: NaverMap
     private lateinit var locationSource: FusedLocationSource
     var mapView: MapView ?=null
-    var current_latitude :Double ?=null
-    var current_longitude :Double ?=null
+
+    var current_latitude = 37.5283169
+    var current_longitude = 126.9294254
 
     var location : Location ? = null
     var isGPSEnabled :Boolean ?= false
@@ -68,6 +66,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var moved_longitude : Double ?=null
     var pindergartenTargetId : Int ?=null
 
+    var panel : SlidingUpPanelLayout ?=null
     var currentMarker : Marker ?=null
 
     var pindergartenId = ArrayList<Int>()
@@ -83,11 +82,9 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     var locationListener : LocationListener ?=null
 
     var recyclerView : RecyclerView ?=null
-    var image_bottom : ImageView?=null
-    var slide_layout : LinearLayout ?=null
     val adapter = pindergartenAdapter(pindergartenThumbnail, pindergartenName, pindergartenAddress, pindergartenRating, pindergartenIsLiked, pindergartenDistance,this)
 
-
+    private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_pindergarten,container,false)
@@ -95,13 +92,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         //navigate hide
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(false)
-
-        //fragment popup
-        val fm: FragmentManager = requireActivity().supportFragmentManager
-        for (i in 0 until fm.backStackEntryCount) {
-            fm.popBackStack()
-        }
-
 
         var bundle: Bundle
         if(arguments!=null){
@@ -118,14 +108,10 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             Log.i("pindergartenId", null.toString())
         }
 
-        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(container?.context)
         recyclerView!!.layoutManager = layoutManager
         recyclerView!!.adapter = adapter
-        image_bottom = view.findViewById(R.id.image_bottom)
-        slide_layout = view.findViewById(R.id.slide_layout)
-
-        initBottomSheet()
 
         mapView =view.findViewById(R.id.map_view)
         mapView!!.onCreate(savedInstanceState)
@@ -189,8 +175,8 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_likePindergarten()
             val bundle = Bundle()
-            current_latitude?.let { it1 -> bundle.putDouble("latitude", it1) }
-            current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
+            bundle.putDouble("latitude", current_latitude)
+            bundle.putDouble("longitude", current_longitude)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)
@@ -200,15 +186,15 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
             val transaction = myContext!!.supportFragmentManager.beginTransaction()
             val fragment : Fragment = Fragment_searchPindergarten()
             val bundle = Bundle()
-            current_latitude?.let { it1 -> bundle.putDouble("latitude", it1) }
-            current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
+            bundle.putDouble("latitude", current_latitude)
+            bundle.putDouble("longitude", current_longitude)
             fragment.arguments=bundle
             transaction.replace(R.id.container,fragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        //panel = view.findViewById(R.id.main_panel)
-        hideBottomSheet()
+        panel = view.findViewById(R.id.main_panel)
+        panel!!.panelHeight = changeDP(20)
 
 
         return view
@@ -264,7 +250,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     }
 
 
-
     override fun onMapReady(map: NaverMap) {
         Log.i("Naver map", "ready")
         naverMap = map
@@ -277,36 +262,14 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         uiSetting.setLogoMargin(10, 10, 0, 0)
 
         naverMap.setOnMapClickListener { point, coord ->
-          //  panel!!.panelHeight = changeDP(20)
+            panel!!.panelHeight = changeDP(20)
             if (currentMarker != null) {
                 currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
-                currentMarker!!.width = 70
-                currentMarker!!.height = 70
+                currentMarker!!.width =changeDP(25)
+                currentMarker!!.height = changeDP(25)
+                currentMarker!!.zIndex = 0
             }
         }
-
-
-        //focus
-        /*
-        panel!!.panelHeight = changeDP(20)
-        panel!!.setOnClickListener {
-            if (panel!!.panelHeight == changeDP(20)) {
-                recyclerView?.smoothScrollToPosition(0)
-            } else if (panel!!.panelHeight < changeDP(250)) {
-                panel!!.requestFocus()
-            } else {
-                recyclerView!!.requestFocus()
-            }
-        }
-        recyclerView!!.setOnClickListener {
-            if (panel!!.panelHeight < changeDP(250)) {
-                panel!!.requestFocus()
-            } else {
-                recyclerView!!.requestFocus()
-            }
-        }
-
-         */
 
         // -> onRequestPermissionsResult // 위치 권한 요청
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
@@ -314,20 +277,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
         naverMap.locationTrackingMode = LocationTrackingMode.Follow
 
         //현재위치
-
-        Log.i("내 위치값", "$current_latitude,$current_longitude")
-        locationManager = requireActivity().getSystemService(LOCATION_SERVICE) as LocationManager
-        locationListener = LocationListener { location ->
-            var lat = 37.5283169
-            var lng = 126.9294254
-            if (location != null) {
-                lat = location.latitude
-                lng = location.longitude
-            }
-            current_latitude = lat
-            current_longitude = lng
-        }
-
         val sharedPreferences = myContext?.let { PreferenceManager.getString(it, "jwt") }
         Log.i("jwt : ", sharedPreferences.toString())
         Log.i("현재위치", "위도: $current_latitude | 경도: $current_longitude")
@@ -335,7 +284,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
 
         //서버: 전체 펫유치원 조회
         apiService.searchAllPindergartenAPI(
-            sharedPreferences.toString(), 37.5283169, 126.9294254)?.enqueue(object : Callback<Post?> {
+            sharedPreferences.toString(), current_latitude, current_longitude)?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                 Log.i("pindergarten Search", response.body()?.success.toString())
@@ -381,8 +330,9 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                     marker.map = naverMap
                     marker.tag = pindergartenId[i]
                     marker.icon = OverlayImage.fromResource(R.drawable.marker)
-                    marker.width = 80
-                    marker.height = 80
+                    marker.width = changeDP(25)
+                    marker.height = changeDP(25)
+                    marker.zIndex = 0
                     Log.i("${i + 1}번째 pindergarten", pindergartenName[i])
 
                     marker.onClickListener = Overlay.OnClickListener {
@@ -390,19 +340,17 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                         //marker image 변경
                         if (currentMarker != null) {
                             currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker)
-                            currentMarker!!.width = 80
-                            currentMarker!!.height = 80
+                            currentMarker!!.width =changeDP(25)
+                            currentMarker!!.height = changeDP(25)
+                            currentMarker!!.zIndex = 0
                         }
                         currentMarker = marker
                         currentMarker!!.icon = OverlayImage.fromResource(R.drawable.marker2)
-                        marker.width = 100
-                        marker.height = 100
+                        marker.width = changeDP(35)
+                        marker.height = changeDP(35)
+                        marker.zIndex = 100
 
-                        apiService.markerAPI(
-                            sharedPreferences.toString(),
-                            marker.position.latitude!!,
-                            marker.position.longitude!!
-                        )?.enqueue(object : Callback<Post?> {
+                        apiService.markerAPI(sharedPreferences.toString(), marker.position.latitude!!, marker.position.longitude!!)?.enqueue(object : Callback<Post?> {
                             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                                 Log.i("marker event", "success")
                                 val cameraUpdate = CameraUpdate.scrollTo(
@@ -412,6 +360,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                     )
                                 )
                                 naverMap.moveCamera(cameraUpdate)
+                                panel!!.panelHeight = changeDP(250)
 
                                 pindergartenId.clear()
                                 pindergartenName.clear()
@@ -448,14 +397,12 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                                     } catch (e: Exception) {
                                         Log.i("error", e.toString())
                                     }
-                                    //pindergartenDistance.add(String.format("%.1f", response.body()?.nearPindergartens!![i].distance!!.toDouble()) + "Km")
                                     Log.i("${i + 1}번째 pindergarten 조회", pindergartenName[i])
                                 }
 
                                 //최상단으로 이동
                                 recyclerView?.smoothScrollToPosition(0)
                                 adapter.notifyDataSetChanged()
-                                showBottomSheet()
                             }
 
                             override fun onFailure(call: Call<Post?>, t: Throwable) {
@@ -470,11 +417,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
 
 
                 if (moved == "map") {
-                    apiService.markerAPI(
-                        sharedPreferences.toString(),
-                        moved_latitude!!,
-                        moved_longitude!!
-                    )?.enqueue(object : Callback<Post?> {
+                    apiService.markerAPI(sharedPreferences.toString(), moved_latitude!!, moved_longitude!!)?.enqueue(object : Callback<Post?> {
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                             Log.i("moved event", "success")
 
@@ -520,10 +463,9 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                             }
 
                             adapter.notifyDataSetChanged()
-                            val cameraUpdate =
-                                CameraUpdate.scrollTo(LatLng(moved_latitude!!, moved_longitude!!))
+                            val cameraUpdate = CameraUpdate.scrollTo(LatLng(moved_latitude!!, moved_longitude!!))
                             naverMap.moveCamera(cameraUpdate)
-                            showBottomSheet()
+                            panel!!.panelHeight = changeDP(250)
                             //최상단으로 이동
                             recyclerView?.smoothScrollToPosition(0)
                         }
@@ -535,7 +477,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
                     })
                 }
 
-                hideBottomSheet()
+                panel!!.panelHeight = changeDP(20)
                 //최상단으로 이동
                 recyclerView?.smoothScrollToPosition(0)
                 adapter.notifyDataSetChanged()
@@ -572,7 +514,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     override fun onAttach(activity: Activity) {
         myContext = activity as FragmentActivity
         super.onAttach(activity)
-
     }
 
 
@@ -585,39 +526,5 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback{
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
     }
-
-    private fun initBottomSheet(){
-        image_bottom!!.setOnClickListener{
-            showBottomSheet()
-        }
-    }
-
-    private fun showBottomSheet() {
-        BottomSheetBehavior.from(slide_layout!!).let {
-            if (it.state != BottomSheetBehavior.STATE_EXPANDED) {
-                it.state = BottomSheetBehavior.STATE_EXPANDED
-            }
-        }
-    }
-
-    private fun hideBottomSheet() {
-        BottomSheetBehavior.from(slide_layout!!).let {
-            if (it.state != BottomSheetBehavior.STATE_COLLAPSED) {
-                it.state = BottomSheetBehavior.STATE_COLLAPSED
-            }
-
-        }
-    }
-
-    private fun itemBottomSheet() {
-        BottomSheetBehavior.from(slide_layout!!).let {
-            if (it.state != BottomSheetBehavior.STATE_COLLAPSED) {
-                it.state = BottomSheetBehavior.STATE_COLLAPSED
-            }
-        }
-    }
-
-
-
 
 }

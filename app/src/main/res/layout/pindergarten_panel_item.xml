@@ -49,11 +49,12 @@
 
             <TextView
                 android:id="@+id/pindergartenDistance"
-                android:layout_width="49dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:background="#8C2B2B2B"
                 android:gravity="center"
-                android:padding="0dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:scaleType="fitCenter"
                 android:text="2.2Km"
                 android:textColor="@color/white"

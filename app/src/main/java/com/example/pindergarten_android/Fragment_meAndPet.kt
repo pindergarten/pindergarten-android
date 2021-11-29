@@ -47,7 +47,7 @@ class Fragment_meAndPet : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -126,16 +126,15 @@ class Fragment_meAndPet : Fragment() {
 
                 if(petId.size==0){
                     //버튼
-                    val dynamicButton = ImageButton(context)
+                    val dynamicButton = ImageButton(myContext)
                     val viewParams = LinearLayout.LayoutParams(changeDP(328),LinearLayout.LayoutParams.MATCH_PARENT)
                     viewParams.setMargins(changeDP(16), 0, 0, 0)
-                    //dynamicButton.setPadding(changeDP(8), changeDP(8), 0, 0)
                     dynamicButton.layoutParams = viewParams
                     dynamicButton.scaleType = ImageView.ScaleType.FIT_CENTER
                     dynamicButton.setBackgroundColor(Color.WHITE)
                     dynamicButton.setImageResource(R.drawable.app_pet_btn)
 
-                    val alertDialog = AlertDialog.Builder(context).create()
+                    val alertDialog = AlertDialog.Builder(myContext).create()
                     dynamicButton.setOnClickListener{
                         val transaction = myContext!!.supportFragmentManager.beginTransaction()
                         val fragment : Fragment = Fragment_addPet()
@@ -152,10 +151,10 @@ class Fragment_meAndPet : Fragment() {
                     for( i in 0 until petId.size){
 
                         //레이아웃
-                        val dynamicLayout = LinearLayout(context)
+                        var dynamicLayout = LinearLayout(myContext)
                         dynamicLayout.orientation = LinearLayout.VERTICAL
                         dynamicLayout.gravity = Gravity.CENTER
-                        val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.MATCH_PARENT)
+                        var params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.MATCH_PARENT)
                         dynamicLayout.layoutParams = params
                         dynamicLayout.setOnClickListener{
                             Log.i("clicked",petId[i].toString())
@@ -173,7 +172,7 @@ class Fragment_meAndPet : Fragment() {
                         }
 
                         //사진
-                        val dynamicView = ImageView(context)
+                        val dynamicView = ImageView(myContext)
                         val viewParams = LinearLayout.LayoutParams(changeDP(40),changeDP(40))
                         dynamicView.layoutParams = viewParams
                         dynamicView.adjustViewBounds=true
@@ -188,7 +187,7 @@ class Fragment_meAndPet : Fragment() {
                         }
 
                         //텍스트
-                        val dynamicText = TextView(context)
+                        val dynamicText = TextView(myContext)
                         val textParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.WRAP_CONTENT)
                         dynamicText.setTextColor(Color.GRAY)
                         dynamicText.textSize = 12.0f
@@ -197,7 +196,7 @@ class Fragment_meAndPet : Fragment() {
                         dynamicText.gravity = Gravity.CENTER
                         textParams.setMargins(0, changeDP(3), 0, 0)
 
-                        val lineView = ImageView(context)
+                        val lineView = ImageView(myContext)
                         val lineParams = LinearLayout.LayoutParams(changeDP(1), changeDP(70))
                         lineParams.gravity= Gravity.CENTER
                         lineView.layoutParams = lineParams
@@ -215,7 +214,7 @@ class Fragment_meAndPet : Fragment() {
 
                     for( j in 0 until nullSize){
                         // null 레이아웃
-                        val dynamicLayout = LinearLayout(context)
+                        val dynamicLayout = LinearLayout(myContext)
                         dynamicLayout.orientation = LinearLayout.VERTICAL
                         dynamicLayout.gravity = Gravity.CENTER
                         val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(changeDP(80),LinearLayout.LayoutParams.MATCH_PARENT)
@@ -258,7 +257,7 @@ class Fragment_meAndPet : Fragment() {
                 }
 
 
-                Glide.with(context!!)
+                Glide.with(myContext!!)
                     .load(Uri.parse(response.body()?.user?.profile_img.toString()))
                     .centerCrop()
                     .circleCrop()
@@ -297,11 +296,11 @@ class Fragment_meAndPet : Fragment() {
 
 
         plusBtn!!.setOnClickListener{
-            val view2 = View.inflate(context,R.layout.meandpet_popup,null)
+            val view2 = View.inflate(myContext,R.layout.meandpet_popup,null)
             var addPet : Button = view2.findViewById(R.id.addPet)
             var addPost : Button = view2.findViewById(R.id.addPost)
 
-            val alertDialog = AlertDialog.Builder(context).create()
+            val alertDialog = AlertDialog.Builder(myContext).create()
             addPet.setOnClickListener{
                 val transaction = myContext!!.supportFragmentManager.beginTransaction()
                 val fragment : Fragment = Fragment_addPet()
@@ -351,7 +350,7 @@ class Fragment_meAndPet : Fragment() {
 
 
     private fun changeDP(value: Int): Int {
-        var displayMetrics = requireContext().resources.displayMetrics
+        var displayMetrics = myContext!!.resources.displayMetrics
         return Math.round(value * displayMetrics.density)
     }
 

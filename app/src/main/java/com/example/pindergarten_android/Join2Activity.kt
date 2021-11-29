@@ -22,7 +22,7 @@ class Join2Activity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -166,7 +166,11 @@ class Join2Activity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
-
+            R.id.backBtn -> {
+                val intent = Intent(this, JoinActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
 
         }
 

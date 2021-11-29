@@ -189,6 +189,13 @@ class Join3Activity : AppCompatActivity() {
                     alertDialog.show()
                 }
             }
+
+            R.id.backBtn -> {
+                val intent = Intent(this, Join2Activity::class.java)
+                intent.putExtra("phone",phoneNum)
+                startActivity(intent)
+                finish()
+            }
             }
 
 

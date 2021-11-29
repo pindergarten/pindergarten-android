@@ -25,6 +25,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -109,14 +110,16 @@ class Fragment_eventdetail : Fragment() {
                 likeCount.text= response.body()?.eventList?.likeCount.toString()
 
                 //날짜계산
-                var today : Calendar = Calendar.getInstance()
-                var eventday : Calendar = Calendar.getInstance()
-                //d-day 계산
-                //var day_temp = response.body()?.eventList?.expired_at.toString()
-                //eventday.set(Integer.parseInt(day_temp.split(".")[0]),Integer.parseInt(day_temp.split(".")[1]),Integer.parseInt(day_temp.split(".")[2]))
-                //var event_day : Long = eventday.timeInMillis/86400000
-                //var to_day : Long = today.timeInMillis/86400000
-                day.text="D${1}"
+                val dateFormat = SimpleDateFormat("yyyyMMdd")
+                var today  = Calendar.getInstance().apply{
+                    set(Calendar.HOUR_OF_DAY, 0)
+                    set(Calendar.MINUTE, 0)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }.time.time
+
+                var eventday = dateFormat.parse(response.body()?.eventList?.expired_at.toString().replace(".","")).time
+                day.text="D-${((eventday - today) / (24 * 60 * 60 * 1000))}"
 
 
                 var tempLiked = response.body()?.eventList?.isLiked

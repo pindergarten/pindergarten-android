@@ -14,15 +14,15 @@ public class ActivityJoinBindingImpl extends ActivityJoinBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.imageView2, 4);
-        sViewsWithIds.put(R.id.textView3, 5);
-        sViewsWithIds.put(R.id.textView5, 6);
-        sViewsWithIds.put(R.id.imageView3, 7);
-        sViewsWithIds.put(R.id.phoneNum, 8);
-        sViewsWithIds.put(R.id.phone_info, 9);
-        sViewsWithIds.put(R.id.imageView4, 10);
-        sViewsWithIds.put(R.id.vertifyNum, 11);
-        sViewsWithIds.put(R.id.info, 12);
+        sViewsWithIds.put(R.id.imageView2, 5);
+        sViewsWithIds.put(R.id.textView3, 6);
+        sViewsWithIds.put(R.id.textView5, 7);
+        sViewsWithIds.put(R.id.imageView3, 8);
+        sViewsWithIds.put(R.id.phoneNum, 9);
+        sViewsWithIds.put(R.id.phone_info, 10);
+        sViewsWithIds.put(R.id.imageView4, 11);
+        sViewsWithIds.put(R.id.vertifyNum, 12);
+        sViewsWithIds.put(R.id.info, 13);
     }
     // views
     @NonNull
@@ -34,23 +34,25 @@ public class ActivityJoinBindingImpl extends ActivityJoinBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityJoinBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 13, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 14, sIncludes, sViewsWithIds));
     }
     private ActivityJoinBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.ImageButton) bindings[2]
-            , (android.widget.ImageView) bindings[4]
-            , (android.widget.ImageView) bindings[7]
-            , (android.widget.ImageView) bindings[10]
-            , (android.widget.TextView) bindings[12]
-            , (android.widget.ImageButton) bindings[3]
-            , (android.widget.TextView) bindings[9]
-            , (android.widget.EditText) bindings[8]
             , (android.widget.ImageButton) bindings[1]
-            , (android.widget.TextView) bindings[5]
+            , (android.widget.ImageButton) bindings[3]
+            , (android.widget.ImageView) bindings[5]
+            , (android.widget.ImageView) bindings[8]
+            , (android.widget.ImageView) bindings[11]
+            , (android.widget.TextView) bindings[13]
+            , (android.widget.ImageButton) bindings[4]
+            , (android.widget.TextView) bindings[10]
+            , (android.widget.EditText) bindings[9]
+            , (android.widget.ImageButton) bindings[2]
             , (android.widget.TextView) bindings[6]
-            , (android.widget.EditText) bindings[11]
+            , (android.widget.TextView) bindings[7]
+            , (android.widget.EditText) bindings[12]
             );
+        this.backBtn.setTag(null);
         this.confirmBtn.setTag(null);
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
@@ -136,6 +138,7 @@ public class ActivityJoinBindingImpl extends ActivityJoinBinding  {
         if ((dirtyFlags & 0x6L) != 0) {
             // api target 1
 
+            this.backBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
             this.confirmBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
             this.nextBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
             this.sendNum.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);

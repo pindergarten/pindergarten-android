@@ -19,6 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -86,8 +87,14 @@ class Fragment_event : Fragment() {
                 eventId.clear()
 
                 //날짜계산
-                var today  = Calendar.getInstance()
-                var eventday : Calendar = Calendar.getInstance()
+                val dateFormat = SimpleDateFormat("yyyyMMdd")
+                var today  = Calendar.getInstance().apply{
+                    set(Calendar.HOUR_OF_DAY, 0)
+                    set(Calendar.MINUTE, 0)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }.time.time
+
 
                 for( i in 0 until response.body()?.allEventList?.size!!){
 
@@ -104,13 +111,9 @@ class Fragment_event : Fragment() {
                     eventTitle.add(response.body()?.allEventList!![i].title.toString())
                     eventId.add(Integer.parseInt(response.body()?.allEventList!![i].id.toString()))
                     //d-day 계산
+                    var eventday = dateFormat.parse(response.body()?.allEventList!![i].expired_at.toString().replace(".","")).time
 
-                    var day_temp = response.body()?.allEventList!![i].expired_at.toString()
-                    eventday.set(Integer.parseInt(day_temp.split(".")[0]),Integer.parseInt(day_temp.split(".")[1]),Integer.parseInt(day_temp.split(".")[2]))
-
-
-
-                    eventDay.add(1)
+                    eventDay.add(((eventday - today) / (24 * 60 * 60 * 1000)).toInt())
                 }
 
                 adapter.notifyDataSetChanged()

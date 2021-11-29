@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context=".Fragment_socialPet">
+    android:background="@android:color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -34,7 +33,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:padding="5dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/transparency"
             android:scaleType="fitCenter"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
@@ -49,8 +48,8 @@
             android:layout_height="30dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="65dp"
-            android:backgroundTint="@color/white"
             android:padding="5dp"
+            android:background="@color/transparency"
             android:scaleType="fitCenter"
             android:src="@drawable/socialpet_plus"
             app:layout_constraintEnd_toEndOf="parent"

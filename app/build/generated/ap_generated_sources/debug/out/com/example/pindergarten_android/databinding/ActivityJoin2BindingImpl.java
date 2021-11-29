@@ -14,15 +14,15 @@ public class ActivityJoin2BindingImpl extends ActivityJoin2Binding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.imageView2, 2);
-        sViewsWithIds.put(R.id.textView3, 3);
-        sViewsWithIds.put(R.id.textView5, 4);
-        sViewsWithIds.put(R.id.imageView3, 5);
-        sViewsWithIds.put(R.id.pwd1, 6);
-        sViewsWithIds.put(R.id.textView6, 7);
-        sViewsWithIds.put(R.id.imageView4, 8);
-        sViewsWithIds.put(R.id.pwd2, 9);
-        sViewsWithIds.put(R.id.info, 10);
+        sViewsWithIds.put(R.id.imageView2, 3);
+        sViewsWithIds.put(R.id.textView3, 4);
+        sViewsWithIds.put(R.id.textView5, 5);
+        sViewsWithIds.put(R.id.imageView3, 6);
+        sViewsWithIds.put(R.id.pwd1, 7);
+        sViewsWithIds.put(R.id.textView6, 8);
+        sViewsWithIds.put(R.id.imageView4, 9);
+        sViewsWithIds.put(R.id.pwd2, 10);
+        sViewsWithIds.put(R.id.info, 11);
     }
     // views
     @NonNull
@@ -34,21 +34,23 @@ public class ActivityJoin2BindingImpl extends ActivityJoin2Binding  {
     // Inverse Binding Event Handlers
 
     public ActivityJoin2BindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 12, sIncludes, sViewsWithIds));
     }
     private ActivityJoin2BindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.ImageView) bindings[2]
-            , (android.widget.ImageView) bindings[5]
-            , (android.widget.ImageView) bindings[8]
-            , (android.widget.TextView) bindings[10]
             , (android.widget.ImageButton) bindings[1]
-            , (android.widget.EditText) bindings[6]
-            , (android.widget.EditText) bindings[9]
-            , (android.widget.TextView) bindings[3]
+            , (android.widget.ImageView) bindings[3]
+            , (android.widget.ImageView) bindings[6]
+            , (android.widget.ImageView) bindings[9]
+            , (android.widget.TextView) bindings[11]
+            , (android.widget.ImageButton) bindings[2]
+            , (android.widget.EditText) bindings[7]
+            , (android.widget.EditText) bindings[10]
             , (android.widget.TextView) bindings[4]
-            , (android.widget.TextView) bindings[7]
+            , (android.widget.TextView) bindings[5]
+            , (android.widget.TextView) bindings[8]
             );
+        this.backBtn.setTag(null);
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         this.nextBtn.setTag(null);
@@ -132,6 +134,7 @@ public class ActivityJoin2BindingImpl extends ActivityJoin2Binding  {
         if ((dirtyFlags & 0x6L) != 0) {
             // api target 1
 
+            this.backBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
             this.nextBtn.setOnClickListener(activityBtnClickAndroidViewViewOnClickListener);
         }
     }

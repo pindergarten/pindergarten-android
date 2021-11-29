@@ -3,6 +3,7 @@ package com.example.pindergarten_android
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -16,10 +17,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
@@ -68,8 +69,6 @@ class Fragment_addPet : Fragment() {
         val mainAct = activity as MainActivity
         mainAct.HideBottomNavigation(true)
 
-        //keyboard
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED)
 
         backBtn = view.findViewById(R.id.backBtn)
         backBtn!!.setOnClickListener{
@@ -79,6 +78,15 @@ class Fragment_addPet : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
+
+        var parentlayout : ConstraintLayout = view.findViewById(R.id.parentlayout)
+        parentlayout.setOnClickListener{
+            //keyboard control
+            imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm?.hideSoftInputFromWindow(view.windowToken,0)
+
+        }
+
 
 
         petImg = view.findViewById(R.id.petImg)
@@ -116,8 +124,6 @@ class Fragment_addPet : Fragment() {
         var petCategory : EditText = view.findViewById(R.id.petCategory)
         var petInfo : EditText =view.findViewById(R.id.petInfo)
 
-        petCategory.requestFocus()
-        petInfo.requestFocus()
 
         var genderGroup : RadioGroup = view.findViewById(R.id.genderGroup)
         var preventGroup : RadioGroup = view.findViewById(R.id.preventGroup)

@@ -3,11 +3,13 @@ package com.example.pindergarten_android
 import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
@@ -22,6 +24,8 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,6 +67,7 @@ class Fragment_addPost: Fragment() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_addpost,container,false)
@@ -75,6 +80,14 @@ class Fragment_addPost: Fragment() {
         if(arguments!=null){
             bundle = arguments as Bundle
             fragment = bundle.getString("fragment").toString()
+        }
+
+        var parentlayout : ConstraintLayout = view.findViewById(R.id.parentlayout)
+        parentlayout.setOnClickListener{
+            //keyboard control
+            imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm?.hideSoftInputFromWindow(view.windowToken,0)
+
         }
 
         var recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
@@ -100,7 +113,7 @@ class Fragment_addPost: Fragment() {
         postText!!.requestFocus()
         postText?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if(list.size!=0){
+                if(list.size!=0 && postText!!.text.isNotEmpty()){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -108,7 +121,7 @@ class Fragment_addPost: Fragment() {
                 }
             }
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                if(list.size!=0){
+                if(list.size!=0 && postText!!.text.isNotEmpty()){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -116,7 +129,7 @@ class Fragment_addPost: Fragment() {
                 }
             }
             override fun afterTextChanged(editable: Editable) {
-                if(list.size!=0){
+                if(list.size!=0 && postText!!.text.isNotEmpty()){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -140,7 +153,7 @@ class Fragment_addPost: Fragment() {
                 alertDialog.setView(view2)
                 alertDialog.show()
             }
-            else{
+            else if(list.size>0 && postText!!.text.isNotEmpty()){
                 //keyboard control
                 Log.i("게시물 등록","api 연동")
                 imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
@@ -180,6 +193,7 @@ class Fragment_addPost: Fragment() {
                 }
 
                 if (content != null) {
+
                     //서버 : addPost
                     apiService.addPostAPI(sharedPreferences.toString(), content, images)
                         ?.enqueue(object : Callback<Post?> {
@@ -187,7 +201,7 @@ class Fragment_addPost: Fragment() {
 
                                 Log.i("addPost", response.body()?.success.toString())
 
-                                val view2 = View.inflate(context, R.layout.join_popup, null)
+                                val view2 = View.inflate(myContext, R.layout.join_popup, null)
                                 var text: TextView = view2.findViewById(R.id.text)
                                 var button: Button = view2.findViewById(R.id.button)
                                 text.text = "게시물이 정상적으로 등록 되었습니다."
@@ -278,7 +292,7 @@ class Fragment_addPost: Fragment() {
                 val count = data.clipData!!.itemCount
                 Log.i("imageUriCount",count.toString())
 
-                if(list.size!=0 && postText?.text?.length!! >0){
+                if(list.size!=0 && postText!!.text.isNotEmpty()){
                     addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                 }
                 else{
@@ -313,7 +327,7 @@ class Fragment_addPost: Fragment() {
                     if(imageUri!=null){
                         list.add(imageUri)
                         image_count!!.text = "1/10"
-                        if(postText?.text?.length!! >0){
+                        if(list.size!=0 && postText!!.text.isNotEmpty()){
                             addPostBtn!!.setTextColor(requireContext().resources.getColor(R.color.brown))
                         }
                         else{

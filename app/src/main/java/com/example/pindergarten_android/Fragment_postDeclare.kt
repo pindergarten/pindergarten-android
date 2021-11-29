@@ -1,6 +1,7 @@
 package com.example.pindergarten_android
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -14,6 +15,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import retrofit2.Call
@@ -29,7 +31,7 @@ class Fragment_postDeclare : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -68,6 +70,15 @@ class Fragment_postDeclare : Fragment() {
         var declareText = view.findViewById<EditText>(R.id.declareText)
         val addDeclareBtn = view.findViewById<TextView>(R.id.addDeclareBtn)
         val spinner: Spinner = view.findViewById(R.id.spinner)
+
+        var parentlayout : ConstraintLayout = view.findViewById(R.id.parentlayout)
+        parentlayout.setOnClickListener{
+            //keyboard control
+            imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm?.hideSoftInputFromWindow(view.windowToken,0)
+
+        }
+
 
         titleDeclare.requestFocus()
         declareText.requestFocus()

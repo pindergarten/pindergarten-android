@@ -12,6 +12,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 
+
 class PindergartenPagerAdapter(Image : ArrayList<String>, private val context : Context) : PagerAdapter() {
     private var layoutInflater : LayoutInflater ?= null
 
@@ -40,6 +41,7 @@ class PindergartenPagerAdapter(Image : ArrayList<String>, private val context : 
         image.clipToOutline = true
 
         textIndicator.text = "${position+1} / ${Image.size}"
+
 
         Glide.with(context)
             .load(Image[position])

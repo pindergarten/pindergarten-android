@@ -32,7 +32,7 @@ class FindPwdActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -176,8 +176,7 @@ class FindPwdActivity : AppCompatActivity() {
                         if (response.body()?.success == true) {
                             //비회원
                             popup_notuser()
-                        }
-                        else {
+                        } else {
                             //회원
                             if (phoneNum?.text.toString().length > 1) {
                                 line?.visibility = View.VISIBLE
@@ -196,7 +195,10 @@ class FindPwdActivity : AppCompatActivity() {
                                             Log.d(ContentValues.TAG, "실패 : {${t}}")
                                         }
 
-                                        override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                                        override fun onResponse(
+                                            call: Call<Post?>,
+                                            response: Response<Post?>
+                                        ) {
                                             Log.i("인증번호 전송: ", "success")
                                             Log.i("인증번호 전송: ", response.body().toString())
 
@@ -225,7 +227,7 @@ class FindPwdActivity : AppCompatActivity() {
 
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                         Log.i("휴대폰 인증번호 확인: ", response.body().toString())
-                        if (response.body()?.success==true) {
+                        if (response.body()?.success == true) {
                             Log.i("휴대폰 인증번호 확인: ", "success")
                             Log.i("휴대폰 인증번호 확인: ", response.body().toString())
 
@@ -235,7 +237,7 @@ class FindPwdActivity : AppCompatActivity() {
 
                             //키보드 내리기
                             imm = applicationContext.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-                            imm?.hideSoftInputFromWindow(view.windowToken,0)
+                            imm?.hideSoftInputFromWindow(view.windowToken, 0)
 
                             popup()
 
@@ -255,26 +257,31 @@ class FindPwdActivity : AppCompatActivity() {
                 if (pass) {
                     //화면이동
                     val intent = Intent(this, FindPwd2Activity::class.java)
-                    intent.putExtra("phone",phoneNum?.text.toString())
+                    intent.putExtra("phone", phoneNum?.text.toString())
                     startActivity(intent)
 
                 } else {
                     //인증오류 메세지
                     val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                     val view2 = inflater.inflate(R.layout.join_popup, null)
-                    var text : TextView = view2.findViewById(R.id.text)
-                    var button : Button = view2.findViewById(R.id.button)
-                    text.text="휴대폰을 인증 해주세요."
-                    button.text="확인"
+                    var text: TextView = view2.findViewById(R.id.text)
+                    var button: Button = view2.findViewById(R.id.button)
+                    text.text = "휴대폰을 인증 해주세요."
+                    button.text = "확인"
                     val alertDialog = AlertDialog.Builder(this).create()
-                    button.setOnClickListener{ alertDialog.dismiss() }
+                    button.setOnClickListener { alertDialog.dismiss() }
                     alertDialog.setView(view2)
                     alertDialog.show()
                 }
             }
 
-        }
 
+            R.id.backBtn -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 
     fun popup(){

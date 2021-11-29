@@ -45,12 +45,12 @@ class EventAdapter(private val eventImage:ArrayList<Uri>,private val eventTitle:
         Glide.with(context)
             .load(eventImage[position].toString())
             .diskCacheStrategy(DiskCacheStrategy.NONE)
-            .centerCrop()
+            .fitCenter()
             .into(holder.image)
 
 
         holder.title.text = eventTitle[position]
-        holder.day.text="D${eventDay[position]}"
+        holder.day.text="D-${eventDay[position]}"
 
         holder.itemView.setOnClickListener{
             itemClickListner.onClick(it,position)

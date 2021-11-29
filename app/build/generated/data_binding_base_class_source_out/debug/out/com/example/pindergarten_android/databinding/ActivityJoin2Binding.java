@@ -21,6 +21,9 @@ import java.lang.Object;
 
 public abstract class ActivityJoin2Binding extends ViewDataBinding {
   @NonNull
+  public final ImageButton backBtn;
+
+  @NonNull
   public final ImageView imageView2;
 
   @NonNull
@@ -57,10 +60,11 @@ public abstract class ActivityJoin2Binding extends ViewDataBinding {
   protected Join2Activity mActivity;
 
   protected ActivityJoin2Binding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageView imageView2, ImageView imageView3, ImageView imageView4, TextView info,
-      ImageButton nextBtn, EditText pwd1, EditText pwd2, TextView textView3, TextView textView5,
-      TextView textView6) {
+      ImageButton backBtn, ImageView imageView2, ImageView imageView3, ImageView imageView4,
+      TextView info, ImageButton nextBtn, EditText pwd1, EditText pwd2, TextView textView3,
+      TextView textView5, TextView textView6) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.backBtn = backBtn;
     this.imageView2 = imageView2;
     this.imageView3 = imageView3;
     this.imageView4 = imageView4;

@@ -1,5 +1,6 @@
 package com.example.pindergarten_android
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -29,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -155,22 +157,7 @@ class LoginActivity : AppCompatActivity() {
                                 Log.i("login: ","response fail")
 
                                 //로그인 오류 메세지
-
-                                val dialogView = layoutInflater.inflate(R.layout.join_popup, null)
-                                val alertDialog = AlertDialog.Builder(applicationContext)
-                                    .setView(R.layout.join_popup)
-                                    .create()
-
-                                val text = dialogView.findViewById<TextView>(R.id.text)
-                                val button = dialogView.findViewById<Button>(R.id.button)
-                                text.text= response.body()?.message.toString()
-                                button.text="확인"
-
-                                button.setOnClickListener {
-                                    alertDialog.dismiss()
-                                }
-
-                                alertDialog.show()
+                                popup(response.body()?.message.toString())
 
                             }
                         }
@@ -195,6 +182,21 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         //super.onBackPressed()
+    }
+
+    fun popup(responseText : String){
+
+        //인증확인 메세지
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view2 = inflater.inflate(R.layout.join_popup, null)
+        var text : TextView = view2.findViewById(R.id.text)
+        var button : Button = view2.findViewById(R.id.button)
+        text.text= responseText
+        button.text="확인"
+        val alertDialog = AlertDialog.Builder(this).create()
+        button.setOnClickListener{ alertDialog.dismiss() }
+        alertDialog.setView(view2)
+        alertDialog.show()
     }
 
 }

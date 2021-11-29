@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import retrofit2.Call
@@ -86,46 +88,72 @@ class Fragment_setting : Fragment() {
         var logout : TextView = view.findViewById(R.id.logout)
         logout.setOnClickListener{
 
-            apiService.logoutAPI(sharedPreferences.toString())?.enqueue(object :
-                Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+            //로그아웃 확인 메세지
+            val dialogBuilder = AlertDialog.Builder(requireActivity())
+            val view = inflater.inflate(R.layout.join_popup, null)
+            var text : TextView = view.findViewById(R.id.text)
+            var button : Button = view.findViewById(R.id.button)
+            text.text="로그아웃 하시겠습니까?"
+            button.text="확인"
+            val alertDialog = dialogBuilder.create()
+            button.setOnClickListener{
 
-                    PreferenceManager.setString(requireContext(), "jwt", null)
+                apiService.logoutAPI(sharedPreferences.toString())?.enqueue(object :
+                    Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
-                    startActivity(intent)
+                        PreferenceManager.setString(requireContext(), "jwt", null)
 
-                    Log.i("logout","성공")
-                }
+                        val intent = Intent(requireContext(), LoginActivity::class.java)
+                        startActivity(intent)
 
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("logout",t.toString())
-                }
+                        Log.i("logout","성공")
+                    }
 
-            })
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("logout",t.toString())
+                    }
+
+                })
+            }
+            alertDialog.setView(view)
+            alertDialog.show()
+
 
         }
 
         var exituser : TextView = view.findViewById(R.id.exituser)
         exituser.setOnClickListener{
 
+            //탈퇴 확인 메세지
+            val dialogBuilder = AlertDialog.Builder(requireActivity())
+            val view = inflater.inflate(R.layout.join_popup, null)
+            var text : TextView = view.findViewById(R.id.text)
+            var button : Button = view.findViewById(R.id.button)
+            text.text="정말 탈퇴 하시겠습니까?"
+            button.text="확인"
+            val alertDialog = dialogBuilder.create()
+            button.setOnClickListener{
 
-            apiService.exitAPI(sharedPreferences.toString(),userId!!)?.enqueue(object :
-                Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                apiService.exitAPI(sharedPreferences.toString(),userId!!)?.enqueue(object :
+                    Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
-                    startActivity(intent)
+                        val intent = Intent(requireContext(), LoginActivity::class.java)
+                        startActivity(intent)
 
-                    Log.i("exit","성공")
-                }
+                        Log.i("exit","성공")
+                    }
 
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("exit",t.toString())
-                }
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("exit",t.toString())
+                    }
 
-            })
+                })
 
+            }
+            alertDialog.setView(view)
+            alertDialog.show()
 
 
         }

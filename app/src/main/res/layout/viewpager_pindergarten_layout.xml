@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
+
     <ImageView
         android:id="@+id/post_image"
         android:background="@drawable/pindergarten_background"
         android:backgroundTint="@color/transparency"
         android:layout_width="match_parent"
+        android:scaleType="centerCrop"
         android:layout_height="337dp"/>
 
     <FrameLayout
