@@ -337,5 +337,4 @@ class JoinActivity : AppCompatActivity() {
     }
 
 
-
 }

@@ -39,6 +39,7 @@ class Fragment_event : Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
+    var mainAct : MainActivity ?=null
 
     private lateinit var callback: OnBackPressedCallback
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,8 +47,8 @@ class Fragment_event : Fragment() {
         var view = inflater.inflate(R.layout.fragment_event,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(true)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(true)
 
         var recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         val gridLayoutManager = GridLayoutManager(context,2)
@@ -128,13 +129,8 @@ class Fragment_event : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_socialPet()
-            val bundle = Bundle()
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            mainAct!!.onBackPressed()
+
         }
 
 

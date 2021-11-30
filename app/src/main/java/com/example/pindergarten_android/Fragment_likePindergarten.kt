@@ -37,7 +37,7 @@ class Fragment_likePindergarten : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -46,13 +46,14 @@ class Fragment_likePindergarten : Fragment() {
     var current_longitude :Double ?=null
 
     private lateinit var callback: OnBackPressedCallback
+    var mainAct : MainActivity ?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_likepindergarten,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(true)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(true)
 
         var bundle: Bundle
         if(arguments!=null){
@@ -116,11 +117,9 @@ class Fragment_likePindergarten : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_pindergarten()
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct!!.onBackPressed()
+
         }
 
         adapter.setLikedClickListener(object:pindergartenAdapter2.ItemClickListener{

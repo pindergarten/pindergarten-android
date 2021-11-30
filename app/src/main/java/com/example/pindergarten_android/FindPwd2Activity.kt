@@ -27,7 +27,7 @@ class FindPwd2Activity : AppCompatActivity() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -225,5 +225,6 @@ class FindPwd2Activity : AppCompatActivity() {
         alertDialog.show()
 
     }
+
 
 }

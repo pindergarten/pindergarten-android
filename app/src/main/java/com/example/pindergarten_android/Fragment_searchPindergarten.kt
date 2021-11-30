@@ -174,11 +174,8 @@ class Fragment_searchPindergarten : Fragment(){
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_pindergarten()
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            mainAct.onBackPressed()
+
         }
 
         return view

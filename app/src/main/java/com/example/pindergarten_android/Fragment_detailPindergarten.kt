@@ -72,14 +72,15 @@ class Fragment_detailPindergarten : Fragment() {
     var dialog : AlertDialog ?=null
 
     private lateinit var callback: OnBackPressedCallback
+    var mainAct : MainActivity ?=null
     val adapter = pindergartenBlogAdapter(blogTitle,blogDescription,blogPostdate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_detail_pindergarten,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(true)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(true)
 
         var recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         var layoutManager = LinearLayoutManager(container?.context)
@@ -181,43 +182,7 @@ class Fragment_detailPindergarten : Fragment() {
 
         var backBtn : ImageButton = view.findViewById(R.id.backBtn)
         backBtn.setOnClickListener{
-            if(moved=="liked"){
-                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_likePindergarten()
-                val bundle = Bundle()
-                current_latitude?.let { it1 -> bundle.putDouble("latitude", it1) }
-                current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
-            else if (moved=="search"){
-                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_searchPindergarten()
-                val bundle = Bundle()
-                current_latitude?.let { it1 -> bundle.putDouble("latitude", it1) }
-                current_longitude?.let { it1 -> bundle.putDouble("longitude", it1) }
-                bundle.putString("query",query!!)
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
-            else if(moved=="map"){
-                //marker
-                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_pindergarten()
-                val bundle = Bundle()
-                bundle.putDouble("latitude",pindergartenLatLng!!.latitude)
-                bundle.putDouble("longitude",pindergartenLatLng!!.longitude)
-                bundle.putString("moved","map")
-                bundle.putInt("pindergarten",pindergartenId!!)
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
+            mainAct!!.onBackPressed()
         }
 
         Log.i("jwt : ",sharedPreferences.toString())

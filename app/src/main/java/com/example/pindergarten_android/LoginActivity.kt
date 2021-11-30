@@ -10,10 +10,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
@@ -55,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
         window?.decorView?.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         window.statusBarColor = Color.WHITE
+
 
         loginText = findViewById(R.id.editText2)
         pwdText = findViewById(R.id.editText)
@@ -150,6 +148,7 @@ class LoginActivity : AppCompatActivity() {
                                 Log.i("login: ","success")
 
                                 val intent = Intent(applicationContext, MainActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                                 startActivity(intent)
 
                             }
@@ -180,10 +179,6 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onBackPressed() {
-        //super.onBackPressed()
-    }
-
     fun popup(responseText : String){
 
         //인증확인 메세지
@@ -197,6 +192,24 @@ class LoginActivity : AppCompatActivity() {
         button.setOnClickListener{ alertDialog.dismiss() }
         alertDialog.setView(view2)
         alertDialog.show()
+    }
+
+    private final var FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
+
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount == 0) {
+            var tempTime = System.currentTimeMillis()
+            var intervalTime = tempTime - backPressedTime
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+                super.onBackPressed();
+            } else {
+                backPressedTime = tempTime
+                Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+                return
+            }
+        }
+        super.onBackPressed()
     }
 
 }

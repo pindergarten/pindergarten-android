@@ -26,7 +26,7 @@ class Fragment_moreReview : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -43,6 +43,7 @@ class Fragment_moreReview : Fragment() {
     var blogLink = ArrayList<String>()
     var blogDescription = ArrayList<String>()
     var blogPostdate = ArrayList<String>()
+
 
     val adapter = pindergartenBlogAdapter2(blogTitle,blogDescription,blogPostdate,this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -85,26 +86,9 @@ class Fragment_moreReview : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_detailPindergarten()
-            val bundle = Bundle()
-            bundle.putInt("pindergartenId",pindergartenId!!)
-            if(moved!=null){
-                bundle.putString("moved",moved!!)
-            }
-            if(query!=null){
-                bundle.putString("query",query!!)
-            }
-            if(current_latitude!=null){
-                bundle.putDouble("latitude", current_latitude!!)
-            }
-            if(current_longitude!=null){
-                bundle.putDouble("longitude", current_longitude!!)
-            }
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct.onBackPressed()
+
         }
 
         //블로그 api

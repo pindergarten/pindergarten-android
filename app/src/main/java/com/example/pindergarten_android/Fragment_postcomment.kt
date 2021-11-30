@@ -23,6 +23,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -179,15 +180,20 @@ class Fragment_postcomment : Fragment() {
                     Log.i("add Comment: ", response.body()?.success.toString())
                     Log.i("add comment: ",comment?.text.toString())
 
+
+                    val fm: FragmentManager = requireActivity().supportFragmentManager
+                    fm.popBackStack()
+
                     val transaction = myContext!!.supportFragmentManager.beginTransaction()
                     val fragment : Fragment = Fragment_postcomment()
                     val bundle = Bundle()
                     bundle.putInt("postId", postId)
-                    bundle.putString("moveFragment",moveFragment)
                     fragment.arguments=bundle
                     transaction.replace(R.id.container,fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
+
+
                 }
 
                 override fun onFailure(call: Call<Post?>, t: Throwable) {
@@ -225,11 +231,13 @@ class Fragment_postcomment : Fragment() {
                             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                                 Log.i("delete post Comment: ", response.body()?.success.toString())
 
+                                val fm: FragmentManager = requireActivity().supportFragmentManager
+                                fm.popBackStack()
+
                                 val transaction = myContext!!.supportFragmentManager.beginTransaction()
                                 val fragment : Fragment = Fragment_postcomment()
                                 val bundle = Bundle()
                                 bundle.putInt("postId", postId)
-                                bundle.putString("moveFragment",moveFragment)
                                 fragment.arguments=bundle
                                 transaction.replace(R.id.container,fragment)
                                 transaction.addToBackStack(null)
@@ -240,16 +248,6 @@ class Fragment_postcomment : Fragment() {
 
                             override fun onFailure(call: Call<Post?>, t: Throwable) {
                                 Log.i("delete post Comment: ", "실패")
-
-                                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                                val fragment : Fragment = Fragment_postcomment()
-                                val bundle = Bundle()
-                                bundle.putInt("postId", postId)
-                                bundle.putString("moveFragment",moveFragment)
-                                fragment.arguments=bundle
-                                transaction.replace(R.id.container,fragment)
-                                transaction.addToBackStack(null)
-                                transaction.commit()
 
                                 dialog!!.dismiss()
                             }
@@ -264,15 +262,8 @@ class Fragment_postcomment : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_postdetail()
-            val bundle = Bundle()
-            bundle.putInt("postId", postId)
-            bundle.putString("moveFragment",moveFragment)
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct.onBackPressed()
         }
 
         return view

@@ -20,7 +20,7 @@ class Fragment_term2 : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten:3000/")
+        .baseUrl("http://pindergarten/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -37,13 +37,10 @@ class Fragment_term2 : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_setting()
-            val bundle = Bundle()
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct.onBackPressed()
+
+
         }
 
         var text = view.findViewById<TextView>(R.id.text)

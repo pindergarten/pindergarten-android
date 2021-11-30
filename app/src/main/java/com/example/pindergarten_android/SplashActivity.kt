@@ -3,10 +3,12 @@ package com.example.pindergarten_android
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -26,6 +28,7 @@ class SplashActivity : AppCompatActivity() {
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_splash)
@@ -36,6 +39,7 @@ class SplashActivity : AppCompatActivity() {
         //액션바 제거
         var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
+
         //전체화면
         hideNavigationBar()
 
@@ -52,6 +56,7 @@ class SplashActivity : AppCompatActivity() {
 
                     Handler().postDelayed({
                         val intent = Intent(applicationContext, OnboardingActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)
                     },2000L)
                 }
@@ -63,6 +68,7 @@ class SplashActivity : AppCompatActivity() {
 
                         Handler().postDelayed({
                             val intent = Intent(applicationContext, MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)
                         },2000L)
 
@@ -72,6 +78,7 @@ class SplashActivity : AppCompatActivity() {
 
                         Handler().postDelayed({
                             val intent = Intent(applicationContext, OnboardingActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)
                         },2000L)
 
@@ -84,6 +91,7 @@ class SplashActivity : AppCompatActivity() {
         else{
             Handler().postDelayed({
                 val intent = Intent(applicationContext, OnboardingActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
             },2000L)
         }
@@ -104,10 +112,6 @@ class SplashActivity : AppCompatActivity() {
         newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_FULLSCREEN
         newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         window.decorView.systemUiVisibility = newUiOptions
-    }
-
-    override fun onBackPressed() {
-        //super.onBackPressed()
     }
 
 

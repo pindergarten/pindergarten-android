@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,24 @@ class MainActivity : AppCompatActivity() {
     private val fragmentMeandpet by lazy{Fragment_meAndPet()}
 
     private lateinit var binding : ActivityMainBinding
+    private final var FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
+
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount == 0) {
+            var tempTime = System.currentTimeMillis()
+            var intervalTime = tempTime - backPressedTime
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+                super.onBackPressed();
+            } else {
+                backPressedTime = tempTime
+                Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+                return
+            }
+        }
+        super.onBackPressed()
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +97,6 @@ class MainActivity : AppCompatActivity() {
         if(state) binding.bottomNavigation.visibility= View.GONE else binding.bottomNavigation.visibility=View.VISIBLE
     }
 
-
-
+    
 
 }

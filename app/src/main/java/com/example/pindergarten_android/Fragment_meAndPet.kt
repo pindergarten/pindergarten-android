@@ -57,7 +57,6 @@ class Fragment_meAndPet : Fragment() {
 
 
     val adapter = meAndPetAdapter(postImage,this)
-
     @SuppressLint("ResourceAsColor")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 

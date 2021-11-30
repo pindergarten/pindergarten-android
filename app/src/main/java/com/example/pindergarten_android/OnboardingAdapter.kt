@@ -19,7 +19,11 @@ class OnboardingAdapter(var context: Context) : PagerAdapter(){
         var starttext = view.findViewById<TextView>(R.id.starttext)
 
         goBtn.setOnClickListener {
-            context.startActivity( Intent(context, LoginActivity::class.java))
+
+            val intent = Intent(context, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            context.startActivity(intent)
+
         }
 
         if(position==0){

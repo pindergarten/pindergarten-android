@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -211,6 +212,9 @@ class Fragment_postDeclare : Fragment() {
                             transaction.commit()
                             alertDialog!!.dismiss()
 
+                            val fm: FragmentManager = requireActivity().supportFragmentManager
+                            fm.popBackStack()
+                            fm.popBackStack()
 
                         }
                         alertDialog.setView(view)
@@ -228,15 +232,7 @@ class Fragment_postDeclare : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_postdetail()
-            val bundle = Bundle()
-            bundle.putInt("postId", postId)
-            bundle.putString("moveFragment",moveFragment)
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            mainAct.onBackPressed()
         }
 
         return view

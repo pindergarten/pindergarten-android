@@ -1,9 +1,11 @@
 package com.example.pindergarten_android
 
 import android.content.ContentValues.TAG
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,8 +15,7 @@ import me.relex.circleindicator.CircleIndicator
 
 class OnboardingActivity : AppCompatActivity() {
 
-
-
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_splash)
@@ -25,8 +26,10 @@ class OnboardingActivity : AppCompatActivity() {
         //액션바 제거
         var actionBar : ActionBar? = supportActionBar
         actionBar?.hide()
+
         //전체화면
         hideNavigationBar()
+
 
         var pageradapter = OnboardingAdapter(this)
         var pager = findViewById<ViewPager>(R.id.view_pager)
@@ -57,8 +60,5 @@ class OnboardingActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = newUiOptions
     }
 
-    override fun onBackPressed() {
-        //super.onBackPressed()
-    }
 
 }

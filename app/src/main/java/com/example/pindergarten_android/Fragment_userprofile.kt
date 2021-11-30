@@ -99,13 +99,9 @@ class Fragment_userprofile : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_meAndPet()
-            val bundle = Bundle()
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct.onBackPressed()
+
         }
 
         userImgBtn.setOnClickListener{

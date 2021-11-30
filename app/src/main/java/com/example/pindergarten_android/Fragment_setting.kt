@@ -14,6 +14,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +27,7 @@ class Fragment_setting : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -51,13 +52,8 @@ class Fragment_setting : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_meAndPet()
-            val bundle = Bundle()
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            mainAct.onBackPressed()
+
         }
 
         var text4 = view.findViewById<TextView>(R.id.text4)
@@ -98,13 +94,20 @@ class Fragment_setting : Fragment() {
             val alertDialog = dialogBuilder.create()
             button.setOnClickListener{
 
+
                 apiService.logoutAPI(sharedPreferences.toString())?.enqueue(object :
                     Callback<Post?> {
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                         PreferenceManager.setString(requireContext(), "jwt", null)
+                        //fragment popup
+                        val fm: FragmentManager = requireActivity().supportFragmentManager
+                        for (i in 0 until fm.backStackEntryCount) {
+                            fm.popBackStack()
+                        }
 
                         val intent = Intent(requireContext(), LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)
 
                         Log.i("logout","성공")
@@ -139,7 +142,15 @@ class Fragment_setting : Fragment() {
                     Callback<Post?> {
                     override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
+                        PreferenceManager.setString(requireContext(), "jwt", null)
+                        //fragment popup
+                        val fm: FragmentManager = requireActivity().supportFragmentManager
+                        for (i in 0 until fm.backStackEntryCount) {
+                            fm.popBackStack()
+                        }
+
                         val intent = Intent(requireContext(), LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)
 
                         Log.i("exit","성공")

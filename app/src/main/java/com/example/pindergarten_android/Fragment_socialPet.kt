@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -40,20 +39,22 @@ class Fragment_socialPet : Fragment() {
     val apiService = retrofit.create(RetrofitAPI::class.java)
 
     val adapter = MyAdapter(postImage,postText,userImage,userId,postLiked,this)
-    private lateinit var callback: OnBackPressedCallback
+    var mainAct: MainActivity ?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_socialpet,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(false)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(false)
+
 
         //fragment popup
         val fm: FragmentManager = requireActivity().supportFragmentManager
         for (i in 0 until fm.backStackEntryCount) {
             fm.popBackStack()
         }
+
 
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
         var recyclerView = recyclerview_main // recyclerview id
@@ -196,6 +197,9 @@ class Fragment_socialPet : Fragment() {
         super.onAttach(activity)
 
     }
+
+
+
 
 
 }

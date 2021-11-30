@@ -23,6 +23,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -57,14 +58,15 @@ class Fragment_comment : Fragment() {
     var dialog : AlertDialog ?=null
 
     private lateinit var callback: OnBackPressedCallback
+    var mainAct : MainActivity ?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_comment,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(true)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(true)
 
         //fragment 데이터 전달 받는
         var bundle: Bundle
@@ -160,12 +162,16 @@ class Fragment_comment : Fragment() {
         })
 
         button.setOnClickListener{
-            //서버에 댓글 저장
-            apiService.addEventCommentAPI(eventId,sharedPreferences.toString(),comment.text.toString())?.enqueue(object : Callback<Post?> {
-                override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
-                    if(comment.text.isNotEmpty()){
+            if(comment.text.isNotEmpty()) {
+                //서버에 댓글 저장
+                apiService.addEventCommentAPI(eventId, sharedPreferences.toString(), comment.text.toString())?.enqueue(object : Callback<Post?> {
+                    override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+
                         Log.i("add Comment", "성공")
-                        Log.i("add comment",comment.text.toString())
+                        Log.i("add comment", comment.text.toString())
+
+                        val fm: FragmentManager = requireActivity().supportFragmentManager
+                        fm.popBackStack()
 
                         val transaction = myContext!!.supportFragmentManager.beginTransaction()
                         val fragment : Fragment = Fragment_comment()
@@ -175,14 +181,17 @@ class Fragment_comment : Fragment() {
                         transaction.replace(R.id.container,fragment)
                         transaction.addToBackStack(null)
                         transaction.commit()
+
+
                     }
-                }
 
-                override fun onFailure(call: Call<Post?>, t: Throwable) {
-                    Log.i("add Comment", "실패")
-                }
+                    override fun onFailure(call: Call<Post?>, t: Throwable) {
+                        Log.i("add Comment", "실패")
+                    }
 
-            })
+                })
+
+            }
         }
 
 
@@ -221,20 +230,14 @@ class Fragment_comment : Fragment() {
                             transaction.addToBackStack(null)
                             transaction.commit()
 
+                            val fm: FragmentManager = requireActivity().supportFragmentManager
+                            fm.popBackStack()
+
                             dialog!!.dismiss()
                         }
 
                         override fun onFailure(call: Call<Post?>, t: Throwable) {
                             Log.i("delete event Comment: ", "실패")
-
-                            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                            val fragment : Fragment = Fragment_comment()
-                            val bundle = Bundle()
-                            bundle.putInt("eventId", eventId)
-                            fragment.arguments=bundle
-                            transaction.replace(R.id.container,fragment)
-                            transaction.addToBackStack(null)
-                            transaction.commit()
 
                             dialog!!.dismiss()
                         }
@@ -249,13 +252,7 @@ class Fragment_comment : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_eventdetail()
-            val bundle = Bundle()
-            bundle.putInt("eventId", eventId)
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.commit()
+            mainAct!!.onBackPressed()
         }
 
         return view

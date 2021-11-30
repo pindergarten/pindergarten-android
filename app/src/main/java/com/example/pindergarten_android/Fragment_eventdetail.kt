@@ -40,7 +40,7 @@ class Fragment_eventdetail : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -57,13 +57,14 @@ class Fragment_eventdetail : Fragment() {
     var dialog : AlertDialog ?=null
 
     private lateinit var callback: OnBackPressedCallback
+    var mainAct : MainActivity ?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_event_detail,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(true)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(true)
 
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerView)
         var recyclerView = recyclerview_main // recyclerview id
@@ -306,14 +307,9 @@ class Fragment_eventdetail : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_event()
-            val bundle = Bundle()
-            bundle.putInt("eventId", eventId)
-            fragment.arguments=bundle
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct!!.onBackPressed()
+
         }
 
         return view

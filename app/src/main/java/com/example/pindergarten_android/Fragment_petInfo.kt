@@ -55,11 +55,9 @@ class Fragment_petInfo : Fragment() {
 
         backBtn = view.findViewById(R.id.backBtn)
         backBtn!!.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_meAndPet()
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            mainAct.onBackPressed()
+
         }
 
         var petNameText : TextView = view.findViewById(R.id.petNameText)

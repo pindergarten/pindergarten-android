@@ -23,6 +23,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -56,7 +57,7 @@ class Fragment_addPet : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -72,11 +73,7 @@ class Fragment_addPet : Fragment() {
 
         backBtn = view.findViewById(R.id.backBtn)
         backBtn!!.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            val fragment : Fragment = Fragment_meAndPet()
-            transaction.replace(R.id.container,fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            mainAct.onBackPressed()
         }
 
         var parentlayout : ConstraintLayout = view.findViewById(R.id.parentlayout)
@@ -216,6 +213,9 @@ class Fragment_addPet : Fragment() {
                             transaction.addToBackStack(null)
                             transaction.commit()
 
+                            val fm: FragmentManager = requireActivity().supportFragmentManager
+                            fm.popBackStack()
+                            fm.popBackStack()
                         }
                         alertDialog.setView(view2)
                         alertDialog.show()

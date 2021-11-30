@@ -30,7 +30,7 @@ class Fragment_postdetail : Fragment() {
 
     //Retrofit
     val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://pindergarten.site:3000/")
+        .baseUrl("http://pindergarten.site/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
@@ -295,25 +295,9 @@ class Fragment_postdetail : Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            val transaction = myContext!!.supportFragmentManager.beginTransaction()
-            if(moveFragment=="socialPet"){
-                val fragment : Fragment = Fragment_socialPet()
-                val bundle = Bundle()
-                bundle.putInt("postId", postId)
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
-            else if(moveFragment=="meAndPet"){
-                val fragment : Fragment = Fragment_meAndPet()
-                val bundle = Bundle()
-                bundle.putInt("postId", postId)
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.addToBackStack(null)
-                transaction.commit()
-            }
+
+            mainAct.onBackPressed()
+
         }
 
 

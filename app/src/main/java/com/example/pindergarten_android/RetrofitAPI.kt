@@ -173,7 +173,7 @@ interface RetrofitAPI {
     fun logoutAPI(@Header("x-access-token") value : String) : Call<Post?>?
 
     //회원탈퇴
-    @PATCH("api/users/:userId/status")
+    @PATCH("api/users/{userId}/status")
     fun exitAPI(@Header("x-access-token") value : String,@Path("userId") userId : Int) : Call<Post?>?
 
     //자동로그인

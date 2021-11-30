@@ -28,6 +28,7 @@ import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import okhttp3.MediaType
@@ -66,6 +67,7 @@ class Fragment_addPost: Fragment() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val apiService = retrofit.create(RetrofitAPI::class.java)
+    var mainAct : MainActivity ?=null
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -73,8 +75,8 @@ class Fragment_addPost: Fragment() {
         var view = inflater.inflate(R.layout.fragment_addpost,container,false)
 
         //navigate hide
-        val mainAct = activity as MainActivity
-        mainAct.HideBottomNavigation(true)
+        mainAct = activity as MainActivity
+        mainAct!!.HideBottomNavigation(true)
 
         var bundle: Bundle
         if(arguments!=null){
@@ -224,6 +226,10 @@ class Fragment_addPost: Fragment() {
                                         fragment.arguments = bundle
                                         transaction.replace(R.id.container, fragment)
                                         transaction.commit()
+                                        val fm: FragmentManager = requireActivity().supportFragmentManager
+                                        fm.popBackStack()
+                                        fm.popBackStack()
+
                                     } else if (fragment == "meAndPet") {
                                         val transaction =
                                             myContext!!.supportFragmentManager.beginTransaction()
@@ -232,6 +238,9 @@ class Fragment_addPost: Fragment() {
                                         fragment.arguments = bundle
                                         transaction.replace(R.id.container, fragment)
                                         transaction.commit()
+                                        val fm: FragmentManager = requireActivity().supportFragmentManager
+                                        fm.popBackStack()
+                                        fm.popBackStack()
                                     }
 
                                 }
@@ -244,6 +253,7 @@ class Fragment_addPost: Fragment() {
                             override fun onFailure(call: Call<Post?>, t: Throwable) {
                                 addPostBtn!!.isEnabled=true
                                 Log.i("addPost 실패: ", t.toString())
+
                             }
 
                         })
@@ -254,22 +264,7 @@ class Fragment_addPost: Fragment() {
 
         var backBtn = view.findViewById<ImageButton>(R.id.backBtn)
         backBtn.setOnClickListener{
-            if(fragment == "socialPet"){
-                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_socialPet()
-                val bundle = Bundle()
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.commit()
-            }
-            else if (fragment == "meAndPet"){
-                val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                val fragment : Fragment = Fragment_meAndPet()
-                val bundle = Bundle()
-                fragment.arguments=bundle
-                transaction.replace(R.id.container,fragment)
-                transaction.commit()
-            }
+            mainAct!!.onBackPressed()
 
         }
 
