@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+                                                                
+                                                        
+
+    
+                 
+                     
+                                                                                
+                 
+                           
+                                                                        
+           
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:tag="layout/activity_main_0" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:id="@+id/bottom_navigation"
+        android:background="@drawable/bottomnavigation_corner"
+        app:itemBackground="@null"
+        app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
+        app:menu="@menu/menu_bottom"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:backgroundTint="@color/transparency"
+        app:itemIconTint="@drawable/menu_selecter_color"
+        app:itemTextColor="@drawable/menu_selecter_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+         

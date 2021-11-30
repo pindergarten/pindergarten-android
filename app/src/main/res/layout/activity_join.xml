@@ -7,10 +7,10 @@
     <data>
         <variable
             name="vm"
-            type="com.example.pindergarten_android.PindergartenViewModel"/>
+            type="com.pindergarten.pindergarten_android.PindergartenViewModel"/>
         <variable
             name="activity"
-            type="com.example.pindergarten_android.JoinActivity" />
+            type="com.pindergarten.pindergarten_android.JoinActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/dialog_corner"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/addPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="#9F5D1F"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_weight=".1"
+        android:textSize="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="게시물 등록하기" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/meandpet_line"/>
+
+    <Button
+        android:id="@+id/addPet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="#9F5D1F"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_weight=".1"
+        android:textSize="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="반려견 추가하기" />
+
+</LinearLayout>
