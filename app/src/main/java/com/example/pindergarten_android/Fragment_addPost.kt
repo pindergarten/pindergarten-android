@@ -109,6 +109,7 @@ class Fragment_addPost: Fragment() {
         }
 
         addPostBtn = view.findViewById(R.id.addPostBtn)
+        addPostBtn!!.isEnabled=true
         postText = view.findViewById(R.id.postText)
         postText!!.requestFocus()
         postText?.addTextChangedListener(object : TextWatcher {
@@ -140,6 +141,7 @@ class Fragment_addPost: Fragment() {
 
         addPostBtn!!.setOnClickListener{
             Log.i("게시물 등록","clicked")
+            addPostBtn!!.isEnabled=false
             if(list.size ==0){
                 //1개이상 사진업로드 공고메세지
                 Log.i("게시물 등록","fail (1개이상 업로드)")
@@ -149,7 +151,10 @@ class Fragment_addPost: Fragment() {
                 text.text="게시물 등록시 1개 이상의\n" + "사진이 필요합니다."
                 button.text="확인"
                 val alertDialog = AlertDialog.Builder(context).create()
-                button.setOnClickListener{ alertDialog.dismiss() }
+                button.setOnClickListener{
+                    alertDialog.dismiss()
+                    addPostBtn!!.isEnabled=true
+                }
                 alertDialog.setView(view2)
                 alertDialog.show()
             }
@@ -206,6 +211,7 @@ class Fragment_addPost: Fragment() {
                                 var button: Button = view2.findViewById(R.id.button)
                                 text.text = "게시물이 정상적으로 등록 되었습니다."
                                 button.text = "확인"
+                                addPostBtn!!.isEnabled=true
 
                                 val alertDialog = AlertDialog.Builder(context).create()
                                 button.setOnClickListener {
@@ -236,6 +242,7 @@ class Fragment_addPost: Fragment() {
                             }
 
                             override fun onFailure(call: Call<Post?>, t: Throwable) {
+                                addPostBtn!!.isEnabled=true
                                 Log.i("addPost 실패: ", t.toString())
                             }
 

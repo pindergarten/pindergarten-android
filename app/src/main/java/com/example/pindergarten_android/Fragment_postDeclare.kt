@@ -69,6 +69,7 @@ class Fragment_postDeclare : Fragment() {
         var titleDeclare = view.findViewById<EditText>(R.id.textTitle)
         var declareText = view.findViewById<EditText>(R.id.declareText)
         val addDeclareBtn = view.findViewById<TextView>(R.id.addDeclareBtn)
+        addDeclareBtn.isEnabled=true
         val spinner: Spinner = view.findViewById(R.id.spinner)
 
         var parentlayout : ConstraintLayout = view.findViewById(R.id.parentlayout)
@@ -171,6 +172,7 @@ class Fragment_postDeclare : Fragment() {
 
         addDeclareBtn.setOnClickListener{
             Log.i("신고 접수 버튼눌림","ok")
+            addDeclareBtn.isEnabled=false
 
             //keyboard control
             imm = requireContext().getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
@@ -195,6 +197,7 @@ class Fragment_postDeclare : Fragment() {
                         var button : Button = view.findViewById(R.id.button)
                         text.text="신고접수 되었습니다."
                         button.text="확인"
+                        addDeclareBtn.isEnabled=true
                         val alertDialog = dialogBuilder.create()
                         button.setOnClickListener{
                             val transaction = myContext!!.supportFragmentManager.beginTransaction()

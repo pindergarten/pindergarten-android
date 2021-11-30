@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -12,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -39,6 +41,7 @@ class Fragment_meAndPet : Fragment() {
     var userId : Int ?= null
 
     var nullPost : ImageView ?=null
+    var nullPet : ImageButton?=null
 
     //petInfo
     var petId = ArrayList<Int>()
@@ -74,10 +77,24 @@ class Fragment_meAndPet : Fragment() {
         var recyclerview_main = view.findViewById<RecyclerView>(R.id.recyclerview_main)
         var recyclerView = recyclerview_main // recyclerview id
 
+
+
         myImg = view.findViewById(R.id.myImg)
         myId = view.findViewById(R.id.myId)
         plusBtn = view.findViewById(R.id.plusBtn)
         nullPost = view.findViewById(R.id.null_post)
+        nullPet = view.findViewById(R.id.nullPet)
+
+        nullPet!!.visibility = View.GONE
+        val alertDialog = AlertDialog.Builder(myContext).create()
+        nullPet!!.setOnClickListener{
+            val transaction = myContext!!.supportFragmentManager.beginTransaction()
+            val fragment : Fragment = Fragment_addPet()
+            transaction.replace(R.id.container,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+            alertDialog.dismiss()
+        }
 
         recyclerView.adapter = adapter
 
@@ -103,6 +120,7 @@ class Fragment_meAndPet : Fragment() {
         //펫 정보
         petLayout = view.findViewById(R.id.petLayout)
         apiService.myPetSearchAPI(sharedPreferences.toString())?.enqueue(object : Callback<Post?> {
+            @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                 Log.i("myPet search: ", "success")
 
@@ -125,29 +143,13 @@ class Fragment_meAndPet : Fragment() {
                 }
 
                 if(petId.size==0){
-                    //버튼
-                    val dynamicButton = ImageButton(myContext)
-                    val viewParams = LinearLayout.LayoutParams(changeDP(328),LinearLayout.LayoutParams.MATCH_PARENT)
-                    viewParams.setMargins(changeDP(16), 0, 0, 0)
-                    dynamicButton.layoutParams = viewParams
-                    dynamicButton.scaleType = ImageView.ScaleType.FIT_CENTER
-                    dynamicButton.setBackgroundColor(Color.WHITE)
-                    dynamicButton.setImageResource(R.drawable.app_pet_btn)
-
-                    val alertDialog = AlertDialog.Builder(myContext).create()
-                    dynamicButton.setOnClickListener{
-                        val transaction = myContext!!.supportFragmentManager.beginTransaction()
-                        val fragment : Fragment = Fragment_addPet()
-                        transaction.replace(R.id.container,fragment)
-                        transaction.addToBackStack(null)
-                        transaction.commit()
-                        alertDialog.dismiss()
-                    }
-
-                    petLayout!!.addView(dynamicButton)
+                    nullPet!!.visibility = View.VISIBLE
+                    petLayout!!.visibility = View.GONE
                 }
                 else{
                     var nullSize  = 4 - petId.size
+                    nullPet!!.visibility = View.GONE
+                    petLayout!!.visibility = View.VISIBLE
                     for( i in 0 until petId.size){
 
                         //레이아웃

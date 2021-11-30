@@ -1,9 +1,7 @@
-com/example/pindergarten_android/BuildConfig.java
- com.example.pindergarten_android.BuildConfig
-com/example/pindergarten_android/DataBindingTriggerClass.java
- com.example.pindergarten_android.DataBindingTriggerClass
 com/example/pindergarten_android/databinding/ActivityMainBinding.java
  com.example.pindergarten_android.databinding.ActivityMainBinding
+com/example/pindergarten_android/DataBindingTriggerClass.java
+ com.example.pindergarten_android.DataBindingTriggerClass
 com/example/pindergarten_android/databinding/ActivityOnboardingBinding.java
  com.example.pindergarten_android.databinding.ActivityOnboardingBinding
 com/example/pindergarten_android/databinding/ActivityJoin3Binding.java
@@ -12,6 +10,8 @@ com/example/pindergarten_android/databinding/ActivityFindpwd2Binding.java
  com.example.pindergarten_android.databinding.ActivityFindpwd2Binding
 com/example/pindergarten_android/databinding/ActivityJoin2Binding.java
  com.example.pindergarten_android.databinding.ActivityJoin2Binding
+com/example/pindergarten_android/BuildConfig.java
+ com.example.pindergarten_android.BuildConfig
 com/example/pindergarten_android/databinding/ActivityFindpwdBinding.java
  com.example.pindergarten_android.databinding.ActivityFindpwdBinding
 com/example/pindergarten_android/databinding/ActivityLoginBinding.java

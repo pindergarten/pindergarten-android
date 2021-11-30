@@ -86,6 +86,7 @@
             android:background="@drawable/dialog_corner"
             android:backgroundTint="@color/yellow_white"
             android:hint="댓글을 입력하세요 :)"
+            android:textColor="#7E7E7E"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:scrollbars="horizontal"
@@ -102,7 +103,7 @@
             android:layout_marginRight="0dp"
             android:background="#00ff0000"
             android:gravity="center"
-            android:text="등록"
+            android:text="      등록"
             android:textColor="#777777"
             android:textStyle="bold" />
 

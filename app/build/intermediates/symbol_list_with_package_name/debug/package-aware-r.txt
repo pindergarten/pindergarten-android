@@ -2569,6 +2569,7 @@ id noticeBtn
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nullPet
 id null_post
 id off
 id on

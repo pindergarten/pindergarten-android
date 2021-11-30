@@ -160,6 +160,7 @@ class Fragment_addPet : Fragment() {
 
         addPostBtn = view.findViewById(R.id.addPostBtn)
         addPostBtn!!.setOnClickListener{
+            addPostBtn!!.isEnabled=false
             if(petName!!.text!=null && petUri!=null && petCategory!!.text!=null && gender!=null&& prevent!=null&& neutering!=null){
 
                 var pet: HashMap<String, RequestBody> = HashMap()
@@ -204,6 +205,7 @@ class Fragment_addPet : Fragment() {
                         var button : Button = view2.findViewById(R.id.button)
                         text.text="펫이 정상적으로 등록 되었습니다."
                         button.text="확인"
+                        addPostBtn!!.isEnabled=true
 
                         val alertDialog = AlertDialog.Builder(context).create()
                         button.setOnClickListener{

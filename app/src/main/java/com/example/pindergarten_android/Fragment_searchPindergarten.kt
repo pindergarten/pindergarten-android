@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import androidx.activity.OnBackPressedCallback
@@ -133,7 +132,8 @@ class Fragment_searchPindergarten : Fragment(){
                             adapter.notifyDataSetChanged()
 
                             //keyboard
-                            activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED)
+                            imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                            imm?.hideSoftInputFromWindow(view.windowToken,0)
                         }
 
                         override fun onFailure(call: Call<Post?>, t: Throwable) {

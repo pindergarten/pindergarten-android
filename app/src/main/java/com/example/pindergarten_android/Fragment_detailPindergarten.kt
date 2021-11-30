@@ -345,6 +345,7 @@ class Fragment_detailPindergarten : Fragment() {
                 if(response.body()?.blogReviews!!.size >3){
                     size =2
                     moreReviewBtn!!.visibility = View.VISIBLE
+                    review_notexist!!.visibility = View.GONE
                     moreReviewBtn!!.text = "${response.body()?.blogReviews!!.size-2}개 블로그 리뷰 더보기 "
                 }
                 else if (response.body()?.blogReviews!!.size==0){
@@ -355,6 +356,7 @@ class Fragment_detailPindergarten : Fragment() {
                 else{
                     size = response.body()?.blogReviews!!.size
                     moreReviewBtn!!.visibility = View.GONE
+                    review_notexist!!.visibility = View.GONE
                 }
 
                 for( i in 0 until size){
