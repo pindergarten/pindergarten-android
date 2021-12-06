@@ -1,1 +1,1 @@
-com.pindergarten.pindergarten_android
+com.pindergarten_android.pindergarten_android

@@ -1,4 +1,4 @@
-com.example.pindergarten_android
+com.pindergarten_android.pindergarten_android
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1917,6 +1917,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable back_btn
 drawable below_shadow
+drawable blank
 drawable bottomnavigation_corner
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1988,6 +1989,7 @@ drawable join_finish2
 drawable join_line1
 drawable join_next
 drawable join_next2
+drawable join_notice
 drawable join_vertify
 drawable join_vertify2
 drawable join_vertifyconfirm
@@ -2097,6 +2099,7 @@ drawable panel_drawer_start
 drawable pet_delete_btn
 drawable pet_line
 drawable petimg
+drawable phone
 drawable phone_icon
 drawable pin_unlike
 drawable pinder_liked
@@ -2565,6 +2568,7 @@ id noState
 id none
 id normal
 id north
+id notice
 id noticeBtn
 id notification_background
 id notification_main_column
@@ -2934,6 +2938,7 @@ layout fragment_event_detail
 layout fragment_likepindergarten
 layout fragment_meandpet
 layout fragment_morereview
+layout fragment_others
 layout fragment_petinfo
 layout fragment_pindergarten
 layout fragment_post_declare

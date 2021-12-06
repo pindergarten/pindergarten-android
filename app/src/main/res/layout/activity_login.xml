@@ -6,10 +6,10 @@
     <data>
         <variable
             name="vm"
-            type="com.pindergarten.pindergarten_android.PindergartenViewModel"/>
+            type="com.pindergarten_android.pindergarten_android.PindergartenViewModel"/>
         <variable
             name="activity"
-            type="com.pindergarten.pindergarten_android.LoginActivity" />
+            type="com.pindergarten_android.pindergarten_android.LoginActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

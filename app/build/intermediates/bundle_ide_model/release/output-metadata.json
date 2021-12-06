@@ -4,7 +4,7 @@
     "type": "BUNDLE",
     "kind": "RegularFile"
   },
-  "applicationId": "com.pindergarten.pindergarten_android",
+  "applicationId": "com.pindergarten_android.pindergarten_android",
   "variantName": "release",
   "elements": [
     {

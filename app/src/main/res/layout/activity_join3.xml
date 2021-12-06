@@ -7,10 +7,10 @@
     <data>
         <variable
             name="vm"
-            type="com.pindergarten.pindergarten_android.PindergartenViewModel"/>
+            type="com.pindergarten_android.pindergarten_android.PindergartenViewModel"/>
         <variable
             name="activity"
-            type="com.pindergarten.pindergarten_android.Join3Activity" />
+            type="com.pindergarten_android.pindergarten_android.Join3Activity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,7 +78,7 @@
 
         <EditText
             android:id="@+id/id"
-            android:layout_width="230dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -101,6 +101,18 @@
             android:textSize="11dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <ImageView
+            android:id="@+id/notice"
+            android:layout_width="17dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:background="@color/transparency"
+            android:src="@drawable/join_notice"
+            app:layout_constraintStart_toEndOf="@+id/id"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <ImageButton
             android:id="@+id/confirmIdBtn"

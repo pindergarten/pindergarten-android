@@ -1,4 +1,4 @@
-com.pindergarten.pindergarten_android
+com.pindergarten_android.pindergarten_android
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1917,6 +1917,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable back_btn
 drawable below_shadow
+drawable blank
 drawable bottomnavigation_corner
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2097,6 +2098,7 @@ drawable panel_drawer_start
 drawable pet_delete_btn
 drawable pet_line
 drawable petimg
+drawable phone
 drawable phone_icon
 drawable pin_unlike
 drawable pinder_liked

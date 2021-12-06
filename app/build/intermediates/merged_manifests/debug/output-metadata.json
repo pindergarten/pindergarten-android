@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.pindergarten_android",
+  "applicationId": "com.pindergarten_android.pindergarten_android",
   "variantName": "debug",
   "elements": [
     {

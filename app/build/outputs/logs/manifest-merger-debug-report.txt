@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
 MERGED from [androidx.databinding:databinding-adapters:4.2.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\3de57e190fe29e2fe153914ee1c75a04\databinding-adapters-4.2.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.databinding:databinding-runtime:4.2.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\838cb1b119875aad95b0d4fd3b6091c4\databinding-runtime-4.2.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\141778b85d49f03f49f4e2bff602c5de\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
@@ -70,20 +70,20 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\7dfca04f409b233eb5dcb1a0a2adbbdd\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\3bbc0092d7fdfd34a463006b78478970\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.1] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\9012c3275f635cf810bebd7ccccdc6f3\jetified-relinker-1.4.1\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
 	package
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:3:5-47
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:3:5-60
 		INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:2:11-69
@@ -116,7 +116,7 @@ ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidMani
 	android:name
 		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:10:22-66
 application
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:12:5-52:19
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:13:5-53:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\6b0be00ecfbc85e7ede5906157c6a0f7\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\6b0be00ecfbc85e7ede5906157c6a0f7\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.1] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f96efcbd2d7ef5ece87924b3f4ff206e\constraintlayout-2.1.1\AndroidManifest.xml:9:5-20
@@ -150,89 +150,89 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\jihyun\.gradle
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\3b4b2ff73537da458ffce892e09dd840\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:18:9-35
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:19:9-35
 	android:label
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:16:9-41
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:17:9-41
 	android:roundIcon
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:17:9-60
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:18:9-60
 	android:icon
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:15:9-49
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:16:9-49
 	android:allowBackup
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:19:9-58
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:20:9-58
 	android:usesCleartextTraffic
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:13:9-44
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:14:9-44
 meta-data#com.naver.maps.map.CLIENT_ID
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:21:9-23:42
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:22:9-24:42
 	android:value
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:23:13-39
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:24:13-39
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:22:13-56
-activity#com.example.pindergarten_android.SplashActivity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:25:9-30:20
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:23:13-56
+activity#com.pindergarten_android.pindergarten_android.SplashActivity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:26:9-31:20
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:25:19-49
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:26:19-94
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:26:13-29:29
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:27:13-30:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:27:17-69
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:27:25-66
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:28:17-77
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:29:17-77
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:28:27-74
-activity#com.example.pindergarten_android.JoinActivity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:33:9-49
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:29:27-74
+activity#com.pindergarten_android.pindergarten_android.JoinActivity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:34:9-94
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:33:19-47
-activity#com.example.pindergarten_android.Join2Activity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:34:9-50
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:34:19-92
+activity#com.pindergarten_android.pindergarten_android.Join2Activity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:35:9-95
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:34:19-48
-activity#com.example.pindergarten_android.Join3Activity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:35:9-50
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:35:19-93
+activity#com.pindergarten_android.pindergarten_android.Join3Activity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:36:9-95
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:35:19-48
-activity#com.example.pindergarten_android.FindPwdActivity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:36:9-52
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:36:19-93
+activity#com.pindergarten_android.pindergarten_android.FindPwdActivity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:37:9-97
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:36:19-50
-activity#com.example.pindergarten_android.FindPwd2Activity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:37:9-53
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:37:19-95
+activity#com.pindergarten_android.pindergarten_android.FindPwd2Activity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:9-98
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:37:19-51
-activity#com.example.pindergarten_android.LoginActivity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:9-50
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:19-96
+activity#com.pindergarten_android.pindergarten_android.LoginActivity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-95
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:19-48
-activity#com.example.pindergarten_android.OnboardingActivity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-55
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:19-93
+activity#com.pindergarten_android.pindergarten_android.OnboardingActivity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:9-100
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:19-53
-activity#com.example.pindergarten_android.MainActivity
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:9-94
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:19-98
+activity#com.pindergarten_android.pindergarten_android.MainActivity
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:9-139
 	android:windowSoftInputMode
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:49-91
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:94-136
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:19-47
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:19-92
 provider#androidx.core.content.FileProvider
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:42:9-50:20
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:43:9-51:20
 	android:grantUriPermissions
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:46:13-47
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:47:13-47
 	android:authorities
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:44:13-78
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:45:13-91
 	android:exported
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:45:13-37
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:43:13-62
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:44:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:47:13-49:49
+ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:48:13-50:49
 	android:resource
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:49:17-46
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:50:17-46
 	android:name
-		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:48:17-67
+		ADDED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:49:17-67
 uses-sdk
 INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml

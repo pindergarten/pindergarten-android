@@ -96,7 +96,7 @@
     <TextView
         android:id="@+id/pindergartenAddress"
         android:layout_width="250dp"
-        android:layout_height="14dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:singleLine="true"
         android:text="핀더가든 주소"

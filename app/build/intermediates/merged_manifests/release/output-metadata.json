@@ -4,14 +4,14 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.pindergarten.pindergarten_android",
+  "applicationId": "com.pindergarten_android.pindergarten_android",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 2,
-      "versionName": "1.1",
+      "versionCode": 1,
+      "versionName": "1.0",
       "outputFile": "AndroidManifest.xml"
     }
   ]
