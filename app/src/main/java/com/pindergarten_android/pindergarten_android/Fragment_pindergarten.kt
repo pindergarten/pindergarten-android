@@ -27,6 +27,10 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.util.FusedLocationSource
+import com.pindergarten_android.pindergarten_android.Fragment_detailPindergarten
+import com.pindergarten_android.pindergarten_android.MainActivity
+import com.pindergarten_android.pindergarten_android.RetrofitAPI
+import com.pindergarten_android.pindergarten_android.pindergartenAdapter
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import retrofit2.Call
 import retrofit2.Callback
@@ -107,11 +111,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
 
     private lateinit var callback: OnBackPressedCallback
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var view = inflater.inflate(R.layout.fragment_pindergarten, container, false)
 
@@ -306,8 +306,6 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
         uiSetting.setLogoMargin(10, 10, 0, 0)
 
 
-
-
         naverMap.setOnMapClickListener { point, coord ->
             panel!!.panelHeight = changeDP(20)
             PreferenceManager.setInt(myContext!!, "movePindergartenId", -1)
@@ -331,8 +329,10 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
         movedPindergartenId = myContext?.let { PreferenceManager.getInt(it, "movedPindergartenId") }
 
 
+
         //서버: 전체 펫유치원 조회
-        apiService.searchAllPindergartenAPI(sharedPreferences.toString(), current_latitude, current_longitude)?.enqueue(object : Callback<Post?> {
+        apiService.searchAllPindergartenAPI(sharedPreferences.toString(), current_latitude, current_longitude
+        )?.enqueue(object : Callback<Post?> {
             override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
 
                 Log.i("pindergarten Search", response.body()?.success.toString())
@@ -394,7 +394,11 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
 
                     marker.onClickListener = Overlay.OnClickListener {
 
-                        PreferenceManager.setInt(myContext!!, "movePindergartenId", marker.tag.toString().toInt())
+                        PreferenceManager.setInt(
+                            myContext!!,
+                            "movePindergartenId",
+                            marker.tag.toString().toInt()
+                        )
 
                         //marker image 변경
                         if (currentMarker != null) {
@@ -409,12 +413,11 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
                         marker.height = changeDP(35)
                         marker.zIndex = 100
 
-                        apiService.markerAPI(
-                            sharedPreferences.toString(),
-                            marker.position.latitude!!,
-                            marker.position.longitude!!
-                        )?.enqueue(object : Callback<Post?> {
-                            override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
+                        apiService.markerAPI(sharedPreferences.toString(), marker.position.latitude!!, marker.position.longitude!!)?.enqueue(object : Callback<Post?> {
+                            override fun onResponse(
+                                call: Call<Post?>,
+                                response: Response<Post?>
+                            ) {
                                 Log.i("marker event", "success")
                                 val cameraUpdate = CameraUpdate.scrollTo(
                                     LatLng(
@@ -481,11 +484,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
                 panel!!.panelHeight = changeDP(20)
 
                 if (PreferenceManager.getInt(myContext!!, "movePindergartenId") != -1) {
-                    apiService.markerAPI(
-                        sharedPreferences.toString(),
-                        currentMarker!!.position.latitude,
-                        currentMarker!!.position.longitude
-                    )?.enqueue(object : Callback<Post?> {
+                    apiService.markerAPI(sharedPreferences.toString(), currentMarker!!.position.latitude, currentMarker!!.position.longitude)?.enqueue(object : Callback<Post?> {
                         override fun onResponse(call: Call<Post?>, response: Response<Post?>) {
                             Log.i("moved event", "success")
 
@@ -552,7 +551,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
 
                 //최상단으로 이동
                 //recyclerView?.smoothScrollToPosition(0)
-                adapter.notifyDataSetChanged()
+                if(movedPindergartenId==-1){ adapter.notifyDataSetChanged()}
                 Log.i("pindergarten 조회", "성공")
             }
 
@@ -561,6 +560,7 @@ class Fragment_pindergarten : Fragment(),OnMapReadyCallback {
             }
 
         })
+
     }
 
 

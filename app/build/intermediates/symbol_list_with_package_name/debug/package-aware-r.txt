@@ -2636,6 +2636,7 @@ id ratio
 id rectangles
 id recyclerView
 id recyclerview_main
+id refresh_layout
 id relativeLayout
 id relativeLayout2
 id reverseSawtooth

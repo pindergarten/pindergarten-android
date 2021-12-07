@@ -2635,6 +2635,7 @@ int id ratio 0x7f0901e3
 int id rectangles 0x7f0901e4
 int id recyclerView 0x7f0901e5
 int id recyclerview_main 0x7f0901e6
+int id refresh_layout 0x7f0902aa
 int id relativeLayout 0x7f0901e7
 int id relativeLayout2 0x7f0901e8
 int id reverseSawtooth 0x7f0901e9

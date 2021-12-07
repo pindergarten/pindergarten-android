@@ -1,830 +1,830 @@
 [
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_post_delete_comment.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\post_delete_comment.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_postcomment.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_postcomment.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_join_popup.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\join_popup.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pager_indicator.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pager_indicator.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_event.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_event.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_meandpet_line.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\meandpet_line.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_me_and_pet.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\me_and_pet.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join2_line2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join2_line2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_list.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\dialog_list.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_unliked2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\unliked2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selected_dot.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\selected_dot.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\onboarding_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_others.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_others.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertify2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_vertify2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_detail_pindergarten.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_detail_pindergarten.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pet_line.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pet_line.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpost_addphoto.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\addpost_addphoto.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_radiobtn_selected.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\radiobtn_selected.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_call_dialog.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\call_dialog.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_finish2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_finish2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_event_image_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\event_image_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_blog_review_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\blog_review_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_petimg.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\petimg.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_event_detail.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_event_detail.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_social_pet2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\social_pet2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_list.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\dialog_list.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_post_liked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\post_liked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_phone.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\phone.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_pindergarten_logo_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\pindergarten_logo_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_pindergarten.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_pindergarten.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_app_pet_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\app_pet_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_pindergarten_logo_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\pindergarten_logo_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pinder_unliked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pinder_unliked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_pindergarten_logo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xhdpi\\pindergarten_logo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pet_delete_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pet_delete_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_setting_icon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\setting_icon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_comment_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\comment_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_review_logo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\review_logo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_viewpager_pindergarten_layout.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\viewpager_pindergarten_layout.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_next.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_next.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_splash_join.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\splash_join.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_splash_img.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\splash_img.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selected_dot.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\selected_dot.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_splash_login.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\splash_login.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding1.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\onboarding1.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_postcomment.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_postcomment.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pindergarten_search_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\pindergarten_search_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_findpwd2.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_findpwd2.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pinder_liked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pinder_liked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_marker.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\marker.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_meandpet.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_meandpet.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pet_line.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pet_line.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_white_box2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\white_box2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pin_unlike.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pin_unlike.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_post_delete_comment.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\post_delete_comment.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding3.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding3.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_join.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_join.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_corner.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\dialog_corner.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_bottom.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\menu\\menu_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_review_notexist.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\review_notexist.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pindergarten_logo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxhdpi\\pindergarten_logo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_unliked2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\unliked2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_event.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_event.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_notice.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_notice.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_null_post.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\null_post.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_pindergarten_logo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xhdpi\\pindergarten_logo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pindergarten.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_addpet.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_addpet.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_pindergarten_logo_foreground.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-mdpi\\pindergarten_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_pindergarten_logo_background.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\pindergarten_logo_background.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_onboarding_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\onboarding_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding_btn2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding_btn2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_review_notexist.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\review_notexist.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_comment.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_comment.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_meandpet_line.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\meandpet_line.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_distance_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\distance_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_post_delete.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\post_delete.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_search_icon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\search_icon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pinder_unliked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pinder_unliked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_post_liked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\post_liked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_btn2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_btn2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pet_delete_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pet_delete_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pet_delete.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\pet_delete.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pindergarten_panel_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\pindergarten_panel_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_register_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\register_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_event_day.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\event_day.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_cancel_call.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\cancel_call.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_socialpet.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_socialpet.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pindergarten_search_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\pindergarten_search_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpet_photo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\addpet_photo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_radiobtn_unselected.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\radiobtn_unselected.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_comment_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\comment_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_pindergarten_logo_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxxhdpi\\pindergarten_logo_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_onboarding.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_onboarding.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\xml_paths.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\xml\\paths.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_unselected_dot.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\unselected_dot.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_findpwd.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_findpwd.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_detail_pindergarten.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_detail_pindergarten.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_social_pet.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\social_pet.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_viewpager_post_layout.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\viewpager_post_layout.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_pindergarten_logo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-mdpi\\pindergarten_logo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_likedicon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\likedicon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_finish2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_finish2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_post_declare.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\post_declare.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_morereview.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_morereview.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_event_detail.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_event_detail.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_pindergarten_logo_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\pindergarten_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_radio_btn_text.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\radio_btn_text.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertifyconfirm2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_vertifyconfirm2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_icon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\login_icon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_me_and_pet2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\me_and_pet2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_pindergarten_logo_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\pindergarten_logo_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_dialog_line.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\dialog_line.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pindergarten.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_addpet.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_addpet.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test3.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\test3.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_pindergarten_logo_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\pindergarten_logo_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_pindergarten_logo_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\pindergarten_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_socialpet_plus.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\socialpet_plus.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_finish.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join3_finish.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test1.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\test1.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_pindergarten_logo.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\pindergarten_logo.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_loginbtn2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\login_loginbtn2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pindergarten_logo_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxhdpi\\pindergarten_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bottomnavigation_corner.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\bottomnavigation_corner.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpost_line.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\addpost_line.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_me_and_pet2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\me_and_pet2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_pindergarten_logo_background.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\pindergarten_logo_background.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_splash_join.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\splash_join.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_userprofile.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_userprofile.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_event_day.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\event_day.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_like_icon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\like_icon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_findpwd_line.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\findpwd_line.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_postdetail_notice.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\postdetail_notice.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertify2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_vertify2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_menu_selecter_color.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\menu_selecter_color.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertifyconfirm2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_vertifyconfirm2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_white_box.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\white_box.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_finish.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join3_finish.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_evnetbtn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\evnetbtn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_pindergarten_logo_foreground.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xhdpi\\pindergarten_logo_foreground.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_pindergarten_logo_round.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-anydpi-v26\\pindergarten_logo_round.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pindergarten_logo_foreground.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxhdpi\\pindergarten_logo_foreground.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpost_addphoto.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\addpost_addphoto.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_meandpet_post_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\meandpet_post_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_pindergarten_logo_foreground.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxxhdpi\\pindergarten_logo_foreground.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_viewpager_pindergarten_layout.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\viewpager_pindergarten_layout.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_liked2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\liked2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selected_dot2.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\selected_dot2.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_search_pwd_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\search_pwd_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_marker.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\marker.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_socialpet.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_socialpet.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_join2.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_join2.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertifyconfirm.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_vertifyconfirm.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_spinner_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\spinner_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pindergarten_logo_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxhdpi\\pindergarten_logo_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten_liked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pindergarten_liked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_dialog_line.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\dialog_line.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test4.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\test4.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_morereview.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_morereview.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_liked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\liked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_delete_btn_comment.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\delete_btn_comment.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_pindergarten_logo_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\pindergarten_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_radiobtn_selected.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\radiobtn_selected.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_confirm.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join3_confirm.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_loginbtn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\login_loginbtn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertify.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_vertify.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpost_line.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\addpost_line.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_marker2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\marker2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_pindergarten_logo_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-mdpi\\pindergarten_logo_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_default_dot.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\default_dot.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_phone.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\phone.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_gallery_image_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\gallery_image_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_unselected_dot.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\unselected_dot.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_phone_icon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\phone_icon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_selector.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\tab_selector.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertifyconfirm.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_vertifyconfirm.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_viewpager_post_layout.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\viewpager_post_layout.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_register_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\register_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_confirm.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join3_confirm.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_icon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\login_icon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_post_declare.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\post_declare.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_meandpet.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_meandpet.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_cancel_call.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\cancel_call.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_panel_drawer_start.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\panel_drawer_start.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_btn2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_btn2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_review2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\review2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_postdetail.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_postdetail.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_distance_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\distance_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_review2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\review2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_bottom.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\menu\\menu_bottom.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_join3.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_join3.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pinder_liked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pinder_liked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_social_pet.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\social_pet.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_circle_indicator.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\circle_indicator.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_meandpet_post_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\meandpet_post_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_radio_btn_text.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\radio_btn_text.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_delete_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\delete_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pindergarten_logo_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\pindergarten_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_cancel_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\cancel_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_loginbtn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\login_loginbtn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_setting_icon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\setting_icon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_radiobtn_unselected.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\radiobtn_unselected.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_meandpet_popup.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\meandpet_popup.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_setting.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_setting.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_more_review_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\more_review_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_confirmsame.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join3_confirmsame.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten_unliked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pindergarten_unliked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_meandpet_popup.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\meandpet_popup.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_userprofile.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_userprofile.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_postdetail.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_postdetail.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_blank.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\blank.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_marker2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\marker2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_findpwd.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_findpwd.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_default_dot.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\default_dot.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_line.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\login_line.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\spinner_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_post_declare.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_post_declare.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_petimg.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\petimg.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_notice.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_notice.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpet_petimg.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\addpet_petimg.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpet_petimg.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\addpet_petimg.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_search_icon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\search_icon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_addpet_photo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\addpet_photo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_splash_login.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\splash_login.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_onboarding.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_onboarding.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_findpwd_line.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\findpwd_line.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_phone_icon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\phone_icon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_temp.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\temp.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_post_unliked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\post_unliked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_confirm2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join3_confirm2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_radio_btn_custom.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\radio_btn_custom.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding_btn2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\onboarding_btn2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pindergarten2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_postdetail_notice.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\postdetail_notice.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_panel_drawer_start.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\panel_drawer_start.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_pindergarten_logo_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xhdpi\\pindergarten_logo_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_pindergarten_logo_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\pindergarten_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_next.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_next.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_delete_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\delete_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_confirmsame.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join3_confirmsame.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pindergarten2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_event_image_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\event_image_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_more_review_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\more_review_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_gallery_image_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\gallery_image_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join3_confirm2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join3_confirm2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_pindergarten_logo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-mdpi\\pindergarten_logo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_review_logo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\review_logo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_back_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\back_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_unliked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\unliked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_join2.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_join2.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_line1.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_line1.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_likepindergarten.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_likepindergarten.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_likepindergarten.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_likepindergarten.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join2_line2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join2_line2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo_foreground.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_evnetbtn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\evnetbtn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_loginbtn2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\login_loginbtn2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_setting.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_setting.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_pindergarten_logo_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xhdpi\\pindergarten_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\test2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bottomnavigation_corner.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\bottomnavigation_corner.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pindergarten_background.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\pindergarten_background.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_social_pet2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\social_pet2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_splash.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_corner.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\dialog_corner.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_term2.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_term2.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_onboarding_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\onboarding_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_petinfo.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_petinfo.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pindergarten_logo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxhdpi\\pindergarten_logo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_term1.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_term1.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_others.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_others.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_vertify.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_vertify.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_liked2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\liked2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_temp.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\temp.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_call_img.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\call_img.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_like_icon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\like_icon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_circle_indicator.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\circle_indicator.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\xml_paths.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\xml\\paths.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_join.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_join.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_likedicon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\likedicon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_pindergarten_logo_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\pindergarten_logo_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_me_and_pet.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\me_and_pet.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_petinfo.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_petinfo.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_splash_img.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\splash_img.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding1.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding1.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_location_icon.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\location_icon.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pindergarten_logo_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\pindergarten_logo_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_pindergarten_logo_foreground.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xhdpi\\pindergarten_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test3.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\test3.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\spinner_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding3.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\onboarding3.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recycler.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_recycler.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_register_btn2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\register_btn2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_pindergarten.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_pindergarten.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_next2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\join_next2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_post_unliked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\post_unliked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_menu_selecter_color.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\menu_selecter_color.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\test2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_declare_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\declare_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten_unliked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pindergarten_unliked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pager_indicator.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pager_indicator.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_join_popup.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\join_popup.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_white_box2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\white_box2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_term2.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_term2.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_socialpet_post_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\socialpet_post_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\onboarding2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_pindergarten_logo_round.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-mdpi\\pindergarten_logo_round.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_addpost.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_addpost.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_pindergarten_logo_foreground.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-mdpi\\pindergarten_logo_foreground.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pet_delete.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\pet_delete.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_post_declare.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_post_declare.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_pindergarten_logo_foreground.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxhdpi\\pindergarten_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test4.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\test4.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_blog_review_item.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\blog_review_item.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_pindergarten_logo_foreground.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-hdpi\\pindergarten_logo_foreground.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_selector.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\tab_selector.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_null_post.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\null_post.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pindergarten_background.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\pindergarten_background.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_register_btn2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\register_btn2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test1.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\test1.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selected_dot2.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable\\selected_dot2.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_pindergarten_logo_foreground.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\pindergarten_logo_foreground.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_join3.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_join3.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_liked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\liked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_findpwd2.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_findpwd2.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_term1.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_term1.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_radio_btn_custom.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\radio_btn_custom.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_addpost.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_addpost.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_post_delete.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\post_delete.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_call_img.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\call_img.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_pindergarten_logo.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\pindergarten_logo.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_blank.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\blank.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pindergarten_panel_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\pindergarten_panel_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_search_pwd_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\search_pwd_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_socialpet_post_item.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\socialpet_post_item.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_cancel_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\cancel_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_back_btn.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\back_btn.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_pindergarten_logo_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\pindergarten_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_next2.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_next2.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_call_dialog.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\call_dialog.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_white_box.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\white_box.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pin_unlike.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\pin_unlike.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_pindergarten_logo_round.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-anydpi-v26\\pindergarten_logo_round.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_declare_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\declare_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_onboarding2.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\onboarding2.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_searchpindergarten.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\fragment_searchpindergarten.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_pindergarten_logo_background.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\pindergarten_logo_background.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_pindergarten_logo.xml.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-anydpi-v26\\pindergarten_logo.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_socialpet_plus.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\socialpet_plus.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_login_line.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\login_line.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_searchpindergarten.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_searchpindergarten.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_pindergarten_liked.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\pindergarten_liked.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_delete_btn_comment.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\delete_btn_comment.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_spinner_background.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\spinner_background.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_unliked.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\unliked.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_join_line1.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\join_line1.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_app_pet_btn.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\app_pet_btn.png"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_location_icon.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\drawable-v24\\location_icon.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recycler.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_recycler.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_pindergarten_logo.png.flat",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\mipmap-xxxhdpi\\pindergarten_logo.png"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_comment.xml.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\fragment_comment.xml"
     }
 ]

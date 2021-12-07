@@ -6,28 +6,28 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
+8-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml
+9-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:5:5-67
-11-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:5:22-64
+11-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-12-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:6:5-81
-12-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:6:22-78
+12-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:6:5-81
+12-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:6:22-78
 13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-13-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:7:5-79
-13-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:7:22-76
+13-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:7:5-79
+13-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:7:22-76
 14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-14-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:8:5-80
-14-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:8:22-77
+14-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:8:5-80
+14-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:8:22-77
 15    <uses-permission android:name="android.permission.WAKE_LOCK" />
-15-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:9:5-67
-15-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:9:22-65
+15-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:9:5-67
+15-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:9:22-65
 16    <uses-permission android:name="android.permission.CALL_PHONE" />
-16-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:10:5-69
-16-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:10:22-66
+16-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:10:5-69
+16-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:10:22-66
 17
 18    <uses-feature
 18-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:11:5-13:35
@@ -50,91 +50,91 @@
 26-->[com.naver.maps:map-sdk:3.10.2] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\f1233a8fc00efe6a37db4b88e544cc87\jetified-map-sdk-3.10.2\AndroidManifest.xml:20:22-73
 27
 28    <application
-28-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:13:5-53:19
+28-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:13:5-53:19
 29        android:name="androidx.multidex.MultiDexApplication"
 30        android:allowBackup="true"
-30-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:15:9-35
+30-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:15:9-35
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 31-->[androidx.core:core:1.6.0] C:\Users\jihyun\.gradle\caches\transforms-2\files-2.1\3b4b2ff73537da458ffce892e09dd840\core-1.6.0\AndroidManifest.xml:24:18-86
 32        android:debuggable="true"
 33        android:icon="@mipmap/pindergarten_logo"
-33-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:16:9-49
+33-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:16:9-49
 34        android:label="@string/app_name"
-34-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:17:9-41
+34-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:17:9-41
 35        android:roundIcon="@mipmap/pindergarten_logo_round"
-35-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:18:9-60
+35-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:18:9-60
 36        android:supportsRtl="true"
-36-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:19:9-35
+36-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:19:9-35
 37        android:testOnly="true"
 38        android:theme="@style/Theme.Pindergarten_android"
-38-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:20:9-58
+38-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:20:9-58
 39        android:usesCleartextTraffic="true" >
-39-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:14:9-44
+39-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:14:9-44
 40        <meta-data
-40-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:22:9-24:42
+40-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:22:9-24:42
 41            android:name="com.naver.maps.map.CLIENT_ID"
-41-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:23:13-56
+41-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:23:13-56
 42            android:value="7f1u7f4vb5" />
-42-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:24:13-39
+42-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:24:13-39
 43
 44        <activity android:name="com.pindergarten_android.pindergarten_android.SplashActivity" >
-44-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:26:9-31:20
-44-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:26:19-94
+44-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:26:9-31:20
+44-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:26:19-94
 45            <intent-filter>
-45-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:27:13-30:29
+45-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:27:13-30:29
 46                <action android:name="android.intent.action.MAIN" />
-46-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:28:17-69
-46-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:28:25-66
+46-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:28:17-69
+46-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:28:25-66
 47
 48                <category android:name="android.intent.category.LAUNCHER" />
-48-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:29:17-77
-48-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:29:27-74
+48-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:29:17-77
+48-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:29:27-74
 49            </intent-filter>
 50        </activity>
 51        <activity android:name="com.pindergarten_android.pindergarten_android.JoinActivity" />
-51-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:34:9-94
-51-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:34:19-92
+51-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:34:9-94
+51-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:34:19-92
 52        <activity android:name="com.pindergarten_android.pindergarten_android.Join2Activity" />
-52-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:35:9-95
-52-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:35:19-93
+52-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:35:9-95
+52-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:35:19-93
 53        <activity android:name="com.pindergarten_android.pindergarten_android.Join3Activity" />
-53-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:36:9-95
-53-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:36:19-93
+53-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:36:9-95
+53-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:36:19-93
 54        <activity android:name="com.pindergarten_android.pindergarten_android.FindPwdActivity" />
-54-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:37:9-97
-54-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:37:19-95
+54-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:37:9-97
+54-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:37:19-95
 55        <activity android:name="com.pindergarten_android.pindergarten_android.FindPwd2Activity" />
-55-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:9-98
-55-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:38:19-96
+55-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:38:9-98
+55-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:38:19-96
 56        <activity android:name="com.pindergarten_android.pindergarten_android.LoginActivity" />
-56-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:9-95
-56-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:39:19-93
+56-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:39:9-95
+56-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:39:19-93
 57        <activity android:name="com.pindergarten_android.pindergarten_android.OnboardingActivity" />
-57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:9-100
-57-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:40:19-98
+57-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:40:9-100
+57-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:40:19-98
 58        <activity
-58-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:9-139
+58-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:41:9-139
 59            android:name="com.pindergarten_android.pindergarten_android.MainActivity"
-59-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:19-92
+59-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:41:19-92
 60            android:windowSoftInputMode="adjustResize" />
-60-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:41:94-136
+60-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:41:94-136
 61
 62        <provider
-62-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:43:9-51:20
+62-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:43:9-51:20
 63            android:name="androidx.core.content.FileProvider"
-63-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:44:13-62
+63-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:44:13-62
 64            android:authorities="{com.pindergarten_android.pindergarten_android}.provider"
-64-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:45:13-91
+64-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:45:13-91
 65            android:exported="false"
-65-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:46:13-37
+65-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:46:13-37
 66            android:grantUriPermissions="true" >
-66-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:47:13-47
+66-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:47:13-47
 67            <meta-data
-67-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:48:13-50:49
+67-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:48:13-50:49
 68                android:name="android.support.FILE_PROVIDER_PATHS"
-68-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:49:17-67
+68-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:49:17-67
 69                android:resource="@xml/paths" />
-69-->C:\Users\jihyun\Desktop\pindergarten_android\app\src\main\AndroidManifest.xml:50:17-46
+69-->C:\Users\jihyun\Desktop\pindergarten_backup\pindergarten-android\app\src\main\AndroidManifest.xml:50:17-46
 70        </provider>
 71
 72        <activity

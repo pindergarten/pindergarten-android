@@ -103,7 +103,7 @@
             android:layout_marginRight="0dp"
             android:background="#00ff0000"
             android:gravity="center"
-            android:text="      등록"
+            android:text="   등록"
             android:textColor="#777777"
             android:textStyle="bold" />
 
