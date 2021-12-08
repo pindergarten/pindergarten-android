@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.pindergarten_android.pindergarten_android",
+  "applicationId": "com.android.pindergarten_android",
   "variantName": "release",
   "elements": []
 }

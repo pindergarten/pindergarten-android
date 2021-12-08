@@ -1,13 +1,13 @@
-#Wed Dec 08 00:43:58 KST 2021
-path.4=6/classes.dex
-path.3=1/classes.dex
+#Thu Dec 09 01:25:09 KST 2021
+path.4=2/classes.dex
+path.3=15/classes.dex
 path.2=11/classes.dex
 path.1=0/classes.dex
 path.6=classes2.dex
 path.5=9/classes.dex
 path.0=classes.dex
-base.4=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
-base.3=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.4=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.3=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
 base.2=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
 base.1=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.0=C\:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex

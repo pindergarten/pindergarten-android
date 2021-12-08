@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.pindergarten_android.pindergarten_android",
+  "applicationId": "com.android.pindergarten_android",
   "variantName": "debug",
   "elements": [
     {

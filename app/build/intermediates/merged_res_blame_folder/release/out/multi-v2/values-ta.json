@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ta\\values-ta.xml",
+            "outputFile": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ta\\values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jihyun\\.gradle\\caches\\transforms-2\\files-2.1\\6b0be00ecfbc85e7ede5906157c6a0f7\\material-1.4.0\\res\\values-ta\\values-ta.xml",

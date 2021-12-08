@@ -4,14 +4,6 @@
                                                                 
                                                         
 
-    
-                 
-                     
-                                                                                        
-                 
-                           
-                                                                                    
-           
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,7 +24,7 @@
             android:layout_height="40dp"
             android:background="@color/transparency"
             android:padding="5dp"
-            android:tag="binding_1"                
+            android:onClick="btnClick"
             android:scaleType="fitCenter"
             android:src="@drawable/back_btn"
             android:layout_marginTop="27dp"
@@ -146,7 +138,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginBottom="32dp"
-            android:tag="binding_2"                
+            android:onClick="btnClick"
             android:src="@drawable/join_next"
             android:scaleType="fitCenter"
             android:backgroundTint="#00ff0000"

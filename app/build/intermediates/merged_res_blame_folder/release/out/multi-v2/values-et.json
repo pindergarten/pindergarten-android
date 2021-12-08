@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-et\\values-et.xml",
+            "outputFile": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-et\\values-et.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jihyun\\.gradle\\caches\\transforms-2\\files-2.1\\40d1286e60a78e8a5f33ca97fc3f1928\\play-services-base-17.0.0\\res\\values-et\\values.xml",

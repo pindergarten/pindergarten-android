@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pindergarten_android.pindergarten_android"
+    package="com.android.pindergarten_android"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -39,27 +39,27 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="7f1u7f4vb5" />
 
-        <activity android:name="com.pindergarten_android.pindergarten_android.SplashActivity" >
+        <activity android:name="com.android.pindergarten_android.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.pindergarten_android.pindergarten_android.JoinActivity" />
-        <activity android:name="com.pindergarten_android.pindergarten_android.Join2Activity" />
-        <activity android:name="com.pindergarten_android.pindergarten_android.Join3Activity" />
-        <activity android:name="com.pindergarten_android.pindergarten_android.FindPwdActivity" />
-        <activity android:name="com.pindergarten_android.pindergarten_android.FindPwd2Activity" />
-        <activity android:name="com.pindergarten_android.pindergarten_android.LoginActivity" />
-        <activity android:name="com.pindergarten_android.pindergarten_android.OnboardingActivity" />
+        <activity android:name="com.android.pindergarten_android.JoinActivity" />
+        <activity android:name="com.android.pindergarten_android.Join2Activity" />
+        <activity android:name="com.android.pindergarten_android.Join3Activity" />
+        <activity android:name="com.android.pindergarten_android.FindPwdActivity" />
+        <activity android:name="com.android.pindergarten_android.FindPwd2Activity" />
+        <activity android:name="com.android.pindergarten_android.LoginActivity" />
+        <activity android:name="com.android.pindergarten_android.OnboardingActivity" />
         <activity
-            android:name="com.pindergarten_android.pindergarten_android.MainActivity"
+            android:name="com.android.pindergarten_android.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="{com.pindergarten_android.pindergarten_android}.provider"
+            android:authorities="{com.android.pindergarten_android}.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

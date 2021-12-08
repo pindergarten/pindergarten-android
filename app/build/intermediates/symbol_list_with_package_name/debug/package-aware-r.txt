@@ -1,4 +1,4 @@
-com.pindergarten_android.pindergarten_android
+com.android.pindergarten_android
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1968,6 +1968,7 @@ drawable evnetbtn
 drawable findpwd_line
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable hide_bnt
 drawable ic_brightness_gray_12dp
 drawable ic_brightness_primary_12dp
 drawable ic_clock_black_24dp
@@ -2399,6 +2400,7 @@ id groups
 id guideline
 id header_title
 id hidden
+id hideBtn
 id hideable
 id home
 id homeAsUp

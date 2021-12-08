@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-zu\\values-zu.xml",
+            "outputFile": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-zu\\values-zu.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jihyun\\.gradle\\caches\\transforms-2\\files-2.1\\3b4b2ff73537da458ffce892e09dd840\\core-1.6.0\\res\\values-zu\\values-zu.xml",

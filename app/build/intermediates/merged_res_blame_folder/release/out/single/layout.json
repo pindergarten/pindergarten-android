@@ -1,38 +1,38 @@
 [
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_findpwd2.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_findpwd2.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_join3.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_join3.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_join3.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_join3.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_join.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_join.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_login.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_join2.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_join2.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_findpwd.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_findpwd.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_findpwd.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_findpwd.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_onboarding.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_onboarding.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_join2.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_join2.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_splash.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_splash.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_findpwd2.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_findpwd2.xml"
     },
     {
-        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_join.xml",
-        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_android\\app\\src\\main\\res\\layout\\activity_join.xml"
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_onboarding.xml",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\layout\\activity_onboarding.xml"
     }
 ]

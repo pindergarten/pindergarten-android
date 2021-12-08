@@ -3,15 +3,6 @@
 
                                                         
 
-    
-                 
-                     
-                                                                                        
-                 
-                           
-                                                                                 
-           
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:tag="layout/activity_login_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -150,7 +141,7 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:tag="binding_1"                
+                android:onClick="btnClick"
                 android:src="@drawable/login_loginbtn"
                 android:background="@color/transparency"
                 android:scaleType="fitCenter" />
@@ -163,7 +154,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@color/transparency"
-                android:tag="binding_2"                
+                android:onClick="btnClick"
                 android:padding="0dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/search_pwd_btn" />
@@ -173,7 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
-                android:tag="binding_3"                
+                android:onClick="btnClick"
                 android:src="@drawable/join_btn"
                 android:padding="0dp"
                 android:layout_marginLeft="16dp"

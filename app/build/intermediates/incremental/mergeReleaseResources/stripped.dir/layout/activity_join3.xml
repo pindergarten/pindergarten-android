@@ -4,15 +4,6 @@
                                                                 
                                                         
 
-    
-                 
-                     
-                                                                                        
-                 
-                           
-                                                                                 
-           
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:tag="layout/activity_join3_0" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -32,7 +23,7 @@
             android:layout_height="40dp"
             android:background="@color/transparency"
             android:padding="5dp"
-            android:tag="binding_1"                
+            android:onClick="btnClick"
             android:scaleType="fitCenter"
             android:src="@drawable/back_btn"
             android:layout_marginTop="27dp"
@@ -78,7 +69,7 @@
 
         <EditText
             android:id="@+id/id"
-            android:layout_width="230dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -102,6 +93,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
+        <ImageView
+            android:id="@+id/notice"
+            android:layout_width="17dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            android:visibility="invisible"
+            android:background="@color/transparency"
+            android:src="@drawable/join_notice"
+            app:layout_constraintStart_toEndOf="@+id/id"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
         <ImageButton
             android:id="@+id/confirmIdBtn"
             android:layout_width="92dp"
@@ -109,7 +112,7 @@
             android:layout_marginTop="14dp"
             android:layout_marginRight="16dp"
             android:backgroundTint="@color/white"
-            android:tag="binding_2"                
+            android:onClick="btnClick"
             android:padding="0dp"
             android:scaleType="fitCenter"
             android:src="@drawable/join3_confirm"
@@ -122,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginBottom="32dp"
-            android:tag="binding_3"                
+            android:onClick="btnClick"
             android:src="@drawable/join3_finish"
             android:scaleType="fitCenter"
             android:backgroundTint="#00ff0000"

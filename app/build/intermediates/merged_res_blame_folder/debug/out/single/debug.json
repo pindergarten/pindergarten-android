@@ -656,6 +656,10 @@
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\splash_img.png"
     },
     {
+        "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hide_bnt.png.flat",
+        "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable\\hide_bnt.png"
+    },
+    {
         "merged": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_location_icon.png.flat",
         "source": "C:\\Users\\jihyun\\Desktop\\pindergarten_backup\\pindergarten-android\\app\\src\\main\\res\\drawable-v24\\location_icon.png"
     },
